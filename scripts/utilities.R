@@ -14,6 +14,7 @@ geo.colours <- c("Hawaii"="#66C2A5", "Australia"="#FC8D62", "Central America"="#
                  "N. America" = "#A65628",
                  # "Globalized" = "gray30",
                  "cosmopolitan" = "gray30",
+                 "Cosmopolitan" = "gray30",
                  "unknown" = 'grey'
                  )
 
