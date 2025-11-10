@@ -133,7 +133,7 @@ clusterBins <- function(df,mode) {
 }
 
 #get nucmer g2g coords
-transformed_coords <- readr::read_tsv("../processed_data/Tropical_hifi_coords.tsv",
+transformed_coords <- readr::read_tsv("../../processed_data/HDRs/Tropical_hifi_coords.tsv",
                                       col_names = c("S1","E1","S2","E2","L1","L2","IDY","LENR","LENQ","REF","HIFI","STRAIN")) %>%
   dplyr::filter(STRAIN!= "ECA3733" & STRAIN!="BRC20341") # no SR data or wrong RG
 
@@ -141,7 +141,7 @@ transformed_coords <- readr::read_tsv("../processed_data/Tropical_hifi_coords.ts
 div_str <- unique(transformed_coords$STRAIN)
 
 #get 1kb windows (bedtools makewindows)
-bins_1kb_CB_stripped <- readr::read_tsv("../processed_data/QX1410_genomic_windows.1kb.bed",col_names = F) %>%
+bins_1kb_CB_stripped <- readr::read_tsv("../../processed_data/HDRs/QX1410_genomic_windows.1kb.bed",col_names = F) %>%
   dplyr::rename(chrom=X1,start=X2,end=X3) 
 
 #Filter out alignments smaller than 1kb
@@ -154,7 +154,7 @@ tcords <- transformed_coords %>%
 #use alignementPartition() to extract coverage and idy stats from g2g coordinate sets for each bin
 strain_df <- list()
 for (i in 1:length(tcords)) {
-  print(i)
+  #print(i)
   tmp <- alignmentPartition(tcords[[i]])
   strain_df[[i]]  <- tmp
 }
@@ -186,7 +186,7 @@ for (i in 1:length(strain_df)) {
 dvReg <- list()
 dvReg_part <- list()
 for (i in 1:length(strain_df)) {
-  print(i)
+  #print(i)
   strain_declust <- data.frame(CHROM=character(),minStart=integer(),maxEnd=integer(),divSize=integer(),meanIDY=numeric(),treshIDY=integer())
   bin_declust <- data.frame(CHROM=character(),START_BIN=integer(),END_BIN=integer(),bin_IDY=double(),bin_COV=double(),group_size=integer(),div_class=character(),gid=integer(),clusTips=character())
   strain <- unique(strain_dv[[i]][[1]]$STRAIN)
@@ -211,7 +211,6 @@ for (i in 1:length(strain_df)) {
 }
 all_calls_LR <- ldply(dvReg, data.frame) 
 
-
 LR_summ <- ggplot(all_calls_LR %>% dplyr::filter((threshIDY==94|threshIDY==95|threshIDY==96|threshIDY==97) & CHROM=="II" & (grepl("QG",STRAIN)))) + 
   geom_rect(aes(xmin=minStart/1e6,xmax=maxEnd/1e6,ymin=threshIDY-0.4,ymax=threshIDY+0.4,fill=regionClass)) + facet_grid(STRAIN~CHROM, scales = 'free') +
   theme(axis.text.y = element_blank(),
@@ -221,8 +220,6 @@ LR_summ <- ggplot(all_calls_LR %>% dplyr::filter((threshIDY==94|threshIDY==95|th
         strip.text = element_text(size=10)) +
   scale_x_continuous(expand=c(0,0)) +
   coord_cartesian(xlim=c(12,14))
-LR_summ
-
 
 s1 <- ggplot(all_calls_LR %>% dplyr::filter(divSize > 200e3)) + 
   geom_histogram(aes(x=divSize/1e3),binwidth = 5) + 
@@ -296,7 +293,7 @@ pc2<- cowplot::plot_grid(s3,s2,ncol=1, rel_heights = c(1.1,1),align = "v",axis =
 
 comp_reg<-cowplot::plot_grid(pc2,pc1,ncol=1,nrow=2,rel_heights = c(2,1),align = "hv",axis = "rlbt")
 
-ggsave(plot = comp_reg, filename = "../figures/FigureS31_LR_STATS_95idy_20251023.png",width = 7.5,height = 9,dpi = 600,device = 'png')
+ggsave(plot = comp_reg, filename = "../../figures/FigureS31_LR_STATS_95idy_20251023.png",width = 7.5,height = 9,dpi = 600,device = 'png')
 
 
 ####### CALL SR BASED HDRS (FOR LR STRAINS) ##########
@@ -304,9 +301,9 @@ covfrac <- c(seq(0.05,0.9,0.05))
 varct <- c(seq(5,30,1))
 
 #all strain coverage data
-coverage_df <- readr::read_table("../processed_data/Tropical.thresh_cov.tsv",col_names = c("CHROM","START_BIN","END_BIN","NAME","c1X","c2X","c5X","STRAIN"))
+coverage_df <- readr::read_table("../../processed_data/HDRs/Tropical.thresh_cov.tsv",col_names = c("CHROM","START_BIN","END_BIN","NAME","c1X","c2X","c5X","STRAIN"))
 #all strain variant count data
-varct_df <- readr::read_table("../processed_data/Tropical.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))
+varct_df <- readr::read_table("../../processed_data/HDRs/Tropical.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))
 
 #join coverage and variant count data
 SR_stats_all <- varct_df %>%
@@ -329,7 +326,7 @@ SR_list <- list()
 ct=1
 for (i in 1:length(covfrac)) {
   for (k in 1:length(varct)){
-    print(paste0("cf:",covfrac[i]," / vc:",varct[k]))
+    #print(paste0("cf:",covfrac[i]," / vc:",varct[k]))
     #classify
     all_stats <- SR_stats_all %>%
       dplyr::mutate(div_class=ifelse(COUNT >= varct[k],"I", 
@@ -362,7 +359,6 @@ for (i in 1:length(covfrac)) {
 }
 all_SR_meta_calls <- ldply(SR_list,data.frame)
 
-#save.image(file="/vast/eande106/projects/Nicolas/hyperdivergent_regions/briggsae/multi_reference/QX1410/HDR_20250730_analysis_CB_chkpt1_TROP.Rda")
 #based on Daehan's paper and results from "pcomp" plot above we use 95% IDY LR calls as the truth set
 t95_LR_calls <- all_calls_LR %>%
   dplyr::filter(threshIDY==96) %>%
@@ -399,11 +395,7 @@ for (i in 1:length(covfrac)) {
       interSet <- valr::bed_intersect(temp_SR,temp_LR) %>%
         dplyr::mutate(LR_size=end.y-start.y) %>%
         dplyr::mutate(SR_size=end.x-start.x) %>%
-        #dplyr::mutate(LR_centroid=start.x+(LR_size/2)) %>%
-        #dplyr::mutate(SR_centroid=start.y+(SR_size/2)) %>%
         dplyr::mutate(overlap_fraction=.overlap/LR_size) %>% #overlap fraction (OF)
-        #dplyr::mutate(centroid_shift=abs(LR_centroid-SR_centroid)) %>%
-        #dplyr::mutate(sizeDiff=abs(LR_size-SR_size)) %>%
         dplyr::mutate(exc_fraction=(SR_size-.overlap)/SR_size) %>% # excess fraction (EF)
         dplyr::mutate(LRID=paste(chrom,start.y,end.y,sep = "_")) %>% #generate a unique ID for each LR call
         dplyr::mutate(SRID=paste(chrom,start.x,end.x,sep = "_")) %>% #generate a unique ID for each SR call
@@ -511,7 +503,7 @@ topHits <- statSumm %>%
   dplyr::distinct(gid,.keep_all = T) %>%
   dplyr::group_by(STRAIN.x) %>%
   dplyr::arrange(desc(noverF1)) %>%
-  dplyr::slice_max(order_by = noverF1, n = 10) %>% #n is tweaked manually to find consensus optimal
+  dplyr::slice_max(order_by = noverF1, n = 10) #%>% #n is tweaked manually to find consensus optimal
 
 bestHit <- topHits %>%
   dplyr::group_by(PP) %>%
@@ -545,7 +537,7 @@ BEST <- ggplot() +
 
 ####################### CALL SR HDRS SPECIES-WIDE ###############################
 #get list of WI (generated from VCF)
-strainL <- readLines("../processed_data/Tropical_samples.txt")
+strainL <- readLines("../../processed_data/HDRs/Tropical_samples.txt")
 
 COV_thresh = 0.9
 VC_thresh = 11
@@ -578,7 +570,7 @@ all_stats <- SR_stats_WI %>%
 regList <- list()
 binList <- list()
 for (i in 1:length(strainL)) {
-  print((i/length(strainL))*100)
+  #print((i/length(strainL))*100)
   temp <- all_stats %>% dplyr::filter(STRAIN==strainL[i])
   div_call <- clusterBins(temp,"SR")
   #div_call[[1]]$STRAIN <- strainL[[i]]
@@ -589,7 +581,7 @@ for (i in 1:length(strainL)) {
 
 all_calls_SR <- ldply(regList, data.frame)
 
-#QX calls are spurious (repeats) and should be removed from other strain calls
+#QX calls are spurious (likely repeats) and should be removed from other strain calls
 QX_calls <- all_calls_SR %>% dplyr::filter(STRAIN=="QX1410") %>% dplyr::select(CHROM,minStart,maxEnd)
 
 #find overlaps and remove
@@ -682,19 +674,19 @@ all_calls_SR_clustered_sfilt <- all_calls_SR_clustered %>%
 #         axis.ticks.y = element_blank(),
 #         axis.text.y=element_blank())  +
 #   #xlab("Physical position (Mb)") +
-#   ylab("508 Tropical isotype strains") +
+#   ylab("502 Tropical isotype strains") +
 #   #scale_x_continuous(expand = c(0, 0)) +
 #   scale_y_continuous(expand = c(0, 0)) +
 #   scale_x_continuous(breaks = function(x) seq(floor(min(x)), ceiling(max(x)), by = 5),expand = c(0, 0))
 
-ggsave(plot = MOF, filename = "../figures/FigureS32_MOF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = MEF, filename = "../figures/FigureS33_MEF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = REC, filename = "../figures/FigureS34_REC_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = PRE, filename = "../figures/FigureS35_PRE_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = F1, filename = "../figures/FigureS36_F1_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = BEST, filename = "../figures/FigureS37_BEST_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = MOF, filename = "../../figures/FigureS32_MOF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = MEF, filename = "../../figures/FigureS33_MEF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = REC, filename = "../../figures/FigureS34_REC_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = PRE, filename = "../../figures/FigureS35_PRE_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = F1, filename = "../../figures/FigureS36_F1_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = BEST, filename = "../../figures/FigureS37_BEST_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
 
-lineages <- readr::read_tsv("../processed_data/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>% 
   dplyr::mutate(REF=ifelse(Lineage=="Tropical","QX1410",
@@ -705,9 +697,8 @@ lineages <- readr::read_tsv("../processed_data/isotype_byLineage_GeoLocAdmCol_20
                                                        ifelse(Lineage=="TD1","BRC20530",
                                                               ifelse(Lineage=="TD2","BRC20492",NA))))))))
 
-coverage_df_NR <- readr::read_table("../processed_data/Other_RG.thresh_cov.tsv",col_names = c("CHROM","START_BIN","END_BIN","NAME","c1X","c2X","c5X","STRAIN")) %>% dplyr::filter(!grepl("ptg",CHROM))
-varct_df_NR <- readr::read_table("../processed_data/Other_RG.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN")) %>% dplyr::filter(!grepl("ptg",CHROM))
-
+coverage_df_NR <- readr::read_table("../../processed_data/HDRs/Other_RG.thresh_cov.tsv",col_names = c("CHROM","START_BIN","END_BIN","NAME","c1X","c2X","c5X","STRAIN")) %>% dplyr::filter(!grepl("ptg",CHROM))
+varct_df_NR <- readr::read_table("../../processed_data/HDRs/Other_RG.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN")) %>% dplyr::filter(!grepl("ptg",CHROM))
 
 coverage_df_NR2 <- coverage_df_NR %>%
   dplyr::left_join(lineages,by=c("STRAIN"="isotype")) %>%
@@ -783,7 +774,7 @@ all_percentiles <- rbind(plot_dist,plot_dist_trop %>% dplyr::select(-Sublineage)
 excluded <- c("HPT18", "HPT24", "HPT11", "VX34", "JU3326", "NIC893",
               "BRC20503", "BRC20502", "ECA276", "ECA163", "JU2767", "ED3102","QR25")
  
-tree_nwk <- ape::read.tree(file="../processed_data/phy_file_LD_0.9.phy.contree")
+tree_nwk <- ape::read.tree(file="../../processed_data/HDRs/phy_file_LD_0.9.phy.contree")
 
 tree <- ggtree::ggtree(phangorn::midpoint(tree_nwk), layout = "circular")
 
@@ -821,7 +812,7 @@ annotree <- tree +
     values = stats::setNames(tree$data$lineage_color, tree$data$Lineage)
   ) 
 
-ggsave(annotree,filename = "../figures/FigureS13_phylo_annotree_20250930.png", width = 7.5, height = 7.5, device = 'png', dpi = 600, bg = "white")
+ggsave(annotree,filename = "../../figures/FigureS13_phylo_annotree_20250930.png", width = 7.5, height = 7.5, device = 'png', dpi = 600, bg = "white")
   
 strainL_NR <- unique(SR_stats_WI_NR$STRAIN)
 
@@ -839,7 +830,7 @@ all_stats_NR <- SR_stats_WI_NR %>%
 regList <- list()
 binList <- list()
 for (i in 1:length(strainL_NR)) {
-  print((i/length(strainL_NR))*100)
+  #print((i/length(strainL_NR))*100)
   temp <- all_stats_NR %>% dplyr::filter(STRAIN==strainL_NR[i])
   div_call <- clusterBins(temp,"SR")
   div_call[[1]]$STRAIN <- strainL_NR[[i]]
@@ -848,7 +839,7 @@ for (i in 1:length(strainL_NR)) {
   regList[[i]] <- div_call[[2]]
 }
 
-tmp_strains <- temperate_coverage %>% dplyr::select(STRAIN,REF) %>% dplyr::distinct(STRAIN,.keep_all = T)
+#tmp_strains <- temperate_coverage %>% dplyr::select(STRAIN,REF) %>% dplyr::distinct(STRAIN,.keep_all = T)
 
 all_calls_SR_NR <- ldply(regList, data.frame)  %>% dplyr::left_join(lineages,by=c("STRAIN"="isotype"))
 
@@ -913,7 +904,7 @@ all_calls_SR_clustered_NR <- rbind(joinClust_NR,nojoin_NR) %>%
   dplyr::ungroup() %>%
   dplyr::filter(!grepl("ptg",CHROM))
 
-nuc <- readr::read_tsv("../processed_data/phyloGroup_nucmer_aln2.tsv", col_names = c("S1","E1","S2","E2","L1","L2","IDY","LENR","LENQ","REF","HIFI","STRAIN")) %>%
+nuc <- readr::read_tsv("../../processed_data/HDRs/relatednessGroup_nucmer_alignments.tsv", col_names = c("S1","E1","S2","E2","L1","L2","IDY","LENR","LENQ","REF","HIFI","STRAIN")) %>%
   dplyr::filter(!grepl("ptg",HIFI)) %>% 
   dplyr::filter(REF==HIFI) %>%
   dplyr::filter(L2 > 3e3) %>%
@@ -1116,13 +1107,13 @@ final_plot <- cowplot::plot_grid(
 
 tigExtensions <- rbind(tigToExtend,tigMarkExtend %>% dplyr::filter(any_extend==F) %>% dplyr::mutate(extend_length_WI_lead=NA,extend_length_REF_lead=NA,extend_length_WI_lag=NA,extend_length_REF_lag=NA))
 
-ggplot(tigExtensions %>% dplyr::filter(HDRid == "TWN1824X932000942000")) +
-  geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=hdr_start,ymax=hdr_end),fill="lightgrey") +
-  geom_segment(aes(x=leadS1,xend=leadE1,y=leadS2,yend=leadE2, color="outreg_lead")) +
-  geom_segment(aes(x=lagS1,xend=lagE1,y=lagS2,yend=lagE2, color="outreg_lag")) +
-  geom_segment(aes(x=S1,xend=E1,y=S2,yend=E2, color="inreg_trimmed")) +
-  xlab("REF coords") +
-  ylab("WI coords")
+# ggplot(tigExtensions %>% dplyr::filter(HDRid == "TWN1824X932000942000")) +
+#   geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=hdr_start,ymax=hdr_end),fill="lightgrey") +
+#   geom_segment(aes(x=leadS1,xend=leadE1,y=leadS2,yend=leadE2, color="outreg_lead")) +
+#   geom_segment(aes(x=lagS1,xend=lagE1,y=lagS2,yend=lagE2, color="outreg_lag")) +
+#   geom_segment(aes(x=S1,xend=E1,y=S2,yend=E2, color="inreg_trimmed")) +
+#   xlab("REF coords") +
+#   ylab("WI coords")
 
 tigExtended_50kb <- tigExtensions %>% 
   dplyr::rowwise() %>%
@@ -1136,17 +1127,17 @@ tigExtended_50kb <- tigExtensions %>%
   dplyr::mutate(S2=ifelse(iS2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 5e4 & extend_length_REF_lead < 5e4, min(leadS2,leadE2),S2)) %>% 
   dplyr::ungroup()
 
-tigExtended_25kb <- tigExtensions %>% 
-  dplyr::rowwise() %>%
-  dplyr::mutate(E1=ifelse(E2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, ifelse(leadS1 >= E1,leadS1,ifelse(leadE1>=E1,leadE1,E1)),E1)) %>%
-  dplyr::mutate(E1=ifelse(iE2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, ifelse(lagS1>=E1,lagS1,ifelse(lagE1>=E1,lagE1,E1)),E1)) %>%
-  dplyr::mutate(S1=ifelse(S2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, ifelse(lagE1<=S1,lagE1, ifelse(lagS1<=S1,lagS1,S1)),S1)) %>%
-  dplyr::mutate(S1=ifelse(iS2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, ifelse(S1>=leadE1,leadE1,ifelse(S1>=leadS1,leadS1,S1)),S1)) %>%
-  dplyr::mutate(E2=ifelse(E2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, min(leadS2,leadE2),E2)) %>%
-  dplyr::mutate(E2=ifelse(iE2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, max(lagS2,lagE2),E2)) %>%
-  dplyr::mutate(S2=ifelse(S2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, max(lagS2,lagE2),S2)) %>%
-  dplyr::mutate(S2=ifelse(iS2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, min(leadS2,leadE2),S2)) %>% 
-  dplyr::ungroup()
+# tigExtended_25kb <- tigExtensions %>% 
+#   dplyr::rowwise() %>%
+#   dplyr::mutate(E1=ifelse(E2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, ifelse(leadS1 >= E1,leadS1,ifelse(leadE1>=E1,leadE1,E1)),E1)) %>%
+#   dplyr::mutate(E1=ifelse(iE2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, ifelse(lagS1>=E1,lagS1,ifelse(lagE1>=E1,lagE1,E1)),E1)) %>%
+#   dplyr::mutate(S1=ifelse(S2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, ifelse(lagE1<=S1,lagE1, ifelse(lagS1<=S1,lagS1,S1)),S1)) %>%
+#   dplyr::mutate(S1=ifelse(iS2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, ifelse(S1>=leadE1,leadE1,ifelse(S1>=leadS1,leadS1,S1)),S1)) %>%
+#   dplyr::mutate(E2=ifelse(E2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, min(leadS2,leadE2),E2)) %>%
+#   dplyr::mutate(E2=ifelse(iE2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, max(lagS2,lagE2),E2)) %>%
+#   dplyr::mutate(S2=ifelse(S2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, max(lagS2,lagE2),S2)) %>%
+#   dplyr::mutate(S2=ifelse(iS2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, min(leadS2,leadE2),S2)) %>% 
+#   dplyr::ungroup()
 
 # id="ECA287II1533900015346000"
 # id="QG2996V1775500017792000"
@@ -1163,38 +1154,38 @@ tigExtended_25kb <- tigExtensions %>%
 #   ylab("WI coords") +
 #   facet_wrap(~as.factor(type),scales = 'free')
 
-counts25kb <- tigExtended_25kb %>%
-  filter(
-    any_extend == TRUE,
-    (!is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag)) | (!is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead)),
-    (extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4) | (extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4)
-  ) %>%
-  group_by(hdr_strain, HDRid) %>%
-  summarise(has_extension = any(any_extend), .groups = "drop") %>%  # optional, since filter already ensures this
-  group_by(hdr_strain) %>%
-  summarise(count_true = n(), .groups = "drop") %>%
-  mutate(window_size = "50kb")
+# counts25kb <- tigExtended_25kb %>%
+#   dplyr::filter(
+#     any_extend == TRUE,
+#     (!is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag)) | (!is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead)),
+#     (extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4) | (extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4)
+#   ) %>%
+#   dplyr::group_by(hdr_strain, HDRid) %>%
+#   dplyr::summarise(has_extension = any(any_extend), .groups = "drop") %>%  # optional, since filter already ensures this
+#   dplyr::group_by(hdr_strain) %>%
+#   dplyr::summarise(count_true = n(), .groups = "drop") %>%
+#   dplyr::mutate(window_size = "50kb")
 
 counts50kb <- tigExtended_50kb %>%
-  filter(
+  dplyr::filter(
     any_extend == TRUE,
     (!is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag)) | (!is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead)),
     (extend_length_WI_lag < 5e4 & extend_length_REF_lag < 5e4) | (extend_length_WI_lead < 5e4 & extend_length_REF_lead < 5e4)
   ) %>%
-  group_by(hdr_strain, HDRid) %>%
-  summarise(has_extension = any(any_extend), .groups = "drop") %>%  # optional, since filter already ensures this
-  group_by(hdr_strain) %>%
-  summarise(count_true = n(), .groups = "drop") %>%
-  mutate(window_size = "50kb")
+  dplyr::group_by(hdr_strain, HDRid) %>%
+  dplyr::summarise(has_extension = any(any_extend), .groups = "drop") %>%  # optional, since filter already ensures this
+  dplyr::group_by(hdr_strain) %>%
+  dplyr::summarise(count_true = n(), .groups = "drop") %>%
+  dplyr::mutate(window_size = "50kb")
 
 hdr_counts <- tigTrim %>%
-  group_by(hdr_strain) %>%
-  summarise(num_unique_HDRid = n_distinct(HDRid), .groups = "drop")
+  dplyr::group_by(hdr_strain) %>%
+  dplyr::summarise(num_unique_HDRid = n_distinct(HDRid), .groups = "drop")
 
-combined_counts <- counts25kb %>% dplyr::left_join(counts50kb,by=c("hdr_strain"))  %>% dplyr::left_join(hdr_counts,by=c("hdr_strain"))%>%
-  dplyr::arrange(num_unique_HDRid) %>%
-  dplyr::mutate(hdr_strain = factor(hdr_strain, levels = hdr_strain)) %>%
-  dplyr::mutate(diff=count_true.y-count_true.x)
+# combined_counts <- counts25kb %>% dplyr::left_join(counts50kb,by=c("hdr_strain"))  %>% dplyr::left_join(hdr_counts,by=c("hdr_strain"))%>%
+#   dplyr::arrange(num_unique_HDRid) %>%
+#   dplyr::mutate(hdr_strain = factor(hdr_strain, levels = hdr_strain)) %>%
+#   dplyr::mutate(diff=count_true.y-count_true.x)
 
 # ggplot(combined_counts) +
 #   geom_bar(aes(x = hdr_strain, y = num_unique_HDRid, fill="all_HDRs"),color="black",stat = "identity",position = position_identity()) +
@@ -1241,7 +1232,6 @@ hdr_transformed_orig <- tigTrim %>%
      .groups = "drop"
    )
 
- 
  gap_clust_NR_TR <- hdr_transformed_50ext %>%
    dplyr::select(REF,S1,E1,hdr_strain,HIFI_strain) %>%
    dplyr::rename(CHROM=REF,minStart=S1,maxEnd=E1,STRAIN=hdr_strain,REF=HIFI_strain) %>%
@@ -1309,7 +1299,6 @@ hdr_rest <- all_calls_SR_clustered_NR_TR %>%
   dplyr::rename(source=REF) %>%
   dplyr::mutate(mode="TRANSFORMED")
 
-
 hdr_rest_comp <- rbind(hdr_rest_unt,hdr_rest) %>%
   dplyr::mutate(divSize=maxEnd-minStart) %>%
   dplyr::filter(divSize >= 5e3) %>%
@@ -1324,20 +1313,20 @@ hdr_rest_comp <- rbind(hdr_rest_unt,hdr_rest) %>%
   dplyr::mutate(ystrain=cur_group_id()) %>%
   dplyr::ungroup()
 
-restcomp <- ggplot(hdr_rest_comp %>% dplyr::filter(divSize >= 5e3)) + 
-  geom_rect(aes(xmin=minStart/1e6,xmax=maxEnd/1e6,ymin=rleID-0.45,ymax=rleID+0.45,fill=source)) + 
-  facet_grid(mode~CHROM, scales = 'free_x') + 
-  theme(panel.background = element_blank(),
-        panel.grid = element_blank(),
-        axis.line.x = element_line(),
-        panel.border = element_rect(fill = NA),
-        axis.ticks.y = element_blank(),
-        axis.text.y=element_blank())+
-  #strip.text.x = element_blank())  +
-  scale_x_continuous(expand = c(0,0)) +
-  scale_y_continuous(expand = c(0,0)) +
-  xlab("Physical position (Mb)") +
-  ylab("280 Isotype strains")
+# restcomp <- ggplot(hdr_rest_comp %>% dplyr::filter(divSize >= 5e3)) + 
+#   geom_rect(aes(xmin=minStart/1e6,xmax=maxEnd/1e6,ymin=rleID-0.45,ymax=rleID+0.45,fill=source)) + 
+#   facet_grid(mode~CHROM, scales = 'free_x') + 
+#   theme(panel.background = element_blank(),
+#         panel.grid = element_blank(),
+#         axis.line.x = element_line(),
+#         panel.border = element_rect(fill = NA),
+#         axis.ticks.y = element_blank(),
+#         axis.text.y=element_blank())+
+#   #strip.text.x = element_blank())  +
+#   scale_x_continuous(expand = c(0,0)) +
+#   scale_y_continuous(expand = c(0,0)) +
+#   xlab("Physical position (Mb)") +
+#   ylab("280 Isotype strains")
 
 hdr_qx <- all_calls_SR_clustered %>%
   dplyr::select(CHROM,minStart,maxEnd,STRAIN) %>%
@@ -1357,15 +1346,24 @@ hdr_tot <- rbind(hdr_qx,hdr_rest %>% dplyr::select(-mode) %>% dplyr::mutate(minS
   dplyr::ungroup()
 
 options(scipen=10)
+
+write.table(hdr_tot %>%
+              dplyr::select(CHROM,minStart,maxEnd,STRAIN,divSize) %>%
+              dplyr::rename(start=minStart,end=maxEnd,strain=STRAIN,chromosome=CHROM,size=divSize) %>%
+              dplyr::arrange(strain,chromosome,start,end),
+            file="../../tables/TableS7_HDR_allStrain_5kbclust_20250930.tsv",row.names = F,quote = F,sep = '\t')
+
 write.table(hdr_tot %>%
               dplyr::select(CHROM,minStart,maxEnd,STRAIN,source,divSize) %>%
               dplyr::arrange(STRAIN,CHROM,minStart,maxEnd),
-            file="../tables/TableS7_HDR_allStrain_5kbclust_20250930.tsv",row.names = F,quote = F,sep = '\t')
+            file="../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv",row.names = F,quote = F,sep = '\t')
+
 write.table(hdr_rest_unt %>%
               dplyr::mutate(divSize=maxEnd-minStart) %>%
               dplyr::select(CHROM,minStart,maxEnd,STRAIN,source,divSize) %>%
               dplyr::arrange(STRAIN,CHROM,minStart,maxEnd),
-            file="../processed_data/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv",row.names = F,quote = F,sep = '\t')
+            file="../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv",row.names = F,quote = F,sep = '\t')
+
 options(scipen=0)
 
 
