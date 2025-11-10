@@ -297,27 +297,27 @@ custom_order_lin <- c("All isotypes",
                   "AD")  # whatever order you want
 
 df_plot_lin <- combined_df_lin %>%
-  filter(stat_type == "d") %>%
-  mutate(ID = factor(ID, levels = custom_order_lin)) %>%
-  mutate(gid = as.integer(ID) * -1) %>%
-  ungroup()
+  dplyr::filter(stat_type == "d") %>%
+  dplyr::mutate(ID = factor(ID, levels = custom_order_lin)) %>%
+  dplyr::mutate(gid = as.integer(ID) * -1) %>%
+  dplyr::ungroup()
 
 df_plot_lin_theta <- combined_df_lin %>%
-  filter(stat_type == "theta") %>%
-  mutate(ID = factor(ID, levels = custom_order_lin)) %>%
-  mutate(gid = as.integer(ID) * -1) %>%
-  ungroup()
+  dplyr::filter(stat_type == "theta") %>%
+  dplyr::mutate(ID = factor(ID, levels = custom_order_lin)) %>%
+  dplyr::mutate(gid = as.integer(ID) * -1) %>%
+  dplyr::ungroup()
 
 df_plot_lin_pi <- combined_df_lin %>%
-  filter(stat_type == "pi") %>%
-  mutate(ID = factor(ID, levels = custom_order_lin)) %>%
-  mutate(gid = as.integer(ID) * -1) %>%
-  ungroup()
+  dplyr::filter(stat_type == "pi") %>%
+  dplyr::mutate(ID = factor(ID, levels = custom_order_lin)) %>%
+  dplyr::mutate(gid = as.integer(ID) * -1) %>%
+  dplyr::ungroup()
 
 
 lut_lin <- df_plot_lin %>%
-  distinct(gid, ID) %>%
-  arrange(gid)
+  dplyr::distinct(gid, ID) %>%
+  dplyr::arrange(gid)
 
 alliso_D_hm <- ggplot() +
   geom_rect(
