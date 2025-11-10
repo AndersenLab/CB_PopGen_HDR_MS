@@ -200,7 +200,7 @@ rg3<-ggplot(df_counts, aes(x = K, y = num, fill = n)) +
 
 comprg <- cowplot::plot_grid(rg2,rg1,rg3,nrow=1,ncol=3,rel_widths = c(0.9,0.9,1.2), align="h",axis = "tb", labels=c("b","c","d"))
 rg_cv <- cowplot::plot_grid(cv + theme(panel.grid.major = element_line(color="grey80"),panel.grid.minor = element_blank()),comprg,nrow=2,rel_heights = c(1.2,1), align = "v",axis="r",labels=c("a",NA))
-ggsave(rg_cv,file="../../figures/FS8_ADX_rg_cv.png",width = 7,height = 6,units = "in",device = 'png',bg="white",dpi=600)
+ggsave(rg_cv,file="../../figures/FigureS8_ADX_rg_cv.png",width = 7,height = 6,units = "in",device = 'png',bg="white",dpi=600)
 
 best_kval = 22 #  K=22 selected from plot above (highest assignment stability)
 best_k <- cvmat_long %>% dplyr::filter(K==best_kval) %>% dplyr::filter(cv_error==min(cv_error)) #seed 1553 has min cv_error,
@@ -512,7 +512,7 @@ cc_sum_heatmap <-
   labs(fill = "Genetic\nsimilarity")
  
 
-ggsave(cc_sum_heatmap,filename = "../../figures/FS7_concordance_heatmap.png",width = 7,height = 7,units = "in",device = "png",dpi = 600,bg = "white")
+ggsave(cc_sum_heatmap,filename = "../../figures/FigureS7_concordance_heatmap.png",width = 7,height = 7,units = "in",device = "png",dpi = 600,bg = "white")
 
 
 annotation_df <-as.data.frame(geo %>% dplyr::select(geo,abslat,subpop,Lineage, Sublineage,lineage_color,sublineage_color))
