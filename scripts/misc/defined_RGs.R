@@ -30,30 +30,32 @@ df_colors <- data.frame(unname(geo_colors),names(geo_colors)) %>% dplyr::rename(
 #tree <- ape::read.tree(file="eigenstrat_LD0.7_input.min4.phy.treefile")
 
 #tree <- root(tree, outgroup = "ECA2666", resolve.root = TRUE)
-isos <- readr::read_tsv(file="../processed_data/isotype_groups.tsv") %>%
+isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") %>%
   dplyr::group_by(isotype) %>%
   dplyr::summarise(count=n())
 
-admix <- readr::read_tsv(file="../processed_data/non_admixed_isotype_non_globalized.txt") %>%
+admix <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/non_admixed_isotypes.txt") %>%
   dplyr::select(samples,cluster)
 
-pops <- readr::read_csv("../processed_data/best_k_long_admix_pops.csv") %>%
+pops <- readr::read_csv("../../processed_data/genetic_similarity_and_admixutre/best_k_long_admix_pops.csv") %>%
   dplyr::left_join(admix %>% dplyr::rename(admix=cluster),by=c("samples"))
 
+#set subpopulation colors
 admix_color <- data.frame(
-  letter = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
-             "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","Admixed","Cosmopolitan"),
+  letter = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+             "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","V","W","X","Admixed","Cosmopolitan"),
   color = c("#4B0401", "#DA030F", "#FF6C93", "#D45602", "#563901",
             "#FFE5CA", "#FFB914", "#FFDA90", "#77C002", "#05E51B",
             "#02491E", "#05DEA2", "#82FFFA", "#01A4B1", "#5CB7FF",
-            "#000F2D", "#0340B9", "#9C87FF", "#CBB1FF", "#F479FF", "#5F0158","gray80","white"),
+            "#000F2D", "#0340B9", "#9C87FF", "#CBB1FF", "#F479FF", "#5F0158","#BAB465","#FF007F","#E5A995","gray80","gray30"),
   stringsAsFactors = FALSE
 )
+
 
 # tree_dend <- ReadDendrogram(file="/vast/eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/test_GTR_LD09/phy_file_LD_0.9.phy.contree.rooted")
 # tree_nwk <- ape::read.tree(file="/vast/eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/test_GTR_LD09/phy_file_LD_0.9.phy.contree.rooted")
 
-geo <- readr::read_csv(file="../processed_data/Cb_indep_isotype_info_geo.csv") %>%
+geo <- readr::read_csv(file="../../processed_data/genetic_similarity_and_admixutre/Cb_indep_isotype_info_geo.csv") %>%
   dplyr::left_join(df_colors,by=c("geo")) %>%
   dplyr::mutate(abslat=abs(lat)) %>%
   dplyr::left_join(admix,by=c("isotype"="samples")) %>%
@@ -210,65 +212,11 @@ sublineage_legend_df <- all_iso_byLineage_wCol %>%
 legend_df <- dplyr::bind_rows(lineage_legend_df, sublineage_legend_df)
 
 # Dummy plot for legend color preview
-ggplot(legend_df, ggplot2::aes(x = type, y = group, fill = color)) +
-  geom_tile() +
-  scale_fill_identity() +
-  theme_minimal() +
-  labs(title = "Test Legend for Lineage and Sublineage Colors") +
-  theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))
+# ggplot(legend_df, ggplot2::aes(x = type, y = group, fill = color)) +
+#   geom_tile() +
+#   scale_fill_identity() +
+#   theme_minimal() +
+#   labs(title = "Test Legend for Lineage and Sublineage Colors") +
+#   theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))
 
-write.table(all_iso_byLineage_wCol, file="../tables/isotype_byRG_GeoLocAdmCol_20250909.tsv",quote = F,sep = "\t",row.names = F)
-
-# missing <- readr::read_tsv("/../processed_data/misc/missing_counts.tsv", col_names = c("sample","missing_sites")) 
-# 
-# alts <- readr::read_tsv("/../processed_data/misc/alt_counts.tsv", col_names = c("sample","alt_sites")) %>%
-#   dplyr::left_join(missing, by="sample") %>%
-#   dplyr::left_join(all_iso_byLineage_wCol, by=c("sample"="isotype"))
-# 
-# df<- alts %>% dplyr::mutate(M2A=missing_sites/alt_sites) %>% dplyr::filter(sample!="QX1410")
-# 
-# lineage_colors <- df %>%
-#   dplyr::distinct(Lineage, lineage_color) %>%
-#   deframe()
-# # e.g. c("TD2"="#ffdd02","TH"="#aeb400","Temperate"="#0000ff","hybrid"="#000000")
-# 
-# # 3) Plot with legend showing lineage names and bars colored by your hexes
-# ggplot(df %>% dplyr::filter(missing_sites > 3e5), aes(x = reorder(sample, -missing_sites),
-#                y = missing_sites,
-#                fill = Lineage)) +
-#   geom_col() +
-#   scale_fill_manual(values = lineage_colors, name = "Lineage") +
-#   theme_bw() +
-#   labs(x = "Sample", y = "Missing Sites",
-#        title = "Missing Sites per Sample") +
-#   theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 6))+
-#   scale_y_continuous(expand = c(0,0)) +
-#   labs(fill="")
-# 
-# 
-# ggplot(df %>% dplyr::filter(M2A>2), aes(x = reorder(sample, -missing_sites/alt_sites),
-#                                                       y = missing_sites/alt_sites,
-#                                                       fill = Lineage)) +
-#   geom_col() +
-#   scale_fill_manual(values = lineage_colors, name = "Lineage") +
-#   theme_bw() +
-#   labs(x = "Sample", y = "Missing Sites",
-#        title = "Missing Sites per Sample") +
-#   theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 6),
-#         legend.title = element_blank()) +
-#   scale_y_continuous(expand = c(0,0))
-# 
-# 
-# ggplot(df, aes(x = reorder(sample, -missing_sites/alt_sites),
-#                y = missing_sites/alt_sites,
-#                fill = Lineage)) +
-#   geom_col() +
-#   scale_fill_manual(values = lineage_colors, name = "Lineage") +
-#   theme_bw() +
-#   labs(x = "Sample", y = "Missing Sites",
-#        title = "Missing Sites per Sample") +
-#   theme(axis.text.x = element_blank()) +
-#   scale_y_continuous(expand = c(0,0)) +
-#   labs(fill=NA)
-
-
+write.table(all_iso_byLineage_wCol, file="../../processed_data/isotype_byRG_GeoLocAdmCol_20250909.tsv",quote = F,sep = "\t",row.names = F)
