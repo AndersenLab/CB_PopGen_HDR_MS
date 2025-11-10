@@ -9,13 +9,13 @@ library(ape)
 library(circlize)
 library(DECIPHER)
 
-hdrs <- readr::read_tsv("../processed_data/HDR_CB_allStrain_5kbclust_20250930.tsv") #%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
-hdrs_unt_rg <- readr::read_tsv("../processed_data/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv") #%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
-bins <- readr::read_tsv("../processed_data/QX1410_genomic_windows.1kb.bed",col_names = c("CHROM","binStart","binEnd")) 
-variants_QX <- readr::read_tsv("../processed_data/Tropical.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN")) %>% dplyr::mutate(source="QX1410") %>% dplyr::filter(!STRAIN=="QX1410")
-variants_rest <- readr::read_tsv("../processed_data/Other_RG.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))#%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
-variants_nrg <- readr::read_tsv("../processed_data/CB_all_strain_vc.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
-lineages <- readr::read_tsv("../processed_data/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
+hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") #%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
+hdrs_unt_rg <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv") #%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
+bins <- readr::read_tsv("../../processed_data/HDRs/QX1410_genomic_windows.1kb.bed",col_names = c("CHROM","binStart","binEnd")) 
+variants_QX <- readr::read_tsv("../../processed_data/HDRs/Tropical.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN")) %>% dplyr::mutate(source="QX1410") %>% dplyr::filter(!STRAIN=="QX1410")
+variants_rest <- readr::read_tsv("../../processed_data/HDRs/Other_RG.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))#%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
+variants_nrg <- readr::read_tsv("../../processed_data/HDRs/CB_all_strain_vc.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>% 
   dplyr::mutate(REF=ifelse(Lineage=="Tropical","QX1410",
@@ -244,13 +244,12 @@ full_plot <- ggdraw(padded_plot2) +
   draw_label("Percent of variants in hyper-divergent regions", x = 0.01, y = 0.5, angle = 90, vjust = 1, size = 12)
 
 full_plot_wleg <- plot_grid(full_plot, legend, nrow = 1, rel_widths = c(1, 0.15))
-full_plot_wleg
 
-ggsave(plot = full_plot_wleg, filename = "../figures/FigureS15_propVC_byIsotype_20250930.png",width = 7.5,height = 6,dpi = 600,device = 'png',bg = "white")
+ggsave(plot = full_plot_wleg, filename = "../../figures/FigureS15_propVC_byIsotype_20250930.png",width = 7.5,height = 6,dpi = 600,device = 'png',bg = "white")
 
 summary_stats_perGroup <- rbind(meanRGSummary %>% dplyr::mutate(relative_to="QX1410"),meanRGSummary_nr %>% dplyr::mutate(relative_to="Relatedness Group"))
 
-write.table(summary_stats_perGroup,file = "../tables/TableS8_summaryStats_20250930.tsv",sep = "\t",quote = F,row.names = F)
+write.table(summary_stats_perGroup,file = "../../tables/TableS8_summaryStats_20250930.tsv",sep = "\t",quote = F,row.names = F)
 
 admix_color <- data.frame(
   letter = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
@@ -287,10 +286,10 @@ geo_colors <- c("Hawaii"="#66C2A5",
 
 df_colors <- data.frame(unname(geo_colors),names(geo_colors)) %>% dplyr::rename(color=`unname.geo_colors.`, geo=`names.geo_colors.`)
 
-admix <- readr::read_tsv(file="../processed_data/non_admixed_isotype_non_globalized.txt") %>%
+admix <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/non_admixed_isotypes.txt") %>%
   dplyr::select(samples,cluster)
 
-geo <- readr::read_csv(file="../processed_data/Cb_indep_isotype_info_geo.csv") %>%
+geo <- readr::read_csv(file="../../processed_data/genetic_similarity_and_admixutre/Cb_indep_isotype_info_geo.csv") %>%
   dplyr::left_join(df_colors,by=c("geo")) %>%
   dplyr::mutate(abslat=abs(lat)) %>%
   dplyr::left_join(admix,by=c("isotype"="samples")) %>%
@@ -299,13 +298,13 @@ geo <- readr::read_csv(file="../processed_data/Cb_indep_isotype_info_geo.csv") %
   dplyr::rename(subpop=cluster)
 
 
-conc <- readr::read_tsv("../processed_data/gtcheck.txt")
+conc <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/gtcheck.tsv")
 
-isos <- readr::read_tsv(file="../processed_data/isotype_groups.tsv") %>%
+isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") %>%
   dplyr::group_by(isotype) %>%
   dplyr::summarise(count=n())
 
-lineages <- readr::read_tsv("../processed_data/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage)) 
 
@@ -600,8 +599,7 @@ p_cov_nreg <- cowplot::plot_grid(p_nreg,p_cov,nrow=2,ncol=1, align = "v",labels 
 propQX_nreg <- nrow(strain_counts %>% dplyr::filter(n_regions>=300 & source=="QX1410")) / nrow(strain_counts %>% dplyr::filter(n_regions>=300))
 propQX_pcov <- nrow(strain_counts %>% dplyr::filter(perc_cov>=0.05 & source=="QX1410")) / nrow(strain_counts %>% dplyr::filter(perc_cov>=0.05))
 
-
-ggsave(plot = p_cov_nreg, filename = "../figures/FigureS14_nreg_byIsotype_20250930.png",width = 7.5,height = 5.5,dpi = 600,device = 'png')
+ggsave(plot = p_cov_nreg, filename = "../../figures/FigureS14_nreg_byIsotype_20250930.png",width = 7.5,height = 5.5,dpi = 600,device = 'png')
 
 bins_dt <- as.data.table(bins)
 setnames(bins_dt, c("binStart", "binEnd"), c("start", "end"))
@@ -624,7 +622,7 @@ bins_wCounts <- merge(bins_dt, counts_PB, by = c("CHROM", "start", "end"), all.x
 bins_wCounts[is.na(n_strains), n_strains := 0]
 
 bins_wFreq <- as.data.frame(bins_wCounts) %>%
-  dplyr::mutate(freq=n_strains/697)
+  dplyr::mutate(freq=n_strains/695)
 
 hdrs_ordered <- hdrs %>% 
   dplyr::ungroup() %>%
