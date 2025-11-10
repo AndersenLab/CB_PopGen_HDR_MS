@@ -209,6 +209,13 @@ best_qfile <- qlist[[best_kval-1]] %>% dplyr::filter(seed==(best_k %>% dplyr::pu
 #get list of non-admixed strains and their subpopulations
 admix <- best_NADM_assignments %>% dplyr::select(isotype,cluster=subpop)
 
+#write non-admixed isotypes
+admix_out <- admix %>% dplyr::left_join(geo_info, by="isotype") %>%
+  dplyr::rename(samples=isotype) %>%
+  dplyr::select(samples,cluster,lat,long,geo)
+
+write.table(admix_out,file = "../../processed_data/genetic_similarity_and_admixutre/non_admixed_isotypes.txt",sep = "\t",quote = F,row.names = F)
+
 #get subpopulation fractions and geographic information for every isotype strain
 pops <- best_qfile %>%
   dplyr::left_join(admix %>% dplyr::rename(admix=cluster),by=c("isotype")) 
