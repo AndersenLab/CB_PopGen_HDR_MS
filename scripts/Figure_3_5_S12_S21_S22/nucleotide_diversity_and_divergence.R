@@ -29,30 +29,30 @@ geo_colors <- c("Hawaii"="#66C2A5",
                 "unknown" = 'grey')
 
 
-all <- readr::read_csv("../processed_data/chromosome_windows_diversity.csv",col_select = -1)
+all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/All_isotypes/chromosome_windows_diversity.csv",col_select = -1)
 
-Temperate <- readr::read_csv("../processed_data/Cb_hard_filtered_Temperate/chromosome_windows_diversity.csv",col_select = -1)
-Tropical <- readr::read_csv("../processed_data/Cb_hard_filtered_Tropical/chromosome_windows_diversity.csv",col_select = -1)
-TH <- readr::read_csv("../processed_data/TH_hard_filtered_pi_theta_d/Cb_hard_filtered_TH/chromosome_windows_diversity.csv",col_select = -1)
-TD1 <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Taiwan_lineage/TD1/chromosome_windows_diversity.csv",col_select = -1)
-AD <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Australia_lineage/AD/chromosome_windows_diversity.csv",col_select = -1)
-KD <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Asia_lineage/KD/chromosome_windows_diversity.csv",col_select = -1)
+Temperate <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Temperate/chromosome_windows_diversity.csv",col_select = -1)
+Tropical <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Tropical/chromosome_windows_diversity.csv",col_select = -1)
+TH <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/TH/chromosome_windows_diversity.csv",col_select = -1)
+TD1 <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/TD1/chromosome_windows_diversity.csv",col_select = -1)
+AD <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/AD/chromosome_windows_diversity.csv",col_select = -1)
+KD <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/KD/chromosome_windows_diversity.csv",col_select = -1)
 
-Australia_all <- readr::read_csv("../processed_data/processed_data/pi_theta_d_geo/Australia/chromosome_windows_diversity.csv",col_select = -1)
-Caribbean_all <- readr::read_csv("../processed_data/pi_theta_d_geo/Caribbean/chromosome_windows_diversity.csv",col_select = -1)
-Central_all <-readr::read_csv( "../processed_data/pi_theta_d_geo/Central_America/chromosome_windows_diversity.csv",col_select = -1)
-Taiwan_all <- readr::read_csv("../processed_data/pi_theta_d_geo/Taiwan/chromosome_windows_diversity.csv",col_select = -1)
-Hawaii_all <- readr::read_csv("../processed_data/pi_theta_d_geo/Hawaii/chromosome_windows_diversity.csv",col_select = -1)
-Pacific_all <- readr::read_csv("../processed_data/pi_theta_d_geo/Pacific/chromosome_windows_diversity.csv",col_select = -1)
-SouthA_all <- readr::read_csv("../processed_data/pi_theta_d_geo/South_America/chromosome_windows_diversity.csv",col_select = -1)
-Asia_all <-  readr::read_csv("../processed_data/processed_data/pi_theta_d_geo/Asia/chromosome_windows_diversity.csv",col_select = -1)
+Australia_all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Australia/chromosome_windows_diversity.csv",col_select = -1)
+Caribbean_all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Caribbean/chromosome_windows_diversity.csv",col_select = -1)
+Central_all <-readr::read_csv( "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Central_America/chromosome_windows_diversity.csv",col_select = -1)
+Taiwan_all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Taiwan/chromosome_windows_diversity.csv",col_select = -1)
+Hawaii_all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Hawaii/chromosome_windows_diversity.csv",col_select = -1)
+Pacific_all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Pacific/chromosome_windows_diversity.csv",col_select = -1)
+SouthA_all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/South_America/chromosome_windows_diversity.csv",col_select = -1)
+Asia_all <-  readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Asia/chromosome_windows_diversity.csv",col_select = -1)
 
-Taiwan_Trop <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Taiwan_lineage/Tropical/chromosome_windows_diversity.csv",col_select = -1)
-Taiwan_TH <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Taiwan_lineage/TH/chromosome_windows_diversity.csv",col_select = -1)
-Australia_Trop <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Australia_lineage/Tropical/chromosome_windows_diversity.csv",col_select = -1)
-Asia_Trop <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Asia_lineage/Tropical/chromosome_windows_diversity.csv",col_select = -1)
-Pacific_Trop <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Pacific_lineage/Tropical/chromosome_windows_diversity.csv",col_select = -1)
-Hawaii_Trop <- readr::read_csv("../processed_data/pi_theta_d_by_lineage/Hawaii_lineage/Tropical/chromosome_windows_diversity.csv")
+Taiwan_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Taiwan_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+Taiwan_TH <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Taiwan_TH/chromosome_windows_diversity.csv",col_select = -1)
+Australia_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Australia_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+Asia_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Asia_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+Pacific_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Pacific_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+Hawaii_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Hawaii_Tropical/chromosome_windows_diversity.csv",col_select = -1)
 
 
 
@@ -141,7 +141,7 @@ combined_df_geo2 <- dplyr::bind_rows(
 
 
 #Read CSV and standardize column names/units
-domains_raw <- readr::read_csv("../processed_data/chromosome_domain_Cbriggsae.csv") %>%
+domains_raw <- readr::read_csv("../../processed_data/diversity_and_divergence/chromosome_domain_Cbriggsae.csv") %>%
   dplyr::rename(CHROM = chrom, start = left, end = right) %>%          
   dplyr::mutate(start = start * 1e3, end = end * 1e3)                 
 
@@ -584,7 +584,7 @@ F6_alt <- cowplot::ggdraw(F6_alt) +
   cowplot::draw_label("Physical position (Mb)",
                       x = 0.54, y = 0, vjust = -2, size = 10) 
 
-ggsave(F6_alt,filename = "../figures/FigureS21_Dbylin_noAll.png",width = 7,height = 5.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(F6_alt,filename = "../../figures/FigureS21_Dbylin_noAll.png",width = 7,height = 5.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 plot_lin_pi_region <- function(region_rects,
@@ -829,7 +829,7 @@ FS12 <- cowplot::plot_grid(IL + theme(axis.title.x = element_blank()) + ylim(0,y
                    XR + theme(axis.title.y = element_blank()) + ylim(0,ylim_max),
                    align = "v",axis="lr",ncol=2,rel_heights = c(1,1,1,1,1,1.2))
 
-ggsave(FS12,filename = "../figures/FigureS12_localpi_tropical.png",width = 7,height = 6.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(FS12,filename = "../../figures/FigureS12_localpi_tropical.png",width = 7,height = 6.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 pitheta_plot <- ggplot() + 
@@ -873,11 +873,11 @@ pitheta_plot <- ggplot() +
 
 
 F3_legacy <- cowplot::plot_grid(pitheta_plot,TDplot,nrow=2,ncol=1,rel_heights = c(1,1.3),align = "v",axis = "lr")
-F3_legacy <- cowplot::ggdraw(F3_alt) +
+F3_legacy <- cowplot::ggdraw(F3_legacy) +
   cowplot::draw_label("Physical position (Mb)",
                       x = 0.54, y = 0, vjust = -1, size = 10)
 
-hdrs <- readr::read_tsv("../processed_data/HDR_CB_allStrain_5kbclust_20250930.tsv") %>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
+hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") 
 
 hdrs_ordered <- hdrs %>% 
   dplyr::ungroup() %>%
@@ -930,7 +930,7 @@ p1 <- ggplot(hdrs_ordered) +
 
 F3_alt <- cowplot::plot_grid(pitheta_plot,p1,ncol=1,align="v",axis="lr",rel_heights = c(1,1.5), labels=c("a","b"))
 
-ggsave(F3_alt,filename = "../figures/Figure3_ALT_nucdiversity_20251002.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(F3_alt,filename = "../../figures/Figure3_ALT_nucdiversity_20251002.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 getRegFreq <- function(all_regions) {
@@ -995,7 +995,7 @@ wg_mean <- mean(collapsed_tropical$divSize) / 1e3
 wg_min <- min(collapsed_tropical$divSize) / 1e3
 wg_max <- max(collapsed_tropical$divSize) / 1e3
 
-bins <- readr::read_tsv("../processed_data/QX1410_genomic_windows.1kb.bed",col_names = c("CHROM","binStart","binEnd")) 
+bins <- readr::read_tsv("../../processed_data/HDRs/QX1410_genomic_windows.1kb.bed",col_names = c("CHROM","binStart","binEnd")) 
 
 bins_dt <- as.data.table(bins)
 setnames(bins_dt, c("binStart", "binEnd"), c("start", "end"))
@@ -1061,7 +1061,7 @@ hdrs_panel <- ggplot(hdrs_ordered) +
 
 F3_alt_wfreq <- cowplot::plot_grid(pitheta_plot,hdrs_panel,freq_plot,ncol=1,align="v",axis="lr",rel_heights = c(1,1.5,0.5), labels=c("a","b",""))
 
-#ggsave(F3_alt_wfreq,filename = "/vast/eande106/projects/Nicolas/lineage_polymorphsim/figures/Figure3_ALT_nucdiversity_wfreq_20251002.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
+#ggsave(F3_alt_wfreq,filename = "../../figures/Figure3_ALT_nucdiversity_wfreq_20251002.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 annotate_overlaps <- function(combined_df, region_rects) {
 
@@ -1220,23 +1220,23 @@ tajdsumm <- cowplot::plot_grid(tajdplot,
                                align = "v",
                                axis = "lr")  #   tajdsumm <- cowplot::plot_grid(tajdplot,
 
-dxy_tro_ad <- readr::read_delim("../processed_data/Dxy_Tropical/results/Tropical_AD__dxy.txt") %>%
+dxy_tro_ad <- readr::read_delim("../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_AD__dxy.txt") %>%
   dplyr::rename(chrom=chromosome,window_start=window_pos_1,window_stop=window_pos_2,stat=avg_dxy)  %>%
   dplyr::mutate(comp_lin="AD")
 
-dxy_tro_kd <- readr::read_delim("../processed_data/Dxy_Tropical/results/Tropical_KD__dxy.txt") %>%
+dxy_tro_kd <- readr::read_delim("../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_KD__dxy.txt") %>%
   dplyr::rename(chrom=chromosome,window_start=window_pos_1,window_stop=window_pos_2,stat=avg_dxy)  %>%
   dplyr::mutate(comp_lin="KD")
 
-dxy_tro_td <- readr::read_delim("../processed_data/Dxy_Tropical/results/Tropical_TD1__dxy.txt") %>%
+dxy_tro_td <- readr::read_delim("../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_TD1__dxy.txt") %>%
   dplyr::rename(chrom=chromosome,window_start=window_pos_1,window_stop=window_pos_2,stat=avg_dxy)  %>%
   dplyr::mutate(comp_lin="TD1")
 
-dxy_tro_tmp <- readr::read_delim("../processed_data/Dxy_Tropical/results/Tropical_Temperate__dxy.txt") %>%
+dxy_tro_tmp <- readr::read_delim("../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_Temperate__dxy.txt") %>%
   dplyr::rename(chrom=chromosome,window_start=window_pos_1,window_stop=window_pos_2,stat=avg_dxy)  %>%
   dplyr::mutate(comp_lin="Temperate")
 
-dxy_tro_th <- readr::read_delim("../processed_data/Dxy_Tropical/results/Tropical_TH__dxy.txt") %>%
+dxy_tro_th <- readr::read_delim("../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_TH__dxy.txt") %>%
   dplyr::rename(chrom=chromosome,window_start=window_pos_1,window_stop=window_pos_2,stat=avg_dxy) %>%
   dplyr::mutate(comp_lin="TH")
 
@@ -1378,7 +1378,7 @@ dxysumm <- cowplot::plot_grid(tajdplot,
 
 
 
-ggsave(dxysumm,filename = "../figures/Figure5_TajD_Dxy_20251007.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(dxysumm,filename = "../../figures/Figure5_TajD_Dxy_20251007.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 anno_dxy_ad <- process_dxy_annotation(dxy_tro_ad, region_rects2)
@@ -1508,4 +1508,4 @@ dxybox_tmp <- ggplot(anno_dxy_tmp) +
 
 dxy_boxes <- cowplot::plot_grid(dxybox_ad,dxybox_kd,dxybox_td,dxybox_th,dxybox_tmp,nrow=5,rel_heights = c(1,0.85,0.85,0.85,0.85))
 
-ggsave(dxy_boxes,filename = "../figures/FigureS22_Dxy_allcomp_20251007.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(dxy_boxes,filename = "../../figures/FigureS22_Dxy_allcomp_20251007.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
