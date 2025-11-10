@@ -84,14 +84,14 @@ cv <- ggplot() +
   theme_bw() +
   ylab("CV")
   
-#lets compare K10-26 to our pops
+#lets compare K2-30 to our pops
 kmin=2
 kmax=30
 fraclist <- list()
 qlist <- list()
 for (i in kmin:kmax) {
 
-    #if reach maximum of LETTERS, then increase to two-letter subpop names
+    #if reach maximum of LETTERS[], then increase to two-letter subpop names
     if (i>26) {
       colnames = c()
       for (i in 27:i){
@@ -206,6 +206,14 @@ best_kval = 22 #  K=22 selected from plot above (highest assignment stability)
 best_k <- cvmat_long %>% dplyr::filter(K==best_kval) %>% dplyr::filter(cv_error==min(cv_error)) #seed 1553 has min cv_error,
 best_NADM_assignments <- fraclist[[best_kval-1]] %>% dplyr::filter(seed==(best_k %>% dplyr::pull(seed))) 
 best_qfile <- qlist[[best_kval-1]] %>% dplyr::filter(seed==(best_k %>% dplyr::pull(seed)))
+
+#write cluster fractions of selected K=22 admixture run
+write.csv(best_qfile %>% 
+            dplyr::rename(samples=isotype,cluster=subpop,frac_cluster=fraction) %>%
+            dplyr::group_by(samples) %>%
+            dplyr::mutate(max_frac=max(frac_cluster)) %>%
+            dplyr::select(samples,cluster,frac_cluster,max_frac,lat,long,geo),file = "../../processed_data/genetic_similarity_and_admixutre/best_k_long_admix_pops.csv")
+
 #get list of non-admixed strains and their subpopulations
 admix <- best_NADM_assignments %>% dplyr::select(isotype,cluster=subpop)
 
