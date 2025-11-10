@@ -47,23 +47,23 @@ geo_colors <- c("Hawaii"="#66C2A5",
 df_colors <- data.frame(unname(geo_colors),names(geo_colors)) %>% dplyr::rename(color=`unname.geo_colors.`, geo=`names.geo_colors.`)
 
 
-lineages <- readr::read_tsv("../processed_data/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>%
   dplyr::filter(Lineage!="FM")
 
 #read isotype assignments
-isos <- readr::read_tsv(file="../processed_data/isotype_groups.tsv") %>%
+isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") %>%
   dplyr::group_by(isotype) %>%
   dplyr::summarise(count=n())
 
-geo_info <- readr::read_csv(file="../processed_data/Cb_indep_isotype_info_geo.csv") %>%
+geo_info <- readr::read_csv(file="../../processed_data/genetic_similarity_and_admixutre/Cb_indep_isotype_info_geo.csv") %>%
   dplyr::left_join(df_colors,by=c("geo")) %>%
   dplyr::left_join(lineages %>% dplyr::select(isotype, Lineage, Sublineage,lineage_color,sublineage_color), by="isotype") %>%
   dplyr::filter(!is.na(Lineage)) %>%
   dplyr::mutate(abslat=abs(lat)) 
 
-cvmat <- readr::read_tsv(file="../processed_data/cv_matrix.tsv")
+cvmat <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/cv_matrix.tsv")
 
 cvmat_long <- cvmat %>%
   tidyr::pivot_longer(
@@ -104,7 +104,7 @@ for (i in kmin:kmax) {
       symbol=LETTERS[i]
     }
     
-    tmpQ <- readr::read_tsv(paste0("../processed_data/Qfiles/concat_Qfiles_K",i,".tsv"),col_names=c("isotype",colnames,"run_ID"))
+    tmpQ <- readr::read_tsv(paste0("../../processed_data/genetic_similarity_and_admixutre/concat_Qfiles_K",i,".tsv"),col_names=c("isotype",colnames,"run_ID"))
   
     qlist[[i-(kmin-1)]] <- tmpQ %>%
       tidyr::pivot_longer(
@@ -200,7 +200,7 @@ rg3<-ggplot(df_counts, aes(x = K, y = num, fill = n)) +
 
 comprg <- cowplot::plot_grid(rg2,rg1,rg3,nrow=1,ncol=3,rel_widths = c(0.9,0.9,1.2), align="h",axis = "tb", labels=c("b","c","d"))
 rg_cv <- cowplot::plot_grid(cv + theme(panel.grid.major = element_line(color="grey80"),panel.grid.minor = element_blank()),comprg,nrow=2,rel_heights = c(1.2,1), align = "v",axis="r",labels=c("a",NA))
-ggsave(rg_cv,file="../figures/FS8_ADX_rg_cv.png",width = 7,height = 6,units = "in",device = 'png',bg="white",dpi=600)
+ggsave(rg_cv,file="../../figures/FS8_ADX_rg_cv.png",width = 7,height = 6,units = "in",device = 'png',bg="white",dpi=600)
 
 best_kval = 22 #  K=22 selected from plot above (highest assignment stability)
 best_k <- cvmat_long %>% dplyr::filter(K==best_kval) %>% dplyr::filter(cv_error==min(cv_error)) #seed 1553 has min cv_error,
@@ -225,7 +225,7 @@ admix_color <- data.frame(
 )
 
 #read pairwise similarity estimates
-conc <- readr::read_tsv("../processed_data/gtcheck.tsv")
+conc <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/gtcheck.tsv")
 
 #construct symmetric pairwise similarity matrix
 concordance_matrix <- conc %>%
@@ -505,7 +505,7 @@ cc_sum_heatmap <-
   labs(fill = "Genetic\nsimilarity")
  
 
-ggsave(cc_sum_heatmap,filename = "../figures/FS7_concordance_heatmap.png",width = 7,height = 7,units = "in",device = "png",dpi = 600,bg = "white")
+ggsave(cc_sum_heatmap,filename = "../../figures/FS7_concordance_heatmap.png",width = 7,height = 7,units = "in",device = "png",dpi = 600,bg = "white")
 
 
 annotation_df <-as.data.frame(geo %>% dplyr::select(geo,abslat,subpop,Lineage, Sublineage,lineage_color,sublineage_color))
@@ -642,4 +642,4 @@ heatmap_grob <- grid::grid.grabExpr({
 
 ggmap <- ggplotify::as.ggplot(heatmap_grob)
 
-ggsave(plot = ggmap, filename = "../figures/Figure2_heatmap_cc_byGeoLat_20251014.png", width = 7, height = 7,bg = "white",device = "png",units = "in",dpi = 600)
+ggsave(plot = ggmap, filename = "../../figures/Figure2_heatmap_cc_byGeoLat_20251014.png", width = 7, height = 7,bg = "white",device = "png",units = "in",dpi = 600)
