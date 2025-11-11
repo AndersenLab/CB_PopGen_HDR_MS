@@ -12,7 +12,7 @@ source("../utilities.R")
 
 
 
-gtcheck_strain_raw<-read.table("../../data/gtcheck.txt",
+gtcheck_strain_raw<-read.table("../../processed_data/genetic_similarity_and_admixutre/strain_gtcheck.txt",
                             header = TRUE)
 gtcheck_strain<-gtcheck_strain_raw %>%
   dplyr::mutate(concordance = 1-(discordance/sites)) %>%
