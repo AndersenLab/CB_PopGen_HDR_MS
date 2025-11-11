@@ -47,7 +47,7 @@ combined2 <- plot_grid(
   rel_heights = c(2.143951, 2.5, 3, 3.75) 
 )
 
-ggsave("raw_figure_1_version_3.pdf", combined2 , width = 7, height = sum(c(2.143951, 2.5, 3, 3.75)), units = "in")
+ggsave("../../figures/Figure1_raw_StrainMap_Tree_PCA.pdf", combined2 , width = 7, height = sum(c(2.143951, 2.5, 3, 3.75)), units = "in")
 
 
 

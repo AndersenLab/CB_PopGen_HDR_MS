@@ -119,15 +119,17 @@ if (length(combined_panels) == 0) stop("No panels were created (missing files or
 
 final_plot <- patchwork::wrap_plots(plotlist = combined_panels, ncol = 2)
 
-
-ggsave("PCA_by_chrom_raw.pdf", final_plot, width = 7, height = 4, units = "in", device = "pdf")
+final_plot
+ggsave("../../figures/FigureS5_raw_PCA_by_chrom_raw.pdf", final_plot, width = 7, height = 4, units = "in", device = "pdf")
 
 
 
 
 
 library(readr)
-lineage_raw<-readr::read_tsv("../../data/From_Nic/before_20250828_isotype_byLineage_GeoLocAdmCol.tsv")
+# lineage_raw<-readr::read_tsv("../../data/From_Nic/before_20250828_isotype_byLineage_GeoLocAdmCol.tsv")
+lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+
 lineage<-lineage_raw %>% 
   select(isotype,Lineage)
 
@@ -155,10 +157,10 @@ ChrI_PC12_mixed<-pcs_geo_by_chrom[[1]]%>%
   filter(PC2 <0) %>% 
   left_join(lineage, by = c("isotype"))
 
-write.csv(ChrI_PC12_mixed,
-          "ChrI_PC12_mixed.csv",
-          row.names = FALSE,
-          quote = FALSE)
+# write.csv(ChrI_PC12_mixed,
+#           "ChrI_PC12_mixed.csv",
+#           row.names = FALSE,
+#           quote = FALSE)
 
 
 
@@ -204,10 +206,10 @@ ChrII_PC12_mixed<-pcs_geo_by_chrom[[2]]%>%
   filter(PC2 <0) %>% 
   left_join(lineage, by = c("isotype"))
 
-write.csv(ChrII_PC12_mixed,
-          "ChrII_PC12_mixed.csv",
-          row.names = FALSE,
-          quote = FALSE)
+# write.csv(ChrII_PC12_mixed,
+#           "ChrII_PC12_mixed.csv",
+#           row.names = FALSE,
+#           quote = FALSE)
 
 
 
@@ -267,10 +269,10 @@ ChrIII_PC12_mixed<-pcs_geo_by_chrom[[3]]%>%
   filter(PC2 > -0.15) %>% 
   left_join(lineage, by = c("isotype"))
 
-write.csv(ChrIII_PC12_mixed,
-          "ChrIII_PC12_mixed.csv",
-          row.names = FALSE,
-          quote = FALSE)
+# write.csv(ChrIII_PC12_mixed,
+#           "ChrIII_PC12_mixed.csv",
+#           row.names = FALSE,
+#           quote = FALSE)
 
 
 

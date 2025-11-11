@@ -20,12 +20,12 @@ sub_region_df <- sub_region_raw %>%
   )
 
 region_paths <- list(
-  AD ="../../processed_data/pi_theta_d_by_lineage/Australia_lineage/AD/",
-  KD ="../../processed_data/pi_theta_d_TH_KD_TD2/KD_lineage/KD/",
-  TD1 = "../../processed_data/pi_theta_d_by_lineage/Taiwan_lineage/TD1",
-  Temperate="../../processed_data/Temperate_hard_filtered_and_LD_pruned/Cb_hard_filtered_Temperate/",
-  TH="../../processed_data/TH_hard_filtered_pi_theta_d/Cb_hard_filtered_TH/",
-  Tropical="../../processed_data/Tropical_hard_filtered_and_LD_pruned/Cb_hard_filtered_Tropical/"
+  AD ="../../processed_data/diversity_and_divergence/pi_theta_d_rg/AD/",
+  KD ="../../processed_data/diversity_and_divergence/pi_theta_d_rg/KD/",
+  TD1 = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/TD1",
+  Temperate="../../processed_data/diversity_and_divergence/pi_theta_d_rg/Temperate/",
+  TH="../../processed_data/diversity_and_divergence/pi_theta_d_rg/TH/",
+  Tropical="../../processed_data/diversity_and_divergence/pi_theta_d_rg/Tropical/"
 )
 
 div_calc <- function(path,region) {
@@ -208,11 +208,11 @@ merged_wide_table<-rbind(wide_pi_results,
                          wide_d_results)
 
 
-write.table(merged_wide_table,
-            "All_groups_merged_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
-            quote = FALSE,
-            row.names = FALSE,
-            sep = '\t')
+# write.table(merged_wide_table,
+#             "All_groups_merged_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
+#             quote = FALSE,
+#             row.names = FALSE,
+#             sep = '\t')
 
 
 
@@ -227,7 +227,7 @@ merged_wide_table_foldchange<-merged_wide_table %>%
   relocate(Stat, .after = last_col())
 
 write.table(merged_wide_table_foldchange,
-            "All_groups_merged_pi_theta_d_Autosomal_Xarm_arm_center_foldchange.tsv",
+            "../../tables/TableS12_All_groups_merged_pi_theta_d_Autosomal_Xarm_arm_center_foldchange.tsv",
             quote = FALSE,
             row.names = FALSE,
             sep = '\t')

@@ -118,11 +118,11 @@ p_heatmap_1 <- Heatmap(
   column_dend_gp       = gpar(lwd = 0.3)
 )
 
-pdf("Cosmopolitan_18_isotypes_heatmap.pdf", width = 7, height = 4)
-draw(p_heatmap_1, merge_legend = TRUE, heatmap_legend_side = "right", 
-     annotation_legend_side = "right")
-dev.off()
-
+# pdf("Cosmopolitan_18_isotypes_heatmap.pdf", width = 7, height = 4)
+# draw(p_heatmap_1, merge_legend = TRUE, heatmap_legend_side = "right", 
+#      annotation_legend_side = "right")
+# dev.off()
+# 
 
 
 
@@ -140,7 +140,7 @@ lin_colors <- c(TI="#ff77ab", TC="#ff0000", Tropical="#ff0000",TT="#ff0000",NWD=
 
 
 
-lineage_raw<-readr::read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
 
 
 lineage_18<-lineage_raw %>% 
@@ -219,15 +219,15 @@ p_heatmap_2 <- Heatmap(
   column_dend_gp       = gpar(lwd = 0.3)
 )
 
-
-pdf("Cosmopolitan_18_isotypes_heatmap_with_annotation.pdf", width = 7, height = 4)
-draw(
-  p_heatmap_2,
-  merge_legend = TRUE,
-  heatmap_legend_side = "right",
-  annotation_legend_side = "right"
-)
-dev.off()
+p_heatmap_2
+# pdf("Cosmopolitan_18_isotypes_heatmap_with_annotation.pdf", width = 7, height = 4)
+# draw(
+#   p_heatmap_2,
+#   merge_legend = TRUE,
+#   heatmap_legend_side = "right",
+#   annotation_legend_side = "right"
+# )
+# dev.off()
 
 
 
@@ -239,7 +239,7 @@ dev.off()
 ######## assemble Figure S2 #########
 
 
-load("../../processed_data/Figure_S2/Cosmo_18_maps.RData")
+load("../../processed_data/assemble_Figure_S2/Cosmo_18_maps.RData")
 
 
 library(ComplexHeatmap)
@@ -252,7 +252,8 @@ g1 <- ggplotGrob(combined_plot)
 g2 <- grid.grabExpr(draw(p_heatmap_1))
 
 dev.off()
-pdf("raw_Figure_S2_combined_plot.pdf", width = 7, height = 8)
+# pdf("raw_Figure_S2_combined_plot.pdf", width = 7, height = 8)
+pdf("../../figures/FigureS2_raw_cosmopolitan_isotypes.pdf", width = 7, height = 8)
 
 grid.arrange(g1, g2, ncol = 1, heights = c(1, 1))
 

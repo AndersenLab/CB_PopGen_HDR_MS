@@ -194,7 +194,7 @@ indep_strain_info_geo_output_tmp<-indep_strain_info_geo %>%
 ### export strains geo info for each strain ##
 indep_info_geo_for_each_strain<-indep_strain_info_geo_output_tmp %>% 
   rename(strain_geo=geo)
-write.csv(indep_info_geo_for_each_strain,file="indep_info_geo_for_each_strain.csv", row.names = FALSE, quote = FALSE)
+# write.csv(indep_info_geo_for_each_strain,file="indep_info_geo_for_each_strain.csv", row.names = FALSE, quote = FALSE)
 write.csv(indep_info_geo_for_each_strain,file="../../processed_data/Geo_info/indep_info_geo_for_each_strain.csv", row.names = FALSE, quote = FALSE)
 
 
@@ -208,7 +208,7 @@ indep_strain_info_geo_output<-indep_strain_info_geo_output_tmp %>%
 
 
 
-write.csv(indep_strain_info_geo_output,file="Cb_indep_strain_info_geo.csv", row.names = FALSE, quote = FALSE)
+# write.csv(indep_strain_info_geo_output,file="Cb_indep_strain_info_geo.csv", row.names = FALSE, quote = FALSE)
 write.csv(indep_strain_info_geo_output,file="../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv", row.names = FALSE, quote = FALSE)
 
 unique(indep_strain_info_geo_output$geo)
@@ -260,10 +260,9 @@ geo_freq <- indep_info_geo_for_each_strain %>%
   dplyr::summarize(frequency = n()) %>%
   arrange(desc(frequency))
 
-
-##CHANGE THE SAVING DIRECTORIES TO RF FOR BELOW
-write.csv(file = "strain_geo_freq.csv", geo_freq,quote = FALSE,
-          row.names = FALSE)
+# 
+# write.csv(file = "strain_geo_freq.csv", geo_freq,quote = FALSE,
+#           row.names = FALSE)
 
 #geo_freq$percent <- geo_freq$frequency / sum(geo_freq$frequency) * 100
 
@@ -342,8 +341,8 @@ p
 
 # The ratio of width to height for input data (the world map without Antarctica) is 2.612.
 # 7/5*4 * 2.612
-ggsave("Cb_strains_map_2025.pdf",
-       plot = p,width = 7, height = 2.143951, units = "in",device = 'pdf',dpi=600)
+# ggsave("Cb_strains_map_2025.pdf",
+#        plot = p,width = 7, height = 2.143951, units = "in",device = 'pdf',dpi=600)
 
 
 saveRDS(p, file = "../../processed_data/assemble_figure_1/strain_map.rds")

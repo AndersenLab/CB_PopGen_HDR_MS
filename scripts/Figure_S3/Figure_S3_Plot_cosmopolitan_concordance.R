@@ -19,11 +19,11 @@ gtcheck_strain<-gtcheck_strain_raw %>%
   select(i,j,concordance)
 
 
-gtcheck_isotype_raw<-read.table("../../processed_data/heatmap_hard_filtered/gtcheck.tsv",
-                               header = TRUE)
-gtcheck_isotype<-gtcheck_isotype_raw %>%
-  dplyr::mutate(concordance = 1-(discordance/sites)) %>%
-  select(i,j,concordance)
+# gtcheck_isotype_raw<-read.table("../../processed_data/heatmap_hard_filtered/gtcheck.tsv",
+#                                header = TRUE)
+# gtcheck_isotype<-gtcheck_isotype_raw %>%
+#   dplyr::mutate(concordance = 1-(discordance/sites)) %>%
+#   select(i,j,concordance)
 
 
 
@@ -45,9 +45,9 @@ strains_target_isotype<-isotype_groups_raw %>%
 NIC174_strains_output<-c(strains_target_isotype,"SOW22") %>%
   as.data.frame()
 
-write.table(NIC174_strains_output,
-            "../../processed_data/cosmopolitan_relatedness_network/NIC174_and_SOW22_strains.txt",
-            quote = FALSE,row.names = FALSE,col.names = FALSE)
+# write.table(NIC174_strains_output,
+#             "../../processed_data/cosmopolitan_relatedness_network/NIC174_and_SOW22_strains.txt",
+#             quote = FALSE,row.names = FALSE,col.names = FALSE)
 
 
 
@@ -185,15 +185,15 @@ p_heatmap <- Heatmap(
 )
 
 
+p_heatmap
 
-
-dev.off()
-pdf(paste0("Cb_isotype_", target_isotype, "_and_all_other_isotypes_concordance_heatmap.pdf"), width = 7, height = 6)
-
-draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right", 
-     annotation_legend_side = "right")
-dev.off()
-
+# dev.off()
+# pdf(paste0("Cb_isotype_", target_isotype, "_and_all_other_isotypes_concordance_heatmap.pdf"), width = 7, height = 6)
+# 
+# draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right", 
+#      annotation_legend_side = "right")
+# dev.off()
+# 
 
 
 
@@ -398,15 +398,15 @@ p_heatmap <- Heatmap(
   column_title_rot     = 0
 
 )
+p_heatmap
 
-
-dev.off()
-pdf(paste0("Cb_",target_isotype,"_concordance_heatmap.pdf"), width = 7, height = 6)
-
-
-draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right",
-     annotation_legend_side = "right")
-dev.off()
+# dev.off()
+# pdf(paste0("Cb_",target_isotype,"_concordance_heatmap.pdf"), width = 7, height = 6)
+# 
+# 
+# draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right",
+#      annotation_legend_side = "right")
+# dev.off()
 
 
 
@@ -575,9 +575,10 @@ p_heatmap <- Heatmap(
   
 )
 
+p_heatmap
 
 dev.off()
-pdf(paste0("Cb_",target_isotype,"_concordance_heatmap_with_the_closet.pdf"), width = 7, height = 6)
+pdf(paste0("../../figures/FigureS3_Cb_",target_isotype,"_concordance_heatmap_with_the_closest.pdf"), width = 7, height = 6)
 
 
 draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right",

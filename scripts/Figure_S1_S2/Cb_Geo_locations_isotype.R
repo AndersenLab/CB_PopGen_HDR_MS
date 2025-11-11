@@ -345,11 +345,11 @@ p
 
 saveRDS(p, file = "../../processed_data/assemble_figure_S1/isotype_map.rds")
 
-ggsave("Cb_isotypes_map_2025.pdf",
-       plot = p,width = 7, height = 2.00995387, units = "in",device = 'pdf',dpi=600)
-
-ggsave("../../plots/Cb_isotypes_map_2025.pdf",
-       plot = p,width = 7, height = 2.00995387, units = "in",device = 'pdf',dpi=600)
+# ggsave("Cb_isotypes_map_2025.pdf",
+#        plot = p,width = 7, height = 2.00995387, units = "in",device = 'pdf',dpi=600)
+# 
+# ggsave("../../plots/Cb_isotypes_map_2025.pdf",
+#        plot = p,width = 7, height = 2.00995387, units = "in",device = 'pdf',dpi=600)
 
 
 

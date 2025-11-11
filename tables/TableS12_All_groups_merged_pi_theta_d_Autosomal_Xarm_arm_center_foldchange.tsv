@@ -1,0 +1,19 @@
+Region	Autosomes arm	Autosomes center	ChromX arm	ChromX center	fold change Autosomes arm/center	fold change ChromX arm/center	Stat
+AD	0.0014	8e-04	9e-04	6e-04	1.75	1.5	pi
+KD	0.0015	6e-04	7e-04	4e-04	2.5	1.75	pi
+TD1	0.0019	8e-04	0.0014	8e-04	2.38	1.75	pi
+Temperate	0.001	4e-04	0.001	5e-04	2.5	2	pi
+TH	0.0016	5e-04	8e-04	4e-04	3.2	2	pi
+Tropical	0.0021	8e-04	0.0011	7e-04	2.62	1.57	pi
+AD	0.0015	0.001	0.0011	9e-04	1.5	1.22	theta
+KD	0.0013	6e-04	7e-04	4e-04	2.17	1.75	theta
+TD1	0.002	0.001	0.0012	9e-04	2	1.33	theta
+Temperate	0.0012	6e-04	0.0016	0.001	2	1.6	theta
+TH	0.0019	9e-04	0.001	7e-04	2.11	1.43	theta
+Tropical	0.0038	0.0019	0.0024	0.0018	2	1.33	theta
+AD	-0.2979	-0.545	-0.8251	-1.0896	0.55	0.76	Tajima's D
+KD	0.2534	-0.0396	-0.0638	0.0361	-6.4	-1.77	Tajima's D
+TD1	-0.3366	-0.7631	-0.1146	-0.6172	0.44	0.19	Tajima's D
+Temperate	-0.6571	-1.0206	-1.3933	-1.7065	0.64	0.82	Tajima's D
+TH	-0.7061	-1.3341	-1.0565	-1.2892	0.53	0.82	Tajima's D
+Tropical	-1.3051	-1.7949	-1.5586	-1.7944	0.73	0.87	Tajima's D

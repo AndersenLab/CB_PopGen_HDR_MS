@@ -114,15 +114,15 @@ p_PC3_PC4
 
 
 
-
-#### output PCA table
-write.table(pca_TAC_ld0.9_no_rm,
-            "Cb_pca_table_ld0.9.tsv",
-            sep = '\t',
-            col.names = TRUE,
-            row.names = FALSE,
-            quote = FALSE)
-
+# 
+# #### output PCA table
+# write.table(pca_TAC_ld0.9_no_rm,
+#             "Cb_pca_table_ld0.9.tsv",
+#             sep = '\t',
+#             col.names = TRUE,
+#             row.names = FALSE,
+#             quote = FALSE)
+# 
 
 
 
@@ -157,9 +157,9 @@ saveRDS(p_PC1_PC2$legend,
 
 
 
-ggsave("Cb_all_isotypes_PCA_plot_PC1_4.pdf",
-       Cb_all_isotypes_PCA_plot_PC1_4,
-       height = 3, width = 5.25)
+# ggsave("Cb_all_isotypes_PCA_plot_PC1_4.pdf",
+#        Cb_all_isotypes_PCA_plot_PC1_4,
+#        height = 3, width = 5.25)
 
 
 
@@ -207,23 +207,24 @@ PC34mix<-pca_TAC_ld0.9_no_rm %>%
   filter(PC4 <0.06 & PC4 > -0.2)
 nrow(PC34mix)
 
-write.csv(PC34mix,
-          "PC34mix.csv",
-          row.names = FALSE,
-          quote = FALSE)
+# write.csv(PC34mix,
+#           "PC34mix.csv",
+#           row.names = FALSE,
+#           quote = FALSE)
 #45
 ### add previous lineage 
 library(readr)
 library(dplyr)
-lineage_raw<-read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250828.tsv")
+lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+# lineage_raw<-read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250828.tsv")
 lineage<-lineage_raw %>% select(isotype,Lineage)
 PC34mix<-PC34mix %>% 
   left_join(lineage)
 
-write.csv(PC34mix,
-          "PC34mix.csv",
-          row.names = FALSE,
-          quote = FALSE)
+# write.csv(PC34mix,
+#           "PC34mix.csv",
+#           row.names = FALSE,
+#           quote = FALSE)
 
 
 
@@ -263,7 +264,7 @@ PCA_differentiated<-rbind((PC12AD %>% mutate(Cluster = c("Australia")) ),
                           ) 
 
 
-write.csv(PCA_differentiated,"PCA_differentiated.csv",
+write.csv(PCA_differentiated,"../../tables/TableS3_PCA_differentiated.csv",
           row.names = FALSE)
 
 

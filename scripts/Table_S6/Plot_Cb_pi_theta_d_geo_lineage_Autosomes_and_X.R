@@ -20,26 +20,26 @@ sub_region_df <- sub_region_raw %>%
   )
 
 region_paths <- list(
-  All = "../../processed_data/pi_theta_d",
-  cosmopolitan = "../../processed_data/pi_theta_d_geo/Cosmopolitan/",
-  `Non-cosmopolitan` = "../../processed_data/pi_theta_d_geo/Cb_non_cosmopolitan",
-  Asia = "../../processed_data/pi_theta_d_geo/Asia",
+  All = "../../processed_data/diversity_and_divergence/pi_theta_d",
+  cosmopolitan = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Cosmopolitan/",
+  `Non-cosmopolitan` = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Cb_non_cosmopolitan",
+  Asia = "../../processed_datadiversity_and_divergence//pi_theta_d_geo/Asia",
   # `Asia Kerala` ="../../processed_data/pi_theta_d_by_lineage/Asia_lineage/Kerala",
   # `Asia Tropical` ="../../processed_data/pi_theta_d_by_lineage/Asia_lineage/Tropical",
-  Australia = "../../processed_data/pi_theta_d_geo/Australia",
-  `Australia AD` = "../../processed_data/pi_theta_d_by_lineage/Australia_lineage/AD",
-  `Australia Tropical` = "../../processed_data/pi_theta_d_by_lineage/Australia_lineage/Tropical",
-  Caribbean = "../../processed_data/pi_theta_d_geo/Caribbean",
-  `Central America` = "../../processed_data/pi_theta_d_geo/Central_America",
-  Hawaii = "../../processed_data/pi_theta_d_geo/Hawaii",
+  Australia = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Australia",
+  `Australia AD` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/Australia_lineage/AD",
+  `Australia Tropical` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/Tropical",
+  Caribbean = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Caribbean",
+  `Central America` = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Central_America",
+  Hawaii = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Hawaii",
   # North_America = "../../processed_data/pi_theta_d_geo/North_America",
-  Pacific = "../../processed_data/pi_theta_d_geo/Pacific",
+  Pacific = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Pacific",
   # `Pacific Tropical` = "../../processed_data/pi_theta_d_by_lineage/Pacific_lineage/Tropical",
-  `South America` = "../../processed_data/pi_theta_d_geo/South_America",
-  Taiwan = "../../processed_data/pi_theta_d_geo/Taiwan",
-  `Taiwan TD1` = "../../processed_data/pi_theta_d_by_lineage/Taiwan_lineage/TD1",
-  `Taiwan TH` = "../../processed_data/pi_theta_d_by_lineage/Taiwan_lineage/TH",
-  `Taiwan Tropical` = "../../processed_data/pi_theta_d_by_lineage/Taiwan_lineage/Tropical"
+  `South America` = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/South_America",
+  Taiwan = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Taiwan",
+  `Taiwan TD1` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/TD1",
+  `Taiwan TH` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/TH",
+  `Taiwan Tropical` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/Tropical"
 )
 
 
@@ -258,12 +258,12 @@ merged_wide_table<-rbind(wide_pi_results,
                          wide_d_results)
 
 
-
-write.table(merged_wide_table,
-            "All_merged_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
-            quote = FALSE,
-            row.names = FALSE,
-            sep = '\t')
+# 
+# write.table(merged_wide_table,
+#             "All_merged_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
+#             quote = FALSE,
+#             row.names = FALSE,
+#             sep = '\t')
 
 
 
@@ -285,7 +285,7 @@ geo_merged_wide_table<-merged_wide_table %>%
 
 
 write.table(geo_merged_wide_table,
-            "geo_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
+            "../../tables/TableS6_geo_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
             col.names = TRUE,
             row.names = FALSE,
             quote = FALSE,
