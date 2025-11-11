@@ -219,4 +219,4 @@ legend_df <- dplyr::bind_rows(lineage_legend_df, sublineage_legend_df)
 #   labs(title = "Test Legend for Lineage and Sublineage Colors") +
 #   theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))
 
-write.table(all_iso_byLineage_wCol, file="../../processed_data/isotype_byRG_GeoLocAdmCol_20250909.tsv",quote = F,sep = "\t",row.names = F)
+write.table(all_iso_byLineage_wCol, file="../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv",quote = F,sep = "\t",row.names = F)

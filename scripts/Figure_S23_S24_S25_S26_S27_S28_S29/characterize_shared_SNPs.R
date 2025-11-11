@@ -13,15 +13,15 @@ library(ggh4x)
 library(data.table)
 
 #read reference genome (1kb) bins
-bins <- readr::read_tsv("../processed_data/QX1410_genomic_windows.1kb.bed", col_names = c("CHROM","start","end"))
+bins <- readr::read_tsv("../../processed_data/HDRs/QX1410_genomic_windows.1kb.bed", col_names = c("CHROM","start","end"))
 
 #read reference genome chromosomal domain breakpoints
-domains_raw <- readr::read_csv("../processed_data/chromosome_domain_Cbriggsae.csv") %>%
+domains_raw <- readr::read_csv("../../processed_data/diversity_and_divergence/chromosome_domain_Cbriggsae.csv") %>%
   dplyr::rename(CHROM=chrom,start=left,end=right) %>%
   dplyr::mutate(start=start*1e3,end=end*1e3)
 
 #get reference coding sequences
-cds <- readr::read_tsv("../processed_data/c_briggsae.QX1410_20250929.csq.gff", col_names = c("chrom","source","type","start","end","score","strand","phase","attributes")) %>%
+cds <- readr::read_tsv("../../processed_data/gene_diversity/c_briggsae.QX1410_20250929.csq.gff", col_names = c("chrom","source","type","start","end","score","strand","phase","attributes")) %>%
   dplyr::filter(type=="CDS") %>%
   dplyr::select(chrom,start,end,strand,attributes) %>%
   tidyr::separate(attributes,into=c("ID","Parent","seqname","biotype","locus"),sep = ";") %>%
@@ -29,20 +29,20 @@ cds <- readr::read_tsv("../processed_data/c_briggsae.QX1410_20250929.csq.gff", c
   dplyr::select(-ID,-biotype,-locus,-Parent) 
 
 #get a list of Tropical isotype names
-Tropical_samples <- readr::read_tsv("/../processed_data/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% dplyr::filter(Lineage=="Tropical" & isotype!="QX1410") %>% dplyr::pull(isotype)
+Tropical_samples <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% dplyr::filter(Lineage=="Tropical" & isotype!="QX1410") %>% dplyr::pull(isotype)
 
 #read shared SNPs between Tropical and each relatedness group
-KDshared <- readr::read_tsv("../processed_data/tropical_joins/Tropical_vs_KD.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
-ADshared <- readr::read_tsv("../processed_data/Tropical_vs_AD.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
-TD1shared <- readr::read_tsv("../processed_data/Tropical_vs_TD1.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
-TEMPshared <- readr::read_tsv("../processed_data/Tropical_vs_Temperate.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
-THshared <- readr::read_tsv("../processed_data/Tropical_vs_TH.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
+KDshared <- readr::read_tsv("../../processed_data/shared_SNPs/Tropical_vs_KD.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
+ADshared <- readr::read_tsv("../../processed_data/shared_SNPs/Tropical_vs_AD.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
+TD1shared <- readr::read_tsv("../../processed_data/shared_SNPs/Tropical_vs_TD1.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
+TEMPshared <- readr::read_tsv("../../processed_data/shared_SNPs/Tropical_vs_Temperate.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
+THshared <- readr::read_tsv("../../processed_data/shared_SNPs/Tropical_vs_TH.tsv") %>% dplyr::select(all_of(c("POS",Tropical_samples)))
 
 #read hyper-divergent region boundaries
-hdrs <- readr::read_tsv("../processed_data/HDR_CB_allStrain_5kbclust_20250930.tsv") 
+hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") 
 
 #read all tropical SNP sites, filter sites with >10% missing genotypes and <1% MAF
-Trop_sites <- readr::read_tsv("../processed_data/Tropical_boolean_matrix_wHead.tsv") %>%
+Trop_sites <- readr::read_tsv("../../processed_data/shared_SNPs/Tropical_boolean_matrix_wHead.tsv") %>%
   dplyr::mutate(n_NA = rowSums(is.na(select(., -POS)))) %>%
   dplyr::mutate(n_ones = rowSums(select(., -POS) == 1, na.rm = TRUE)) %>%
   dplyr::mutate(n_zeros = rowSums(select(., -POS) == 0, na.rm = TRUE)) %>%
@@ -50,27 +50,27 @@ Trop_sites <- readr::read_tsv("../processed_data/Tropical_boolean_matrix_wHead.t
   dplyr::filter(n_zeros >= 5 & n_ones >= 5)
 
 #read all Kerala Divergent SNP sites, filter sites with >10% missing genotypes
-KD_sites <- readr::read_tsv("../processed_data/KD_boolean_matrix_wHead.tsv") %>%
+KD_sites <- readr::read_tsv("../../processed_data/shared_SNPs/KD_boolean_matrix_wHead.tsv") %>%
   dplyr::mutate(n_NA = rowSums(is.na(select(., -POS)))) %>%
   dplyr::filter(n_NA < 1)  
 
 #read all Australia Divergent SNP sites, filter sites with >10% missing genotypes
-AD_sites <- readr::read_tsv("../processed_data/AD_boolean_matrix_wHead.tsv") %>%
+AD_sites <- readr::read_tsv("../../processed_data/shared_SNPs/AD_boolean_matrix_wHead.tsv") %>%
   dplyr::mutate(n_NA = rowSums(is.na(select(., -POS)))) %>%
   dplyr::filter(n_NA < 3) 
 
 #read all Taiwan-Hawaii SNP sites, filter sites with >10% missing genotypes
-TH_sites <- readr::read_tsv("../processed_data/TH_boolean_matrix_wHead.tsv") %>%
+TH_sites <- readr::read_tsv("../../processed_data/shared_SNPs/TH_boolean_matrix_wHead.tsv") %>%
   dplyr::mutate(n_NA = rowSums(is.na(select(., -POS)))) %>%
   dplyr::filter(n_NA < 10) 
 
 #read all Temperate SNP sites, filter sites with >10% missing genotypes
-TEMP_sites <- readr::read_tsv("../processed_data/Temperate_boolean_matrix_wHead.tsv") %>%
+TEMP_sites <- readr::read_tsv("../../processed_data/shared_SNPs/Temperate_boolean_matrix_wHead.tsv") %>%
   dplyr::mutate(n_NA = rowSums(is.na(select(., -POS)))) %>%
   dplyr::filter(n_NA < 3) 
 
 #read all Taiwan Divergent 1 SNP sites, filter sites with >10% missing genotypes
-TD1_sites <- readr::read_tsv("../processed_data/TD1_boolean_matrix_wHead.tsv") %>%
+TD1_sites <- readr::read_tsv("../../processed_data/shared_SNPs/TD1_boolean_matrix_wHead.tsv") %>%
   dplyr::mutate(n_NA = rowSums(is.na(select(., -POS)))) %>%
   dplyr::filter(n_NA < 3) 
 
@@ -362,7 +362,7 @@ plot_filter_diagnostics <- function(dt_filtered, refdt, scaling_factor) {
       breaks = percentiles,
       labels = percentile_labels,
       oob = scales::squish,
-      name = "mean\ntlSNP count",
+      name = "mean sharednSNP count",
       guide = guide_colorbar(
         ticks = TRUE,
         ticks.colour = "white",
@@ -394,7 +394,7 @@ plot_filter_diagnostics_raw <- function(refdt) {
       breaks = percentiles,
       labels = percentile_labels,
       oob = scales::squish,
-      name = "mean\ntlSNP count",
+      name = "mean shared\nSNP count",
       guide = guide_colorbar(
         ticks = TRUE,
         ticks.colour = "white",
@@ -750,11 +750,16 @@ side_counts <- ggplot(df_counts, aes(x = n, y = forcats::fct_rev(group))) +
 #combined plot of SNP counts, shared SNP counts, and proportion of the genome with shared SNPs across different relatedness group comparisons (Fig S23)
 bc_pan <-cowplot::plot_grid(side_counts,pct_shared,nrow=1,align = "h",axis="tb",labels=c("a","b"))
 abc_pan <- cowplot::plot_grid(bc_pan,group_joins,nrow=2,rel_heights = c(1,2.5),labels=c("","c"))
-ggsave(plot = abc_pan, filename = "../figures/FigureS23_shared_snp.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
+ggsave(plot = abc_pan, filename = "../../figures/FigureS23_shared_snp.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
 
 
 #shared SNPs in HDRs within and outside of coding sequences
 #we want to identify how many different relatedness groups SNPs are shared with in HDRs
+
+ov_df <- as.data.frame(ov) %>%
+  dplyr::select(-i.end) %>%
+  dplyr::rename(site=i.start,region_start=start,region_end=end,CHROM=region_chrom)
+
 ov_dt  <- as.data.table(ov_df)
 cds_dt <- as.data.table(cds)
 
@@ -835,9 +840,9 @@ combos_plt <- ggplot(plot_combos) +
         panel.grid = element_blank())+
   scale_y_continuous(expand = c(0.01,0),limits = c(0,220))
 
-ggsave(combos_plt,filename = "../figures/FigureS24_RGcount_perRegion.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
+ggsave(combos_plt,filename = "../../figures/FigureS24_RGcount_perRegion.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
 
-lineages <- readr::read_tsv("../processed_data/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage)) 
 
@@ -1184,16 +1189,16 @@ plot_chr_stitched <- function(chr, st, en, var, kbsp,
 
 
 plt1 <- plot_chr_stitched("IV",4.37,4.41,T,0.01)  
-ggsave(plt1,filename = "../figures/FigureS25_IV_4.37-4.41_tlSNP_blockAD_wvar_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
+ggsave(plt1,filename = "../../figures/FigureS25_IV_4.37-4.41_tlSNP_blockAD_wvar_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
 
 plt2 <- plot_chr_stitched("V",4.275,4.377,F,0.01) 
-ggsave(plt2,filename = "../figures/FigureS26_V_4.27-4.38_tlSNP_blockAD_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
+ggsave(plt2,filename = "../../figures/FigureS26_V_4.27-4.38_tlSNP_block_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
 
 plt3 <- plot_chr_stitched("II",12.92,13.02,F,0.01) 
-ggsave(plt3,filename = "../figures/FigureS27_II_12.92-13.02_tlSNP_blockAD_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
+ggsave(plt3,filename = "../../figures/FigureS27_II_12.92-13.02_tlSNP_block_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
 
 plt4 <- plot_chr_stitched("V",15.91,15.95,F,0.01)
-ggsave(plt4,filename = "../figures/FigureS28_V_15.91-15.95_tlSNP_block_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
+ggsave(plt4,filename = "../../figures/FigureS28_V_15.91-15.95_tlSNP_block_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
 
 plt5 <- plot_chr_stitched("I",11.88,12.1,F,0.01,45,1) 
-ggsave(plt5,filename = "../figures/FigureS29_I_11.88-12.10_tlSNP_block_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")
+ggsave(plt5,filename = "../../figures/FigureS29_I_11.88-12.10_tlSNP_block_20251021.png",device = "png",dpi = 600,units = "in",width = 7.5,height = 7.5,bg="white")

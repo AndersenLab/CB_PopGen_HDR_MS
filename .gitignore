@@ -1,0 +1,18 @@
+# Ignore large data files
+processed_data/HDRs/CB_all_strain_vc.tsv
+processed_data/HDRs/Other_RG.variant_counts.tsv
+processed_data/HDRs/Tropical.variant_counts.tsv
+processed_data/HDRs/Tropical.thresh_cov.tsv
+processed_data/HDRs/Other_RG.thresh_cov.tsv
+processed_data/HDRs/CB_all_strain_vc.tsv
+processed_data/shared_SNPs/AD_boolean_matrix_wHead.tsv
+processed_data/shared_SNPs/KD_boolean_matrix_wHead.tsv
+processed_data/shared_SNPs/TD1_boolean_matrix_wHead.tsv
+processed_data/shared_SNPs/Temperate_boolean_matrix_wHead.tsv
+processed_data/shared_SNPs/TH_boolean_matrix_wHead.tsv
+processed_data/shared_SNPs/Tropical_boolean_matrix_wHead.tsv
+processed_data/shared_SNPs/Tropical_vs_AD.tsv
+processed_data/shared_SNPs/Tropical_vs_KD.tsv
+processed_data/shared_SNPs/Tropical_vs_TD1.tsv
+processed_data/shared_SNPs/Tropical_vs_Temperate.tsv
+processed_data/shared_SNPs/Tropical_vs_TH.tsv
