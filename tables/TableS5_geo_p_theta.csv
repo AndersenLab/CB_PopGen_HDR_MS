@@ -1,0 +1,14 @@
+Region,π value,θ value,Tajima's D,Number of strains
+All,0.0032,0.007,-1.563,715
+Non-cosmopolitan,0.0032,0.0067,-1.5282,697
+Asia,0.0035,0.0038,-0.2679,61
+Australia,0.005,0.0029,2.472,59
+Caribbean,0.001,0.0014,-1.1187,42
+Central_America,0.001,0.0014,-0.8994,121
+Hawaii,0.0015,0.0014,0.0326,81
+Pacific,0.0022,0.0023,-0.3177,54
+South_America,0.0012,0.0017,-1.0553,64
+Taiwan,0.003,0.0032,-0.328,160
+C. elegans - All,0.0021,0.0039,-1.4264,678
+C. elegans - Hawaii,0.003,0.0039,-0.8256,234
+C. briggsae - Thomas,0.0041,0.0051,-0.7605,36

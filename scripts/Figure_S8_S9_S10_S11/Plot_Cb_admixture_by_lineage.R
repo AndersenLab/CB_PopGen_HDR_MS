@@ -46,7 +46,7 @@ sample_names <- isotype_geo_info_ordered$isotype
 
 
 
-isotype_by_lineage_from_Nic_raw<-read.table("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250909.tsv",
+isotype_by_lineage_from_Nic_raw<-read.table("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv",
                                             header = TRUE,
                                             sep = '\t',
                                             comment.char  = "")
@@ -67,7 +67,7 @@ final_plots <- list()
 for (which_replicate in which_replicate) {
   
 
-best_k_qfile<-read.table(paste0("../../processed_data/Cb_admixture/K22_Processed_Ancestry_replicate_",which_replicate,".tsv"),
+best_k_qfile<-read.table(paste0("../../processed_data/genetic_similarity_and_admixutre/K22_Processed_Ancestry_replicate_",which_replicate,".tsv"),
                           header = TRUE)
 
 best_k_long_admix_pops <- best_k_qfile %>%
@@ -83,7 +83,7 @@ best_k_long_admix_pops <- best_k_qfile %>%
 
 
 write.csv(best_k_long_admix_pops,
-          paste0("../../processed_data/Cb_admixture/K22_best_k_long_admix_pops_replicate_",which_replicate,".csv")
+          paste0("../../processed_data/genetic_similarity_and_admixutre/K22_best_k_long_admix_pops_replicate_",which_replicate,".csv")
 )
   
 
@@ -409,7 +409,18 @@ final_plot <- plot_grid(
 )
 
 print(final_plot)
-ggsave(paste0("raw_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), final_plot, width = 10, height = 8, useDingbats = FALSE)
+# ggsave(paste0("FigureS10_raw_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
+#        final_plot, 
+#        width = 10, 
+#        height = 8, 
+#        useDingbats = FALSE)
+if (which_replicate == 5) {
+ggsave(paste0("../../figures/FigureS10_raw_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
+       final_plot, 
+       width = 10, 
+       height = 8, 
+       useDingbats = FALSE)
+}
 
 
 
@@ -423,7 +434,7 @@ ggsave(paste0("raw_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"
 
 
 
-best_k_qfile<-read.table(paste0("../../processed_data/Cb_admixture/K22_Processed_Ancestry_replicate_",which_replicate,".tsv"),
+best_k_qfile<-read.table(paste0("../../processed_data/genetic_similarity_and_admixutre/K22_Processed_Ancestry_replicate_",which_replicate,".tsv"),
                          header = TRUE)
 
 best_k_long_admix_pops <- best_k_qfile %>%
@@ -584,7 +595,7 @@ final_plot <- plot_grid(
 )
 
 print(final_plot)
-ggsave(paste0("raw_all_715_isotypes_by_lineage_replicate_",which_replicate,"_only_5_lineage.pdf"), final_plot, width = 10, height = 1.4, useDingbats = FALSE)
+# ggsave(paste0("raw_all_715_isotypes_by_lineage_replicate_",which_replicate,"_only_5_lineage.pdf"), final_plot, width = 10, height = 1.4, useDingbats = FALSE)
 
 
 final_plots[[ paste0("replicate_", which_replicate) ]] <- final_plot
@@ -598,8 +609,10 @@ final_plots
 combined_only_5_lineage <- plot_grid(plotlist = final_plots, ncol = 2, align = "v")
 combined_only_5_lineage
 
-ggsave("raw_combined_only_5_lineage.pdf", 
+# ggsave("raw_combined_only_5_lineage.pdf", 
+#        combined_only_5_lineage, 
+#        width = 10, height = 7)
+ggsave("../../figures/FigureS11_admixture_only_5_lineage.pdf", 
        combined_only_5_lineage, 
        width = 10, height = 7)
-
 

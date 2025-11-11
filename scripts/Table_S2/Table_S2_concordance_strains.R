@@ -27,7 +27,7 @@ gtcheck_TableS2<-gtcheck_TableS2 %>%
 
 
 write.csv(gtcheck_TableS2,
-          "TableS2.csv",
+          "../../tables/TableS2.csv",
           row.names = FALSE
           )
 

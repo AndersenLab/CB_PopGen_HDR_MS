@@ -13,14 +13,17 @@ library(reshape2)
 
 
 # Load input data. File was downloaded on April 2nd 2024.
-Cb_raw_csv<-read.csv("../../data/20250626_c_briggsae_strain_data.csv") 
+# Cb_raw_csv<-read.csv("../../data/20250626_c_briggsae_strain_data.csv") 
+# Cb_raw_csv<-read.csv("../../data/20250901_Cb_2018_strains_data.csv") 
+# 
+# 
+# 
+# ###### remove four likely "mixed" isotypes
+# Cb_raw_csv<-Cb_raw_csv %>% 
+#   filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
 
-###### remove four likely "mixed" isotypes
-Cb_raw_csv<-Cb_raw_csv %>% 
-  filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
-
-write.csv(Cb_raw_csv,"../../data/20250901_Cb_2018_strains_data.csv",
-          row.names = FALSE)
+# write.csv(Cb_raw_csv,"../../data/20250901_Cb_2018_strains_data.csv",
+#           row.names = FALSE)
 
 Cb_raw_csv<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
 
@@ -117,8 +120,8 @@ Cb_list <- plot_isotype_dist(
 )
 
 Cb_list$plot
-# ggsave("Cb_Haversine_distance_between_strains_main.pdf", plot = Cb_list$plot, width = 7.5, height = 4, units = "in")
-ggsave("Cb_Haversine_distance_between_strains_main.pdf", plot = Cb_list$plot, width = 7, height = 4, units = "in")
+# # ggsave("Cb_Haversine_distance_between_strains_main.pdf", plot = Cb_list$plot, width = 7.5, height = 4, units = "in")
+# ggsave("Cb_Haversine_distance_between_strains_main.pdf", plot = Cb_list$plot, width = 7, height = 4, units = "in")
 
 
 
@@ -342,18 +345,18 @@ Cb_fs1$plot
 Cb_fs1$plot_break
 
 View(Cb_fs1$strain_list)
-
-ggsave("FS1b_plot.png", 
-       plot = Cb_fs1$plot, 
-       width = 7,
-       height = 3, 
-       units = "in")
-
-ggsave("FS1b_plot_break.png", 
-       plot = Cb_fs1$plot_break, 
-       width = 7,
-       height = 3, 
-       units = "in")
+# 
+# ggsave("FS1b_plot.png", 
+#        plot = Cb_fs1$plot, 
+#        width = 7,
+#        height = 3, 
+#        units = "in")
+# 
+# ggsave("FS1b_plot_break.png", 
+#        plot = Cb_fs1$plot_break, 
+#        width = 7,
+#        height = 3, 
+#        units = "in")
 
 
 
@@ -494,18 +497,18 @@ Cb_fs1_max <- plot_max_fs1(
 Cb_fs1_max$plot
 Cb_fs1_max$plot_break
 
-
-ggsave("FS1b_max_plot.png", 
-       plot = Cb_fs1_max$plot, 
-       width = 7,
-       height = 3, 
-       units = "in")
-
-ggsave("FS1b_max_plot_break.png", 
-       plot = Cb_fs1_max$plot_break, 
-       width = 7,
-       height = 3, 
-       units = "in")
+# 
+# ggsave("FS1b_max_plot.png", 
+#        plot = Cb_fs1_max$plot, 
+#        width = 7,
+#        height = 3, 
+#        units = "in")
+# 
+# ggsave("FS1b_max_plot_break.png", 
+#        plot = Cb_fs1_max$plot_break, 
+#        width = 7,
+#        height = 3, 
+#        units = "in")
 
 
 
@@ -662,25 +665,25 @@ Cb_fs1_max_annot$plot
 Cb_fs1_max_annot$plot_break
 
 
-ggsave("FS1b_max_plot_annot.png", 
-       plot = Cb_fs1_max_annot$plot, 
-       width = 7,
-       height = 3, 
-       units = "in",
-       dpi = 600)
-
-ggsave("FS1b_max_plot_annot.pdf", 
-       plot = Cb_fs1_max_annot$plot, 
-       width = 7,
-       height = 3, 
-       units = "in")
-
-ggsave("FS1b_max_plot_break_annot.png", 
-       plot = Cb_fs1_max_annot$plot_break, 
-       width = 7,
-       height = 3, 
-       units = "in",
-       dpi = 600)
+# ggsave("FS1b_max_plot_annot.png", 
+#        plot = Cb_fs1_max_annot$plot, 
+#        width = 7,
+#        height = 3, 
+#        units = "in",
+#        dpi = 600)
+# 
+# ggsave("FS1b_max_plot_annot.pdf", 
+#        plot = Cb_fs1_max_annot$plot, 
+#        width = 7,
+#        height = 3, 
+#        units = "in")
+# 
+# ggsave("FS1b_max_plot_break_annot.png", 
+#        plot = Cb_fs1_max_annot$plot_break, 
+#        width = 7,
+#        height = 3, 
+#        units = "in",
+#        dpi = 600)
 
 
 
@@ -844,17 +847,17 @@ combined
 saveRDS(combined,"../../processed_data/assemble_figure_S1/geo_distance_plots.RData")
 
 
-ggsave("raw_FS1b_combined.png",
-       plot = combined,
-       width = 7,
-       height = 2.5,
-       units = "in",
-       dpi = 600)
-ggsave("raw_FS1b_combined.pdf",
-       plot = combined,
-       width = 7,
-       height = 2.5,
-       units = "in")
+# ggsave("raw_FS1b_combined.png",
+#        plot = combined,
+#        width = 7,
+#        height = 2.5,
+#        units = "in",
+#        dpi = 600)
+# ggsave("raw_FS1b_combined.pdf",
+#        plot = combined,
+#        width = 7,
+#        height = 2.5,
+#        units = "in")
 
 
 
@@ -919,11 +922,11 @@ p_map_Cosmopolitan_3_col <- ggplot(Cb_Cosmopolitan_isotype_info, aes(x = longitu
   theme(strip.text = element_text(size = 8))
 print(p_map_Cosmopolitan)
 
-ggsave("Cb_map_Cosmopolitan_isotypes_3_col.pdf", 
-       plot = p_map_Cosmopolitan_3_col, 
-       width = 7,
-       height = 7, 
-       units = "in")
+# ggsave("Cb_map_Cosmopolitan_isotypes_3_col.pdf", 
+#        plot = p_map_Cosmopolitan_3_col, 
+#        width = 7,
+#        height = 7, 
+#        units = "in")
 
 
 
@@ -950,11 +953,11 @@ p_map_Cosmopolitan_4_col <- ggplot(Cb_Cosmopolitan_isotype_info, aes(x = longitu
 
 print(p_map_Cosmopolitan_4_col)
 
-ggsave("Cb_map_Cosmopolitan_isotypes_4_col.pdf", 
-       plot = p_map_Cosmopolitan_4_col, 
-       width = 7,
-       height = 5.4625, 
-       units = "in")
+# ggsave("Cb_map_Cosmopolitan_isotypes_4_col.pdf", 
+#        plot = p_map_Cosmopolitan_4_col, 
+#        width = 7,
+#        height = 5.4625, 
+#        units = "in")
 ### (4.37 / 4) * 5 = 5.4625
 
 
@@ -1004,16 +1007,16 @@ combined_plot <- ggdraw() +
 combined_plot
 
 
-### The gap between panels is 0.05 inches.
-#### (((7-0.15)/4)/2.612 *5)+0.2 = 3.478139
-ggsave("raw_Cb_map_Cosmopolitan_isotypes_combined_plot.pdf",
-       plot = combined_plot,
-       width = 7*1.4,
-       height = 3.478139*1.4,
-       units = "in")
+# ### The gap between panels is 0.05 inches.
+# #### (((7-0.15)/4)/2.612 *5)+0.2 = 3.478139
+# ggsave("raw_Cb_map_Cosmopolitan_isotypes_combined_plot.pdf",
+#        plot = combined_plot,
+#        width = 7*1.4,
+#        height = 3.478139*1.4,
+#        units = "in")
 
 
-save(combined_plot, file = "../../processed_data/Figure_S2/Cosmo_18_maps.RData")
+save(combined_plot, file = "../../processed_data/assemble_Figure_S2/Cosmo_18_maps.RData")
 
 
 

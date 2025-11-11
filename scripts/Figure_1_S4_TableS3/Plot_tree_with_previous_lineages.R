@@ -55,7 +55,9 @@ annotation_maps_raw<- read.csv("../../processed_data/geo_info/Cb_indep_isotype_i
 
 
 
-raw_data<-read.csv("../../data/20250626_c_briggsae_strain_data.csv")
+# raw_data<-read.csv("../../data/20250626_c_briggsae_strain_data.csv")
+raw_data<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
+
 indep_isotype_info<- raw_data
 
 sample_list<- read.table("../../processed_data/Cb_pruned_VCF_and_PCA/sample_list.txt")
@@ -72,19 +74,21 @@ WI_isotype_info<-raw_data %>%
 
 
 library(readxl)
-raw_excel<-readxl::read_excel("../../data/C. briggsae WI strain info_20250515.xlsx")
+# raw_excel<-readxl::read_excel("../../data/C. briggsae WI strain info_20250515.xlsx")
 
 sample_list<- read.table("../../processed_data/Cb_pruned_VCF_and_PCA/sample_list.txt")
 nrow(sample_list)
 #715
 
-WI_isotype_info_temperature<-raw_excel %>% 
+WI_isotype_info_temperature<-raw_data %>% 
   filter(strain %in% sample_list$V1) %>% 
   rename(lat=latitude) %>% 
   rename(long=longitude) %>% 
   mutate(isotype=strain) %>% 
   select(isotype,lat,long,ambient_temp) %>% 
-  mutate(ambient_temp = na_if(ambient_temp, "NA"))  ### There is a lot of manually typed "NA" characters in the raw data sheet
+  mutate(ambient_temp = as.numeric(na_if(as.character(ambient_temp), "NA")))
+
+  # mutate(ambient_temp = na_if(ambient_temp, "NA"))  ### There is a lot of manually typed "NA" characters in the raw data sheet
 
 WI_isotype_info_temperature<-WI_isotype_info_temperature
 
@@ -107,11 +111,11 @@ average_temperature<-WI_isotype_info_temperature %>%
   mutate(average_temp = as.numeric(average_temp)) %>%
   as.data.frame()
 
-write.table(average_temperature,
-            "isotypes_average_temperature.tsv",
-            sep = '\t',
-            row.names = FALSE,
-            quote = FALSE)
+# write.table(average_temperature,
+#             "isotypes_average_temperature.tsv",
+#             sep = '\t',
+#             row.names = FALSE,
+#             quote = FALSE)
 
 
 
@@ -121,10 +125,11 @@ write.table(average_temperature,
 
 
 
+thomas_paper_tree_annotation_raw<-read.table("../../data/Thomas_paper_tree_annotation/thomas_paper_tree_annotation.txt",
+                                             header = TRUE)
 
-
-thomas_paper_tree_annotation_raw<-read.table("../../tables/Thomas_paper_tree_annotation/thomas_paper_tree_annotation.txt",
-                 header = TRUE)
+# thomas_paper_tree_annotation_raw<-read.table("../../tables/Thomas_paper_tree_annotation/thomas_paper_tree_annotation.txt",
+#                  header = TRUE)
 thomas_paper_tree_annotation<-thomas_paper_tree_annotation_raw %>% 
   rename(Lineages=Phylogeographic_clade) %>% 
   rename(Lineages_color = color) %>% 
@@ -205,7 +210,9 @@ annotation_maps<-annotation_maps_raw %>%
 ### color of Relatedness groups
 library(readr)
 # lineage_raw<-readr::read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250828.tsv")
-lineage_raw<-readr::read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+# lineage_raw<-readr::read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+
 lineage_df<-lineage_raw %>% 
   select(isotype,Lineage,lineage_color) %>% 
   filter(!(isotype %in% c("MY681", "ECA1146", "JU356", "ECA1503")))
@@ -426,7 +433,7 @@ plot_0.9_tree_2heatmap_main<-plot_tree_three_heatmap(isotype_map_0.9,
                                                 add_tiplab = FALSE)
 
 
-ggsave("raw_Cb_tree_0.9_3heatmap_main.pdf", plot = plot_0.9_tree_2heatmap_main, width = 7, height = 7, units = "in")
+# ggsave("raw_Cb_tree_0.9_3heatmap_main.pdf", plot = plot_0.9_tree_2heatmap_main, width = 7, height = 7, units = "in")
 
 
 
@@ -441,8 +448,8 @@ plot_0.9_tree_2heatmap_supp<-plot_tree_three_heatmap(isotype_map_0.9,
                                                annotation_MAF_file = gene_segments_trees_annotation,
 )
 plot_0.9_tree_2heatmap_supp
-ggsave("raw_Cb_tree_0.9_3heatmap_supp.pdf", 
-       plot = plot_0.9_tree_2heatmap_supp, 
+ggsave("../../figures/Figure_S3_raw_Cb_tree.pdf",
+       plot = plot_0.9_tree_2heatmap_supp,
        width = 7, height = 7, units = "in")
 
 
@@ -510,12 +517,12 @@ plot_0.9_tree_equal_angle_rotated<-plot_equal_angle_tree_rotated(isotype_map_0.9
                                                                  annotation_map_file = annotation_maps)
 
 plot_0.9_tree_equal_angle_rotated
-saveRDS(plot_0.9_tree_equal_angle_rotated, 
-        file = "../../processed_data/assemble_figure_1/Cb_plot_0.9_tree_equal_angle_rotated.rds")
-
-ggsave("Cb_tree_0.9_midpoint_root.pdf", 
-       plot = plot_0.9_tree_equal_angle_rotated, 
-       width = 7, height = 7, units = "in")
+# saveRDS(plot_0.9_tree_equal_angle_rotated, 
+#         file = "../../processed_data/assemble_figure_1/Cb_plot_0.9_tree_equal_angle_rotated.rds")
+# 
+# ggsave("Cb_tree_0.9_midpoint_root.pdf", 
+#        plot = plot_0.9_tree_equal_angle_rotated, 
+#        width = 7, height = 7, units = "in")
 
 
 
@@ -532,7 +539,7 @@ plot_0.9_tree_equal_angle_rotated_not_rooted
 saveRDS(plot_0.9_tree_equal_angle_rotated_not_rooted, 
         file = "../../processed_data/assemble_figure_1/Cb_plot_0.9_tree_equal_angle_rotated_not_rooted.rds")
 
-ggsave("Cb_tree_0.9_not_rooted.pdf", 
-       plot = plot_0.9_tree_equal_angle_rotated_not_rooted, 
-       width = 7, height = 7, units = "in")
+# ggsave("Cb_tree_0.9_not_rooted.pdf", 
+#        plot = plot_0.9_tree_equal_angle_rotated_not_rooted, 
+#        width = 7, height = 7, units = "in")
 

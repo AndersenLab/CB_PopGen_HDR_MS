@@ -15,7 +15,7 @@ calculate_diversity<-function(custom_region,
   if (!is.null(custom_path)) {
     Geo_stat_raw <- read.csv(custom_path)
   } else {
-  file_path <- c('../../processed_data/pi_theta_d_geo/region/chromosome_windows_diversity.csv')
+  file_path <- c('../../processed_data/diversity_and_divergence/pi_theta_d_geo/region/chromosome_windows_diversity.csv')
   new_file_path <- gsub("region", custom_region, file_path)
   Geo_stat_raw <- read.csv(new_file_path)
   }
@@ -44,9 +44,9 @@ North_America_theta<-calculate_diversity("North_America","theta")
 Pacific_theta<-calculate_diversity("Pacific","theta")
 South_America_theta<-calculate_diversity("South_America","theta")
 Taiwan_theta<-calculate_diversity("Taiwan","theta")
-Ce_all_theta<-calculate_diversity(diversity_type="theta",custom_path = "../../processed_data/Ce_pi_theta_d/chromosome_windows_diversity.csv")
-Ce_Hawaii_theta<-calculate_diversity(diversity_type="theta",custom_path = "../../processed_data/Ce_Hawaii/chromosome_windows_diversity.csv")
-Cb_Thomas_theta<-calculate_diversity(diversity_type="theta",custom_path = "../../processed_data/Thomas_pi_theta_d/chromosome_windows_diversity.csv")
+Ce_all_theta<-calculate_diversity(diversity_type="theta",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Ce_pi_theta_d/chromosome_windows_diversity.csv")
+Ce_Hawaii_theta<-calculate_diversity(diversity_type="theta",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Ce_Hawaii/chromosome_windows_diversity.csv")
+Cb_Thomas_theta<-calculate_diversity(diversity_type="theta",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Thomas_pi_theta_d/chromosome_windows_diversity.csv")
 
 
 Cb_cosmopolitan_isotype_removed_pi<-calculate_diversity("Cb_non_cosmopolitan","pi")
@@ -61,9 +61,9 @@ North_America_pi<-calculate_diversity("North_America","pi")
 Pacific_pi<-calculate_diversity("Pacific","pi")
 South_America_pi<-calculate_diversity("South_America","pi")
 Taiwan_pi<-calculate_diversity("Taiwan","pi")
-Ce_all_pi<-calculate_diversity(diversity_type="pi",custom_path = "../../processed_data/Ce_pi_theta_d/chromosome_windows_diversity.csv")
-Ce_Hawaii_pi<-calculate_diversity(diversity_type="pi",custom_path = "../../processed_data/Ce_Hawaii/chromosome_windows_diversity.csv")
-Cb_Thomas_pi<-calculate_diversity(diversity_type="pi",custom_path = "../../processed_data/Thomas_pi_theta_d/chromosome_windows_diversity.csv")
+Ce_all_pi<-calculate_diversity(diversity_type="pi",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Ce_pi_theta_d/chromosome_windows_diversity.csv")
+Ce_Hawaii_pi<-calculate_diversity(diversity_type="pi",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Ce_Hawaii/chromosome_windows_diversity.csv")
+Cb_Thomas_pi<-calculate_diversity(diversity_type="pi",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Thomas_pi_theta_d/chromosome_windows_diversity.csv")
 
 
 Cb_cosmopolitan_isotype_removed_d<-calculate_diversity("Cb_non_cosmopolitan","d")
@@ -78,13 +78,13 @@ North_America_d<-calculate_diversity("North_America","d")
 Pacific_d<-calculate_diversity("Pacific","d")
 South_America_d<-calculate_diversity("South_America","d")
 Taiwan_d<-calculate_diversity("Taiwan","d")
-Ce_all_d<-calculate_diversity(diversity_type="d",custom_path = "../../processed_data/Ce_pi_theta_d/chromosome_windows_diversity.csv")
-Ce_Hawaii_d<-calculate_diversity(diversity_type="d",custom_path = "../../processed_data/Ce_Hawaii/chromosome_windows_diversity.csv")
-Cb_Thomas_d<-calculate_diversity(diversity_type="d",custom_path = "../../processed_data/Thomas_pi_theta_d/chromosome_windows_diversity.csv")
+Ce_all_d<-calculate_diversity(diversity_type="d",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Ce_pi_theta_d/chromosome_windows_diversity.csv")
+Ce_Hawaii_d<-calculate_diversity(diversity_type="d",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Ce_Hawaii/chromosome_windows_diversity.csv")
+Cb_Thomas_d<-calculate_diversity(diversity_type="d",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Thomas_pi_theta_d/chromosome_windows_diversity.csv")
 
 
 
-species_wide_stats<-read.csv(file = "../../processed_data/pi_theta_d/chromosome_windows_diversity.csv")
+species_wide_stats<-read.csv(file = "../../processed_data/diversity_and_divergence/pi_theta_d/chromosome_windows_diversity.csv")
 
 species_pi <- species_wide_stats %>%
   dplyr::filter(stat_type == "pi") %>%
@@ -179,7 +179,7 @@ Ce_isotypes_all<-Ce_isotype_groups_raw %>%
 nrow(Ce_isotypes_all)
 Ce_all_n<-nrow(Ce_isotypes_all)
 
-Ce_Hawaii_list<-read.csv("../../processed_data/Ce_Hawaii/Ce_Hawaii_isotypes.csv")
+Ce_Hawaii_list<-read.csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Ce_Hawaii/Ce_Hawaii_isotypes.csv")
 nrow(Ce_Hawaii_list)
 Ce_Hawaii_n<-nrow(Ce_Hawaii_list)
 
@@ -206,10 +206,10 @@ all_result<-dplyr::left_join(geo_diversity_result,
                              by = c("Region"))
 
 
-write.csv(file = "Table_geo_p_theta_d.csv",all_result,quote = FALSE,
-          row.names = FALSE)
+# write.csv(file = "Table_geo_p_theta_d.csv",all_result,quote = FALSE,
+#           row.names = FALSE)
 
-write.csv(file = "../../tables/pi_theta_d_Ne_OR/Table_geo_p_theta.csv",all_result,quote = FALSE,
+write.csv(file = "../../tables/TableS5_geo_p_theta.csv",all_result,quote = FALSE,
           row.names = FALSE)
 
 

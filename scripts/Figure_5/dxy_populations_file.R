@@ -4,7 +4,7 @@ rm(list=ls())
 library(readr)
 library(dplyr)
 
-lineage<- read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% 
+lineage<- read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% 
   select(isotype,Lineage)
 
 
@@ -25,32 +25,74 @@ Tropical_TH<-lineage %>%
 
 
 
+# write.table(Tropical_AD,"../../processed_data/Dxy_Tropical/Tropical_AD.txt",
+#             quote = FALSE,  
+#             row.names = FALSE,
+#             col.names = FALSE,
+#             sep = '\t')
+# 
+# 
+# 
+# write.table(Tropical_KD,"../../processed_data/Dxy_Tropical/Tropical_KD.txt",
+#             quote = FALSE,  
+#             row.names = FALSE,
+#             col.names = FALSE,
+#             sep = '\t')
+# 
+# 
+# 
+# write.table(Tropical_TD1,"../../processed_data/Dxy_Tropical/Tropical_TD1.txt",
+#             quote = FALSE,  
+#             row.names = FALSE,
+#             col.names = FALSE,
+#             sep = '\t')
+# 
+# 
+# write.table(Tropical_Temperate,"../../processed_data/Dxy_Tropical/Tropical_Temperate.txt",
+#             quote = FALSE,  
+#             row.names = FALSE,
+#             col.names = FALSE,
+#             sep = '\t')
+# 
+# 
+# 
+# 
+# write.table(Tropical_TH,"../../processed_data/Dxy_Tropical/Tropical_TH.txt",
+#             quote = FALSE,  
+#             row.names = FALSE,
+#             col.names = FALSE,
+#             sep = '\t')
 
-write.table(Tropical_AD,"../../processed_data/Dxy_Tropical/Tropical_AD.txt",
-            quote = FALSE,  
+
+diversity_and_divergence
+
+
+
+write.table(Tropical_AD,"../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_AD.txt",
+            quote = FALSE,
             row.names = FALSE,
             col.names = FALSE,
             sep = '\t')
 
 
 
-write.table(Tropical_KD,"../../processed_data/Dxy_Tropical/Tropical_KD.txt",
-            quote = FALSE,  
+write.table(Tropical_KD,"../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_KD.txt",
+            quote = FALSE,
             row.names = FALSE,
             col.names = FALSE,
             sep = '\t')
 
 
 
-write.table(Tropical_TD1,"../../processed_data/Dxy_Tropical/Tropical_TD1.txt",
-            quote = FALSE,  
+write.table(Tropical_TD1,"../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_TD1.txt",
+            quote = FALSE,
             row.names = FALSE,
             col.names = FALSE,
             sep = '\t')
 
 
-write.table(Tropical_Temperate,"../../processed_data/Dxy_Tropical/Tropical_Temperate.txt",
-            quote = FALSE,  
+write.table(Tropical_Temperate,"../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_Temperate.txt",
+            quote = FALSE,
             row.names = FALSE,
             col.names = FALSE,
             sep = '\t')
@@ -58,8 +100,8 @@ write.table(Tropical_Temperate,"../../processed_data/Dxy_Tropical/Tropical_Tempe
 
 
 
-write.table(Tropical_TH,"../../processed_data/Dxy_Tropical/Tropical_TH.txt",
-            quote = FALSE,  
+write.table(Tropical_TH,"../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_TH.txt",
+            quote = FALSE,
             row.names = FALSE,
             col.names = FALSE,
             sep = '\t')

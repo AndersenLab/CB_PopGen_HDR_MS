@@ -20,7 +20,8 @@ geo_info<-geo_info_raw
 
 ## latest_lineage 20250909
 library(readr)
-lineage_raw<-read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% 
+# lineage_raw<-read_tsv("../../data/From_Nic/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% 
+lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% 
   filter(!(isotype %in% c("MY681", "ECA1146", "JU356", "ECA1503")))
 
 plot_PCA<-function(PCA_input, tracy_for_plot_input, x_axis, y_axis){
@@ -199,13 +200,13 @@ iteration_5_results<-plot_remove_out_liner(TracyWidom_file=TracyWidom_5,
                                         n_iterations = "5")
 iteration_5_results$p_iteration
 
-ggsave(
-  "Cb_rm_out_liner_5_iterations_PCA_plot_PC1_4_with_density.pdf", 
-  plot = iteration_5_results$p_iteration, 
-  width = 7, 
-  height = 3,   
-  units = "in"
-)
+# ggsave(
+#   "Cb_rm_out_liner_5_iterations_PCA_plot_PC1_4_with_density.pdf", 
+#   plot = iteration_5_results$p_iteration, 
+#   width = 7, 
+#   height = 3,   
+#   units = "in"
+# )
 
 
 
@@ -247,13 +248,13 @@ diff_iso<-setdiff(lineage_raw$isotype,iter_5_df$isotype)
 
 removed_isotypes_df<-lineage_raw %>% 
   filter(isotype %in% diff_iso)
-write.csv(removed_isotypes_df,"removed_isotypes_df.csv",row.names = FALSE)
+# write.csv(removed_isotypes_df,"removed_isotypes_df.csv",row.names = FALSE)
 
 
 removed_isotypes_df_summary<-removed_isotypes_df %>% 
   group_by(Lineage) %>% 
   summarise(n=n())
-write.csv(removed_isotypes_df_summary,"removed_isotypes_df_summary.csv",row.names = FALSE)
+# write.csv(removed_isotypes_df_summary,"removed_isotypes_df_summary.csv",row.names = FALSE)
 
 
 
@@ -542,9 +543,9 @@ final_plot <- cowplot::plot_grid(
   axis = "lr"
 )
 
-
+final_plot
 ggsave(
-  "Cb_iteration_5_30_PCA_cowplot.pdf",
+  "../../figures/FigureS6_Cb_iteration_5_40_PCA.pdf",
   plot = final_plot,
   width = 7,
   height = 7,

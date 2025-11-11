@@ -1,0 +1,6 @@
+# ---- System files ----
+.DS_Store
+
+# ---- R and RStudio ----
+.Rhistory
+.RData
