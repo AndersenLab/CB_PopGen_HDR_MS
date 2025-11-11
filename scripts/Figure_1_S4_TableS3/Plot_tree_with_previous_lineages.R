@@ -448,7 +448,7 @@ plot_0.9_tree_2heatmap_supp<-plot_tree_three_heatmap(isotype_map_0.9,
                                                annotation_MAF_file = gene_segments_trees_annotation,
 )
 plot_0.9_tree_2heatmap_supp
-ggsave("../../figures/Figure_S3_raw_Cb_tree.pdf",
+ggsave("../../figures/FigureS4_raw_Cb_tree.pdf",
        plot = plot_0.9_tree_2heatmap_supp,
        width = 7, height = 7, units = "in")
 
