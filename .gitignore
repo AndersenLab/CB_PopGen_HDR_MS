@@ -18,6 +18,7 @@ processed_data/shared_SNPs/Tropical_vs_TD1.tsv
 processed_data/shared_SNPs/Tropical_vs_Temperate.tsv
 processed_data/shared_SNPs/Tropical_vs_TH.tsv
 processed_data/gene_diversity/c_briggsae.QX1410_20250929.csq.gff
+processed_data/genetic_similarity_and_admixutre/strain_gtcheck.txt
 # ---- R and RStudio ----
 .RData
 .Rhistory
