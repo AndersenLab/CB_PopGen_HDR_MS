@@ -8,7 +8,7 @@ library(cowplot)
 
 source("../utilities.R")
 
-gtcheck_raw <- read.delim("../../data/gtcheck.txt") 
+gtcheck_raw <- read.delim("../../processed_data/genetic_similarity_and_admixutre/strain_gtcheck.txt") 
 
 # gtcheck_raw <- read.delim("../../processed_data/concordance_all_strains/gtcheck.txt") 
 
