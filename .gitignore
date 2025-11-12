@@ -1,4 +1,3 @@
-
 .DS_Store
 # Ignore large data files
 processed_data/HDRs/CB_all_strain_vc.tsv
@@ -19,6 +18,10 @@ processed_data/shared_SNPs/Tropical_vs_Temperate.tsv
 processed_data/shared_SNPs/Tropical_vs_TH.tsv
 processed_data/gene_diversity/c_briggsae.QX1410_20250929.csq.gff
 processed_data/genetic_similarity_and_admixutre/strain_gtcheck.txt
+processed_data/gene_diversity/CBCN_L1L2_master.tsv
+processed_data/gene_diversity/CBCN_nucmer_db_20250603.tsv
+processed_data/gene_diversity/CBCN_orthogroups.tsv
+>>>>>>> Stashed changes
 # ---- R and RStudio ----
 .RData
 .Rhistory

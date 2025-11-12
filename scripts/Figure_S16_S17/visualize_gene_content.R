@@ -8,46 +8,71 @@ library(ape)
 library(data.table)
 library(stringr)
 
+##### NOTES #####
+#This script seeks to visualize structurally complex HDRs. This is not a fully automated process and requires attention.
+#Some genomes will display unique structural differences that lack reliable anchors of homologous sequences that map adjacent to a selected reference genomic region.
+#In result, each region can require manual tweaks to the selected reference boudaries in order to find the homologous anchors.
+#Additionally, to ensure we are not artificially assembling a haplotype using contigs mapped from different chromosomes, we can only confidently visualize regions that 
+#are encompassed by a single contig mapping between the reference and wild strain genomes.
+#Since strain de-novo genome assemblies vary in contiguity and completeness, some genomes must be manually dropped to avoid visualizing an incomplete or fragmented haplotype.
+#Lines of code preceded with "MODIFY THIS" allow you explore regions adjacent to the initially selected reference genomic region 
+#or select the strains that will be displayed when genome mapping issues are identified in the initial diagnostic plots.
+#################
+
 #read all pairwise genome coordinate comparisons
-transformed_coords <- readr::read_tsv("../processed_data/CBCN_nucmer_db_20250603.tsv",col_names = F) 
+transformed_coords <- readr::read_tsv("../../processed_data/gene_diversity/CBCN_nucmer_db_20250603.tsv",col_names = F) 
 colnames(transformed_coords) <- c("S1","E1","S2","E2","L1","L2","IDY","LENR","LENQ","REF","HIFI","STRAIN")
 transformed_coords <- transformed_coords %>% dplyr::filter(!STRAIN=="AF16" & !STRAIN=="JU1422")
 
-#read concatentated gene models of every genome
-gffCat <- readr::read_tsv("../processed_data/CBCN_L1L2_master.tsv", col_names = F)
+#read concatentated gene models of every genome (L3 features are removed)
+gffCat <- readr::read_tsv("../../processed_data/gene_diversity/CBCN_L1L2_master.tsv", col_names = F)
 colnames(gffCat) <- c("seqid","source","type","start","end","score","strand","phase","attributes","STRAIN")
 gffCat <- gffCat %>% dplyr::filter(!STRAIN=="AF16.WBPS19" & !STRAIN=="JU1422.WBPS19") %>% dplyr::mutate(STRAIN=ifelse(STRAIN=="QX1410.curated","QX1410",STRAIN))
 
-
 #read ortholog relationships among gene models
 #orthos <- readr::read_tsv("./input/Orthogroups.tsv")
-orthos <- readr::read_tsv("../processed_data/Orthogroups.tsv") %>% dplyr::rename(QX1410=QX1410.curated.longest.protein)
+orthos <- readr::read_tsv("../../processed_data/gene_diversity/CBCN_orthogroups.tsv") %>% dplyr::rename(QX1410=QX1410.curated.longest.protein)
 strainCol <- colnames(orthos)
 strainCol_c1 <- gsub(".braker.longest.protein","",strainCol)
 strainCol_c2 <- gsub(".longest.protein","",strainCol_c1)
 colnames(orthos) <- strainCol_c2
-orthos <- orthos %>% dplyr::select(-AF16.WBPS19,-JU1422.WBPS19) 
+orthos <- orthos %>% dplyr::select(-AF16.WBPS19,-JU1422.WBPS19) #other reference genomes (AF16, C. briggsae; JU1422, C. nigoni) can be included by dropping this line
 #orthos <- orthos %>%dplyr::select(Orthogroup,CB4856,N2)
 #strainCol_c2 <-colnames(orthos)
 
+#list of nigoni strains included in orthofinder
+#mainly included for exploratory purposes, they are later omitted from the plots due to lack of homology in chromosomal arms between both C.b. and C.n.
 nigonis <- c("JU1422","ECA2852","ECA2857","EG5268","JU1418","JU2617","JU1419","JU2484","JU4356","NIC2143","NIC2150","NIC2152","VSL2202","VX153","YR106","ZF1220")
 #refs <- c("MY681","JU3207","JU2536")
 
+######### MODIFY THIS ##########
 #set your target HDR coordinates
-#e.g.:
-# hdr_chrom = "II"
-# hdr_start_pos = 12920000
-# hdr_end_pos = 13020000
+# Figure S17a - 70 kb
+hdr_chrom = "V"
+hdr_start_pos = 838000
+hdr_end_pos = 894000
 
-hdr_chrom = "I"
-hdr_start_pos = 11880000
-hdr_end_pos = 12000000
+#Figure S17b - 110kb
+# hdr_chrom = "II"
+# hdr_start_pos = 12500000
+# hdr_end_pos = 12610000
+
+#Figure S17c - 175kb
+# hdr_chrom = "I"
+# hdr_start_pos = 12469000
+# hdr_end_pos = 12644000
+
+#Figure S16 - 120 kb
+# hdr_chrom = "I"
+# hdr_start_pos = 11880000
+# hdr_end_pos = 12000000
 
 #offset lets you explore adjacent regions
 offset = 0
 hap_chrom = hdr_chrom
 hap_start = hdr_start_pos - offset
 hap_end = hdr_end_pos + offset 
+############################### 
 
 #use reference coordinates from g2g alginments to pull the contigs that contain the alt haplotypes for the HDR
 hap_coords <- transformed_coords %>%
@@ -60,7 +85,7 @@ hap_coords <- transformed_coords %>%
   # dplyr::rename(S2=newS2,E2=newE2)
 
 # naive visualization of g2g alignments for the target region
-# multiple contigs may map to the REF region, we need to filter those!
+# multiple contigs can map to the REF region, we need to filter those secondary alignments!
 ggplot(hap_coords) + 
   geom_rect(xmin=hap_start/1e6,xmax=hap_end/1e6,ymin=-Inf,ymax=Inf,fill="lightgrey")+
   geom_segment(aes(x=S1/1e6,xend=E1/1e6,y=S2/1e6,yend=E2/1e6,color=HIFI)) +
@@ -89,8 +114,8 @@ tigFilt <- hap_coords %>%
 #after the optimal contig is selected, we can see if the HDR boundaries are within the alignment
 #for proper visualization, the HDR (grey box in plot) needs to be encompassed by the selected contig
 #otherwise some haplotypes will be truncated 
-#a step to drop genomes with incomplete coverage of the HDR could be added
-#have in mind that the alignments look fragmented because of sequence divergence, but the contig is linear in the genome file
+#a step to automatically drop genomes with incomplete coverage of the HDR could be added in the future
+#have in mind that the alignments look fragmented because of sequence divergence, but the contig is linear in the original genome assembly
 ggplot(tigFilt) +
   geom_rect(xmin=hap_start/1e6,xmax=hap_end/1e6,ymin=-Inf,ymax=Inf,fill="lightgrey")+
   #geom_rect(xmin=16219634/1e6,xmax=16221917/1e6,ymin=-Inf,ymax=Inf,aes(fill="glc-1")) +
@@ -108,7 +133,7 @@ tigFilt2 <- tigFilt %>%
   dplyr::arrange(St2) %>%
   dplyr::group_by(STRAIN) %>%
   dplyr::mutate(leadDiff=lead(St2)-Et2) %>%
-  dplyr::mutate(jump=ifelse(leadDiff > 5e4,1,0)) %>%
+  dplyr::mutate(jump=ifelse(leadDiff > 5e4,1,0)) %>% #CAN MODIFY THIS - this is the maximum physical distance allowed between wild genome alignments
   dplyr::mutate(leadDiff=ifelse(is.na(leadDiff),0,leadDiff)) %>%
   dplyr::mutate(run_id = cumsum(c(1, head(jump, -1)))) %>%
   dplyr::ungroup() %>%
@@ -122,6 +147,7 @@ tigFilt2 <- tigFilt %>%
   dplyr::select(-gsize) %>%
   dplyr::ungroup()
 
+#visualization after small distant alignments are removed
 ggplot(tigFilt2) +
   geom_rect(xmin=hap_start/1e6,xmax=hap_end/1e6,ymin=-Inf,ymax=Inf,fill="lightgrey")+
   geom_segment(aes(x=S1/1e6,xend=E1/1e6,y=S2/1e6,yend=E2/1e6,color=HIFI)) +
@@ -219,7 +245,6 @@ QX_tran <- gffCat %>%
 QX_tran_reg <- QX_tran %>%
   dplyr::filter((start >= hap_start & start <= hap_end) | (end >= hap_start & end <= hap_end))  %>%
   dplyr::filter(seqid==hap_chrom)
-
 
 # #get gene list
 HV_genelist <- QX_tran_reg$tranname 
@@ -455,16 +480,23 @@ reassess_distal <- QX_ad %>% dplyr::filter(has_any_ortho==T & has_bound_ortho==F
 
 g_count <- length(unique(QX_ad$Parent))
 
-
 allstrain_list <- unique(boundGenes$STRAIN)[!unique(boundGenes$STRAIN) %in% nigonis]
-lineages <- readr::read_tsv("../processed_data/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% dplyr::filter(isotype %in% allstrain_list)
-lineage_order <- c("QX1410",lineages$isotype[!lineages$isotype %in% c("QX1410")])
+#lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% dplyr::filter(isotype %in% allstrain_list)
+#lineage_order <- c("QX1410",lineages$isotype[!lineages$isotype %in% c("QX1410")])
 
-#select and organized how genomes are displayed
-test_order <- c("QX1795","NIC1667","NIC1660","QG2665","JU3237","ECA2670","ECA2666","JU1348","JU3200", "NIC1593","TWN1824","BRC20492","ED3102","ECA163","JU2536","VX34")
+######### MODIFY THIS ##########
+#select and organize how genomes are displayed
+desired_strains <- c("QX1410","QG1005","QG2964","ED3102","QG2902","BRC20492","BRC20530","ECA2670","NIC1667", "ECA2666","JU1348")
+
+#the ref genome (QX1410 is omitted from WI_ad as it is handled separately)
+#MY681 has been flagged for removal due to a potential mixture during library prepped
+#Additional strains can be removed from display (e.g.: lack of genome coverage on adjacent regions to the HDR - anchoring regions to haplotype of interest is not properly mapped)
+always_omit_WI_ad <- c("QX1410","MY681")
+###############################
 
 WI_ad <- boundGenes %>% 
-  dplyr::filter(STRAIN %in% test_order & !STRAIN %in% c("QX1410","QG786","MY681","BRC20341")) %>%
+  dplyr::filter(STRAIN %in% desired_strains & !STRAIN %in% always_omit_WI_ad) %>% #handle selection
+  #dplyr::filter(!STRAIN %in% nigonis & !STRAIN %in% always_omit_WI_ad) #if no selection/order is desired, then simply display all briggsae genomes (Figure S16)
   dplyr::left_join(all_ortho_pairs_raw,by=c("STRAIN","tranname")) %>%
   dplyr::mutate(tr_has_any_ortho=ifelse(is.na(has_any_ortho),F,has_any_ortho)) %>%
   dplyr::left_join(all_ortho_pairs_bound %>% dplyr::select(tranname,STRAIN,QX1410,status) %>% dplyr::filter(QX1410 %in% QX_ad$tranname),by=c("STRAIN","tranname")) %>%
@@ -492,7 +524,7 @@ WI_ad <- boundGenes %>%
   dplyr::mutate(order_gene = dplyr::first(first_gene),
          order_num = dplyr::first(n_gene)) %>% 
   dplyr::ungroup() %>%
-  dplyr::mutate(STRAIN = factor(STRAIN, levels = rev(test_order))) %>%
+  dplyr::mutate(STRAIN = factor(STRAIN, levels = rev(desired_strains))) %>% #can be commented out if no order is desired
   dplyr::arrange(STRAIN, order_gene, order_num) %>%
   dplyr::select(-order_gene, -order_num) %>%
   dplyr::mutate(g_diff = abs(n_gene-g_count)) %>%
@@ -571,7 +603,7 @@ all_hap <- ggplot() +
   #scale_color_manual(values=c("multi_copy"="black","single_copy"="grey")) +
   scale_fill_manual(values=c("has_local_ortho"="grey","has_distal_ortho"="black","no_known_ortho"="red","no_known_allelic_CB"="blue")) +
   scale_x_continuous(expand = c(0.01,0)) +
-  ylab("58 isotype strains")#+
+  ylab("")#+
 #geom_segment(data=tigs,aes(x=S2_adj,xend=E2_adj,y=0.7,yend=0.7,col=INV))
 all_hap
 
@@ -620,7 +652,7 @@ trapezium_polys <- trapeziums %>%
   }) %>%
   dplyr::ungroup()
 
-# Extract unique aliases at y_pos 77 in order of increasing start position
+# Extract unique aliases at y_pos max+1 in order of increasing start position
 ordered_aliases <- plot_ad %>%
   filter(y_pos == max(plot_ad$y_pos)) %>%
   arrange(start) %>%
@@ -650,7 +682,7 @@ final_colors <- c(final_colors, "Unknown gene" = "darkgrey")
 
 
 plot_ad_segments <- plot_ad %>%
-  mutate(
+  dplyr::mutate(
     # Adjust strand logic if inverted
     strand_logic = case_when(
       strand == "+" & !inv ~ "+",
@@ -672,12 +704,12 @@ all_hap_bg <- ggplot() +
                aes(x = x, y = y, group = group, fill = alias)) +
   geom_rect(data = plot_ad %>% dplyr::mutate(alias=ifelse(is.na(alias),"Unknown gene",as.character(alias))),
             aes(xmin = start, xmax = end, ymin = y_pos + 0.2, ymax = y_pos - 0.2, fill = alias),color = "black") +
-  geom_segment(
-    data = plot_ad_segments,
-    aes(x = x_start, xend = x_end, y = y_seg, yend = y_seg, color = seg_color),
-    linewidth = 0.5,
-    inherit.aes = FALSE
-  ) +
+  #geom_segment(
+  #  data = plot_ad_segments,
+  #  aes(x = x_start, xend = x_end, y = y_seg, yend = y_seg, color = seg_color),
+  #  linewidth = 0.5,
+  #  inherit.aes = FALSE
+  #) + # orientation of the genes can be displayed with this geom_segment() call
   scale_y_continuous(
     expand = c(0.01, 0),
     breaks = hlines$y_pos,
@@ -697,34 +729,20 @@ all_hap_bg <- ggplot() +
     axis.ticks.y = element_blank(),
     axis.line.x = element_line(),
     axis.title.x = element_text(),
-    legend.position = "bottom",
-    legend.direction = "horizontal",
-    legend.key.size = unit(0.4, "lines"),
-    legend.text = element_text(size = 6),
-    legend.title = element_text(size = 7)
+    legend.position='none'
+    # legend.position = "bottom",
+    # legend.direction = "horizontal",
+    # legend.key.size = unit(0.4, "lines"),
+    # legend.text = element_text(size = 6),
+    # legend.title = element_text(size = 7) # legend can be enabled with these theme() paramters
   ) +
   guides(fill = guide_legend(nrow = 6, byrow = TRUE))
 
-all_hap_bg
 #save png
-#ggsave(plot = all_hap_bg,filename = "../figures/HDR_I_11.8-12.1_LSrg.png",width = 7.5,height = 8.5,device = "png",units = "in",dpi = 600,bg = "white")
+#used for Figure S16
+#outfile_png <- paste0("../../processed_data/gene_diversity/HDR_",hdr_chrom,"_",hdr_start_pos,"_",hdr_end_pos,"_",length(desired_strains),"rg",".png")
+#ggsave(plot = all_hap_bg,filename = outfile_png,width = 7.5,height = 8.5,device = "png",units = "in",dpi = 600,bg = "white")
+
 #store ggplot in Rds for concatenating with other plots
-#saveRDS(all_hap_bg, file="../processed_data/HDR_I_574615_714731_12rg.Rds")
-
-
-p1 <- readRDS("../processed_data/HDR_I_574615_714731_12rg.Rds")
-p2 <- readRDS("../processed_data/HDR_III_828370_1297075_12rg.Rds")
-p3 <- readRDS("../processed_data/HDR_V_841255_891260_12rg.Rds")
-
-hdr_3reg <- cowplot::plot_grid(
-  p3 + theme(legend.position = "none", axis.title.x = element_blank(),plot.title = element_text(hjust = -0.08, face = "bold", size = 14)) + ggtitle("a"),
-  p1 + theme(legend.position = "none", axis.title.x = element_blank(),plot.title = element_text(hjust =-0.08, face = "bold", size = 14)) + ggtitle("b"),
-  p2 + theme(legend.position = "none",plot.title = element_text(hjust = -0.08, face = "bold", size = 14)) + ggtitle("c"),
-  nrow = 3,
-  label_x = -0.001,
-  label_y = 1.02,# move labels farther left (default is 0)
-  align = "v",
-  axis = "lr"
-)
-
-ggsave(plot = hdr_3reg,filename = "../figures/FigureS17_HDR_3reg_genes.png",width = 7.5,height = 8.5,device = "png",units = "in",dpi = 600)
+outfile_rd <- paste0("../../processed_data/gene_diversity/HDR_",hdr_chrom,"_",hdr_start_pos,"_",hdr_end_pos,"_",length(desired_strains),"rg",".Rds")
+saveRDS(all_hap_bg, file=outfile_rd)
