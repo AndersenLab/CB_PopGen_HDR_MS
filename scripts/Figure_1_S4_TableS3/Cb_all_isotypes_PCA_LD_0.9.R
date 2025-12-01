@@ -254,18 +254,35 @@ tracy_for_plot2 <- tracy_for_plot %>%
 
 
 ####### Table S3 ####
+
 ### PCA differentiated isotype clusters. 
 
 PCA_differentiated<-rbind((PC12AD %>% mutate(Cluster = c("Australia")) ),
+                          
                           (PC12KD%>% mutate(Cluster = c("India")) ),
+                          
                           (PC34mix %>% select(-Lineage) %>% mutate(Cluster = c("Mixed")) ),
+                          
                           (PC34TW %>% mutate(Cluster = c("Taiwan")) ),
+                          
                           (PC34Indo %>% mutate(Cluster = c("Indonesia")) )
-                          ) 
+                          
+) 
+
+#### output PCA table S3 table
+TableS3<-pca_TAC_ld0.9_no_rm %>% 
+  select(-PC5,-PC6,-lat,-long) %>% 
+  left_join(PCA_differentiated %>% select(isotype,Cluster)) %>% 
+  mutate(Cluster = ifelse(is.na(Cluster),"Global",Cluster))
+
+write.table(TableS3,
+            "../../tables/TableS3_PCA_data.tsv",
+            sep = '\t',
+            col.names = TRUE,
+            row.names = FALSE,
+            quote = FALSE)
 
 
-write.csv(PCA_differentiated,"../../tables/TableS3_PCA_differentiated.csv",
-          row.names = FALSE)
 
 
 

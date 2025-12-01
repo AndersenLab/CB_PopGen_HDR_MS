@@ -1,5 +1,6 @@
 Region	Autosomes arm	Autosomes center	ChromX arm	ChromX center	fold change Autosomes arm/center	fold change ChromX arm/center	Stat
 All	0.0041	0.0026	0.0037	0.003	1.58	1.23	pi
+cosmopolitan	0.0048	0.0032	0.0049	0.0037	1.5	1.32	pi
 Non-cosmopolitan	0.0041	0.0025	0.0037	0.003	1.64	1.23	pi
 Australia	0.005	0.0046	0.0059	0.0063	1.09	0.94	pi
 Caribbean	0.0018	7e-04	0.001	5e-04	2.57	2	pi
@@ -9,6 +10,7 @@ Pacific	0.0032	0.0016	0.0025	0.0015	2	1.67	pi
 South America	0.0021	8e-04	0.001	6e-04	2.62	1.67	pi
 Taiwan	0.0041	0.0023	0.0037	0.0024	1.78	1.54	pi
 All	0.0086	0.0058	0.0075	0.0066	1.48	1.14	theta
+cosmopolitan	0.0048	0.0037	0.0053	0.0047	1.3	1.13	theta
 Non-cosmopolitan	0.0083	0.0056	0.0072	0.0063	1.48	1.14	theta
 Australia	0.0032	0.0026	0.0032	0.0032	1.23	1	theta
 Caribbean	0.0021	0.001	0.0016	0.001	2.1	1.6	theta
@@ -18,7 +20,8 @@ Pacific	0.0034	0.0018	0.0025	0.0017	1.89	1.47	theta
 South America	0.0025	0.0013	0.0016	0.0011	1.92	1.45	theta
 Taiwan	0.0044	0.0025	0.0036	0.0027	1.76	1.33	theta
 All	-1.4927	-1.6269	-1.4346	-1.5497	-	-	Tajima's D
-Non-cosmopolitan	-1.4643	-1.5906	-1.3921	-1.5058	-	-	Tajima's D
+cosmopolitan	-0.0072	-0.6416	-0.2893	-0.8258	-	-	Tajima's D
+Non-cosmopolitan	-1.4623	-1.5891	-1.3887	-1.504	-	-	Tajima's D
 Australia	1.8227	2.7119	2.7469	3.2422	-	-	Tajima's D
 Caribbean	-0.7133	-1.3209	-1.1822	-1.4579	-	-	Tajima's D
 Central America	-0.5269	-1.0713	-0.9037	-0.9862	-	-	Tajima's D

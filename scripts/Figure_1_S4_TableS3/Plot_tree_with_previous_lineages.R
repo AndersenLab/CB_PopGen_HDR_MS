@@ -56,7 +56,8 @@ annotation_maps_raw<- read.csv("../../processed_data/geo_info/Cb_indep_isotype_i
 
 
 # raw_data<-read.csv("../../data/20250626_c_briggsae_strain_data.csv")
-raw_data<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
+# raw_data<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
+raw_data<-read.csv("../../data/20251124_Cb_2018_strains_data.csv")
 
 indep_isotype_info<- raw_data
 

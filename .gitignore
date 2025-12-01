@@ -23,6 +23,7 @@ processed_data/gene_diversity/CBCN_nucmer_db_20250603.tsv
 processed_data/gene_diversity/CBCN_orthogroups.tsv
 >>>>>>> Stashed changes
 # ---- R and RStudio ----
+.rds
 .RData
 .Rhistory
 # ---- System files ----

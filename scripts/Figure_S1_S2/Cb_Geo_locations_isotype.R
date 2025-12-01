@@ -12,8 +12,7 @@ library(maps)
 
 source("../utilities.R")
 
-#### using the file after removal the four likely mixed isotypes
-raw_data<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
+raw_data<-read.csv("../../data/20251124_Cb_2018_strains_data.csv")
 
 indep_isotype_info<- raw_data
 
@@ -57,7 +56,7 @@ sa_isotype <- as.character(df_sa_isotype$isotype)
 
 #5. Europe
 df_eu_isotype  <- indep_isotype_info %>%
-  dplyr::filter(long > -25  & long < 46 & lat > 37 & lat < 65) 
+  dplyr::filter(long > -25  & long < 40 & lat > 37 & lat < 65) 
 eu_isotype <- as.character(df_eu_isotype$isotype)
 
 #6. Africa
@@ -86,7 +85,9 @@ car_isotype <- as.character(df_car_isotype$isotype)
 
 #10 Asia
  df_as_isotype_tmp_1 <- indep_isotype_info %>%
-  dplyr::filter(long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331) %>%
+   dplyr::filter((long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331)|
+                   (long > 41.836264  & long < 49.263022 & lat > 38.266706 & lat < 41.634384) # Armenia
+   ) %>%
    dplyr::filter(!(long > 120  & long < 122 & lat > 21.7 & lat < 25.5))
  ### VSL2216, VSL2217, VSL2219 should be assigned as Asian samples (From India)
  ### although they don't have coordinate data

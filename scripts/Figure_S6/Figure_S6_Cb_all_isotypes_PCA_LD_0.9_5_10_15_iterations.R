@@ -521,13 +521,13 @@ row3 <- cowplot::plot_grid(
 )
 
 
-row4 <- cowplot::plot_grid(
-  iteration_35_results$p_iteration, 
-  iteration_40_results$p_iteration,
-  ncol = 2,
-  align = "h",
-  axis = "tb"
-)
+# row4 <- cowplot::plot_grid(
+#   iteration_35_results$p_iteration, 
+#   iteration_40_results$p_iteration,
+#   ncol = 2,
+#   align = "h",
+#   axis = "tb"
+# )
 
 
 
@@ -535,17 +535,19 @@ final_plot <- cowplot::plot_grid(
   row1,
   row2,
   row3,
-  row4,
+  # row4,
   iteration_5_results$common_legend,
   ncol = 1,
-  rel_heights = c(1, 1, 1, 1, 0.2),  
+  rel_heights = c(1, 1, 1, 
+                  # 1,
+                  0.2),  
   align = "v",
   axis = "lr"
 )
 
 final_plot
 ggsave(
-  "../../figures/FigureS6_Cb_iteration_5_40_PCA.pdf",
+  "../../figures/FigureS6_Cb_iteration_5_30_PCA.pdf",
   plot = final_plot,
   width = 7,
   height = 7,

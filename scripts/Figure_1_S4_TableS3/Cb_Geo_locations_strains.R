@@ -14,7 +14,9 @@ source("../utilities.R")
 
 # raw_data<-read_excel("../../data/C. briggsae WI strain info_20250507.xlsx")
 # raw_data<-read.csv("../../data/20250626_c_briggsae_strain_data.csv")
-raw_data<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
+# raw_data<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
+
+raw_data<-read.csv("../../data/20251124_Cb_2018_strains_data.csv")
 
 indep_strain_info<- raw_data
 
@@ -51,7 +53,7 @@ sa_strain <- as.character(df_sa_strain$strain)
 
 #5. Europe
 df_eu_strain  <- indep_strain_info %>%
-  dplyr::filter(long > -25  & long < 46 & lat > 37 & lat < 65) 
+  dplyr::filter(long > -25  & long < 40 & lat > 37 & lat < 65) 
 eu_strain <- as.character(df_eu_strain$strain)
 
 #6. Africa
@@ -78,7 +80,10 @@ car_strain <- as.character(df_car_strain$strain)
 
 #10 Asia
  df_as_strain_tmp_1 <- indep_strain_info %>%
-  dplyr::filter(long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331) %>%
+   dplyr::filter((long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331)|
+                   (long > 41.836264  & long < 49.263022 & lat > 38.266706 & lat < 41.634384) # Armenia
+                 
+   ) %>%
    dplyr::filter(!(long > 120  & long < 122 & lat > 21.7 & lat < 25.5))
  ### VSL2216, VSL2217, VSL2219 should be assigned as Asian samples (From India)
  ### although they don't have coordinate data
@@ -259,6 +264,11 @@ geo_freq <- indep_info_geo_for_each_strain %>%
   dplyr::group_by(strain_geo) %>%
   dplyr::summarize(frequency = n()) %>%
   arrange(desc(frequency))
+
+write.csv(file = "../../processed_data/Geo_info/strain_geo_freq.csv", 
+          geo_freq,
+          quote = FALSE,
+          row.names = FALSE)
 
 # 
 # write.csv(file = "strain_geo_freq.csv", geo_freq,quote = FALSE,

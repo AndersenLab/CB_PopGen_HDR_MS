@@ -25,7 +25,9 @@ library(reshape2)
 # write.csv(Cb_raw_csv,"../../data/20250901_Cb_2018_strains_data.csv",
 #           row.names = FALSE)
 
-Cb_raw_csv<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
+# Cb_raw_csv<-read.csv("../../data/20250901_Cb_2018_strains_data.csv")
+
+Cb_raw_csv<-read.csv("../../data/20251124_Cb_2018_strains_data.csv")
 
 #### unique isotypes
 iso_unique <- Cb_raw_csv %>%
@@ -181,7 +183,7 @@ Cb_df_geo_over2000km<-Cb_geo_distance_within_same_isotype %>%
   filter(geo_distance >2000)
 
 length(unique(Cb_df_geo_over2000km$isotype))
-#18
+#17
 
 
 Cb_Cosmopolitan_isotype<-unique(Cb_df_geo_over2000km$isotype)
@@ -890,7 +892,7 @@ Cb_Cosmopolitan_isotype_info<-Cb_raw_csv %>%
   select(strain,isotype,latitude,longitude) %>% 
   filter(isotype %in% Cb_Cosmopolitan_isotype) 
 length(unique(Cb_Cosmopolitan_isotype_info$isotype))
-#18
+#17
 
 
 p_map_Cosmopolitan <- ggplot(Cb_Cosmopolitan_isotype_info, aes(x = longitude, y = latitude)) +
@@ -974,7 +976,7 @@ isotype_counts <- Cb_Cosmopolitan_isotype_info %>%
 
 
 Cb_Cosmopolitan_strain_frequency_plot<-ggplot(isotype_counts, aes(x = reorder(isotype, -n_strains), y = n_strains)) +
-  geom_col(fill = "red") +
+  geom_col(fill = "red",width = 0.7) +
   geom_text(aes(label = n_strains), vjust = -0.5, size = 2.5) +
   labs(
        y = "Number of strains") +
@@ -1002,7 +1004,7 @@ library(cowplot)
 
 combined_plot <- ggdraw() +
   draw_plot(p_map_Cosmopolitan_4_col, 0, 0, 1, 1) + 
-  draw_plot(Cb_Cosmopolitan_strain_frequency_plot, 0.5, 0, 0.5, 0.2) 
+  draw_plot(Cb_Cosmopolitan_strain_frequency_plot, 0.25, 0, 0.75, 0.2) 
 
 combined_plot
 
