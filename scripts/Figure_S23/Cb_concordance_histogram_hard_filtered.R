@@ -70,6 +70,6 @@ print(final)
 
 
 
-ggsave("../../figures/FigureS30_concordance_histogram.pdf",final, width = 7, height = 3, units = "in")
+ggsave("../../figures/FigureS23_concordance_histogram.pdf",final, width = 7, height = 3, units = "in")
 
 
