@@ -84,7 +84,7 @@ Population structure, admixture, and genetic similarity data.
 
 ## HDRs/
 
-Hyper-divergent region (HDR) summaries and related genomic windows.
+Hyper-divergent region (HDR) calls associated and intermediate files.
 
 ### Contains
 
