@@ -37,16 +37,16 @@ Processed files used in gene-level visualization of HDRs.
 
 ### Contains
 
-- `CBCN_L1L2_master.tsv`  
+- `CBCN_L1L2_master.tsv`  [Large file. Available publicly on AWS] <br>
   L1 (gene) and L2 (mRNA) features from BRAKER gene predictions across all strains where a long-read genome was assembled.
 
-- `CBCN_nucmer_db_20250603.tsv`  
+- `CBCN_nucmer_db_20250603.tsv`  [Large file. Available publicly on AWS] <br>
   Whole-genome alignment (NUCmer) results.
 
-- `CBCN_orthogroups.tsv`  
+- `CBCN_orthogroups.tsv`  [Large file. Available publicly on AWS] <br>
   Orthogroup assignments (Also includes _C. nigoni_ lines, but only _C. briggsae_ results are analyzed).
 
-- `c_briggsae.QX1410_20250929.csq.gff`  
+- `c_briggsae.QX1410_20250929.csq.gff`  [Large file. Available publicly on AWS] <br>
   Reference gene models.
 
 - `HDR_I_*`, `HDR_II_*`, `HDR_V_*` (`.Rds`)  
@@ -76,8 +76,11 @@ Population structure, admixture, and genetic similarity data.
 - `K22_*` files (`.csv`, `.tsv`)  
   Best-K replicate results and processed ancestry tables.
 
-- `gtcheck.tsv`  
+- `gtcheck.tsv`
   Pairwise isotype genetic similarity estimates.
+
+- `strain_gtcheck.tsv`  [Large file. Available publicly on AWS] <br>
+  Pairwise strain genetic similarity estimates.
 
 ## HDRs/
 
@@ -91,19 +94,19 @@ Hyper-divergent region (HDR) summaries and related genomic windows.
 - `HDR_CB_otherRG_UNT_5kbclust_20250930.tsv`  
   HDR windows for non-Tropical groups relative to their respective group's reference genome (UNT = untransformed).
 
-- `Tropical.thresh_cov.tsv`  
+- `Tropical.thresh_cov.tsv`  [Large file. Available publicly on AWS] <br>
   Coverage statistics for Tropical samples relative to the Tropical (QX1410) reference genome.
 
-- `Tropical.variant_counts.tsv`  
+- `Tropical.variant_counts.tsv`  [Large file. Available publicly on AWS] <br>
   Variant counts computed for Tropical samples relative to the Tropical (QX1410) reference genome.
 
-- `Other_RG.thresh_cov.tsv`  
+- `Other_RG.thresh_cov.tsv`  [Large file. Available publicly on AWS] <br>
   Coverage statistics for non-Tropical samples relative to their respective relatedness group reference genome.
 
-- `Other_RG.variant_counts.tsv`  
+- `Other_RG.variant_counts.tsv`  [Large file. Available publicly on AWS] <br>
   Variant counts for non-Tropical samples relative to their respective relatedness group reference genome.
 
-- `CB_all_strain_vc.tsv`  
+- `CB_all_strain_vc.tsv`  [Large file. Available publicly on AWS] <br>
   Variant counts computed for all samples relative to the Tropical (QX1410) reference genome.
 
 - `phy_file_LD_0.9.phy.contree`  
