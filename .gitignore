@@ -1,5 +1,6 @@
 .DS_Store
 # Ignore large data files
+ignore_other/
 processed_data/HDRs/CB_all_strain_vc.tsv
 processed_data/HDRs/Other_RG.thresh_cov.tsv
 processed_data/HDRs/Other_RG.variant_counts.tsv

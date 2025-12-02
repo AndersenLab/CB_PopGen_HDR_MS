@@ -293,10 +293,10 @@ pc2<- cowplot::plot_grid(s3,s2,ncol=1, rel_heights = c(1.1,1),align = "v",axis =
 
 comp_reg<-cowplot::plot_grid(pc2,pc1,ncol=1,nrow=2,rel_heights = c(2,1),align = "hv",axis = "rlbt")
 
-ggsave(plot = comp_reg, filename = "../../figures/FigureS31_LR_STATS_95idy_20251023.png",width = 7.5,height = 9,dpi = 600,device = 'png')
+ggsave(plot = comp_reg, filename = "../../figures/FigureS25_LR_STATS_95idy_20251023.png",width = 7.5,height = 9,dpi = 600,device = 'png')
 
 
-####### CALL SR BASED HDRS (FOR LR STRAINS) ##########
+####### CALL SR-BASED HDRS (FOR LR STRAINS) ##########
 covfrac <- c(seq(0.05,0.9,0.05))
 varct <- c(seq(5,30,1))
 
@@ -662,29 +662,12 @@ all_calls_SR_clustered <- rbind(joinClust,nojoin) %>%
 all_calls_SR_clustered_sfilt <- all_calls_SR_clustered %>%
   dplyr::filter(divSize >= 5e3)
 
-############# PLOT and WRITE
-# 
-# p1 <- ggplot(all_calls_SR_clustered %>% dplyr::mutate(REF="QX1410") %>% dplyr::filter(divSize >= 5e3 & !(CHROM=="MtDNA"))) + 
-#   geom_rect(aes(xmin=minStart/1e6,xmax=maxEnd/1e6,ymin=rleID-0.45,ymax=rleID+0.45)) + 
-#   facet_grid(REF~CHROM,scales = 'free') + 
-#   theme(panel.background = element_blank(),
-#         panel.grid = element_blank(),
-#         axis.line.x = element_line(),
-#         panel.border = element_rect(fill = NA),
-#         axis.ticks.y = element_blank(),
-#         axis.text.y=element_blank())  +
-#   #xlab("Physical position (Mb)") +
-#   ylab("502 Tropical isotype strains") +
-#   #scale_x_continuous(expand = c(0, 0)) +
-#   scale_y_continuous(expand = c(0, 0)) +
-#   scale_x_continuous(breaks = function(x) seq(floor(min(x)), ceiling(max(x)), by = 5),expand = c(0, 0))
-
-ggsave(plot = MOF, filename = "../../figures/FigureS32_MOF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = MEF, filename = "../../figures/FigureS33_MEF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = REC, filename = "../../figures/FigureS34_REC_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = PRE, filename = "../../figures/FigureS35_PRE_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = F1, filename = "../../figures/FigureS36_F1_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = BEST, filename = "../../figures/FigureS37_BEST_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = MOF, filename = "../../figures/FigureS26_MOF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = MEF, filename = "../../figures/FigureS27_MEF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = REC, filename = "../../figures/FigureS28_REC_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = PRE, filename = "../../figures/FigureS29_PRE_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = F1, filename = "../../figures/FigureS30_F1_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = BEST, filename = "../../figures/FigureS31_BEST_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
 
 lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
@@ -771,6 +754,7 @@ all_percentiles <- rbind(plot_dist,plot_dist_trop %>% dplyr::select(-Sublineage)
   dplyr::select(STRAIN,Lineage) %>%
   dplyr::distinct(STRAIN,.keep_all = T)
 
+#strains excluded because they belong to RG with <3 strains or RG without a reference genome.
 excluded <- c("HPT18", "HPT24", "HPT11", "VX34", "JU3326", "NIC893",
               "BRC20503", "BRC20502", "ECA276", "ECA163", "JU2767", "ED3102","QR25")
  
@@ -838,8 +822,6 @@ for (i in 1:length(strainL_NR)) {
   binList[[i]] <- div_call[[1]]
   regList[[i]] <- div_call[[2]]
 }
-
-#tmp_strains <- temperate_coverage %>% dplyr::select(STRAIN,REF) %>% dplyr::distinct(STRAIN,.keep_all = T)
 
 all_calls_SR_NR <- ldply(regList, data.frame)  %>% dplyr::left_join(lineages,by=c("STRAIN"="isotype"))
 
@@ -971,10 +953,6 @@ tigFilt2 <- matched_df %>%
   dplyr::arrange(group_id,S1) 
 
 
-# ggplot(tigFilt2 %>% dplyr::filter(HDRid == "TWN1824X932000942000")) +
-#   geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=hdr_start,ymax=hdr_end),fill="lightgrey") +
-#   geom_segment(aes(x=S1,xend=E1,y=S2,yend=E2)) 
-
 trim_spacer = 1e3
 #trims long alignments to the focal region (i.e. hap_start to hap_end, but transformed to the other genome)
 tigTrim <- tigFilt2 %>%
@@ -993,23 +971,6 @@ tigTrim <- tigFilt2 %>%
   dplyr::mutate(E2=ifelse(lboundDist>trim_spacer & INV==F,(E2-(lboundDist-trim_spacer)),E2)) %>%
   dplyr::mutate(S2=ifelse(lboundDist>trim_spacer & INV==T,(S2-(lboundDist-trim_spacer)),S2)) %>%
   dplyr::ungroup()
-  
-# ggplot(tigTrim %>% dplyr::filter(HDRid == "TWN1824X932000942000")) +
-#   geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=hdr_start,ymax=hdr_end),fill="lightgrey") +
-#   #geom_segment(aes(x=leadS1,xend=leadE1,y=leadS2,yend=leadE2, color="outreg_lead")) +
-#   #geom_segment(aes(x=lagS1,xend=lagE1,y=lagS2,yend=lagE2, color="outreg_lag")) +
-#   geom_segment(aes(x=S1,xend=E1,y=S2,yend=E2)) +
-#   xlab("REF coords") +
-#   ylab("WI coords")
-
-
-# ggplot(tigTrim %>% dplyr::filter(HDRid == "TWN1824X932000942000")) +
-#   geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=hdr_start,ymax=hdr_end),fill="lightgrey") +
-#   geom_segment(aes(x=leadS1,xend=leadE1,y=leadS2,yend=leadE2, color="outreg_lead")) +
-#   geom_segment(aes(x=lagS1,xend=lagE1,y=lagS2,yend=lagE2, color="outreg_lag")) +
-#   geom_segment(aes(x=S1,xend=E1,y=S2,yend=E2, color="inreg_trimmed")) +
-#   xlab("REF coords") +
-#   ylab("WI coords") 
 
 tigMarkExtend <- tigTrim %>%
   dplyr::group_by(group_id) %>%
@@ -1107,14 +1068,6 @@ final_plot <- cowplot::plot_grid(
 
 tigExtensions <- rbind(tigToExtend,tigMarkExtend %>% dplyr::filter(any_extend==F) %>% dplyr::mutate(extend_length_WI_lead=NA,extend_length_REF_lead=NA,extend_length_WI_lag=NA,extend_length_REF_lag=NA))
 
-# ggplot(tigExtensions %>% dplyr::filter(HDRid == "TWN1824X932000942000")) +
-#   geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=hdr_start,ymax=hdr_end),fill="lightgrey") +
-#   geom_segment(aes(x=leadS1,xend=leadE1,y=leadS2,yend=leadE2, color="outreg_lead")) +
-#   geom_segment(aes(x=lagS1,xend=lagE1,y=lagS2,yend=lagE2, color="outreg_lag")) +
-#   geom_segment(aes(x=S1,xend=E1,y=S2,yend=E2, color="inreg_trimmed")) +
-#   xlab("REF coords") +
-#   ylab("WI coords")
-
 tigExtended_50kb <- tigExtensions %>% 
   dplyr::rowwise() %>%
   dplyr::mutate(E1=ifelse(E2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 5e4 & extend_length_REF_lead < 5e4, ifelse(leadS1 >= E1,leadS1,ifelse(leadE1>=E1,leadE1,E1)),E1)) %>%
@@ -1138,21 +1091,6 @@ tigExtended_50kb <- tigExtensions %>%
 #   dplyr::mutate(S2=ifelse(S2_extend==T & max(lagS2,lagE2) < hdr_start & !is.na(extend_length_WI_lag) & !is.na(extend_length_REF_lag) & extend_length_WI_lag < 2.5e4 & extend_length_REF_lag < 2.5e4, max(lagS2,lagE2),S2)) %>%
 #   dplyr::mutate(S2=ifelse(iS2_extend==T & min(leadS2,leadE2) > hdr_end & !is.na(extend_length_WI_lead) & !is.na(extend_length_REF_lead) & extend_length_WI_lead < 2.5e4 & extend_length_REF_lead < 2.5e4, min(leadS2,leadE2),S2)) %>% 
 #   dplyr::ungroup()
-
-# id="ECA287II1533900015346000"
-# id="QG2996V1775500017792000"
-# id="NIC814V1813100018140000"
-# id="NIC1631X75060007539000"
-# id="QG1126V1696300017079000"
-# id="QG4093II847000855000"
-# ggplot(rbind(tigExtensions %>% dplyr::filter(HDRid == id) %>% dplyr::mutate(type="original"),tigExtended_25kb %>% dplyr::filter(HDRid == id) %>% dplyr::mutate(type="extended_max25kb"),tigExtended_50kb %>% dplyr::filter(HDRid == id) %>% dplyr::mutate(type="extended_max50kb"))) +
-#   geom_rect(aes(xmin=-Inf,xmax=Inf,ymin=hdr_start,ymax=hdr_end),fill="lightgrey") +
-#   geom_segment(aes(x=leadS1,xend=leadE1,y=leadS2,yend=leadE2, color="outreg_lead")) +
-#   geom_segment(aes(x=lagS1,xend=lagE1,y=lagS2,yend=lagE2, color="outreg_lag")) +
-#   geom_segment(aes(x=S1,xend=E1,y=S2,yend=E2, color="inreg_trimmed")) +
-#   xlab("REF coords") +
-#   ylab("WI coords") +
-#   facet_wrap(~as.factor(type),scales = 'free')
 
 # counts25kb <- tigExtended_25kb %>%
 #   dplyr::filter(
@@ -1182,20 +1120,6 @@ hdr_counts <- tigTrim %>%
   dplyr::group_by(hdr_strain) %>%
   dplyr::summarise(num_unique_HDRid = n_distinct(HDRid), .groups = "drop")
 
-# combined_counts <- counts25kb %>% dplyr::left_join(counts50kb,by=c("hdr_strain"))  %>% dplyr::left_join(hdr_counts,by=c("hdr_strain"))%>%
-#   dplyr::arrange(num_unique_HDRid) %>%
-#   dplyr::mutate(hdr_strain = factor(hdr_strain, levels = hdr_strain)) %>%
-#   dplyr::mutate(diff=count_true.y-count_true.x)
-
-# ggplot(combined_counts) +
-#   geom_bar(aes(x = hdr_strain, y = num_unique_HDRid, fill="all_HDRs"),color="black",stat = "identity",position = position_identity()) +
-#   geom_bar(aes(x = hdr_strain, y = count_true.y, fill="HDRs_ext_50kb"),color="black",stat = "identity",position = position_identity()) +
-#   geom_bar(aes(x = hdr_strain, y = count_true.x, fill="HDRs_ext_25kb"),color="black",stat = "identity",position = position_identity()) +  # or: position = "stack"
-#   labs(x = "Strain", y = "Count of HDRs", fill = "") +
-#   theme_minimal() +
-#   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
-#   scale_fill_manual(values = c("all_HDRs"="grey","HDRs_ext_50kb"="blue","HDRs_ext_25kb"="forestgreen"))
-
 hdr_transformed_orig <- tigTrim %>%
   dplyr::group_by(group_id) %>%
   dplyr::summarise(
@@ -1207,87 +1131,75 @@ hdr_transformed_orig <- tigTrim %>%
     ),
     .groups = "drop"
   )
+ 
+hdr_transformed_50ext <- tigExtended_50kb %>%
+  dplyr::group_by(group_id) %>%
+  dplyr::summarise(
+    S1 = min(S1, E1),
+    E1 = max(S1, E1),
+    across(
+      .cols = -c(S1, E1, S2, E2, St2, Et2),
+      .fns = dplyr::first
+    ),
+    .groups = "drop"
+  )
 
- # hdr_transformed_25ext <- tigExtended_25kb %>%
- #    group_by(group_id) %>%
- #    summarise(
- #      S1 = min(S1, E1),
- #      E1 = max(S1, E1),
- #      across(
- #        .cols = -c(S1, E1, S2, E2, St2, Et2),
- #        .fns = first
- #      ),
- #      .groups = "drop"
- #    )
+gap_clust_NR_TR <- hdr_transformed_50ext %>%
+  dplyr::select(REF,S1,E1,hdr_strain,HIFI_strain) %>%
+  dplyr::rename(CHROM=REF,minStart=S1,maxEnd=E1,STRAIN=hdr_strain,REF=HIFI_strain) %>%
+  dplyr::mutate(divSize=maxEnd-minStart) %>%
+  dplyr::arrange(STRAIN,CHROM,minStart) %>%
+  dplyr::group_by(STRAIN,CHROM) %>%
+  dplyr::mutate(forGapSize=lead(minStart)-maxEnd) %>%
+  dplyr::mutate(flag3g=ifelse(forGapSize<=5000,"clust","noclust")) %>%
+  dplyr::mutate(dec3g=ifelse(flag3g=="clust" ,"join",
+                             ifelse(flag3g=="noclust" & lag(flag3g)=="clust","join","nojoin"))) %>%
+  dplyr::mutate(dec3g=ifelse(is.na(dec3g),"nojoin",dec3g)) %>%
+  dplyr::ungroup()
  
- hdr_transformed_50ext <- tigExtended_50kb %>%
-   dplyr::group_by(group_id) %>%
-   dplyr::summarise(
-     S1 = min(S1, E1),
-     E1 = max(S1, E1),
-     across(
-       .cols = -c(S1, E1, S2, E2, St2, Et2),
-       .fns = dplyr::first
-     ),
-     .groups = "drop"
-   )
+joinClust_NR_TR <- gap_clust_NR_TR %>% 
+  dplyr::filter(dec3g=="join") %>%
+  dplyr::group_by(STRAIN,CHROM) %>%
+  dplyr::mutate(segbreak=ifelse(flag3g=="noclust",paste0(dec3g,row_number()),NA)) %>%
+  tidyr::fill(segbreak,.direction = 'up') %>%
+  dplyr::mutate(gid=data.table::rleid(segbreak)) %>%
+  dplyr::ungroup() %>%
+  dplyr::rowwise() %>%
+  dplyr::mutate(conID=paste0(CHROM,"-",STRAIN,"-",gid)) %>%
+  dplyr::ungroup() %>%
+  dplyr::group_by(conID) %>%
+  dplyr::mutate(newStart=min(minStart),newEnd=max(maxEnd)) %>%
+  dplyr::ungroup() %>%
+  dplyr::group_by(conID) %>%
+  dplyr::mutate(newDivSize=newEnd-newStart) %>%
+  dplyr::mutate(nclust=n()) %>%
+  dplyr::ungroup() %>%
+  dplyr::distinct(conID,.keep_all = T) %>%
+  dplyr::select(-minStart,-maxEnd,-divSize) %>%
+  dplyr::rename(minStart=newStart,maxEnd=newEnd,divSize=newDivSize) %>%
+  dplyr::select(CHROM,minStart,maxEnd,divSize,STRAIN,nclust,REF)
 
- gap_clust_NR_TR <- hdr_transformed_50ext %>%
-   dplyr::select(REF,S1,E1,hdr_strain,HIFI_strain) %>%
-   dplyr::rename(CHROM=REF,minStart=S1,maxEnd=E1,STRAIN=hdr_strain,REF=HIFI_strain) %>%
-   dplyr::mutate(divSize=maxEnd-minStart) %>%
-   dplyr::arrange(STRAIN,CHROM,minStart) %>%
-   dplyr::group_by(STRAIN,CHROM) %>%
-   dplyr::mutate(forGapSize=lead(minStart)-maxEnd) %>%
-   dplyr::mutate(flag3g=ifelse(forGapSize<=5000,"clust","noclust")) %>%
-   dplyr::mutate(dec3g=ifelse(flag3g=="clust" ,"join",
-                              ifelse(flag3g=="noclust" & lag(flag3g)=="clust","join","nojoin"))) %>%
-   dplyr::mutate(dec3g=ifelse(is.na(dec3g),"nojoin",dec3g)) %>%
-   dplyr::ungroup()
- 
- joinClust_NR_TR <- gap_clust_NR_TR %>% 
-   dplyr::filter(dec3g=="join") %>%
-   dplyr::group_by(STRAIN,CHROM) %>%
-   dplyr::mutate(segbreak=ifelse(flag3g=="noclust",paste0(dec3g,row_number()),NA)) %>%
-   tidyr::fill(segbreak,.direction = 'up') %>%
-   dplyr::mutate(gid=data.table::rleid(segbreak)) %>%
-   dplyr::ungroup() %>%
-   dplyr::rowwise() %>%
-   dplyr::mutate(conID=paste0(CHROM,"-",STRAIN,"-",gid)) %>%
-   dplyr::ungroup() %>%
-   dplyr::group_by(conID) %>%
-   dplyr::mutate(newStart=min(minStart),newEnd=max(maxEnd)) %>%
-   dplyr::ungroup() %>%
-   dplyr::group_by(conID) %>%
-   dplyr::mutate(newDivSize=newEnd-newStart) %>%
-   dplyr::mutate(nclust=n()) %>%
-   dplyr::ungroup() %>%
-   dplyr::distinct(conID,.keep_all = T) %>%
-   dplyr::select(-minStart,-maxEnd,-divSize) %>%
-   dplyr::rename(minStart=newStart,maxEnd=newEnd,divSize=newDivSize) %>%
-   dplyr::select(CHROM,minStart,maxEnd,divSize,STRAIN,nclust,REF)
- 
- nojoin_NR_TR <- gap_clust_NR_TR %>%
-   dplyr::group_by(STRAIN,CHROM) %>%
-   dplyr::filter(!(dec3g=="join")) %>%
-   dplyr::ungroup() %>%
-   dplyr::select(CHROM,minStart,maxEnd,divSize,STRAIN,REF) %>%
-   dplyr::mutate(nclust=1)
- 
- all_calls_SR_clustered_NR_TR <- rbind(joinClust_NR_TR,nojoin_NR_TR) %>%
-   dplyr::filter(divSize/1e3 >= 5) %>%
-   dplyr::group_by(STRAIN) %>%
-   dplyr::mutate(ncalls=n()) %>%
-   dplyr::ungroup() %>%
-   dplyr::group_by(REF) %>%
-   dplyr::arrange(REF,desc(ncalls),STRAIN,CHROM,minStart) %>%
-   dplyr::mutate(sorter=paste0(ncalls,STRAIN)) %>%
-   dplyr::mutate(rleID=data.table::rleid(sorter)) %>%
-   dplyr::ungroup() %>%
-   dplyr::group_by(STRAIN) %>%
-   dplyr::mutate(ystrain=cur_group_id()) %>%
-   dplyr::ungroup() %>%
-   dplyr::filter(!grepl("ptg",CHROM))
+nojoin_NR_TR <- gap_clust_NR_TR %>%
+  dplyr::group_by(STRAIN,CHROM) %>%
+  dplyr::filter(!(dec3g=="join")) %>%
+  dplyr::ungroup() %>%
+  dplyr::select(CHROM,minStart,maxEnd,divSize,STRAIN,REF) %>%
+  dplyr::mutate(nclust=1)
+
+all_calls_SR_clustered_NR_TR <- rbind(joinClust_NR_TR,nojoin_NR_TR) %>%
+  dplyr::filter(divSize/1e3 >= 5) %>%
+  dplyr::group_by(STRAIN) %>%
+  dplyr::mutate(ncalls=n()) %>%
+  dplyr::ungroup() %>%
+  dplyr::group_by(REF) %>%
+  dplyr::arrange(REF,desc(ncalls),STRAIN,CHROM,minStart) %>%
+  dplyr::mutate(sorter=paste0(ncalls,STRAIN)) %>%
+  dplyr::mutate(rleID=data.table::rleid(sorter)) %>%
+  dplyr::ungroup() %>%
+  dplyr::group_by(STRAIN) %>%
+  dplyr::mutate(ystrain=cur_group_id()) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(!grepl("ptg",CHROM))
 
 hdr_rest_unt <- all_calls_SR_clustered_NR %>%
   dplyr::select(CHROM,minStart,maxEnd,STRAIN,REF) %>%
