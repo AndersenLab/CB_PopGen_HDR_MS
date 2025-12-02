@@ -55,7 +55,7 @@ admix_color <- data.frame(
 # tree_dend <- ReadDendrogram(file="/vast/eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/test_GTR_LD09/phy_file_LD_0.9.phy.contree.rooted")
 # tree_nwk <- ape::read.tree(file="/vast/eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/test_GTR_LD09/phy_file_LD_0.9.phy.contree.rooted")
 
-geo <- readr::read_csv(file="../../processed_data/genetic_similarity_and_admixutre/Cb_indep_isotype_info_geo.csv") %>%
+geo <- readr::read_csv(file="../../processed_data/Geo_info/Cb_indep_isotype_info_geo.csv") %>%
   dplyr::left_join(df_colors,by=c("geo")) %>%
   dplyr::mutate(abslat=abs(lat)) %>%
   dplyr::left_join(admix,by=c("isotype"="samples")) %>%

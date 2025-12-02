@@ -578,18 +578,18 @@ lin_vec_filtered <- factor(lin_vec, levels = c("Tropical","TD1","TH","TD2","TD3"
 # Create row annotation
 row_annot <- columnAnnotation(
   #abslat = abslat_vec,
-  geo = geo_vec_filtered,
-  group = lin_vec_filtered,
+  `Geo.` = geo_vec_filtered,
+  Group = lin_vec_filtered,
   #subgroup = sublin_vec,
   col = list(#abslat = lat_col_fun,
-             geo = geo_colors,
-             group= lin_col_vec),
+             `Geo.` = geo_colors,
+             Group= lin_col_vec),
              #subgroup= sublin_col_vec),
   annotation_legend_param = list(
     #abslat = list(title = "Absolute\nlatitude", ncol = 1),
-    group = list(title= "Relatedness\ngroup", ncol = 2, fontsize = 14, title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8)),
+    Group = list(title= "Relatedness\ngroup", ncol = 2, fontsize = 14, title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8)),
     #subgroup = list(title= "Tropical\nsubgroup", ncol = 1, fontsize = 14, title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8)),
-    geo = list(title = "Geographic\nregion", ncol = 2,   title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8))
+    `Geo.` = list(title = "Geographic\nregion", ncol = 2,   title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8))
   ),
   annotation_name_side = "left",
   na_col = "white"
@@ -597,10 +597,10 @@ row_annot <- columnAnnotation(
 )
 
 bottom_annot <- rowAnnotation(
-  abslat = abslat_vec,
-  col = list(abslat = lat_col_fun),
+  `Abs.Lat.` = abslat_vec,
+  col = list(`Abs.Lat.` = lat_col_fun),
   annotation_legend_param = list(
-    abslat = list(title = "Absolute\nlatitude", ncol = 1,title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8))
+    `Abs.Lat.` = list(title = "Absolute\nlatitude", ncol = 1,title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8))
   ),
   annotation_name_side = "top"
   #height = unit(15, "cm")
