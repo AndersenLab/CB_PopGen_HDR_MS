@@ -598,7 +598,7 @@ plots_list <- setNames(
 # "OG0000001"
 # )
 
-write.table(res3_QX_annot,"../../tables/TablS11_potential_introgression_ogs.tsv",quote = F,col.names = F,row.names = F,sep = "\t")
+write.table(res3_QX_annot,"../../tables/TableS11_potential_introgression_ogs.tsv",quote = F,col.names = F,row.names = F,sep = "\t")
 
 label_has_any <- function(label, vec) {
   if (length(vec) == 0) return(FALSE)
