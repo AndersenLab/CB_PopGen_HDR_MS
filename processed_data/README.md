@@ -5,10 +5,41 @@ This directory contains the processed datasets used for downstream population ge
 ## Directory Structure
 
 processed_data/
+- Geo_info/
 - diversity_and_divergence/
 - gene_diversity/
 - genetic_similarity_and_admixutre/
 - HDRs/
+
+## Geo_info/
+
+Processed files summarizing geographic info of the samples.
+
+### Contains
+
+- `Cb_cosmopolitan_isotype.txt`  
+  List of C. briggsae isotypes classified as cosmopolitan.
+
+- `Cb_geo_distance_within_same_isotype.csv`  
+  Pairwise geographic distances among sampling locations within the same isotype.
+
+- `Cb_indep_isotype_info_geo.csv`  
+  Geographic information for each independent isotype.
+
+- `Cb_indep_strain_info_geo.csv`  
+  Geographic information for each independent strain with cosmopolitan strains labeled.
+
+- `Cb_isotype_geo_freq.csv`  
+  Frequency of each isotype across geographic regions, with cosmopolitan strains treated as a group.
+
+- `indep_info_geo_for_each_strain.csv`  
+  Consolidated geographic metadata for independent strains, providing specific location data for every strain, even though some of them are cosmopolitan.
+
+- `strain_geo_freq.csv`  
+  Frequency of each strain across geographic regions, providing summary data for every strain, even though some of them are cosmopolitan.
+
+- `non_admixed_isotype_replicate_*.txt`  
+  Each file corresponds to a replicate of the non-admixed isotype selection procedure.
 
 ## diversity_and_divergence/
 
