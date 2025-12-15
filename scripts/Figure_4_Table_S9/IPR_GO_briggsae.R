@@ -330,7 +330,7 @@ ipr_table <- ipr %>%
   dplyr::filter(IPR_accession != '-' | GO != "-") %>%
   dplyr::rename(GO_ID = GO)
 
-# write.table(ipr_table, "../../processed_data/gene_enrichment/QX_IPR_cleaned_updated_20251007.tsv", sep = '\t', quote = F, col.names = T, row.names = F)
+# write.table(ipr_table, "../../tables/TableS9_IPR_cleaned_updated_20251007.tsv", sep = '\t', quote = F, col.names = T, row.names = F)
 
 
 #==============================================================================================================================================================================================================================#
