@@ -10,6 +10,7 @@ processed_data/
 - gene_diversity/
 - genetic_similarity_and_admixutre/
 - HDRs/
+- gene_enrichment/
 
 ## Geo_info/
 
@@ -154,3 +155,24 @@ Hyper-divergent region (HDR) calls associated and intermediate files.
 
 - `Tropical_samples.txt`  
   List of tropical strains.
+
+## gene_enrichment/
+
+Data used for functional gene enrichment analysis to create Figure 4.
+
+### Contains
+
+- `c_briggsae.QX1410_20250929.csq.longest.nomito.prot.fa`
+  QX1410 proteome created from the longest isoform transcripts and MtDNA removed (for InterProScan annotions)
+
+- `c_elegans.N2.WS283.PConly.longestIsoform.gff3`
+  C. elegans N2 GFF file for pulling N2 gene names from identified orthologs of QX1410 genes.
+
+- `chromosome_domain_Cbriggsae.csv`
+  QX1410 chromosome domains for classifying chromosomal arms.
+
+- `QX1410_AF16_N2_orthogroups.tsv`
+  OrthoFinder-identified orthologs among QX1410, AF16, and N2.
+
+- `QX_IPR_allApps_20251006.tsv`
+  Raw output from InterProScan.
