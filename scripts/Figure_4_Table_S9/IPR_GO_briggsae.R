@@ -1,6 +1,7 @@
 library(plyr)
 library(readr)
 library(tidyr)
+library(GO.db)
 library(dplyr)
 library(ggplot2)
 library(stringr)
