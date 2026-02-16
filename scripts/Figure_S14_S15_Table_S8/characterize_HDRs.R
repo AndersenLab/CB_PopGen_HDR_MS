@@ -7,7 +7,7 @@ library(dendextend)
 library(ComplexHeatmap)
 library(ape) 
 library(circlize)
-library(DECIPHER)
+
 
 hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") #%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
 hdrs_unt_rg <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv") #%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
@@ -85,18 +85,24 @@ meanRGSummary_nr <- allSummary_nr %>%
 custom_colors <- c(
   "#E41A1C", "#377EB8", "#4DAF4A", "#984EA3", "#FF7F00", "#E6D700",
   "#A65628", "#F781BF", "#444444", "#90EE90", "#00CED1", "#8DA0CB")
+lineage_cols <-lineages %>% dplyr::select(Lineage, lineage_color) %>%
+  dplyr::distinct(Lineage, lineage_color) %>%
+  tibble::deframe()
 
 leg_source <- ggplot() +
-  geom_point(data=allSummary_nr,
-             aes(x = divergent_span_prop * 100, y = divergent_variants_prop * 100, color = source,shape="RG")) +
-  geom_point(data=allSummary_nr,
-             aes(x = divergent_span_prop * 100, y = divergent_variants_prop * 100, color = source,shape="QX1410")) +
-  scale_color_manual(values=custom_colors) + theme_bw() +
+  geom_point(data=allSummary_nr  %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+             aes(x = divergent_span_prop * 100, y = divergent_variants_prop * 100, color = Lineage,shape="RG")) +
+  geom_point(data=allSummary_nr  %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+             aes(x = divergent_span_prop * 100, y = divergent_variants_prop * 100, color = Lineage,shape="QX1410")) +
+  scale_color_manual(values=lineage_cols) + theme_bw() +
   labs(color = "Relatedness\ngroup",shape = "Reference\ngenome")+
   scale_shape_manual(values = c(0,1)) 
 
+
+
 p1_nr <- ggplot() +
-  geom_point(data=allSummary_nr, aes(x = divergent_span_prop * 100, y = divergent_variants_prop * 100, color = source),shape=1,stroke=0.8) +
+  geom_point(data=allSummary_nr %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+             aes(x = divergent_span_prop * 100, y = divergent_variants_prop * 100, color = Lineage),shape=1,stroke=0.8) +
   theme_bw() +
   theme(
     panel.grid = element_blank(),
@@ -106,24 +112,26 @@ p1_nr <- ggplot() +
     axis.ticks=element_blank(),
     plot.margin = margin(5.5, 1, 1, 1)
   ) +
-  scale_color_manual(values=custom_colors) +
+  scale_color_manual(values=lineage_cols) +
   scale_y_continuous(breaks = seq(0, 80, 10),limits = c(0,85)) +
   scale_x_continuous(breaks = seq(0, 100, 2),limits = c(0,24)) +
   labs(color = "Relatedness group")
 
 
 p2_nr <- ggplot() +
-  geom_point(data=meanRGSummary_nr,
-             aes(x = mean_span_prop * 100, y = mean_var_prop * 100, color = source)) +
-  geom_errorbar(data=meanRGSummary_nr,aes(x = mean_span_prop * 100,
+  geom_point(data=meanRGSummary_nr %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+             aes(x = mean_span_prop * 100, y = mean_var_prop * 100, color = Lineage)) +
+  geom_errorbar(data=meanRGSummary_nr %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+                aes(x = mean_span_prop * 100,
                    ymin = (mean_var_prop - mean_var_prop_sd) * 100,
                    ymax = (mean_var_prop + mean_var_prop_sd) * 100,
-                   color = source),
+                   color = Lineage),
                width = 0) + 
-  geom_errorbarh(data=meanRGSummary_nr,aes(y = mean_var_prop * 100,
+  geom_errorbarh(data=meanRGSummary_nr %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+                 aes(y = mean_var_prop * 100,
                      xmin = (mean_span_prop - mean_span_prop_sd) * 100,
                      xmax = (mean_span_prop + mean_span_prop_sd) * 100,
-                     color = source),
+                     color = Lineage),
                  height = 0) +
   theme_bw() +
   theme(
@@ -133,7 +141,7 @@ p2_nr <- ggplot() +
     axis.ticks.y=element_blank(),
     plot.margin = margin(5.5, 1, 1, 1),
     legend.position = 'none') +
-  scale_color_manual(values=custom_colors) +
+  scale_color_manual(values=lineage_cols) +
   scale_y_continuous(breaks = seq(0, 80, 10),limits = c(0,85)) +
   scale_x_continuous(breaks = seq(0, 100, 2),limits = c(0,24)) +
   labs(color = "Relatedness group")
@@ -190,10 +198,8 @@ meanRGSummary <- allSummary %>%
                    max_span_prop=max(divergent_span_prop)) %>%
   dplyr::ungroup()
 
-
-
-p1 <- ggplot(allSummary) +
-  geom_point(aes(x = divergent_span_prop * 100, y = divergent_variants_prop * 100, color = source),shape=0,stroke=0.8) +
+p1 <- ggplot(allSummary %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype"))) +
+  geom_point(aes(x = divergent_span_prop * 100, y = divergent_variants_prop * 100, color = Lineage),shape=0,stroke=0.8) +
   theme_bw() +
   theme(
     panel.grid = element_blank(),
@@ -203,22 +209,25 @@ p1 <- ggplot(allSummary) +
     plot.margin = margin(5.5, 1, 1, 1),
     legend.position = "none"
   ) +
-  scale_color_manual(values=custom_colors) +
+  scale_color_manual(values=lineage_cols) +
   scale_y_continuous(breaks = seq(0, 80, 10),limits = c(0,85)) +
   scale_x_continuous(breaks = seq(0, 100, 2),limits = c(0,24)) 
 
 
 p2 <- ggplot() +
-  geom_point(data=meanRGSummary,aes(x = mean_span_prop * 100, y = mean_var_prop * 100, color = source),shape=15) +
-  geom_errorbar(data=meanRGSummary,aes(x = mean_span_prop * 100,
+  geom_point(data=meanRGSummary %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+             aes(x = mean_span_prop * 100, y = mean_var_prop * 100, color = Lineage),shape=15) +
+  geom_errorbar(data=meanRGSummary %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+                aes(x = mean_span_prop * 100,
                     ymin = (mean_var_prop - mean_var_prop_sd) * 100,
                     ymax = (mean_var_prop + mean_var_prop_sd) * 100,
-                    color = source),
+                    color = Lineage),
                 width = 0) + 
-  geom_errorbarh(data=meanRGSummary,aes(y = mean_var_prop * 100,
+  geom_errorbarh(data=meanRGSummary %>% dplyr::left_join(lineages %>% dplyr::select(isotype,Lineage,lineage_color),by=c("source"="isotype")),
+                 aes(y = mean_var_prop * 100,
                      xmin = (mean_span_prop - mean_span_prop_sd) * 100,
                      xmax = (mean_span_prop + mean_span_prop_sd) * 100,
-                     color = source),
+                     color = Lineage),
                  height = 0) +
   
   theme_bw() +
@@ -227,7 +236,7 @@ p2 <- ggplot() +
     axis.title = element_blank(),
     plot.margin = margin(5.5, 1, 1, 1),
     legend.position = "none") +
-  scale_color_manual(values=custom_colors) +
+  scale_color_manual(values=lineage_cols) +
   scale_y_continuous(breaks = seq(0, 80, 10),limits = c(0,85)) +
   scale_x_continuous(breaks = seq(0, 100, 2),limits = c(0,24)) +
   labs(color = "Relatedness group")
@@ -243,9 +252,9 @@ full_plot <- ggdraw(padded_plot2) +
   draw_label("Percent genome span of hyper-divergent regions", x = 0.5, y = 0.01, vjust = 0, size = 12) +
   draw_label("Percent of variants in hyper-divergent regions", x = 0.01, y = 0.5, angle = 90, vjust = 1, size = 12)
 
-full_plot_wleg <- plot_grid(full_plot, legend, nrow = 1, rel_widths = c(1, 0.15))
+full_plot_wleg <- plot_grid(full_plot, legend, nrow = 1, rel_widths = c(1, 0.18))
 
-ggsave(plot = full_plot_wleg, filename = "../../figures/FigureS15_propVC_byIsotype_20250930.png",width = 7.5,height = 6,dpi = 600,device = 'png',bg = "white")
+ggsave(plot = full_plot_wleg, filename = "../../figures/FigureS15_propVC_byIsotype_20250930.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
 
 summary_stats_perGroup <- rbind(meanRGSummary %>% dplyr::mutate(relative_to="QX1410"),meanRGSummary_nr %>% dplyr::mutate(relative_to="Relatedness Group"))
 
