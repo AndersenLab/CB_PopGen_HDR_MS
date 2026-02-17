@@ -185,7 +185,7 @@ Generates S.D. 4
 script description
 Generates S.D. 5
 
-- `Table_S12_Plot_Cb_pi_theta_d_lineage_Autosomes_and_X.R`
+- `SD12_Plot_Cb_pi_theta_d_lineage_Autosomes_and_X.R`
 script description
 Generates S.D. 12
 
@@ -201,29 +201,45 @@ Generates Figure 4, S.D. 8
 
 ## HDRs
 - `call_HDRs.R`  
+
 Given variant counts and coverage statistics derived from long-read data  across reference genomic bins for select Tropical wild strains, optimize HDR calling parameters using short-read data for the Tropical relatedness group. Once optimal parameters are chosen, call HDRs across every relatedness group. The genomic positions of HDRs called in non-Tropical relatedness groups are transformed into the Tropical reference genome positions using genome-to-genome alignments.
+
 Generates Supplementary Figures 9, 15, 16, 17, 18, 19, 20, 21
+
 Generates Supplementary Data 6
 
 - `characterize_HDRs.R`
-Given variant counts and coverage statistics derived from short-read data across reference genomic bins for all wild strains, and a set of hyper-divergent regions called relative to QX1410 or a relatedness group reference genome, estimate the proportion of variants within HDRs and the proportion of the genome covered by HDRs
+
+Given variant counts and coverage statistics derived from short-read data across reference genomic bins for all wild strains, and a set of hyper-divergent regions called relative to QX1410 or a relatedness group reference genome, estimate the proportion of variants within HDRs and the proportion of the genome covered by HDRs.
+
 Generates Supplementary Figure 10 
+
 Generates Extended Data Figure 5 
+
 Generates Supplementary Data 7
 
 - `visualize_gene_content.R`
+
 Given a reference region and a list of strains, generate gene content visualizations with orthologous relationships across wild strain genomes using genome alignments.
-Generates sub-plots (as R objects) for merge_gene_content_plots.R
-Generates Supplementary Figure 11
+
+Generates sub-plots (as R objects) for `merge_gene_content_plots.R`.
+
+Generates Supplementary Figure 11.
 
 - `merge_gene_content_plots.R`
-Merges and plots the R objects from `visualize_gene_content.R` 
+
+Merges and plots the R objects from `visualize_gene_content.R`.
+
 Generates Extended Data Figure 6
   
 ## introgression_analysis
 
 - `classify_tree_topology.R`
-Given concatenated tree files of orthologous genes, identify single-copy ortholog trees with at least 1 branch lenth >1e6 where a reference gene is present and it is located within an HDR
+
+Given concatenated tree files of orthologous genes, identify single-copy ortholog trees with at least 1 branch lenth >1e6 where a reference gene is present and it is located within an HDR.
+
 Generates Extended Data Figure 7
+
 Generates  Supplementary Data 11
+
 Visualizes tree figures in `~/figures/introgression_figures`
