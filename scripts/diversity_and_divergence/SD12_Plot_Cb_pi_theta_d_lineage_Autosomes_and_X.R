@@ -227,7 +227,7 @@ merged_wide_table_foldchange<-merged_wide_table %>%
   relocate(Stat, .after = last_col())
 
 write.table(merged_wide_table_foldchange,
-            "../../tables/TableS12_All_groups_merged_pi_theta_d_Autosomal_Xarm_arm_center_foldchange.tsv",
+            "../../supplementary_data/SD12_All_groups_merged_pi_theta_d_Autosomal_Xarm_arm_center_foldchange.tsv",
             quote = FALSE,
             row.names = FALSE,
             sep = '\t')

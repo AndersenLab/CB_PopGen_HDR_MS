@@ -16,4 +16,4 @@ hdr_3reg <- cowplot::plot_grid(
   axis = "lr"
 )
 
-ggsave(plot = hdr_3reg,filename = "../../figures/FigureS17_HDR_3reg_genes.png",width = 7.5,height = 8.5,device = "png",units = "in",dpi = 600)
+ggsave(plot = hdr_3reg,filename = "../../figures/EDF6_HDR_3reg_genes.png",width = 7.5,height = 8.5,device = "png",units = "in",dpi = 600)

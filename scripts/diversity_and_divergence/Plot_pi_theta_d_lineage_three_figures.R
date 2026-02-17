@@ -154,7 +154,7 @@ pi_plot <- ggplot(
 
 # Save
 
-ggsave("../../figures/FigureS19_all_lineage_pi_same_scale.pdf", pi_plot, width = 7, height = 7)
+ggsave("../../figures/SF12_all_lineage_pi_same_scale.pdf", pi_plot, width = 7, height = 7)
 
 
 
@@ -259,7 +259,7 @@ theta_plot <- ggplot(
 
 # Save
 
-ggsave("../../figures/FigureS20_all_lineage_theta_same_scale.pdf", theta_plot, width = 7, height = 7)
+ggsave("../../figures/SF13_all_lineage_theta_same_scale.pdf", theta_plot, width = 7, height = 7)
 
 
 

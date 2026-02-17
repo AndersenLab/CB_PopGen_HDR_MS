@@ -359,7 +359,7 @@ N2_orthos <- orthos %>%
 ipr_table_final <- ipr_table %>% 
   dplyr::left_join(N2_orthos, by = "QX1410")
 
-# write.table(ipr_table_final, "../../tables/TableS9_IPR_cleaned_updated_20251007.tsv", sep = '\t', quote = F, col.names = T, row.names = F)
+# write.table(ipr_table_final, "../../supplementary_data/SD8_IPR_cleaned_updated_20251007.tsv", sep = '\t', quote = F, col.names = T, row.names = F)
 
 
 #==============================================================================================================================================================================================================================#

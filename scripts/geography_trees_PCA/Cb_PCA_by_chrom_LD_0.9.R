@@ -120,7 +120,7 @@ if (length(combined_panels) == 0) stop("No panels were created (missing files or
 final_plot <- patchwork::wrap_plots(plotlist = combined_panels, ncol = 2)
 
 final_plot
-ggsave("../../figures/FigureS5_raw_PCA_by_chrom_raw.pdf", final_plot, width = 7, height = 4, units = "in", device = "pdf")
+ggsave("../../figures/SF2_raw_PCA_by_chrom_raw.pdf", final_plot, width = 7, height = 4, units = "in", device = "pdf")
 
 
 

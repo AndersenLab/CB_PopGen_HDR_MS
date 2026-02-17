@@ -254,11 +254,11 @@ full_plot <- ggdraw(padded_plot2) +
 
 full_plot_wleg <- plot_grid(full_plot, legend, nrow = 1, rel_widths = c(1, 0.18))
 
-ggsave(plot = full_plot_wleg, filename = "../../figures/FigureS15_propVC_byIsotype_20250930.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
+ggsave(plot = full_plot_wleg, filename = "../../figures/EDF5_propVC_byIsotype_20250930.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
 
 summary_stats_perGroup <- rbind(meanRGSummary %>% dplyr::mutate(relative_to="QX1410"),meanRGSummary_nr %>% dplyr::mutate(relative_to="Relatedness Group"))
 
-write.table(summary_stats_perGroup,file = "../../tables/TableS8_summaryStats_20250930.tsv",sep = "\t",quote = F,row.names = F)
+write.table(summary_stats_perGroup,file = "../../supplementary_data/SD7_summaryStats_20250930.tsv",sep = "\t",quote = F,row.names = F)
 
 admix_color <- data.frame(
   letter = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
@@ -608,7 +608,7 @@ p_cov_nreg <- cowplot::plot_grid(p_nreg,p_cov,nrow=2,ncol=1, align = "v",labels 
 propQX_nreg <- nrow(strain_counts %>% dplyr::filter(n_regions>=300 & source=="QX1410")) / nrow(strain_counts %>% dplyr::filter(n_regions>=300))
 propQX_pcov <- nrow(strain_counts %>% dplyr::filter(perc_cov>=0.05 & source=="QX1410")) / nrow(strain_counts %>% dplyr::filter(perc_cov>=0.05))
 
-ggsave(plot = p_cov_nreg, filename = "../../figures/FigureS14_nreg_byIsotype_20250930.png",width = 7.5,height = 5.5,dpi = 600,device = 'png')
+ggsave(plot = p_cov_nreg, filename = "../../figures/SF10_nreg_byIsotype_20250930.png",width = 7.5,height = 5.5,dpi = 600,device = 'png')
 
 bins_dt <- as.data.table(bins)
 setnames(bins_dt, c("binStart", "binEnd"), c("start", "end"))

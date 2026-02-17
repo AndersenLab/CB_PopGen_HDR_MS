@@ -209,7 +209,7 @@ all_result<-dplyr::left_join(geo_diversity_result,
 # write.csv(file = "Table_geo_p_theta_d.csv",all_result,quote = FALSE,
 #           row.names = FALSE)
 
-write.csv(file = "../../tables/TableS5_geo_p_theta.csv",all_result,quote = FALSE,
+write.csv(file = "../../supplementary_data/SD4_geo_p_theta.csv",all_result,quote = FALSE,
           row.names = FALSE)
 
 

@@ -285,7 +285,7 @@ geo_merged_wide_table<-merged_wide_table %>%
 
 
 write.table(geo_merged_wide_table,
-            "../../tables/TableS6_geo_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
+            "../../supplementary_data/SD5_geo_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
             col.names = TRUE,
             row.names = FALSE,
             quote = FALSE,

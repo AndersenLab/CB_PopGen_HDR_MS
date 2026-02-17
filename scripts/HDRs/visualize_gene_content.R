@@ -47,22 +47,22 @@ nigonis <- c("JU1422","ECA2852","ECA2857","EG5268","JU1418","JU2617","JU1419","J
 
 ######### MODIFY THIS ##########
 #set your target HDR coordinates
-# Figure S17a - 70 kb
+# E.D.F. 6a - 70 kb
 hdr_chrom = "V"
 hdr_start_pos = 838000
 hdr_end_pos = 894000
 
-#Figure S17b - 110kb
+# E.D.F. 6b - 110kb
 # hdr_chrom = "II"
 # hdr_start_pos = 12500000
 # hdr_end_pos = 12610000
 
-#Figure S17c - 175kb
+# E.D.F. 6c - 175kb
 # hdr_chrom = "I"
 # hdr_start_pos = 12469000
 # hdr_end_pos = 12644000
 
-#Figure S16 - 120 kb
+# S.F. 11 - 120 kb
 # hdr_chrom = "I"
 # hdr_start_pos = 11880000
 # hdr_end_pos = 12000000
@@ -496,7 +496,7 @@ always_omit_WI_ad <- c("QX1410","MY681")
 
 WI_ad <- boundGenes %>% 
   dplyr::filter(STRAIN %in% desired_strains & !STRAIN %in% always_omit_WI_ad) %>% #handle selection
-  #dplyr::filter(!STRAIN %in% nigonis & !STRAIN %in% always_omit_WI_ad) #if no selection/order is desired, then simply display all briggsae genomes (Figure S16)
+  #dplyr::filter(!STRAIN %in% nigonis & !STRAIN %in% always_omit_WI_ad) #if no selection/order is desired, then simply display all briggsae genomes (as in S.F. 11)
   dplyr::left_join(all_ortho_pairs_raw,by=c("STRAIN","tranname")) %>%
   dplyr::mutate(tr_has_any_ortho=ifelse(is.na(has_any_ortho),F,has_any_ortho)) %>%
   dplyr::left_join(all_ortho_pairs_bound %>% dplyr::select(tranname,STRAIN,QX1410,status) %>% dplyr::filter(QX1410 %in% QX_ad$tranname),by=c("STRAIN","tranname")) %>%
@@ -739,10 +739,10 @@ all_hap_bg <- ggplot() +
   guides(fill = guide_legend(nrow = 6, byrow = TRUE))
 
 #save png
-#used for Figure S16
-#outfile_png <- paste0("../../processed_data/gene_diversity/HDR_",hdr_chrom,"_",hdr_start_pos,"_",hdr_end_pos,"_",length(desired_strains),"rg",".png")
+#used for Figure S.F. 11
+#outfile_png <- paste0("../../processed_data/gene_diversity/SF11_HDR_",hdr_chrom,"_",hdr_start_pos,"_",hdr_end_pos,"_",length(desired_strains),"rg",".png")
 #ggsave(plot = all_hap_bg,filename = outfile_png,width = 7.5,height = 8.5,device = "png",units = "in",dpi = 600,bg = "white")
 
-#store ggplot in Rds for concatenating with other plots
+#store ggplot in Rds for concatenating with other plots (used for E.D.F. 6)
 outfile_rd <- paste0("../../processed_data/gene_diversity/HDR_",hdr_chrom,"_",hdr_start_pos,"_",hdr_end_pos,"_",length(desired_strains),"rg",".Rds")
 saveRDS(all_hap_bg, file=outfile_rd)

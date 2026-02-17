@@ -578,13 +578,12 @@ tropical_D <- ggplot() +
   ylab("Tajima's D") +
   coord_cartesian(ylim=c(-2.5,4))
 
-#F6 <- cowplot::plot_grid(all_D,alliso_D_hm,tropical_D,trop_D_hm,other_D_hm,ncol=1,rel_heights = c(1,0.14,0.85,0.14,1),align = "v",axis="lr")
-F6_alt <- cowplot::plot_grid(all_D,tropical_D,other_D_hm,ncol=1,rel_heights = c(1,0.85,1.5),align = "v",axis="lr",labels=c("a","","b"))
-F6_alt <- cowplot::ggdraw(F6_alt) +
+EDF8 <- cowplot::plot_grid(all_D,tropical_D,other_D_hm,ncol=1,rel_heights = c(1,0.85,1.5),align = "v",axis="lr",labels=c("a","","b"))
+EDF8 <- cowplot::ggdraw(EDF8) +
   cowplot::draw_label("Physical position (Mb)",
                       x = 0.54, y = 0, vjust = -2, size = 10) 
 
-ggsave(F6_alt,filename = "../../figures/FigureS21_Dbylin_noAll.png",width = 7,height = 5.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(EDF8,filename = "../../figures/EDF8_Dbylin_noAll.png",width = 7,height = 5.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 plot_lin_pi_region <- function(region_rects,
@@ -815,7 +814,7 @@ XL <- plot_lin_pi_region(
   region_colors = region_colors
 )
 ylim_max = 0.013
-FS12 <- cowplot::plot_grid(IL + theme(axis.title.x = element_blank()) + ylim(0,ylim_max),
+SF8 <- cowplot::plot_grid(IL + theme(axis.title.x = element_blank()) + ylim(0,ylim_max),
                    IR + theme(axis.title = element_blank()) + ylim(0,ylim_max),
                    IIL + theme(axis.title.x = element_blank()) + ylim(0,ylim_max),
                    IIR + theme(axis.title = element_blank()) + ylim(0,ylim_max),
@@ -829,7 +828,7 @@ FS12 <- cowplot::plot_grid(IL + theme(axis.title.x = element_blank()) + ylim(0,y
                    XR + theme(axis.title.y = element_blank()) + ylim(0,ylim_max),
                    align = "v",axis="lr",ncol=2,rel_heights = c(1,1,1,1,1,1.2))
 
-ggsave(FS12,filename = "../../figures/FigureS12_localpi_tropical.png",width = 7,height = 6.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(SF8,filename = "../../figures/SF8_localpi_tropical.png",width = 7,height = 6.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 pitheta_plot <- ggplot() + 
@@ -1508,4 +1507,4 @@ dxybox_tmp <- ggplot(anno_dxy_tmp) +
 
 dxy_boxes <- cowplot::plot_grid(dxybox_ad,dxybox_kd,dxybox_td,dxybox_th,dxybox_tmp,nrow=5,rel_heights = c(1,0.85,0.85,0.85,0.85))
 
-ggsave(dxy_boxes,filename = "../../figures/FigureS22_Dxy_allcomp_20251007.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(dxy_boxes,filename = "../../figures/EDF9_Dxy_allcomp_20251007.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)

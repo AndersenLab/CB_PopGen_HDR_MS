@@ -409,13 +409,8 @@ final_plot <- plot_grid(
 )
 
 print(final_plot)
-# ggsave(paste0("FigureS10_raw_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
-#        final_plot, 
-#        width = 10, 
-#        height = 8, 
-#        useDingbats = FALSE)
 if (which_replicate == 5) {
-ggsave(paste0("../../figures/FigureS10_raw_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
+ggsave(paste0("../../figures/SF6_raw_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
        final_plot, 
        width = 10, 
        height = 8, 
@@ -609,10 +604,7 @@ final_plots
 combined_only_5_lineage <- plot_grid(plotlist = final_plots, ncol = 2, align = "v")
 combined_only_5_lineage
 
-# ggsave("raw_combined_only_5_lineage.pdf", 
-#        combined_only_5_lineage, 
-#        width = 10, height = 7)
-ggsave("../../figures/FigureS11_admixture_only_5_lineage.pdf", 
+ggsave("../../figures/SF7_admixture_only_5_lineage.pdf", 
        combined_only_5_lineage, 
        width = 10, height = 7)
 

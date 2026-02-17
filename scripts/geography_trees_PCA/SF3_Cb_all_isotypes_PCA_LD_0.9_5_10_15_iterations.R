@@ -9,14 +9,11 @@ library(cowplot)
 library(patchwork)
 library(ggridges)
 
-
 # source
 source("../utilities.R")
 
-
 geo_info_raw<-read.csv("../../processed_data/geo_info/Cb_indep_isotype_info_geo.csv")
 geo_info<-geo_info_raw 
-
 
 ## latest_lineage 20250909
 library(readr)
@@ -25,8 +22,6 @@ lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/iso
   filter(!(isotype %in% c("MY681", "ECA1146", "JU356", "ECA1503")))
 
 plot_PCA<-function(PCA_input, tracy_for_plot_input, x_axis, y_axis){
-
-
 
   label_x<-tracy_for_plot_input %>%
     dplyr::filter(N == as.numeric(sub("PC", "", x_axis))) %>%
@@ -60,15 +55,8 @@ plot_PCA<-function(PCA_input, tracy_for_plot_input, x_axis, y_axis){
  
   p1_1
 
-
-
   return(p1_1)
-
-
 }
-
-
-
 
 TracyWidom_file<-"../../processed_data/PCA_more_iterations/PCA_5_iterations/TracyWidom_statistics_outlier_removal.tsv"
 eigenstrat_file<-"../../processed_data/PCA_more_iterations/PCA_5_iterations/eigenstrat_outliers_removed.evac"
@@ -98,9 +86,6 @@ cdf9_2no_rm_out_liner <- cdf9no_rm_out_liner %>%
 
 cdf9_3no_rm_out_liner <- cdf9_2no_rm_out_liner %>% dplyr::select(-isotype)
 
-
-
-
 # add back location data nd use these dfs to plot PC1 by PC2
 cdf9_7no_rm_out_liner <- cdf9_2no_rm_out_liner %>%
   dplyr::left_join(geo_info,by=c("isotype")) 
@@ -109,8 +94,6 @@ cdf9_7no_rm_out_liner <- cdf9_2no_rm_out_liner %>%
 pca_TAC_ld0.9_rm_out_liner <- cdf9_7no_rm_out_liner
 n_of_isotype<-nrow(pca_TAC_ld0.9_rm_out_liner)
 n_of_isotype
-
-
 
 
 p_PC1_PC2_rm_out_liner<- plot_PCA(pca_TAC_ld0.9_rm_out_liner,
@@ -125,8 +108,6 @@ p_PC3_PC4_rm_out_liner<- plot_PCA(PCA_input=pca_TAC_ld0.9_rm_out_liner,
                                   x_axis="PC3",y_axis="PC4")
 p_PC3_PC4_rm_out_liner
 # ggsave("Cb_rm_out_liner_PCA_plot_PC3_4_with_density.pdf", plot = p_PC3_PC4, width = 3.75, height = 3.75, units = "in")
-
-
 
 # generate legend
 legend_plot_rm_out_liner <- ggplot(pca_TAC_ld0.9_rm_out_liner)+
@@ -190,7 +171,6 @@ return(list(p_iteration=Cb_rm_out_liner_PCA_plot_PC1_4_with_density,
 
 }
 
-
 #### 5 iterations
 TracyWidom_5<-"../../processed_data/PCA_more_iterations/PCA_5_iterations/TracyWidom_statistics_outlier_removal.tsv"
 eigenstrat_5<-"../../processed_data/PCA_more_iterations/PCA_5_iterations/eigenstrat_outliers_removed.evac"
@@ -199,16 +179,6 @@ iteration_5_results<-plot_remove_out_liner(TracyWidom_file=TracyWidom_5,
                                         eigenstrat_file = eigenstrat_5,
                                         n_iterations = "5")
 iteration_5_results$p_iteration
-
-# ggsave(
-#   "Cb_rm_out_liner_5_iterations_PCA_plot_PC1_4_with_density.pdf", 
-#   plot = iteration_5_results$p_iteration, 
-#   width = 7, 
-#   height = 3,   
-#   units = "in"
-# )
-
-
 
 View(iteration_5_results$pca_TAC_ld0.9_rm_out_liner)
 
@@ -225,10 +195,6 @@ PC12_down_big<-iter_5_df %>%
   group_by(Lineage) %>% 
   summarise(n=n())
   
-
-
-
-
 PC34_3over_0<-iter_5_df %>% 
   filter(PC3 >0) %>% 
   group_by(Lineage) %>% 
@@ -238,10 +204,6 @@ PC34_left<-iter_5_df %>%
   filter(PC3 < -0.05) %>% 
   group_by(Lineage) %>% 
   summarise(n=n())
-
-
-
-
 
 #removed isotypes in the first 5 iterations
 diff_iso<-setdiff(lineage_raw$isotype,iter_5_df$isotype)
@@ -255,9 +217,6 @@ removed_isotypes_df_summary<-removed_isotypes_df %>%
   group_by(Lineage) %>% 
   summarise(n=n())
 # write.csv(removed_isotypes_df_summary,"removed_isotypes_df_summary.csv",row.names = FALSE)
-
-
-
 
 #### 10 iterations
 TracyWidom_10<-"../../processed_data/PCA_more_iterations/PCA_10_iterations/TracyWidom_statistics_outlier_removal.tsv"
@@ -290,9 +249,6 @@ PC12_mid<-iter_10_df %>%
   group_by(Lineage) %>% 
   summarise(n=n())
 
-
-
-
 #### 15 iterations
 TracyWidom_15<-"../../processed_data/PCA_more_iterations/PCA_15_iterations/TracyWidom_statistics_outlier_removal.tsv"
 eigenstrat_15<-"../../processed_data/PCA_more_iterations/PCA_15_iterations/eigenstrat_outliers_removed.evac"
@@ -307,8 +263,6 @@ View(iteration_15_results$pca_TAC_ld0.9_rm_out_liner)
 
 iter_15_df<-iteration_15_results$pca_TAC_ld0.9_rm_out_liner %>% 
   left_join(lineage_raw %>% select(isotype,Lineage), by = c("isotype"))
-
-
 
 PC12_up<-iter_15_df %>% 
   filter(PC2>0.04) %>% 
@@ -327,10 +281,6 @@ PC12_down_right<-iter_15_df %>%
   filter(PC1>0.2) %>%
   group_by(Lineage) %>% 
   summarise(n=n())
-
-
-
-
 
 #### 20 iterations
 TracyWidom_20<-"../../processed_data/PCA_more_iterations/PCA_20_iterations/TracyWidom_statistics_outlier_removal.tsv"
@@ -367,12 +317,6 @@ PC12_down_right<-iter_20_df %>%
   filter(PC1>0.2) %>%
   group_by(Lineage) %>% 
   summarise(n=n())
-
-
-
-
-
-
 
 #### 25 iterations
 TracyWidom_25<-"../../processed_data/PCA_more_iterations/PCA_25_iterations/TracyWidom_statistics_outlier_removal.tsv"
@@ -435,8 +379,6 @@ View(iteration_30_results$pca_TAC_ld0.9_rm_out_liner)
 iter_30_df<-iteration_30_results$pca_TAC_ld0.9_rm_out_liner %>% 
   left_join(lineage_raw %>% select(isotype,Lineage), by = c("isotype"))
 
-
-
 PC12_up<-iter_30_df %>% 
   filter(PC2>0.04) %>% 
   group_by(Lineage) %>% 
@@ -455,13 +397,6 @@ PC12_down_right<-iter_30_df %>%
   group_by(Lineage) %>% 
   summarise(n=n())
 
-
-
-
-
-
-
-
 #### 35 iterations
 TracyWidom_35<-"../../processed_data/PCA_more_iterations/PCA_35_iterations/TracyWidom_statistics_outlier_removal.tsv"
 eigenstrat_35<-"../../processed_data/PCA_more_iterations/PCA_35_iterations/eigenstrat_outliers_removed.evac"
@@ -471,15 +406,6 @@ iteration_35_results<-plot_remove_out_liner(TracyWidom_file=TracyWidom_35,
                                             n_iterations = "35")
 iteration_35_results$p_iteration
 
-
-
-
-
-
-
-
-
-
 #### 40 iterations
 TracyWidom_40<-"../../processed_data/PCA_more_iterations/PCA_40_iterations/TracyWidom_statistics_outlier_removal.tsv"
 eigenstrat_40<-"../../processed_data/PCA_more_iterations/PCA_40_iterations/eigenstrat_outliers_removed.evac"
@@ -488,11 +414,6 @@ iteration_40_results<-plot_remove_out_liner(TracyWidom_file=TracyWidom_40,
                                             eigenstrat_file = eigenstrat_40,
                                             n_iterations = "40")
 iteration_40_results$p_iteration
-
-
-
-
-
 
 
 ######### assemble outliner removal plots #########
@@ -547,17 +468,12 @@ final_plot <- cowplot::plot_grid(
 
 final_plot
 ggsave(
-  "../../figures/FigureS6_Cb_iteration_5_30_PCA.pdf",
+  "../../figures/SF3_Cb_iteration_5_30_PCA.pdf",
   plot = final_plot,
   width = 7,
   height = 7,
   units = "in"
 )
-
-
-
-
-
 
 ####################################
 ###### How many isotypes left ######

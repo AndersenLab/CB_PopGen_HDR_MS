@@ -270,13 +270,13 @@ PCA_differentiated<-rbind((PC12AD %>% mutate(Cluster = c("Australia")) ),
 ) 
 
 #### output PCA table S3 table
-TableS3<-pca_TAC_ld0.9_no_rm %>% 
+SD2<-pca_TAC_ld0.9_no_rm %>% 
   select(-PC5,-PC6,-lat,-long) %>% 
   left_join(PCA_differentiated %>% select(isotype,Cluster)) %>% 
   mutate(Cluster = ifelse(is.na(Cluster),"Global",Cluster))
 
-write.table(TableS3,
-            "../../tables/TableS3_PCA_data.tsv",
+write.table(SD2,
+            "../../supplementary_data/SD2_PCA_data.tsv",
             sep = '\t',
             col.names = TRUE,
             row.names = FALSE,

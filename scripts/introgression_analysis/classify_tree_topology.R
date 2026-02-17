@@ -32,8 +32,6 @@ process_sites <- function(path, label) {
 
 og <- readr::read_tsv("../../processed_data/tree_topology/orthogroups_CBCN_Tropical.tsv")
 
-#file_list <- list.files(path = "/vast/eande106/projects/Nicolas/CBCN_comp/tree/gene_level_20251006/core_prot_CBCN_fasttree/OrthoFinder/Results_CBCN_famsa_asn_ft/", pattern = "\\.txt$", full.names = TRUE)
-
 tree_lines <- readLines("../../processed_data/tree_topology/Resolved_Gene_Trees.txt")
 trees_raw <- grep("^OG[0-9]+:", tree_lines, value = TRUE)
 tree_texts <- sub("^OG[0-9]+:\\s*", "", trees_raw)
@@ -598,7 +596,7 @@ plots_list <- setNames(
 # "OG0000001"
 # )
 
-write.table(res3_QX_annot,"../../tables/TableS11_potential_introgression_ogs.tsv",quote = F,col.names = F,row.names = F,sep = "\t")
+write.table(res3_QX_annot,"../../supplementary_data/SD11_potential_introgression_ogs.tsv",quote = F,col.names = F,row.names = F,sep = "\t")
 
 label_has_any <- function(label, vec) {
   if (length(vec) == 0) return(FALSE)
@@ -917,7 +915,7 @@ for (og in names(heatmap_list)) {
   }
 }
 
-out_dir <- "../../figures/FileS2_figures/"  
+out_dir <- "../../figures/introgression_figures/"  
 
 # lookup table for filename parts
 fn_lookup <- res3_QX_annot_aug %>%
@@ -1049,7 +1047,7 @@ consensus_plt <- draw_colored_tree_ggtree(
   align = TRUE
 )
 
-S18 <- cowplot::plot_grid(consensus_plt,cc_tree,dc_tree,nrow=1,labels = c("a","b","c"))
+EDF7 <- cowplot::plot_grid(consensus_plt,cc_tree,dc_tree,nrow=1,labels = c("a","b","c"))
 
-ggsave(S18,filename = "../../figures/FigureS18_tree_examples.png",width    = 7, height = 4, units = "in", dpi = 600, bg = "white")
+ggsave(S18,filename = "../../figures/EDF7_tree_examples.png",width    = 7, height = 4, units = "in", dpi = 600, bg = "white")
 

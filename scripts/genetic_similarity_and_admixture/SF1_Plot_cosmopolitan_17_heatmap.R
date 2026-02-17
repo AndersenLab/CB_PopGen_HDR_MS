@@ -253,7 +253,7 @@ g2 <- grid.grabExpr(draw(p_heatmap_1))
 
 dev.off()
 # pdf("raw_Figure_S2_combined_plot.pdf", width = 7, height = 8)
-pdf("../../figures/FigureS2_raw_cosmopolitan_isotypes.pdf", width = 7, height = 8)
+pdf("../../figures/SF1_raw_cosmopolitan_isotypes.pdf", width = 7, height = 8)
 
 grid.arrange(g1, g2, ncol = 1, heights = c(1, 1))
 

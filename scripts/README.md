@@ -11,11 +11,12 @@ scripts/
 - diversity_and_divergence/
 - gene_enrichment/
 - HDRs/
+- introgression_analysis/
 
 ## Abreviations
-E.D.F. = Extended Data Figure
-S.F. = Supplementary Figure
-S.D. = Supplementary Data
+EDF = Extended Data Figure
+SF = Supplementary Figure
+SD = Supplementary Data
 
 ## geography_trees_PCA
 
@@ -37,7 +38,7 @@ Generates?
 
 - `Cb_PCA_by_chrom_LD_0.9.R`  
 script description
-Generates Figure S5?
+Generates S.F. 2
 
 - `nf_Cb_pca_by_chrom.sh`
 script description
@@ -79,17 +80,17 @@ Generates?
 script description
 Generates?
 
-- `Figure_S6_Cb_all_isotypes_PCA_LD_0.9_5_10_15_iterations.R`
+- `SF3_Cb_all_isotypes_PCA_LD_0.9_5_10_15_iterations.R`
 script description
-Generates Figure S5 ?
+Generates S.F. 3
 
 - `Cb_all_isotypes_PCA_LD_0.9.R`
 script description
-Generates Table S3 ? 
+Generates S.D. 2
 
 - `Cb_assemble_figure_1.R` 
 script description
-Generates Figure 1 ?
+Generates Figure 1 
 
 `Cb_Geo_locations_strains.R` 
 script description
@@ -101,15 +102,15 @@ Generates?
 
 `Plot_tree_with_previous_lineages.R`
 script description
-Generates Figure S4 ?
+Generates E.D.F. 3 
 
 - `Cb_Geo_locations_isotype.R`  
 script description
 Generates?
 
-- `Figure_S1.R`  
+- `make_EDF1.R`  
 script description
-Generates Figure S1?
+Generates E.D.F. 1
 
 ## genetic_similarity_and_admixture
 
@@ -117,21 +118,21 @@ Generates Figure S1?
 script description
 Generates?
 
-- `Figure_S2_Plot_cosmopolitan_17_heatmap.R`
+- `SF1_Plot_cosmopolitan_17_heatmap.R`
 script description
-Generates Figure S2?
+Generates S.F. 1
 
 - `Cb_concordance_histogram_hard_filtered.R`
 script description
-Generates Figure S23
+Generates S.F. 14
 
 - `Figure_S28_Cb_concordance_histogram_hard_filtered.R`
 script description
 I think this script is obsolete (replaced by `Cb_concordance_histogram_hard_filtered.R`?)
 
-- `Figure_S3_Plot_cosmopolitan_concordance.R`
+- `EDF2_Plot_cosmopolitan_concordance.R`
 script description
-Generates Figure S3
+Generates E.D.F. 2
 
 - `Calculate_Cb_admixture_post_processing.sh`  
 script description
@@ -139,11 +140,11 @@ Generates?
 
 - `Calculate_Cb_run_admixture_arrays.sh`  
 script description
-Generates Figure S9?
+Generates?
 
 - `Plot_Cb_admixture_by_lineage.R`  
 script description
-Generates Figure S10 and S11
+Generates S.F. 6 and S.F. 7
 
 - `Plot_Cb_admixture_CV.R`
 script description
@@ -155,7 +156,7 @@ I think this script is obsolete (Table S2 no longer exists. Pairwise concordance
 
 - `genetic_similarity_admixture.R`
 script description
-Generates Figure 2, S7, S8
+Generates Figure 2, E.D.F. 4 , S.F. 4
 
 ## diversity_and_divergence
 
@@ -169,23 +170,24 @@ Generates?
 
 - `nucleotide_diversity_and_divergence.R`
 script description
-Generates Figure 3, 5, S12, S21, S22
+Generates Figure 3, 5, S.F. 8, E.D.F. 8, E.D.F. 9
 
 - `Plot_pi_theta_d_lineage_three_figures.R`
 script description
-Generates Figures S19, S20
+Generates Supplementary Figure 12
+Generates Supplementary Figure 13 
 
 - `Table_Cb_geo_p_theta.R`
 script description
-Generates Table S5
+Generates S.D. 4
 
 - `Plot_Cb_pi_theta_d_geo_lineage_Autosomes_and_X.R`
 script description
-Generates Table S6
+Generates S.D. 5
 
 - `Table_S12_Plot_Cb_pi_theta_d_lineage_Autosomes_and_X.R`
 script description
-Generates Table S12
+Generates S.D. 12
 
 ## gene_enrichment
 
@@ -195,22 +197,33 @@ script description
 - `IPR_GO_briggsae.R`
 script description
 
-Generates Figure 4, Table S9
+Generates Figure 4, S.D. 8
 
 ## HDRs
 - `call_HDRs.R`  
-script description
-Generates Figures S13, S25, S26, S27, S28, S29, S30, S31, and Table S7
+Given variant counts and coverage statistics derived from long-read data  across reference genomic bins for select Tropical wild strains, optimize HDR calling parameters using short-read data for the Tropical relatedness group. Once optimal parameters are chosen, call HDRs across every relatedness group. The genomic positions of HDRs called in non-Tropical relatedness groups are transformed into the Tropical reference genome positions using genome-to-genome alignments.
+Generates Supplementary Figures 9, 15, 16, 17, 18, 19, 20, 21
+Generates Supplementary Data 6
 
 - `characterize_HDRs.R`
-script description
-Generates Figures S14, S15, and Table S8
+Given variant counts and coverage statistics derived from short-read data across reference genomic bins for all wild strains, and a set of hyper-divergent regions called relative to QX1410 or a relatedness group reference genome, estimate the proportion of variants within HDRs and the proportion of the genome covered by HDRs
+Generates Supplementary Figure 10 
+Generates Extended Data Figure 5 
+Generates Supplementary Data 7
 
 - `visualize_gene_content.R`
 Given a reference region and a list of strains, generate gene content visualizations with orthologous relationships across wild strain genomes using genome alignments.
 Generates sub-plots (as R objects) for merge_gene_content_plots.R
-Genrates Figure S17
+Generates Supplementary Figure 11
 
 - `merge_gene_content_plots.R`
-Given the paths to R objects from `visualize_gene_content.R`, generate Figure S16
+Merges and plots the R objects from `visualize_gene_content.R` 
+Generates Extended Data Figure 6
   
+## introgression_analysis
+
+- `classify_tree_topology.R`
+Given concatenated tree files of orthologous genes, identify single-copy ortholog trees with at least 1 branch lenth >1e6 where a reference gene is present and it is located within an HDR
+Generates Extended Data Figure 7
+Generates  Supplementary Data 11
+Visualizes tree figures in `~/figures/introgression_figures`
