@@ -1,4 +1,3 @@
-
 library(ape)
 library(dplyr)
 library(tidyr)
@@ -15,10 +14,10 @@ library(circlize)
 library(ComplexHeatmap)
 library(stringr)
 
+# function to compute missingness across all genotype columns (everything except the POS string col)
 process_sites <- function(path, label) {
   readr::read_tsv(path, show_col_types = FALSE) %>%
     dplyr::filter(!grepl("MtDNA", POS)) %>%
-    # compute missingness across all genotype columns (everything except the POS string col)
     dplyr::mutate(
       n_missing = rowSums(as.data.frame(dplyr::across(-POS, ~ is.na(.x)))),
       n_samples = ncol(.) - 1L,
@@ -30,37 +29,51 @@ process_sites <- function(path, label) {
     dplyr::mutate(PL = label)
 }
 
+#read orthogroups file (C. nigoni and Tropical C. briggsae and )
 og <- readr::read_tsv("../../processed_data/tree_topology/orthogroups_CBCN_Tropical.tsv")
 
+#read raw concatenated gene-level trees as lines
 tree_lines <- readLines("../../processed_data/tree_topology/Resolved_Gene_Trees.txt")
+#sanity check, extract lines with OG IDs
 trees_raw <- grep("^OG[0-9]+:", tree_lines, value = TRUE)
+#extract tree texts (remove OG ID)
 tree_texts <- sub("^OG[0-9]+:\\s*", "", trees_raw)
-trees <- lapply(tree_texts, function(x) read.tree(text = x))
+#read as tree objects
+trees <- lapply(tree_texts, function(x) ape::read.tree(text = x))
+#extract headers 
 og_ids <- sub(":.*", "", grep("^OG[0-9]+:", tree_lines, value = TRUE))
 names(trees) <- og_ids
+
+#remove unnecessary text from gene IDs in tree tip labels
 trees <- lapply(trees, function(tr) {
   tr$tip.label <- gsub("_longest_prot", "", tr$tip.label)
   tr$tip.label <- gsub("_Transcript", "", tr$tip.label)
   tr$tip.label <- gsub("_transcript", "", tr$tip.label)
   tr
 })
-#glimpse(trees)
 
+#read consensus tree
 consensus <- ape::read.tree(file="../../processed_data/tree_topology/consensus_species_tree.txt")
-consensus$tip.label <- gsub(".longest.prot","",consensus$tip.label)
+consensus$tip.label <- gsub(".longest.prot","",consensus$tip.label) #adjust label
 
+#get strain list from consensus tree
 all_str <- consensus$tip.label
+#define C. nigoni strain IDs
 nigoni <- c("EG5268","JU2484","JU2617","JU4356","VSL2202","YR106","ZF1220","ECA2852","ECA2857","JU1418","JU1419","JU1420","JU1422","NIC2143","NIC2150","NIC2152","VX151","VX153")
+#define C. briggsae strain ids
 briggsae <- all_str[!(all_str %in% nigoni)]
 
+#remove unnecessary suffixes from strain IDs
 c1 <- colnames(og) 
 c2 <- gsub("\\.longest\\.prot","",c1)
 colnames(og) <- c2
 
+# Should only expect strains in consensus tree
 # Keep only strains that actually exist as columns
 present_nigoni   <- intersect(nigoni, names(og))
 present_briggsae <- intersect(briggsae, names(og))
 
+# classify orthogroups based on copy number and species membership features
 og_classified <- og %>%
   dplyr::rowwise() %>%
   dplyr::mutate(
@@ -72,35 +85,40 @@ og_classified <- og %>%
     u_nig = list(unlist(vals_nig)),
     u_bri = list(unlist(vals_bri)),
     
+    # check species presence
     nigoni_has   = any(!is.na(u_nig)),
     briggsae_has = any(!is.na(u_bri)),
     
+    # TRUE if multiple individuals per species are present
     nigoni_multi   = any(str_detect(u_nig, ","), na.rm = TRUE),
     briggsae_multi = any(str_detect(u_bri, ","), na.rm = TRUE),
     
     both_vals   = list(c(u_nig, u_bri)),
     
     # all cells (that are non-NA) have no commas
+    # detects single-copy orthologs
     all_single  = {
       x <- unlist(both_vals)
-      all(is.na(x) | !str_detect(x, ","))
+      all(is.na(x) | !stringr::str_detect(x, ","))
     },
     # every cell present (no NAs) AND we actually had columns
+    # detects species representation (TRUE if all species members have a gene)
     all_present = {
       x <- unlist(both_vals)
       length(x) > 0 && all(!is.na(x))
     }
   ) %>%
   dplyr::mutate(
+    #define if group contains leafs from both species
     group_type = case_when(
       nigoni_has   & !briggsae_has ~ "nigoni_unique",
       briggsae_has & !nigoni_has   ~ "briggsae_unique",
       nigoni_has   &  briggsae_has ~ "shared",
       TRUE ~ "none"
     ),
-    # shared + no commas in any non-NA cell for both species
+    # shared single copy ortholog
     shared_single_any = group_type == "shared" & !nigoni_multi & !briggsae_multi,
-    # shared + all present (no NAs) + all singletons (no commas)
+    # shared and all members are present
     shared_single_all = group_type == "shared" & all_present & all_single
   ) %>%
   dplyr::ungroup() %>%
@@ -113,21 +131,24 @@ shared_groups     <- filter(og_classified, group_type == "shared")
 shared_single_any <- filter(og_classified, shared_single_any)
 shared_single_all <- filter(og_classified, shared_single_all)
 
-# Summaries
-table(og_classified$group_type)
-sum(og_classified$shared_single_any)
-sum(og_classified$shared_single_all)
-############
+# summaries
+# table(og_classified$group_type)
+# sum(og_classified$shared_single_any)
+# sum(og_classified$shared_single_all)
 
+#extract sample ID from gene label
 sample_from_label <- function(lbl) sub("_.*$", "", lbl)
 
+#sample list
 all_samples <- c(nigoni, briggsae)
 
+# must be in sample list to get sample ID
 label_to_sample <- function(lbl) {
   smp <- sample_from_label(lbl)
   if (smp %in% all_samples) smp else NA_character_
 }
 
+#assign species based on sample ID
 label_to_species <- function(lbl) {
   smp <- label_to_sample(lbl)
   if (is.na(smp)) return(NA_character_)
@@ -136,20 +157,22 @@ label_to_species <- function(lbl) {
   NA_character_
 }
 
+#given a vector of tip labels, get species using label_to_species()
 species_of <- function(tips) {
   out <- vapply(tips, label_to_species, character(1))
   names(out) <- tips
   out
 }
 
+#for any set of tips >2, check if all tips belong to a single species (is monophyletic)
 is_mono <- function(tr, which_species) {
   sp_map  <- species_of(tr$tip.label)
   tips_in <- names(sp_map)[sp_map == which_species]
-  if (length(tips_in) < 2) return(NA)   # not enough to test
+  if (length(tips_in) < 2) return(NA)   
   is.monophyletic(tr, tips_in)
 }
 
-# Find *minimal* mixed clades (smallest subtrees containing both species)
+# find minimal mixed clades (smallest subtrees containing both species)
 mixed_clades <- function(tr) {
   sp_map <- species_of(tr$tip.label)
   if (sum(!is.na(sp_map)) < 4) return(list())
@@ -161,7 +184,7 @@ mixed_clades <- function(tr) {
     desc <- Descendants(tr, nd, type = "tips")[[1]]
     spd  <- na.omit(sp_map[tr$tip.label[desc]])
     if (length(unique(spd)) > 1) {
-      # minimality: no child also mixed
+      # minimality reached when no child also mixed
       mixed_child <- FALSE
       for (ch in Children(tr, nd)) {
         dch  <- Descendants(tr, ch, type = "tips")[[1]]
@@ -174,7 +197,7 @@ mixed_clades <- function(tr) {
           node = nd,
           tips = tr$tip.label[desc],
           species_counts = table(spd),
-          samples = unique(sample_from_label(tr$tip.label[desc])) # which samples involved
+          samples = unique(sample_from_label(tr$tip.label[desc])) # reports which samples involved
         )
       }
     }
@@ -182,14 +205,16 @@ mixed_clades <- function(tr) {
   mixes
 }
 
+#given a tree object, check if any sample IDs are duplicated
 is_single_copy_tree <- function(tr) {
   if (!inherits(tr, "phylo")) return(NA)
   ids <- vapply(tr$tip.label, sample_from_label, character(1))
-  ids <- ids[ids %in% all_samples]              # only consider your samples
+  ids <- ids[ids %in% all_samples]              # only consider samples in sample list
   if (length(ids) == 0) return(NA)              # nothing to evaluate
   !any(duplicated(ids))                         # TRUE if every sample ≤ 1 tip
 }
 
+#given a tree object, count the maximum number of gene copies for any given sample
 max_copies_per_sample <- function(tr) {
   if (!inherits(tr, "phylo")) return(NA_integer_)
   ids <- vapply(tr$tip.label, sample_from_label, character(1))
@@ -197,6 +222,8 @@ max_copies_per_sample <- function(tr) {
   if (length(ids) == 0) return(0L)
   max(tabulate(match(ids, unique(ids))))
 }
+
+#given a tree object, count the number of samples with multiple gene copies
 n_samples_with_dups <- function(tr) {
   if (!inherits(tr, "phylo")) return(NA_integer_)
   ids <- vapply(tr$tip.label, sample_from_label, character(1))
@@ -205,6 +232,7 @@ n_samples_with_dups <- function(tr) {
   sum(table(ids) > 1)
 }
 
+#analyze tree features (number of tips, monophyly, number of mixed clades, copy number, and samples with copy number)
 analyze_gene_tree <- function(tr, og_id) {
   if (!inherits(tr, "phylo")) {
     return(data.frame(
@@ -256,20 +284,23 @@ analyze_gene_tree <- function(tr, og_id) {
   )
 }
 
-res2 <- do.call(
-  rbind,
-  Map(analyze_gene_tree, tr = trees, og_id = names(trees))
-)
+#call analyze_gene_tree across all trees
+res2 <- do.call(rbind,
+                Map(analyze_gene_tree, tr = trees, og_id = names(trees)))
+  
 
+#filter for polyphyletic, single-copy ortholog trees
 res3 <- res2 %>% 
   dplyr::filter(is_single_copy==T) %>% 
-  #dplyr::select(-mixed_summary) %>%
   dplyr::filter(mono_nigoni==F | mono_briggsae==F)
 
 
-
+#we will use branch lengths to identify star-like phylogenies
+# if all branches are weak, then tree must be star-like (and uninformative)
 BL_THR      <- 1e-6   # ultra-short branches are "weak"
-MIN_STRONG  <- 2      # >= this many strong internal edges -> structured
+MIN_STRONG  <- 2      # this many strong internal edges considered structured
+
+# collapse weak gene branches
 collapse_weak <- function(tr, bl_thr = BL_THR) {
   if (!inherits(tr, "phylo")) return(tr)
   te <- tr
@@ -280,7 +311,7 @@ collapse_weak <- function(tr, bl_thr = BL_THR) {
   di2multi(te, tol = 0)
 }
 
-# Count "strong" internal edges using ONLY branch length
+# count "strong" internal edges using ONLY branch length
 count_strong_edges <- function(tr, bl_thr = BL_THR) {
   if (!inherits(tr, "phylo") || tr$Nnode == 0) return(0L)
   ne <- Ntip(tr)
@@ -289,59 +320,59 @@ count_strong_edges <- function(tr, bl_thr = BL_THR) {
   sum(tr$edge.length[internal_idx] >= bl_thr)
 }
 
-# Monophyly after BL-only collapse (keeps your is_mono/species_of)
+# monophyly after BL-only collapse (keeps is_mono/species_of)
 mono_after_collapse <- function(tr) {
-  tc <- collapse_weak(tr)  # uses BL_THR only
-  c(
-    mono_nigoni_collapsed   = is_mono(tc, "nigoni"),
-    mono_briggsae_collapsed = is_mono(tc, "briggsae")
-  )
+  tc <- collapse_weak(tr)  
+  c(mono_nigoni_collapsed   = is_mono(tc, "nigoni"),
+    mono_briggsae_collapsed = is_mono(tc, "briggsae"))
 }
 
+# # considered using alternative branch length metrics for tree structure selection
+# # was not used
+# assess_og_bl <- function(og_id,
+#                          collapse_q = 0.05,   # collapse bottom 5% internal BLs
+#                          long_q = 0.25,       # "long" edges = top 75% internal BLs
+#                          min_long_edges = 2,  # need at least this many to call structured
+#                          min_internal_nodes = 3) {
+#   tr <- trees[[og_id]]
+#   if (!inherits(tr, "phylo")) {
+#     return(data.frame(
+#       og_id, mono_nigoni_collapsed = NA, mono_briggsae_collapsed = NA,
+#       n_long_edges = NA_integer_, n_internal_after = NA_integer_,
+#       polyphyly_class = "ambiguous", uninformative_flag = TRUE, stringsAsFactors = FALSE
+#     ))
+#   }
+# 
+#   tc   <- collapse_weak_bl(tr, collapse_q = collapse_q)
+#   mons <- mono_after_collapse_bl(tr, collapse_q = collapse_q)
+#   still_poly <- (isFALSE(mons[["mono_nigoni_collapsed"]]) || isFALSE(mons[["mono_briggsae_collapsed"]]))
+# 
+#   n_long <- count_long_edges_bl(tc, long_q = long_q)
+#   nin    <- if (inherits(tc, "phylo")) tc$Nnode else NA_integer_
+# 
+#   polyphyly_class <- if (!still_poly) {
+#     "star_like"                         # polyphyly vanished after collapse
+#   } else if (!is.na(n_long) && n_long >= min_long_edges) {
+#     "structured"                        # still poly + enough long internal edges
+#   } else if (!is.na(nin) && nin >= min_internal_nodes) {
+#     "structured"                        # still poly + enough resolution overall
+#   } else {
+#     "ambiguous"
+#   }
+# 
+#   data.frame(
+#     og_id = og_id,
+#     mono_nigoni_collapsed = mons[["mono_nigoni_collapsed"]],
+#     mono_briggsae_collapsed = mons[["mono_briggsae_collapsed"]],
+#     n_long_edges = n_long,
+#     n_internal_after = nin,
+#     polyphyly_class = polyphyly_class,
+#     uninformative_flag = polyphyly_class != "structured",
+#     stringsAsFactors = FALSE
+#   )
+# }
 
-assess_og_bl <- function(og_id,
-                         collapse_q = 0.05,   # collapse bottom 5% internal BLs
-                         long_q = 0.25,       # "long" edges = top 75% internal BLs
-                         min_long_edges = 2,  # need at least this many to call structured
-                         min_internal_nodes = 3) {
-  tr <- trees[[og_id]]
-  if (!inherits(tr, "phylo")) {
-    return(data.frame(
-      og_id, mono_nigoni_collapsed = NA, mono_briggsae_collapsed = NA,
-      n_long_edges = NA_integer_, n_internal_after = NA_integer_,
-      polyphyly_class = "ambiguous", uninformative_flag = TRUE, stringsAsFactors = FALSE
-    ))
-  }
-
-  tc   <- collapse_weak_bl(tr, collapse_q = collapse_q)
-  mons <- mono_after_collapse_bl(tr, collapse_q = collapse_q)
-  still_poly <- (isFALSE(mons[["mono_nigoni_collapsed"]]) || isFALSE(mons[["mono_briggsae_collapsed"]]))
-
-  n_long <- count_long_edges_bl(tc, long_q = long_q)
-  nin    <- if (inherits(tc, "phylo")) tc$Nnode else NA_integer_
-
-  polyphyly_class <- if (!still_poly) {
-    "star_like"                         # polyphyly vanished after collapse
-  } else if (!is.na(n_long) && n_long >= min_long_edges) {
-    "structured"                        # still poly + enough long internal edges
-  } else if (!is.na(nin) && nin >= min_internal_nodes) {
-    "structured"                        # still poly + enough resolution overall
-  } else {
-    "ambiguous"
-  }
-
-  data.frame(
-    og_id = og_id,
-    mono_nigoni_collapsed = mons[["mono_nigoni_collapsed"]],
-    mono_briggsae_collapsed = mons[["mono_briggsae_collapsed"]],
-    n_long_edges = n_long,
-    n_internal_after = nin,
-    polyphyly_class = polyphyly_class,
-    uninformative_flag = polyphyly_class != "structured",
-    stringsAsFactors = FALSE
-  )
-}
-
+#given a an orthogroup ID, assess the structure of the tree to identify star-like phylogenies (deemed uninformative)
 assess_og <- function(og_id) {
   tr <- trees[[og_id]]
   if (!inherits(tr, "phylo")) {
@@ -351,11 +382,15 @@ assess_og <- function(og_id) {
       uninformative_flag = TRUE, stringsAsFactors = FALSE
     ))
   }
+  # check monophyly after weak branch length collapse
+  # function below invokes collapse_weak() internally
   mons <- mono_after_collapse(tr)
+  # collapse weak branches 
   tc   <- collapse_weak(tr)
+  # count strong edges in the collapsed tree
   nse  <- count_strong_edges(tc)
   
-  # classify: if polyphyly disappears (both not FALSE) -> star_like
+  # if polyphyly disappears (both not FALSE) -> star_like
   # else if still polyphyletic but has structure -> structured
   # else ambiguous
   still_poly <- (isFALSE(mons[["mono_nigoni_collapsed"]]) || isFALSE(mons[["mono_briggsae_collapsed"]]))
@@ -364,12 +399,13 @@ assess_og <- function(og_id) {
   } else if (nse >= MIN_STRONG) {
     "structured"
   } else {
-    "ambiguous"
+    "ambiguous" #catch cases where assumptions are not met
   }
   
   # flag potentially uninformative (= not "structured")
   uninformative_flag <- polyphyly_class != "structured"
   
+  #return df per tree
   data.frame(
     og_id = og_id,
     mono_nigoni_collapsed = mons[["mono_nigoni_collapsed"]],
@@ -380,15 +416,17 @@ assess_og <- function(og_id) {
     stringsAsFactors = FALSE
   )
 }
-# Re-run assessment on your filtered set (res3) with BL-only logic
+
+# run structure assesment on filtered set (res3) 
 assessed <- do.call(rbind, lapply(res3$og_id, assess_og))
 
+# filter for structured, polyphyletic trees
 res3_flagged <- res3 %>%
   left_join(assessed, by = "og_id") %>%
   dplyr::select(-mixed_summary) %>%
   dplyr::filter(polyphyly_class=="structured")
 
-
+# given a tree, get the ID of the reference gene in the tree
 extract_ref_gene <- function(tr) {
   if (!inherits(tr, "phylo")) return(NA_character_)
   hits <- grep("^QX1410_", tr$tip.label, value = TRUE)
@@ -396,12 +434,16 @@ extract_ref_gene <- function(tr) {
   hits[1]  # return the first (there should only be one)
 }
 
-# Apply to all trees in your list
+# apply ref gene search to all trees in your list
 ref_genes <- vapply(trees, extract_ref_gene, character(1))
 
+# add ref gene IDs as column
 res3_flagged$ref_gene <- ref_genes[res3_flagged$og_id]
 
+# load gff to extract additional gene information given IDs
 gff <- readr::read_tsv("../../processed_data/gene_diversity/c_briggsae.QX1410_20250929.csq.gff",col_names = c("CHROM","source","type","start","end","score","strand","phase","attributes"))
+
+# process L2 (mRNA) gff features
 tran <- gff %>%
   dplyr::filter(type=="mRNA") %>%
   tidyr::separate(attributes,into=c("name","rest0"),sep=";Parent=") %>%
@@ -413,16 +455,18 @@ tran <- gff %>%
   dplyr::mutate(sequence_name=gsub("sequence_name=","",sequence_name)) %>%
   dplyr::select(CHROM,start,end,strand,name,sequence_name) 
 
+# filter out rows that lack ref gene
+# left join ref gene information
 res3_QX <- res3_flagged %>%
   dplyr::filter(!is.na(ref_gene)) %>%
   dplyr::mutate(ref_gene=gsub("QX1410_","",ref_gene)) %>%
   dplyr::left_join(tran,by=c("ref_gene"="name"))
 
-
+#load hyper-divergent regions (HDRs) for strains in strain list
 hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") %>%
   dplyr::filter(STRAIN %in% all_str)
 
-
+#find overlaps for gene IDs in ref gene list with HDRs
 genes <- as.data.table(res3_QX)[, .(og_id, CHROM, start, end)]
 hdrs_dt <- as.data.table(hdrs)[, .(CHROM, minStart, maxEnd, STRAIN)]
 
@@ -430,42 +474,42 @@ genes_pos <- genes[, .(og_id, CHROM, pos_start = start, pos_end = start)]
 setkey(hdrs_dt, CHROM, minStart, maxEnd)
 setkey(genes_pos, CHROM, pos_start, pos_end)
 
-# overlap: gene point "within" HDR interval
+# overlap when gene point "within" HDR interval
 ov <- foverlaps(genes_pos, hdrs_dt,
                 by.x = c("CHROM","pos_start","pos_end"),
                 type = "any", nomatch = 0L)
 
-# summarise per gene
-ov_sum <- ov[, .(
-  in_hdr = TRUE,
-  hdr_strains = paste(sort(unique(STRAIN)), collapse = ";"),
-  n_hdr_hits = .N
-), by = og_id]
-
+# summarize per gene
+ov_sum <- ov[, .(in_hdr = TRUE,
+                 hdr_strains = paste(sort(unique(STRAIN)), collapse = ";"),
+                 n_hdr_hits = .N), by = og_id]
+  
+#add overlaps to each row
 res3_QX_annot <- res3_QX %>% 
   dplyr::left_join(as.data.frame(ov_sum),by="og_id") %>%
   dplyr::filter(!is.na(in_hdr))
 
-
+#given a gene tree, identify which tip labels correspond to an overlap with an HDR
 hdr_tip_labels <- function(gt, hdr_strains_str) {
   if (is.null(hdr_strains_str) || is.na(hdr_strains_str) || nchar(hdr_strains_str) == 0) return(character(0))
-  toks <- str_split(hdr_strains_str, ";")[[1]] |> trimws()
+  toks <- stringr::str_split(hdr_strains_str, ";")[[1]] |> trimws()
   toks <- toks[nzchar(toks)]
   if (!length(toks)) return(character(0))
   gt$tip.label[vapply(gt$tip.label, function(lbl) any(stringr::str_detect(lbl, fixed(toks))), logical(1))]
 }
 
+#get isotype from label
 extract_tip_isotype_token <- function(lbl) {
   m <- stringr::str_match(lbl, "^([^_.-]+)")
   m[,2]
 }
 
-# 2) Robust mapper: prefer exact token match; else longest whole-word match across iso_vec
+# prefer exact token match; else longest whole-word match across isotype vector
 label_to_isotype_from_lineages <- function(lbl, iso_vec) {
   tok <- extract_tip_isotype_token(lbl)
   if (!is.na(tok) && tok %in% iso_vec) return(tok)
   
-  # fallback: whole-word (non-alnum-bounded) matches; choose the longest to avoid NIC21 vs NIC2150 issues
+  # whole-word (non-alnum-bounded) matches fallback, choose the longest to avoid e.g.: NIC21 matching to NIC2150 issues
   hits <- iso_vec[vapply(
     iso_vec,
     function(x) stringr::str_detect(lbl, regex(paste0("(?<![A-Za-z0-9])", x, "(?![A-Za-z0-9])"))),
@@ -476,18 +520,19 @@ label_to_isotype_from_lineages <- function(lbl, iso_vec) {
   NA_character_
 }
 
-
-
+#get list of orthogroups to plot trees and a.a. matrices
 ogs_to_plot <- res3_QX_annot$og_id
 
-x_max <- max(
-  map_dbl(ogs_to_plot, ~ {
-    tr <- trees[[.x]]
-    if (is.null(tr)) NA_real_ else max(node.depth.edgelength(tr))
-  }),
-  na.rm = TRUE
+#given the list, get the max BL distance to globally-scale plots
+#considering the sizable differences in BL across trees, the global scale is not used
+x_max <- max(purrr::map_dbl(ogs_to_plot, ~ {
+  tr <- trees[[.x]]
+  if (is.null(tr)) NA_real_ else max(node.depth.edgelength(tr))
+}),
+na.rm = TRUE
 )
-
+  
+#visualize gene tree from OGid (pick)
 make_tree_plot <- function(pick, trees, res3_QX_annot, label_to_species, lineages,
                            x_max = NULL, pad_frac = 0.25, lab_frac = 0.02) {
   gt <- trees[[pick]]
@@ -512,6 +557,8 @@ make_tree_plot <- function(pick, trees, res3_QX_annot, label_to_species, lineage
     )
   
   # palettes
+  # relatedness group specific palletes were considered before only Tropicals were chosen for this analysis
+  # feature is still usable if alternative orthofinder run is used as initial input
   species_pal <- c(nigoni = "tomato", briggsae = "steelblue", unknown = "grey50")
   present_lineages <- unique(tip_meta$Lineage)
   palette_tbl <- lineages %>% dplyr::filter(Lineage %in% present_lineages) %>% dplyr::distinct(Lineage, lineage_color)
@@ -519,7 +566,8 @@ make_tree_plot <- function(pick, trees, res3_QX_annot, label_to_species, lineage
   if (nrow(palette_tbl)) lineage_pal[palette_tbl$Lineage] <- palette_tbl$lineage_color
   lineage_pal["Unknown"] <- "grey60"
   
-  # --- axis scaling: use global x_max if provided; else per-tree span
+  # use global x_max if provided, else per-tree span
+  # global x_max remained NULL after exploring both options
   tree_span <- max(node.depth.edgelength(gt))
   span_ref  <- if (is.null(x_max)) tree_span else x_max
   right_pad <- span_ref * pad_frac
@@ -562,53 +610,37 @@ make_tree_plot <- function(pick, trees, res3_QX_annot, label_to_species, lineage
   p
 }
 
-
-
+#get relatedness group (formely "lineages") information
 lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
-# rebuild the list (now passing `lineages`)
-plots_list <- setNames(
-  lapply(
-    res3_QX_annot$og_id,
-    make_tree_plot,
-    trees = trees,
-    res3_QX_annot = res3_QX_annot,
-    label_to_species = label_to_species,
-    lineages = lineages,
-    x_max = x_max,        # <- global max controls every plot's x-scale
-    pad_frac = 0.25,      # consistent right padding for labels
-    lab_frac = 0.02       # consistent label offset
-  ),
-  res3_QX_annot$og_id
-)
 
-# 
-# test <- setNames(lapply(
-#   "OG0000001",
-#   make_tree_plot,
-#   trees = trees,
-#   res3_QX_annot = res3_QX_annot,
-#   label_to_species = label_to_species,
-#   lineages = lineages,
-#   #x_max = NULL,        # <- global max controls every plot's x-scale
-#   pad_frac = 0.25,      # consistent right padding for labels
-#   lab_frac = 0.02       # consistent label offset
-# ),
-# "OG0000001"
-# )
+# rebuild the list, passing relatedness groups
+plots_list <- setNames(lapply(res3_QX_annot$og_id,
+                              make_tree_plot,
+                              trees = trees,
+                              res3_QX_annot = res3_QX_annot,
+                              label_to_species = label_to_species,
+                              lineages = lineages,
+                              x_max = x_max,
+                              pad_frac = 0.25,      
+                              lab_frac = 0.02),
+                       res3_QX_annot$og_id)       
 
+  
 write.table(res3_QX_annot,"../../supplementary_data/SD11_potential_introgression_ogs.tsv",quote = F,col.names = F,row.names = F,sep = "\t")
 
+# check if label contains any pattern in vec
 label_has_any <- function(label, vec) {
   if (length(vec) == 0) return(FALSE)
   any(vapply(vec, function(p) grepl(p, label, fixed = TRUE), logical(1)))
 }
 
-# count how many of 'labels' contain ANY of the nigoni patterns
+# count how many of labels contain ANY of the nigoni patterns
 count_nigoni_labels <- function(labels, nigoni_vec) {
   sum(vapply(labels, label_has_any, logical(1), vec = nigoni_vec))
 }
 
-# for a tree 'gt' and a tip label 'tip_lbl', return the k nearest neighbor tip labels (excluding self)
+# for a gene tree and a tip label, return the k nearest neighbor tip labels (excluding self)
+# this is ONLY used as a file naming strategy, where higher species mismatches across KNN could indicate more complex haploype structures
 k_nearest_neighbors <- function(gt, tip_lbl, k = 20) {
   D <- cophenetic(gt)                        # patristic distances
   if (!(tip_lbl %in% rownames(D))) return(character(0))
@@ -619,7 +651,7 @@ k_nearest_neighbors <- function(gt, tip_lbl, k = 20) {
   head(nn, k)
 }
 
-# Given one row (og_id) compute the 3 outputs
+# summarize KNN search for all OGs
 summarize_og_neighbors <- function(og_id, trees, hdr_strains_str, nigoni_vec) {
   gt <- trees[[og_id]]
   if (is.null(gt)) {
@@ -631,7 +663,7 @@ summarize_og_neighbors <- function(og_id, trees, hdr_strains_str, nigoni_vec) {
     ))
   }
   
-  # Parse semicolon-separated hdr_strains tokens
+  # parse semicolon-separated hdr_strains tokens
   tokens <- hdr_strains_str %>%
     { if (is.null(.) || is.na(.) || !nzchar(.)) "" else . } %>%
     str_split(";", simplify = FALSE) %>%
@@ -650,7 +682,7 @@ summarize_og_neighbors <- function(og_id, trees, hdr_strains_str, nigoni_vec) {
   
   tip_labels <- gt$tip.label
   
-  # For each token, find matching tip(s) by substring, then get k-NN and count nigoni neighbors
+  # for each token, find matching tip(s) by substring, then get k-NN and count nigoni neighbors
   per_token <- map(tokens, function(tok) {
     matched_tips <- tip_labels[stringr::str_detect(tip_labels, fixed(tok))]
     if (length(matched_tips) == 0) {
@@ -677,22 +709,15 @@ summarize_og_neighbors <- function(og_id, trees, hdr_strains_str, nigoni_vec) {
   )
 }
 
-# ---------- run over all og_id and merge back ----------
-
-# 'nigoni' should be your character vector of substrings/IDs defining C. nigoni strains.
-# e.g., nigoni <- c("NIC1593","QG3661", ...)  # <- you already have this
-# 'trees' is your named list of phylo objects; names should include the og_id keys
-# 'res3_QX_annot' is your data frame with og_id and hdr_strains
-
-neighbor_summary <- map_dfr(
-  res3_QX_annot$og_id,
-  ~ summarize_og_neighbors(.x, trees, res3_QX_annot$hdr_strains[match(.x, res3_QX_annot$og_id)], nigoni)
-)
-
+# call KNN search across target OG ids
+neighbor_summary <- map_dfr(res3_QX_annot$og_id,
+                            ~ summarize_og_neighbors(.x, trees, res3_QX_annot$hdr_strains[match(.x, res3_QX_annot$og_id)], nigoni))
+  
+# add KNN neighor summary to tree rows
 res3_QX_annot_aug <- res3_QX_annot %>%
-  left_join(neighbor_summary, by = "og_id") %>%
-  dplyr::filter(!is.na(which_target))
+  left_join(neighbor_summary, by = "og_id") 
 
+#generate list of plots and populate with make_tree_plot()
 plots_list_aug <- setNames(
   lapply(
     res3_QX_annot_aug$og_id,
@@ -705,11 +730,13 @@ plots_list_aug <- setNames(
   res3_QX_annot_aug$og_id
 )
 
+#find a.a. identity matrices
 pimm_dir <- "../../processed_data/tree_topology/intro_pimm/"
   
 ogs <- res3_QX_annot_aug$og_id
 pimm_list <- setNames(vector("list", length(ogs)), ogs)
 
+#populate matrix data by matching OG id
 for (og in ogs) {
   file_path <- file.path(pimm_dir, paste0(og, ".pimm"))
   
@@ -721,14 +748,12 @@ for (og in ogs) {
   }
 }
 
+#visualize heatmap
 make_heatmap <- function(og, pimm_list, trees) {
-  
-  
   gt <- trees[[og]]
   if (is.null(gt)) return(NULL)
   this_row <- dplyr::filter(res3_QX_annot, og_id == og)
   
-  # species + lineage metadata per tip
   iso_vec <- lineages$isotype
   tip_isotype <- vapply(gt$tip.label, label_to_isotype_from_lineages, character(1), iso_vec = iso_vec)
   
@@ -737,12 +762,12 @@ make_heatmap <- function(og, pimm_list, trees) {
     species = vapply(gt$tip.label, label_to_species, character(1)),
     isotype = tip_isotype
   ) %>%
-    mutate(
+    dplyr::mutate(
       #species = ifelse(is.na(species), "unknown", species),
       is_hdr  = label %in% hdr_tip_labels(gt, this_row$hdr_strains)
     ) %>%
-    left_join(lineages %>% select(isotype, Lineage, lineage_color), by = "isotype") %>%
-    mutate(
+    dplyr::left_join(lineages %>% dplyr::select(isotype, Lineage, lineage_color), by = "isotype") %>%
+    dplyr::mutate(
       Lineage       = if_else(is.na(Lineage) | !nzchar(Lineage), "Unknown", Lineage),
       lineage_color = if_else(is.na(lineage_color) | !nzchar(lineage_color), "grey60", lineage_color)
     ) %>% dplyr::mutate(is_hdr=ifelse(species=="nigoni","NA",is_hdr))
@@ -762,13 +787,12 @@ make_heatmap <- function(og, pimm_list, trees) {
   if (!is.numeric(mat)) {
     stop("Matrix for ", og, " is not numeric after coercion.")
   }
-  
-  # ---- Clean sequence names ----
+
   clean_names <- function(x) {
     gsub("_longest_prot(_[Tt]ranscript)?", "", x)
   }
   
-  # Clean matrix row/colnames
+  # clean matrix row/colnames
   rownames(mat) <- clean_names(rownames(mat))
   colnames(mat) <- clean_names(colnames(mat))
   
@@ -782,10 +806,9 @@ make_heatmap <- function(og, pimm_list, trees) {
        ". Consider disambiguating names before building the matrix.")
 }
   
-  # Clean tree tip labels
+  # clean tree tip labels
   tr$tip.label <- clean_names(tr$tip.label)
   
-  # ---- Match taxa ----
   common <- intersect(rownames(mat), tr$tip.label)
   if (length(common) < 3) {
     warning(paste("Too few common taxa in", og))
@@ -807,7 +830,7 @@ make_heatmap <- function(og, pimm_list, trees) {
   tags <- sapply(strsplit(rownames(mat), "_"), `[`, 1)
   row_colors <- ifelse(tags %in% nigoni, "tomato",
                        ifelse(tags %in% briggsae, "steelblue", "gray"))
-  # ---- Define color scale ----
+  #color scale
   col_fun <- colorRamp2(
     c(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
     c("white", "white", "lightblue", "blue", "yellow", "orange", "red")
@@ -818,14 +841,14 @@ make_heatmap <- function(og, pimm_list, trees) {
     filter(label %in% tip_order) %>%
     slice(match(tip_order, label))
   
-  # Convert is_hdr (TRUE/FALSE/NA) to a factor for consistent coloring
+  # convert is_hdr to a factor for consistent coloring
   tip_meta$is_hdr <- factor(
     tip_meta$is_hdr,
     levels = c("TRUE", "FALSE", "Unknown"),
     labels = c("HDR", "Non-HDR", "Unknown")
   )
   
-  # Define colors for annotation
+  # define colors for annotation
   hdr_colors <- c(
     "HDR" = "red",
     "Non-HDR" = "black",
@@ -837,9 +860,9 @@ make_heatmap <- function(og, pimm_list, trees) {
     nigoni   = "tomato"
   )
   
-  # Create the bottom column annotation
+  # create the bottom column annotation
   bottom_anno <- HeatmapAnnotation(
-    HDR     = tip_meta$is_hdr,     # factor with levels/labels you set earlier
+    HDR     = tip_meta$is_hdr,     
     species = factor(tip_meta$species, levels = c("briggsae","nigoni")),
     col = list(
       HDR     = hdr_colors,
@@ -864,24 +887,19 @@ make_heatmap <- function(og, pimm_list, trees) {
     )
   )
   
-  # ---- Create Heatmap ----
   hm <- grid::grid.grabExpr(draw(Heatmap(
       mat,
       name = "Identity",
       col = col_fun,
       cluster_rows = dend,
       cluster_columns = dend,
-      # clustering_distance_rows = function(m) as.dist(1 - m),
-      # clustering_distance_columns = function(m) as.dist(1 - m),
-      # clustering_method_rows = "average",
-      # clustering_method_columns = "average",
       show_row_names = TRUE,
       show_column_names = FALSE,
       row_names_gp = grid::gpar(col = row_colors, fontsize = 9),
       heatmap_legend_param = list(
         title = "A.A.\n%ID",
         at = seq(0.5, 1.0, by = 0.1),
-        labels = seq(50, 100, by = 10)  # <- multiplied by 100
+        labels = seq(50, 100, by = 10) 
       ),
       bottom_annotation = bottom_anno
       ),
@@ -893,16 +911,18 @@ make_heatmap <- function(og, pimm_list, trees) {
 
 ogs <- names(pimm_list)
 
+# generate list of heatmaps and populate with make_heatmap()
 heatmap_list <- map(ogs, ~ make_heatmap(.x, pimm_list, trees)) %>%
   set_names(ogs)
 
+# convert to ggplot objects
 ht_to_ggplot <- function(ht) {
   #g <- grid::grid.grabExpr(ComplexHeatmap::draw(ht), wrap = TRUE)
   ggplotify::as.ggplot(ht)
 }
 
 combined_plots <- list()
-
+# combine tree plots and heatmaps
 for (og in names(heatmap_list)) {
   if (og %in% names(plots_list_aug)) {
     ht_gg <- ht_to_ggplot(heatmap_list[[og]])  # ggplotified heatmap
@@ -910,11 +930,11 @@ for (og in names(heatmap_list)) {
     
     combined_plots[[og]] <- cowplot::plot_grid(
       gp, ht_gg, 
-      ncol = 1  # use nrow = 2 for vertical stacking
+      ncol = 1  
     )
   }
 }
-
+# set output directory
 out_dir <- "../../figures/introgression_figures/"  
 
 # lookup table for filename parts
@@ -959,6 +979,7 @@ iwalk(combined_plots, function(p, og) {
   )
 })
 
+#generate example tree topology comparison for Extended Data
 draw_colored_tree_ggtree <- function(
     gt,
     label_to_species,
@@ -973,18 +994,18 @@ draw_colored_tree_ggtree <- function(
   # keep original labels for species mapping
   orig_labels <- gt$tip.label
   
-  # map labels -> species (using ORIGINAL labels)
+  # map labels -> species 
   sp <- vapply(orig_labels, label_to_species, character(1))
   sp[is.na(sp) | !nzchar(sp)] <- "unknown"
   
-  # create a DISPLAY label (cleaned AFTER species is set)
-  label_disp <- sub("^QX1410_", "", orig_labels)       # remove leading prefix if present
-  label_disp <- sub("\\.t[0-9]+$", "", label_disp)     # remove trailing .t#
+  # create a display label 
+  label_disp <- sub("^QX1410_", "", orig_labels)      
+  label_disp <- sub("\\.t[0-9]+$", "", label_disp)    
   
   # ensure unknown color exists
   if (!"unknown" %in% names(palette)) palette <- c(palette, unknown = "grey50")
   
-  # metadata joined by 'label' (must match gt$tip.label)
+  # metadata joined by label 
   tip_meta <- tibble::tibble(label = orig_labels, species = sp, label_disp = label_disp)
   
   # dynamic offset
@@ -1037,7 +1058,6 @@ dc_tree <- draw_colored_tree_ggtree(
   align = TRUE
 )
 
-
 consensus_plt <- draw_colored_tree_ggtree(
   consensus,
   label_to_species = label_to_species,
@@ -1049,5 +1069,5 @@ consensus_plt <- draw_colored_tree_ggtree(
 
 EDF7 <- cowplot::plot_grid(consensus_plt,cc_tree,dc_tree,nrow=1,labels = c("a","b","c"))
 
-ggsave(S18,filename = "../../figures/EDF7_tree_examples.png",width    = 7, height = 4, units = "in", dpi = 600, bg = "white")
+ggsave(EDF7,filename = "../../figures/EDF7_tree_examples.png",width    = 7, height = 4, units = "in", dpi = 600, bg = "white")
 
