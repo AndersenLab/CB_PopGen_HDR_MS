@@ -8,20 +8,14 @@
 #SBATCH --job-name="CbAdmPostPro"
 
 
-
-
-
-
-
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p Cb_admixture
 cd Cb_admixture
 
-out_folder="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_admixture/"
+out_folder="../../processed_data/Cb_admixture/"
 
-cp -n /home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_admixture/K*/*.out \
-/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_admixture/
-
+cp -n ../../processed_data/Cb_admixture/K*/*.out \
+../../processed_data/Cb_admixture/
 
 echo "Starting post-processing..."
 grep -h CV log_*.out | \

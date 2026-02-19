@@ -9,28 +9,19 @@
 #SBATCH --array=0-3
 
 
-
-
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/LD_pruned_trees
-
-
-######SBATCH --array=0-3
+cd ../../processed_data/LD_pruned_trees
 
 # define input files 
 files=(
-    "/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/LD_pruned_trees/LD_0.9/phy_file_LD_0.9.phy"
-    "/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/LD_pruned_trees/LD_0.8/phy_file_LD_0.8.phy"
-    "/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/LD_pruned_trees/LD_0.7/phy_file_LD_0.7.phy"
-    "/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/LD_pruned_trees/LD_0.6/phy_file_LD_0.6.phy"
+    "../../processed_data/LD_pruned_trees/LD_0.9/phy_file_LD_0.9.phy"
+    "../../processed_data/LD_pruned_trees/LD_0.8/phy_file_LD_0.8.phy"
+    "../../processed_data/LD_pruned_trees/LD_0.7/phy_file_LD_0.7.phy"
+    "../../processed_data/LD_pruned_trees/LD_0.6/phy_file_LD_0.6.phy"
 )
 
 # set array ID 
 input_file=${files[$SLURM_ARRAY_TASK_ID]}
 
-
 # run iqtree 
 source activate tree_v2.4
 iqtree -s $input_file -mset GTR -bb 1000 -T 48
-
-
-

@@ -890,25 +890,6 @@ hdrs_ordered <- hdrs %>%
   dplyr::mutate(ystrain=cur_group_id()) %>%
   dplyr::ungroup() 
 
-# hdrs_unt_rg_ordered <- hdrs_unt_rg %>% 
-#   dplyr::group_by(STRAIN) %>%
-#   dplyr::mutate(ncalls=n()) %>%
-#   dplyr::ungroup() %>%
-#   dplyr::arrange(source,desc(ncalls),STRAIN,CHROM,minStart) %>%
-#   dplyr::mutate(sorter=paste0(ncalls,STRAIN)) %>%
-#   dplyr::mutate(rleID=data.table::rleid(sorter)) %>%
-#   dplyr::group_by(STRAIN) %>%
-#   dplyr::mutate(ystrain=cur_group_id()) %>%
-#   dplyr::ungroup()
-# 
-# x_breaks_by_chrom <- bins_wFreq %>%
-#   group_by(CHROM) %>%
-#   summarise(x_breaks = list(seq(
-#     floor(min((start) / 1e6)),
-#     ceiling(max((end) / 1e6)),
-#     by = 5
-#   )))
-
 p1 <- ggplot(hdrs_ordered) + 
   geom_rect(aes(xmin=minStart/1e6,xmax=maxEnd/1e6,ymin=rleID-0.45,ymax=rleID+0.45)) + 
   facet_wrap(~CHROM,scales = 'free_x',nrow=1) + 

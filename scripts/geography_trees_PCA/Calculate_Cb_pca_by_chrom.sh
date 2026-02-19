@@ -11,18 +11,13 @@
 
 source activate CT_PopGen
 
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/
+cd ../../processed_data/
 mkdir -p PCA_by_chrom
 cd PCA_by_chrom
 
-
-input_vcf="$HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
-
+input_vcf="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
 
 CHROMS=(I II III IV V X)
-
-
-
 
 
 ### if no id, use first Chrom
@@ -34,13 +29,9 @@ mkdir -p "${OUTDIR}"
 OUT_VCF="${OUTDIR}/${CHR}.vcf.gz"
 LOG="${OUTDIR}/${CHR}.bcftools.log"
 
-
 echo "Running: bcftools view --regions ${CHR} ${input_vcf} -Oz -o ${OUT_VCF}"
 bcftools view --regions "${CHR}" "${input_vcf}" -Oz -o "${OUT_VCF}" 2> "${LOG}"
 tabix -p vcf "${OUT_VCF}"
 
-
-
 echo "Finished chromosome ${CHR} at $(date)"
 echo "Output: ${OUT_VCF} (index ${OUT_VCF}.tbi)"
-

@@ -9,17 +9,13 @@
 #SBATCH --array=1-290
 
 
-
-
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p Cb_admixture
 cd Cb_admixture
 
 out_folder="$PWD/"
 
-ln -s "$HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.ped" "${out_folder}LD_0.9.ped"
-
-
+ln -s "../../processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.ped" "${out_folder}LD_0.9.ped"
 
 seed_file="${out_folder}seeds.txt"
 if [ -f "$seed_file" ]; then
@@ -30,18 +26,15 @@ else
     exit 1
 fi
 
-
 pops=($(seq 2 30))
 total_pops=${#pops[@]}
 total_seeds=${#seeds[@]}
-
 
 expected_tasks=$((total_pops * total_seeds))
 if [ $SLURM_ARRAY_TASK_COUNT -ne $expected_tasks ]; then
     echo "Error: Expected $expected_tasks tasks but SLURM_ARRAY_TASK_COUNT is $SLURM_ARRAY_TASK_COUNT"
     exit 1
 fi
-
 
 task_id=$SLURM_ARRAY_TASK_ID
 task_idx=$((task_id - 1))

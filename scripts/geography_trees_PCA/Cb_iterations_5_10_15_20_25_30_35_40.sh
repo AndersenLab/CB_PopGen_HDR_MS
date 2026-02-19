@@ -8,13 +8,10 @@
 #SBATCH --job-name="CbIter5_40"
 
 
-
-par_path="$HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/scripts/PCA_more_iterations"
-
-
+par_path="../../scripts/PCA_more_iterations"
 
 ###### 5 iterations #####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p PCA_more_iterations
 cd PCA_more_iterations
 mkdir -p PCA_5_iterations
@@ -35,7 +32,7 @@ sed -n -e '/Tracy/,$p' smartpca_5.log | \
 
 
 ###### 10 iterations #####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p PCA_more_iterations
 cd PCA_more_iterations
 mkdir -p PCA_10_iterations
@@ -56,7 +53,7 @@ sed -n -e '/Tracy/,$p' smartpca_10.log | \
 
 
 ###### 15 iterations #####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p PCA_more_iterations
 cd PCA_more_iterations
 mkdir -p PCA_15_iterations
@@ -77,7 +74,7 @@ sed -n -e '/Tracy/,$p' smartpca_15.log | \
 
 
 ###### 20 iterations #####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p PCA_more_iterations
 cd PCA_more_iterations
 mkdir -p PCA_20_iterations
@@ -97,7 +94,7 @@ sed -n -e '/Tracy/,$p' smartpca_20.log | \
 
 
 ###### 25 iterations #####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p PCA_more_iterations
 cd PCA_more_iterations
 mkdir -p PCA_25_iterations
@@ -119,7 +116,7 @@ sed -n -e '/Tracy/,$p' smartpca_25.log | \
 
 
 ###### 30 iterations #####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p PCA_more_iterations
 cd PCA_more_iterations
 mkdir -p PCA_30_iterations
@@ -138,16 +135,8 @@ sed -n -e '/Tracy/,$p' smartpca_30.log | \
 
 
 
-
-
-
-
-
-
-
-
 ###### 35 iterations #####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p PCA_more_iterations
 cd PCA_more_iterations
 mkdir -p PCA_35_iterations
@@ -167,14 +156,8 @@ sed -n -e '/Tracy/,$p' smartpca_35.log | \
 
 
 
-
-
-
-
-
-
 ###### 40 iterations #####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p PCA_more_iterations
 cd PCA_more_iterations
 mkdir -p PCA_40_iterations

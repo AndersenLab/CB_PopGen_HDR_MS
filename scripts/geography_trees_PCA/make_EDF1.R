@@ -1,27 +1,17 @@
 rm(list = ls())
 
 library(dplyr)
-
-isotype_map<-readRDS("../../processed_data/assemble_figure_S1/isotype_map.rds")
-isotype_map
-
-geo_dis_plot<-readRDS("../../processed_data/assemble_figure_S1/geo_distance_plots.RData")
-geo_dis_plot
-
-
 library(ggpubr)
+
+isotype_map<-readRDS("../../processed_data/Geo_info/isotype_map.rds")
+geo_dis_plot<-readRDS("../../processed_data/Geo_info/geo_distance_plots.RData")
 
 combined <- ggpubr::ggarrange(ggpubr::ggarrange(isotype_map,
                                                 geo_dis_plot,
                                                 ncol = 1, 
-                                                # labels = c("c","d"),
                                                 heights = c(0.5, 0.5)))
-combined
 
 ggsave("../../figures/EDF1_isotype_map_geo_distance.pdf",
        plot = combined, 
        width = 7, height = 2.00995387*2, 
        units = "in", device = 'pdf')
-
-
-

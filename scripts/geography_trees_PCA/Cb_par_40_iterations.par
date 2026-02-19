@@ -1,6 +1,6 @@
-genotypename: /home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.ped
-snpname: /home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.pedsnp
-indivname: /home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.pedind
+genotypename: ../../processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.ped
+snpname: ../../processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.pedsnp
+indivname: ../../processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.pedind
 evecoutname: eigenstrat_outliers_removed.evac
 evaloutname: eigenstrat_outliers_removed.eval
 altnormstyle: NO

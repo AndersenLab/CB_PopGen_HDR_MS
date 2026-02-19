@@ -46,7 +46,6 @@ geo_colors <- c("Hawaii"="#66C2A5",
 #make geo colors data frame
 df_colors <- data.frame(unname(geo_colors),names(geo_colors)) %>% dplyr::rename(color=`unname.geo_colors.`, geo=`names.geo_colors.`)
 
-
 lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>%
@@ -90,7 +89,6 @@ kmax=30
 fraclist <- list()
 qlist <- list()
 for (i in kmin:kmax) {
-
     #if reach maximum of LETTERS[], then increase to two-letter subpop names
     if (i>26) {
       colnames = c()
@@ -115,7 +113,6 @@ for (i in kmin:kmax) {
       dplyr::select(-LD_tag) %>%
       dplyr::left_join(geo_info,by="isotype")
     
-  
   fraclist[[i-(kmin-1)]] <- qlist[[i-(kmin-1)]] %>%
     dplyr::filter(fraction >= 0.999) #get non-admixed individuals
 }
@@ -197,7 +194,6 @@ rg3<-ggplot(df_counts, aes(x = K, y = num, fill = n)) +
   scale_x_continuous(breaks = seq(min(df_perseed$K), max(df_perseed$K), by = 1)) +
   scale_y_continuous(breaks = seq(min(df_perseed$num), max(df_perseed$num), by = 1)) 
   
-
 comprg <- cowplot::plot_grid(rg2,rg1,rg3,nrow=1,ncol=3,rel_widths = c(0.9,0.9,1.2), align="h",axis = "tb", labels=c("b","c","d"))
 rg_cv <- cowplot::plot_grid(cv + theme(panel.grid.major = element_line(color="grey80"),panel.grid.minor = element_blank()),comprg,nrow=2,rel_heights = c(1.2,1), align = "v",axis="r",labels=c("a",NA))
 ggsave(rg_cv,file="../../figures/SF4_ADX_rg_cv.png",width = 7,height = 6,units = "in",device = 'png',bg="white",dpi=600)
@@ -268,8 +264,6 @@ geo <- geo_info %>%
   dplyr::rename(subpop=cluster)  %>% 
   dplyr::mutate(subpop=ifelse(geo=="Cosmopolitan","Cosmopolitan",subpop)) 
 
-
-
 lineage_levels <- c("Tropical","TD1","TH","KD","TD2","TD3","Temperate","ID","NWD","Hubei","Quebec","AD")
 
 #get target admixture run | k
@@ -282,7 +276,6 @@ getADM_plots <- function(best_kval,cvmat_long,qlist,admix,admix_color,window_siz
     target_best_seed <- cvmat_long %>% dplyr::filter(K==i) %>% dplyr::filter(cv_error==min(cv_error))
     target_qfile <- qlist[[i-1]] %>% dplyr::filter(seed==(target_best_seed %>% dplyr::pull(seed)))
     target_pops <- target_qfile %>% dplyr::left_join(admix %>% dplyr::rename(admix=cluster),by=c("isotype"))  
-    
     
     adm_plot_df <- target_pops %>% dplyr::filter(fraction>0.001) %>%
       dplyr::mutate(Lineage=ifelse(Lineage=="Montreal","Quebec",Lineage)) %>%
@@ -460,7 +453,6 @@ getADM_plots <- function(best_kval,cvmat_long,qlist,admix,admix_color,window_siz
 
 alladm_plots <- getADM_plots(best_kval,cvmat_long,qlist,admix,admix_color,2)
 admplots <- cowplot::plot_grid(alladm_plots[[1]],alladm_plots[[2]],alladm_plots[[3]],alladm_plots[[4]],alladm_plots[[5]],cowplot::plot_grid(NULL,alladm_plots[[6]],nrow=1),nrow=6,ncol=1,align="v",axis="lr",rel_heights = c(1.1,0.7,0.7,0.7,0.7,0.5))
-#cowplot::plot_grid(rg_cv,admplots,ncol=1,align="v",axis="lr")
 
 lineage_map <- lineages %>% select(isotype, Lineage)
 
@@ -495,8 +487,8 @@ lineage_summary <- concord_df_norm %>%
 # Build plotting df with consistent factor levels; reverse Y so upper-tri is above diagonal
 keep_levels <- setdiff(lvl, "Quebec")  # drop Quebec if desired
 heatmap_long <- lineage_summary %>%
-  filter(Lineage1 %in% keep_levels, Lineage2 %in% keep_levels) %>%
-  mutate(
+  dplyr::filter(Lineage1 %in% keep_levels, Lineage2 %in% keep_levels) %>%
+  dplyr::mutate(
     Lineage1 = factor(Lineage1, levels = keep_levels),
     Lineage2 = factor(Lineage2, levels = rev(keep_levels))
   )
@@ -519,7 +511,6 @@ cc_sum_heatmap <-
         panel.grid = element_blank()) +
   labs(fill = "Genetic\nsimilarity")
  
-
 ggsave(cc_sum_heatmap,filename = "../../figures/EDF4_concordance_heatmap.png",width = 7,height = 7,units = "in",device = "png",dpi = 600,bg = "white")
 
 
@@ -556,17 +547,14 @@ names(lin_col_vec) <- lin_cols$Lineage
 
 sublin_rf <- annotation_df %>% dplyr::mutate(Sublineage=ifelse(Sublineage %in% c("TS1","TS2"),Sublineage,NA))  
 
-
 sublin_cols <- sublin_rf %>% dplyr::select(Sublineage,sublineage_color) %>% dplyr::distinct(Sublineage,.keep_all = T) %>%
   dplyr::filter(Sublineage %in% c("TS1","TS2"))
 sublin_col_vec <- sublin_cols$sublineage_color 
 names(sublin_col_vec) <- sublin_cols$Sublineage
 
-
 sublin_vec <- sublin_rf$Sublineage
 names(sublin_vec) <- rownames(sublin_rf)
 sublin_vec <- sublin_vec[rownames(concordance_matrix)]
-
 
 lat_col_fun <- circlize::colorRamp2(
   seq(0, 60, length.out = 5),
@@ -577,23 +565,17 @@ geo_vec_filtered <- factor(geo_vec, levels = c(setdiff(geo_vec, c("Cosmopolitan"
 lin_vec_filtered <- factor(lin_vec, levels = c("Tropical","TD1","TH","TD2","TD3","Temperate","Quebec","Hubei","ID","NWD","KD","AD"))
 # Create row annotation
 row_annot <- columnAnnotation(
-  #abslat = abslat_vec,
   `Geo.` = geo_vec_filtered,
   Group = lin_vec_filtered,
-  #subgroup = sublin_vec,
-  col = list(#abslat = lat_col_fun,
+  col = list(
              `Geo.` = geo_colors,
              Group= lin_col_vec),
-             #subgroup= sublin_col_vec),
   annotation_legend_param = list(
-    #abslat = list(title = "Absolute\nlatitude", ncol = 1),
     Group = list(title= "Relatedness\ngroup", ncol = 2, fontsize = 14, title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8)),
-    #subgroup = list(title= "Tropical\nsubgroup", ncol = 1, fontsize = 14, title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8)),
     `Geo.` = list(title = "Geographic\nregion", ncol = 2,   title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8))
   ),
   annotation_name_side = "left",
   na_col = "white"
-  #width = grid::unit(15, "cm")
 )
 
 bottom_annot <- rowAnnotation(
@@ -603,10 +585,8 @@ bottom_annot <- rowAnnotation(
     `Abs.Lat.` = list(title = "Absolute\nlatitude", ncol = 1,title_gp = grid::gpar(fontsize = 9), labels_gp = grid::gpar(fontsize = 8))
   ),
   annotation_name_side = "top"
-  #height = unit(15, "cm")
 )
 
-#row_annot <- row_annot + rowAnnotation(NULL, width = unit(2, "cm"))
 # Heatmap color function (5-color scale)
 phylo_vals <- as.vector(concordance_matrix)
 phylo_vals <- phylo_vals[!is.na(phylo_vals)]  # remove NAs
@@ -622,7 +602,6 @@ breaks <- c(
 # Define the color mapping with white at the median
 phylo_col_fun <- circlize::colorRamp2(
   breaks,
-  #seq(min(phylo_vals, na.rm = TRUE), max(phylo_vals, na.rm = TRUE), length.out = 5),
   c("#4575B4", "#87C6C2", "#FFFFE0","#F4D166","#D73027")
 )
 strain_props <- setNames(isos$count, isos$isotype)
@@ -642,7 +621,6 @@ heatmap_grob <- grid::grid.grabExpr({
       clustering_method_columns = "average",
       show_row_names = F,
       show_column_names = F,
-      #column_names_gp = grid::gpar(fontsize = 1),
       right_annotation = bottom_annot,
       bottom_annotation = row_annot,
       heatmap_legend_param = list(ncol = 2,

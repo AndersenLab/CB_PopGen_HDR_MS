@@ -1,5 +1,3 @@
-
-
 rm(list = ls())
 
 library(dplyr)
@@ -151,10 +149,10 @@ geo_freq_col<-geo_freq %>%
   dplyr::mutate(geo = ifelse(geo == "North America", "North_America", geo)) 
 
 geo_freq_col<-geo_freq_col %>% 
-  filter(!(geo %in% "unknown"))
+  dplyr::filter(!(geo %in% "unknown"))
 geo_freq_col<-rbind(geo_freq_col, c("Non-cosmopolitan", 715-(geo_freq_col %>%
-                                      filter(geo == "Cosmopolitan") %>% 
-                                      pull(frequency)))) 
+                                      dplyr::filter(geo == "Cosmopolitan") %>% 
+                                      dplyr::pull(frequency)))) 
 geo_freq_col<-rbind(geo_freq_col, c("All", 715)) 
 
 
@@ -167,15 +165,15 @@ geo_freq_col$geo <- factor(geo_freq_col$geo,
 geo_freq_col_tmp1<-geo_freq_col %>% 
   dplyr::arrange(geo) %>% 
   dplyr::rename(Region=geo,"Number of strains"=frequency) %>% 
-  mutate(`Number of strains` = as.integer(`Number of strains`)) 
+  dplyr::mutate(`Number of strains` = as.integer(`Number of strains`)) 
 
 
 
 
 Ce_isotype_groups_raw<-readr::read_tsv("../../data/Ce/isotype_groups.tsv")
 Ce_isotypes_all<-Ce_isotype_groups_raw %>% 
-  select(strain,isotype) %>% 
-  filter(strain == isotype)
+  dplyr::select(strain,isotype) %>% 
+  dplyr::filter(strain == isotype)
 nrow(Ce_isotypes_all)
 Ce_all_n<-nrow(Ce_isotypes_all)
 
@@ -204,10 +202,6 @@ geo_freq_col_final <- geo_freq_col_tmp1 %>%
 all_result<-dplyr::left_join(geo_diversity_result,
                              geo_freq_col_final,
                              by = c("Region"))
-
-
-# write.csv(file = "Table_geo_p_theta_d.csv",all_result,quote = FALSE,
-#           row.names = FALSE)
 
 write.csv(file = "../../supplementary_data/SD4_geo_p_theta.csv",all_result,quote = FALSE,
           row.names = FALSE)
