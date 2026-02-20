@@ -669,7 +669,7 @@ ggsave(plot = PRE, filename = "../../figures/SF19_PRE_HDR_CB_20250730.png",width
 ggsave(plot = F1, filename = "../../figures/SF20_F1_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
 ggsave(plot = BEST, filename = "../../figures/SF21_BEST_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
 
-lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>% 
   dplyr::mutate(REF=ifelse(Lineage=="Tropical","QX1410",

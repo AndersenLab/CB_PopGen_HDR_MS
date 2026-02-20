@@ -481,7 +481,7 @@ reassess_distal <- QX_ad %>% dplyr::filter(has_any_ortho==T & has_bound_ortho==F
 g_count <- length(unique(QX_ad$Parent))
 
 allstrain_list <- unique(boundGenes$STRAIN)[!unique(boundGenes$STRAIN) %in% nigonis]
-#lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% dplyr::filter(isotype %in% allstrain_list)
+#lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>% dplyr::filter(isotype %in% allstrain_list)
 #lineage_order <- c("QX1410",lineages$isotype[!lineages$isotype %in% c("QX1410")])
 
 ######### MODIFY THIS ##########

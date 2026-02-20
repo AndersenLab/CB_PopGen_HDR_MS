@@ -9,13 +9,13 @@ library(ape)
 library(circlize)
 
 
-hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") #%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
-hdrs_unt_rg <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv") #%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
+hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") 
+hdrs_unt_rg <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv") 
 bins <- readr::read_tsv("../../processed_data/HDRs/QX1410_genomic_windows.1kb.bed",col_names = c("CHROM","binStart","binEnd")) 
 variants_QX <- readr::read_tsv("../../processed_data/HDRs/Tropical.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN")) %>% dplyr::mutate(source="QX1410") %>% dplyr::filter(!STRAIN=="QX1410")
 variants_rest <- readr::read_tsv("../../processed_data/HDRs/Other_RG.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))#%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
 variants_nrg <- readr::read_tsv("../../processed_data/HDRs/CB_all_strain_vc.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
-lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRGeage_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>% 
   dplyr::mutate(REF=ifelse(Lineage=="Tropical","QX1410",
@@ -313,7 +313,7 @@ isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixu
   dplyr::group_by(isotype) %>%
   dplyr::summarise(count=n())
 
-lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage)) 
 

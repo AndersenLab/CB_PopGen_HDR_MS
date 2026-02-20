@@ -611,7 +611,7 @@ make_tree_plot <- function(pick, trees, res3_QX_annot, label_to_species, lineage
 }
 
 #get relatedness group (formely "lineages") information
-lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
 
 # rebuild the list, passing relatedness groups
 plots_list <- setNames(lapply(res3_QX_annot$og_id,
