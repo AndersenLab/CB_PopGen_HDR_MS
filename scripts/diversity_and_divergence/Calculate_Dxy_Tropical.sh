@@ -11,14 +11,12 @@
 
 source activate pixy
 
-cd ../../processed_data
+cd ../../processed_data/diversity_and_divergence/
 mkdir -p Dxy_Tropical
 cd Dxy_Tropical
 
-VCF_DIR=../../processed_data/Dxy_Tropical/vcf
-POP_DIR=../../processed_data/Dxy_Tropical
-OUT_DIR=$POP_DIR/results
-mkdir -p $OUT_DIR
+VCF_DIR=../../processed_data/diversity_and_divergence/Dxy_Tropical/vcf
+POP_DIR=../../processed_data/diversity_and_divergence/Dxy_Tropical
 
 VCF_FILES=(
     "WI.20250626.hard_filter.715_isotype_Tro_AD.vcf.gz"
@@ -42,7 +40,7 @@ POP_FILE=${POP_DIR}/${POP_FILES[$SLURM_ARRAY_TASK_ID]}
 pixy --stats dxy \
   --vcf $VCFI \
   --populations $POP_FILE \
-  --output_folder $OUT_DIR \
+  --output_folder $POP_DIR \
   --window_size 10000 \
   --bypass_invariant_check yes \
   --output_prefix $(basename ${POP_FILE%.txt})_ \

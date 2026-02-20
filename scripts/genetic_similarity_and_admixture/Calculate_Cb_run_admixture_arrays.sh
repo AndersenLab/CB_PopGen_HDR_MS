@@ -9,10 +9,10 @@
 #SBATCH --array=1-290
 
 cd ../../processed_data
-mkdir -p genetic_similarity_and_admixutre
-cd genetic_similarity_and_admixutre
+mkdir -p genetic_similarity_and_admixture
+cd genetic_similarity_and_admixture
 
-out_folder="$PWD/"
+out_folder="../../processed_data/genetic_similarity_and_admixture/"
 
 seed_file="${out_folder}seeds.txt"
 if [ -f "$seed_file" ]; then

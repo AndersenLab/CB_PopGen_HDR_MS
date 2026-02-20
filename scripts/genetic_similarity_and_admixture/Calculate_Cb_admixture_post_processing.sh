@@ -7,15 +7,14 @@
 #SBATCH --output=Calculate_Cb_admixture_post_processing.oe
 #SBATCH --job-name="CbAdmPostPro"
 
-
 cd ../../processed_data
-mkdir -p genetic_similarity_and_admixutre
-cd genetic_similarity_and_admixutre
+mkdir -p genetic_similarity_and_admixture
+cd genetic_similarity_and_admixture
 
-out_folder="../../processed_data/genetic_similarity_and_admixutre/"
+out_folder="../../processed_data/genetic_similarity_and_admixture/"
 
 echo "Starting post-processing..."
-grep -h CV ../../processed_data/genetic_similarity_and_admixutre/K*/log_*.out | \
+grep -h CV ../../processed_data/genetic_similarity_and_admixture/K*/log_*.out | \
 cut -f3- -d" " | \
 sed 's/[(|):]//g' | \
 sort -k1n | \
