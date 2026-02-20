@@ -70,16 +70,16 @@ Processed files used in gene-level visualization of HDRs.
 
 ### Contains
 
-- `CBCN_L1L2_master.tsv`  [Large file. Available publicly on AWS] <br>
+- `CBCN_L1L2_master.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/gene_diversity/CBCN_L1L2_master.tsv) <br>
   L1 (gene) and L2 (mRNA) features from BRAKER gene predictions across all strains where a long-read genome was assembled.
 
-- `CBCN_nucmer_db_20250603.tsv`  [Large file. Available publicly on AWS] <br>
+- `CBCN_nucmer_db_20250603.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/gene_diversity/CBCN_nucmer_db_20250603.tsv) <br>
   Whole-genome alignment (NUCmer) results.
 
-- `CBCN_orthogroups.tsv`  [Large file. Available publicly on AWS] <br>
-  Orthogroup assignments (Also includes _C. nigoni_ lines, but only _C. briggsae_ results are analyzed).
+- `CBCN_orthogroups.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/gene_diversity/CBCN_orthogroups.tsv) <br>
+  Orthogroup assignments (Also includes _C. nigoni_ lines, but only _C. briggsae_ strain results are used for gene diversity visualizations).
 
-- `c_briggsae.QX1410_20250929.csq.gff`  [Large file. Available publicly on AWS] <br>
+- `c_briggsae.QX1410_20250929.csq.gff`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/gene_diversity/c_briggsae.QX1410_20250929.csq.gff) <br>
   Reference gene models.
 
 - `HDR_I_*`, `HDR_II_*`, `HDR_V_*` (`.Rds`)  
@@ -112,7 +112,7 @@ Population structure, admixture, and genetic similarity data.
 - `gtcheck.tsv`
   Pairwise isotype genetic similarity estimates.
 
-- `strain_gtcheck.tsv`  [Large file. Available publicly on AWS] <br>
+- `strain_gtcheck.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/genetic_similarity_and_admixture/strain_gtcheck.txt) <br>
   Pairwise strain genetic similarity estimates.
 
 ## HDRs/
@@ -127,19 +127,19 @@ Hyper-divergent region (HDR) calls associated and intermediate files.
 - `HDR_CB_otherRG_UNT_5kbclust_20250930.tsv`  
   HDR windows for non-Tropical groups relative to their respective group's reference genome (UNT = untransformed).
 
-- `Tropical.thresh_cov.tsv`  [Large file. Available publicly on AWS] <br>
+- `Tropical.thresh_cov.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/Tropical.thresh_cov.tsv) <br>
   Coverage statistics for Tropical samples relative to the Tropical (QX1410) reference genome.
 
-- `Tropical.variant_counts.tsv`  [Large file. Available publicly on AWS] <br>
+- `Tropical.variant_counts.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/Tropical.variant_counts.tsv) <br>
   Variant counts computed for Tropical samples relative to the Tropical (QX1410) reference genome.
 
-- `Other_RG.thresh_cov.tsv`  [Large file. Available publicly on AWS] <br>
+- `Other_RG.thresh_cov.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/Other_RG.thresh_cov.tsv) <br>
   Coverage statistics for non-Tropical samples relative to their respective relatedness group reference genome.
 
-- `Other_RG.variant_counts.tsv`  [Large file. Available publicly on AWS] <br>
+- `Other_RG.variant_counts.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/Other_RG.variant_counts.tsv) <br>
   Variant counts for non-Tropical samples relative to their respective relatedness group reference genome.
 
-- `CB_all_strain_vc.tsv`  [Large file. Available publicly on AWS] <br>
+- `CB_all_strain_vc.tsv`  [Large file. Available publicly on AWS](https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/CB_all_strain_vc.tsv) <br>
   Variant counts computed for all samples relative to the Tropical (QX1410) reference genome.
 
 - `phy_file_LD_0.9.phy.contree`  
