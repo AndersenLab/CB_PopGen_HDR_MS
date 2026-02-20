@@ -1,9 +1,9 @@
 # Figures
 This directory contains all generated figures.
 
-Files with the `Figure#` prefix represent Main Display Figures.
+Files with the `Figure#_` prefix represent Main Display Figures.
 
-Files with the `EDF#` prefix represent Extended Data Figures.
+Files with the `EDF#_` prefix represent Extended Data Figures.
 
 Files with the `SF#_` prefix represent Supplementary Figures.
 
