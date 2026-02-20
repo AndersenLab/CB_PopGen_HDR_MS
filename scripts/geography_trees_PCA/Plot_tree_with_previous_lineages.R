@@ -64,7 +64,7 @@ average_temperature<-WI_isotype_info_temperature %>%
   dplyr::mutate(average_temp = as.numeric(average_temp)) %>%
   as.data.frame()
 
-thomas_paper_tree_annotation_raw<-read.table("../../data/Thomas_paper_tree_annotation/thomas_paper_tree_annotation.txt",
+thomas_paper_tree_annotation_raw<-read.table("../../processed_data/Thomas_2015_tree_annotation/thomas_paper_tree_annotation.txt",
                                              header = TRUE)
 thomas_paper_tree_annotation<-thomas_paper_tree_annotation_raw %>% 
   dplyr::rename(Lineages=Phylogeographic_clade) %>% 
@@ -78,7 +78,7 @@ annotation_Thomas_color<- thomas_paper_tree_annotation %>%
   distinct(Lineages, Lineages_color) %>%
   tibble::deframe()
 
-gene_segments_trees_raw<-read_excel("../../data/From_Marie_anne_2013_and_Richard_2011_paper/all_strains_manually_generated.xlsx")
+gene_segments_trees_raw<-read_excel("../../processed_data/Marie_anne_2013_and_Richard_2011_paper/all_strains_manually_generated.xlsx")
 
 gene_segments_trees<-gene_segments_trees_raw %>% 
   dplyr::rename(Lineage = Clade) %>% 
