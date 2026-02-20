@@ -317,7 +317,7 @@ plot_0.9_tree_2heatmap_supp<-plot_tree_three_heatmap(isotype_map_0.9,
                                                annotation_Thomas_file = thomas_paper_tree_annotation,
                                                annotation_MAF_file = gene_segments_trees_annotation,
 )
-ggsave("../../figures/EDF3_raw_Cb_tree.pdf",
+ggsave("../../figures/raw_EDF3_Cb_tree.pdf",
        plot = plot_0.9_tree_2heatmap_supp,
        width = 7, height = 7, units = "in")
 

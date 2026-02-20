@@ -427,10 +427,8 @@ p_heatmap <- Heatmap(
   
 )
 
-p_heatmap
-
 dev.off()
-pdf(paste0("../../figures/EDF2_Cb_",target_isotype,"_concordance_heatmap_with_the_closest.pdf"), width = 7, height = 6)
+pdf(paste0("../../figures/raw_EDF2_Cb_",target_isotype,"_concordance_heatmap_with_the_closest.pdf"), width = 7, height = 6)
 
 
 draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right",

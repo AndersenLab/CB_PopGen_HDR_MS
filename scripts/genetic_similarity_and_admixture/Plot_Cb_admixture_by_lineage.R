@@ -299,7 +299,7 @@ final_plot <- plot_grid(
 )
 
 if (which_replicate == 5) {
-ggsave(paste0("../../figures/SF6_raw_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
+ggsave(paste0("../../figures/raw_SF6_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
        final_plot, 
        width = 10, 
        height = 8, 
