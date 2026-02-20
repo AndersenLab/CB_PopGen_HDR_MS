@@ -10,7 +10,7 @@ library(reshape2)
 library(ggbreak)
 library(patchwork)
 
-Cb_raw_csv<-read.csv("../../data/20251124_Cb_2018_strains_data.csv")
+Cb_raw_csv<-read.csv("../../supplementary_data/SD1_Cb_2018_strains_data.csv")
 
 #### unique isotypes
 iso_unique <- Cb_raw_csv %>%

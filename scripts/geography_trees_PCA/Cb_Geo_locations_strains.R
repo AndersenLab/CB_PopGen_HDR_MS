@@ -9,7 +9,7 @@ library(ggpubr)
 library(RColorBrewer)
 
 source("../utilities.R")
-raw_data<-read.csv("../../data/20251124_Cb_2018_strains_data.csv")
+raw_data<-read.csv("../../supplementary_data/SD1_Cb_2018_strains_data.csv")
 indep_strain_info<- raw_data
 indep_strain_info$lat<-as.numeric(indep_strain_info$lat)
 indep_strain_info$long<-as.numeric(indep_strain_info$long)

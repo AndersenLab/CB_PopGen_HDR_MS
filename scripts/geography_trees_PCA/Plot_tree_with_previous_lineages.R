@@ -21,7 +21,7 @@ source("../utilities.R")
 isotype_map_0.9_raw<-treeio::read.tree("../../processed_data/LD_pruned_trees/LD_0.9/phy_file_LD_0.9.phy.contree")
 isotype_map_0.9<-phytools::midpoint_root(isotype_map_0.9_raw)
 annotation_maps_raw<- read.csv("../../processed_data/geo_info/Cb_indep_isotype_info_geo.csv", header = TRUE)
-raw_data<-read.csv("../../data/20251124_Cb_2018_strains_data.csv")
+raw_data<-read.csv("../../supplementary_data/SD1_Cb_2018_strains_data.csv")
 
 indep_isotype_info<- raw_data
 sample_list<- read.table("../../processed_data/Cb_pruned_VCF_and_PCA/sample_list.txt")

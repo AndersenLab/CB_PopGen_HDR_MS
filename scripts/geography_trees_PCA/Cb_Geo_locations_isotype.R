@@ -9,7 +9,7 @@ library(RColorBrewer)
 
 source("../utilities.R")
 
-raw_data<-read.csv("../../data/20251124_Cb_2018_strains_data.csv")
+raw_data<-read.csv("../../supplementary_data/SD1_Cb_2018_strains_data.csv")
 indep_isotype_info<- raw_data
 
 sample_list<- read.table("../../processed_data/Cb_pruned_VCF_and_PCA/sample_list.txt")
