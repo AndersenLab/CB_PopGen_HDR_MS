@@ -1,0 +1,4 @@
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/gene_diversity/c_briggsae.QX1410_20250929.csq.gff
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/gene_diversity/CBCN_L1L2_master.tsv
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/gene_diversity/CBCN_nucmer_db_20250603.tsv
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/gene_diversity/CBCN_orthogroups.tsv
