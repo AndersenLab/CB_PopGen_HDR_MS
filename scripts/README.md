@@ -24,25 +24,25 @@ SD = Supplementary Data
 
 script description
 
-Generates?
+Generates isotype list
 
 - `Calculate_Cb_pyh_to_tree.sh` 
 
 script description
 
-Generates?
+Generates ML tree
 
 - `Calculate_Cb_vcf_to_pyh.sh` 
 
 script description
 
-Generates?
+Generates PHYLIP format file for generating trees
 
 - `Calculate_Cb_pca_by_chrom.sh` 
 
 script description
 
-Generates?
+Generates vcf files for each chromosome
 
 - `Cb_PCA_by_chrom_LD_0.9.R`  
 
@@ -54,61 +54,13 @@ Generates Supplementary Figure 2
 
 script description
 
-Generates?
+Generates PCA eigenvalues and PC scores for each chromosome
 
 - `Cb_iterations_5_10_15_20_25_30_35_40.sh`  
 
 script description
 
-Generates?
-
-- `Cb_par_10_iterations.par`  
-
-script description
-
-Generates?
-
-- `Cb_par_15_iterations.par`
-
-script description
-
-Generates?
-
-- `Cb_par_20_iterations.par`  
-
-script description
-
-Generates?
-
-- `Cb_par_25_iterations.par`
-
-script description
-
-Generates?
-
-- `Cb_par_30_iterations.par`
-
-script description
-
-Generates?
-
-- `Cb_par_35_iterations.par`
-
-script description
-
-Generates?
-
-- `Cb_par_40_iterations.par`
-
-script description
-
-Generates?
-
-- `Cb_par_5_iterations.par`
-
-script description
-
-Generates?
+Generates PCA eigenvalues and PC scores after iterative outlier removal
 
 - `SF3_Cb_all_isotypes_PCA_LD_0.9_5_10_15_iterations.R`
 
@@ -132,13 +84,13 @@ Generates Figure 1
 
 script description
 
-Generates?
+Generates panel a of Figure 1
 
 `nf_Cb_pruned_VCF_and_PCA.sh`  
 
 script description
 
-Generates?
+Generates LD-pruned vcf file, PCA eigenvalues, and PC scores
 
 `Plot_tree_with_previous_lineages.R`
 
@@ -150,7 +102,7 @@ Generates Extended Data Figure 3
 
 script description
 
-Generates?
+Generates panel a of Extended Data Figure 1
 
 - `make_EDF1.R`  
 
@@ -164,7 +116,7 @@ Generates Extended Data Figure 1
 
 script description
 
-Generates?
+Generates panel a of Supplementary Figure 1
 
 - `SF1_Plot_cosmopolitan_17_heatmap.R`
 
@@ -178,12 +130,6 @@ script description
 
 Generates Supplementary Figure 14
 
-- `Figure_S28_Cb_concordance_histogram_hard_filtered.R`
-
-script description
-
-I think this script is obsolete (replaced by `Cb_concordance_histogram_hard_filtered.R`?)
-
 - `EDF2_Plot_cosmopolitan_concordance.R`
 
 script description
@@ -194,13 +140,13 @@ Generates Extended Data Figure 2
 
 script description
 
-Generates?
+Generates summary table of ADMIXTURE CV errors
 
 - `Calculate_Cb_run_admixture_arrays.sh`  
 
 script description
 
-Generates?
+Runs ADMIXTURE and generates Q and P matrices with CV results
 
 - `Plot_Cb_admixture_by_lineage.R`  
 
@@ -212,13 +158,7 @@ Generates S.F. 6 and S.F. 7
 
 script description
 
-I think this script is obsolete (replaced by `genetic_similarity_admixture.R`?)
-
-- `Table_S2_concordance_strains.R`
-
-script description
-
-I think this script is obsolete (Table S2 no longer exists. Pairwise concordance is present in `processed_data`)
+Generates S.F. 5
 
 - `genetic_similarity_admixture.R`
 
@@ -236,13 +176,19 @@ Generates Supplementary Figure 4
 
 script description
 
-Generates?
+Converts the VCF files to Zarr files for downstream pi theta d analyses
 
 - `Cb_zarr_to_pi_theta_d_10kb.sh`
 
 script description
 
-Generates?
+Calculates pi theta d from the Zarr files
+
+- `pi_theta_d_python`
+
+script description
+
+Core scripts for calculating pi theta d
 
 - `nucleotide_diversity_and_divergence.R`
 

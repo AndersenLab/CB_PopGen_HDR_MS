@@ -8,23 +8,14 @@
 #SBATCH --job-name="CbAdmPostPro"
 
 
+cd ../../processed_data
+mkdir -p genetic_similarity_and_admixutre
+cd genetic_similarity_and_admixutre
 
-
-
-
-
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
-mkdir -p Cb_admixture
-cd Cb_admixture
-
-out_folder="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_admixture/"
-
-cp -n /home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_admixture/K*/*.out \
-/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Cb_admixture/
-
+out_folder="../../processed_data/genetic_similarity_and_admixutre/"
 
 echo "Starting post-processing..."
-grep -h CV log_*.out | \
+grep -h CV ../../processed_data/genetic_similarity_and_admixutre/K*/log_*.out | \
 cut -f3- -d" " | \
 sed 's/[(|):]//g' | \
 sort -k1n | \

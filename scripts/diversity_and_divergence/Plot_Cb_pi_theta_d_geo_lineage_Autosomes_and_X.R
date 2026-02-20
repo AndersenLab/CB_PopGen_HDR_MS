@@ -7,8 +7,8 @@ library(purrr)
 
 sub_region_raw <- read.table("../../data/05.07.21_cb_subregion.bed")
 sub_region_df <- sub_region_raw %>%
-  filter(V1 != "CHROM") %>%
-  mutate(
+  dplyr::filter(V1 != "CHROM") %>%
+  dplyr::mutate(
     V2 = as.numeric(V2),
     V3 = as.numeric(V3)
   ) %>%
@@ -24,17 +24,13 @@ region_paths <- list(
   cosmopolitan = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Cosmopolitan/",
   `Non-cosmopolitan` = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Cb_non_cosmopolitan",
   Asia = "../../processed_datadiversity_and_divergence//pi_theta_d_geo/Asia",
-  # `Asia Kerala` ="../../processed_data/pi_theta_d_by_lineage/Asia_lineage/Kerala",
-  # `Asia Tropical` ="../../processed_data/pi_theta_d_by_lineage/Asia_lineage/Tropical",
   Australia = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Australia",
   `Australia AD` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/Australia_lineage/AD",
   `Australia Tropical` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/Tropical",
   Caribbean = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Caribbean",
   `Central America` = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Central_America",
   Hawaii = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Hawaii",
-  # North_America = "../../processed_data/pi_theta_d_geo/North_America",
   Pacific = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Pacific",
-  # `Pacific Tropical` = "../../processed_data/pi_theta_d_by_lineage/Pacific_lineage/Tropical",
   `South America` = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/South_America",
   Taiwan = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Taiwan",
   `Taiwan TD1` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/TD1",
@@ -105,16 +101,6 @@ wide_pi_results <- all_pi_results %>%
   mutate(Stat = "pi") 
 
 
-
-
-
-
-
-
-
-
-
-
 ######## theta #########
 
 div_calc <- function(path,region) {
@@ -171,19 +157,6 @@ wide_theta_results <- all_theta_results %>%
          `ChromX center`=X_center,
          Region=region) %>% 
   mutate(Stat = "theta")
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ######## d #########
@@ -245,43 +218,22 @@ wide_d_results <- all_d_results %>%
 
 
 
-
-
-
-
-
-
-
-
 merged_wide_table<-rbind(wide_pi_results,
                          wide_theta_results,
                          wide_d_results)
 
 
-# 
-# write.table(merged_wide_table,
-#             "All_merged_pi_theta_d_Autosomal_Xarm_arm_center.tsv",
-#             quote = FALSE,
-#             row.names = FALSE,
-#             sep = '\t')
-
-
-
-
-
-
-
 
 geo_merged_wide_table<-merged_wide_table %>% 
-  filter(Region %in% c("All","cosmopolitan","Non-cosmopolitan",
+  dplyr::filter(Region %in% c("All","cosmopolitan","Non-cosmopolitan",
                        "Asia","Australia","Caribbean",
                        "Central America","Hawaii","Pacific",
                        "South America","Taiwan")) %>% 
-  mutate(`fold change Autosomes arm/center` = (round(`Autosomes arm`/`Autosomes center`,2))) %>% 
-  mutate(`fold change ChromX arm/center` = (round(`ChromX arm`/`ChromX center`,2))) %>% 
-  relocate(Stat, .after = last_col()) %>% 
-  mutate(`fold change Autosomes arm/center` = ifelse(Stat == "Tajima's D", "-",`fold change Autosomes arm/center`)) %>% 
-  mutate(`fold change ChromX arm/center` = ifelse(Stat == "Tajima's D", "-",`fold change ChromX arm/center`))
+  dplyr::mutate(`fold change Autosomes arm/center` = (round(`Autosomes arm`/`Autosomes center`,2))) %>% 
+  dplyr::mutate(`fold change ChromX arm/center` = (round(`ChromX arm`/`ChromX center`,2))) %>% 
+  dplyr::relocate(Stat, .after = last_col()) %>% 
+  dplyr::mutate(`fold change Autosomes arm/center` = ifelse(Stat == "Tajima's D", "-",`fold change Autosomes arm/center`)) %>% 
+  dplyr::mutate(`fold change ChromX arm/center` = ifelse(Stat == "Tajima's D", "-",`fold change ChromX arm/center`))
 
 
 write.table(geo_merged_wide_table,
@@ -290,8 +242,5 @@ write.table(geo_merged_wide_table,
             row.names = FALSE,
             quote = FALSE,
             sep = '\t')
-
-
-
 
 

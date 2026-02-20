@@ -8,21 +8,12 @@
 #SBATCH --job-name="CbLinList"
 
 
-
-### generate link
-# ln -s $HOME/vast-eande106/data/c_briggsae/WI/variation/20250331/vcf/WI.20250331.hard-filter.isotype.vcf.gz $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/data/VCF
-# ln -s $HOME/vast-eande106/data/c_briggsae/WI/variation/20250331/vcf/WI.20250331.hard-filter.isotype.vcf.gz.tbi $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/data/VCF
-
 source activate CT_PopGen
 
-raw_VCF="$HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
+raw_VCF="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
 
-
-#####
-cd $HOME/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/
+cd ../../processed_data/
 mkdir -p Cb_pruned_VCF_and_PCA
 cd Cb_pruned_VCF_and_PCA
 
 bcftools query -l $raw_VCF > sample_list.txt
-
-

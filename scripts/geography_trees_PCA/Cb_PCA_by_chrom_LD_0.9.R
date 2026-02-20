@@ -47,7 +47,6 @@ plot_PCA <- function(PCA_input, tracy_for_plot_input, x_axis, y_axis){
 }
 
 base_dir <- "../../processed_data/PCA_by_chrom"
-
 chroms <- c("I","II","III","IV","V","X")
 
 combined_panels <- list()
@@ -76,10 +75,6 @@ for (chrom in chroms) {
     dplyr::mutate(sigVarExp = sum(VarExp)) %>%
     dplyr::ungroup()
   
-  
-  
-  
-  
   cdf <- data.table::fread(evac_path, skip = 1)
   
   cdf_pcs <- cdf %>%
@@ -90,10 +85,6 @@ for (chrom in chroms) {
   
   pcs_geo_by_chrom[[chrom]] <- cdf_pcs_geo
   
-  
-  
-  
-  
   p_PC1_PC2 <- plot_PCA(PCA_input = cdf_pcs_geo,
                         tracy_for_plot_input = tracy_for_plot,
                         x_axis = "PC1", y_axis = "PC2")
@@ -102,318 +93,180 @@ for (chrom in chroms) {
                         tracy_for_plot_input = tracy_for_plot,
                         x_axis = "PC3", y_axis = "PC4")
   
-  
   combined_core <- cowplot::plot_grid(p_PC1_PC2, p_PC3_PC4, ncol = 2, align = "hv", rel_heights = c(1,1))
-  
   combined_titled <- cowplot::ggdraw() +
     cowplot::draw_plot(combined_core) +
     cowplot::draw_label(paste0("Chromosome ", chrom),
                         x = 0.5, y = 0.97, hjust = 0.5, vjust = 0,
                         fontface = "bold", size = 8)
-  
   combined_panels[[chrom]] <- combined_titled
-  
 }
 
 if (length(combined_panels) == 0) stop("No panels were created (missing files or all skipped).")
 
 final_plot <- patchwork::wrap_plots(plotlist = combined_panels, ncol = 2)
-
-final_plot
 ggsave("../../figures/SF2_raw_PCA_by_chrom_raw.pdf", final_plot, width = 7, height = 4, units = "in", device = "pdf")
 
-
-
-
-
 library(readr)
-# lineage_raw<-readr::read_tsv("../../data/From_Nic/before_20250828_isotype_byLineage_GeoLocAdmCol.tsv")
-lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
 
 lineage<-lineage_raw %>% 
-  select(isotype,Lineage)
-
+  dplyr::select(isotype,Lineage)
 
 chr_num<-c(1:6)
 for (i in chr_num){
   print(
     pcs_geo_by_chrom[[i]] %>% 
-      left_join(lineage,by = c("isotype")) %>% 
-      filter(PC1 >0.1) %>% 
+      dplyr::left_join(lineage,by = c("isotype")) %>% 
+      dplyr::filter(PC1 >0.1) %>% 
       count(Lineage)
   )
 }
 
-
-
-
-ggplot(pcs_geo_by_chrom[[1]] %>% filter(PC1 <0.05), aes(x = PC2)) +
-  geom_histogram(bins = 100)
-
-View(pcs_geo_by_chrom[[1]])
-
 ChrI_PC12_mixed<-pcs_geo_by_chrom[[1]]%>% 
-  filter(PC1 <0.05) %>% 
-  filter(PC2 <0) %>% 
-  left_join(lineage, by = c("isotype"))
-
-# write.csv(ChrI_PC12_mixed,
-#           "ChrI_PC12_mixed.csv",
-#           row.names = FALSE,
-#           quote = FALSE)
-
-
+  dplyr::filter(PC1 <0.05) %>% 
+  dplyr::filter(PC2 <0) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[1]]%>% 
-  filter(PC4 < -0.2) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC4 < -0.2) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[1]]%>% 
-  filter(PC3 > 0.1) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 > 0.1) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[1]]%>% 
-  filter(PC4 > 0.05) %>% 
-  left_join(lineage, by = c("isotype"))
-
-
-
-ggplot(pcs_geo_by_chrom[[1]] %>% filter(PC4 > -0.1 & PC4 < 0.05), aes(x = PC3)) +
-  geom_histogram(bins = 100)
+  dplyr::filter(PC4 > 0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrI_PC34_mixed<-pcs_geo_by_chrom[[1]] %>% 
-  filter(PC4 > -0.1 & PC4 < 0.05) %>% 
-  filter(PC3 < 0 & PC3 > -0.075)
-
-
-
-
-
-
-
-
-
-
-
-
-ggplot(pcs_geo_by_chrom[[2]] %>% filter(PC1 <0.05), aes(x = PC2)) +
-  geom_histogram(bins = 100)
-
-View(pcs_geo_by_chrom[[2]])
+  dplyr::filter(PC4 > -0.1 & PC4 < 0.05) %>% 
+  dplyr::filter(PC3 < 0 & PC3 > -0.075)
 
 ChrII_PC12_mixed<-pcs_geo_by_chrom[[2]]%>% 
-  filter(PC1 <0.05) %>% 
-  filter(PC2 <0) %>% 
-  left_join(lineage, by = c("isotype"))
-
-# write.csv(ChrII_PC12_mixed,
-#           "ChrII_PC12_mixed.csv",
-#           row.names = FALSE,
-#           quote = FALSE)
-
-
+  dplyr::filter(PC1 <0.05) %>% 
+  dplyr::filter(PC2 <0) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[2]]%>% 
-  filter(PC4 > 0.4) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC4 > 0.4) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[2]]%>% 
-  filter(PC3 > 0.2) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 > 0.2) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[2]]%>% 
-  filter(PC3 < -0.03) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 < -0.03) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[2]]%>% 
-  filter(PC4 < -0.05) %>% 
-  left_join(lineage, by = c("isotype"))
-
-
-
-ggplot(pcs_geo_by_chrom[[2]] %>% filter(PC4 > -0.05 & PC4 < 0.2 & PC3 < 0.2 & PC3 > -0.03), aes(x = PC4)) +
-  geom_histogram(bins = 100)
+  dplyr::filter(PC4 < -0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrII_PC34_mixed<-pcs_geo_by_chrom[[2]] %>%
-  filter(PC4 > 0.05 & PC4 < 0.2)
+  dplyr::filter(PC4 > 0.05 & PC4 < 0.2)
 
 ChrII_PC34_global<-pcs_geo_by_chrom[[2]] %>%
-  filter(PC4 > -0.05 & PC4 < 0.2 & PC3 < 0.2 & PC3 > -0.03) %>% 
-  filter(PC4 < 0.05)
-
-
-
-
-
-
-
-
-
-
-
-
-
-ggplot(pcs_geo_by_chrom[[3]] %>% filter(PC1 <0.05), aes(x = PC2)) +
-  geom_histogram(bins = 100)
-
-View(pcs_geo_by_chrom[[3]])
+  dplyr::filter(PC4 > -0.05 & PC4 < 0.2 & PC3 < 0.2 & PC3 > -0.03) %>% 
+  dplyr::filter(PC4 < 0.05)
 
 ChrIII_PC12_global<-pcs_geo_by_chrom[[3]]%>% 
-  filter(PC1 < 0.05) %>% 
-  filter(PC2 > -0.05) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC1 < 0.05) %>% 
+  dplyr::filter(PC2 > -0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrIII_PC12_mixed<-pcs_geo_by_chrom[[3]]%>% 
-  filter(PC1 < 0.05) %>% 
-  filter(PC2 < -0.05) %>% 
-  filter(PC2 > -0.15) %>% 
-  left_join(lineage, by = c("isotype"))
-
-# write.csv(ChrIII_PC12_mixed,
-#           "ChrIII_PC12_mixed.csv",
-#           row.names = FALSE,
-#           quote = FALSE)
-
-
+  dplyr::filter(PC1 < 0.05) %>% 
+  dplyr::filter(PC2 < -0.05) %>% 
+  dplyr::filter(PC2 > -0.15) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[3]]%>% 
-  filter(PC3 > 0.1) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 > 0.1) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[3]]%>% 
-  filter(PC4 < -0.3) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC4 < -0.3) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[3]]%>% 
-  filter(PC3 < 0.1) %>% 
-  filter(PC4 > -0.3) %>% 
-  filter(PC4 < -0.05) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 < 0.1) %>% 
+  dplyr::filter(PC4 > -0.3) %>% 
+  dplyr::filter(PC4 < -0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 pcs_geo_by_chrom[[3]]%>% 
-  filter(PC3 < 0.1) %>% 
-  filter(PC4 > -0.3) %>% 
-  filter(PC4 > -0.05) %>% 
-  left_join(lineage, by = c("isotype"))
-
-
-
-
-
-
-
-
-ggplot(pcs_geo_by_chrom[[4]] %>% filter(PC4 > -0.05 & PC4 < 0.05), aes(x = PC3)) +
-  geom_histogram(bins = 100)
-
-ggplot(pcs_geo_by_chrom[[4]], aes(x = PC4)) +
-  geom_histogram(bins = 100)
-
-
-View(pcs_geo_by_chrom[[4]])
+  dplyr::filter(PC3 < 0.1) %>% 
+  dplyr::filter(PC4 > -0.3) %>% 
+  dplyr::filter(PC4 > -0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrIV_PC34_global<-pcs_geo_by_chrom[[4]]%>% 
-  filter(PC3 > 0) %>% 
-  filter(PC3 < 0.025) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 > 0) %>% 
+  dplyr::filter(PC3 < 0.025) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrIV_PC34_mixed_3<-pcs_geo_by_chrom[[4]]%>% 
-  filter(PC3 > -0.05) %>% 
-  filter(PC3 < 0) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 > -0.05) %>% 
+  dplyr::filter(PC3 < 0) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 
 ChrIV_PC34_mixed_1<-pcs_geo_by_chrom[[4]]%>% 
-  filter(PC4 > 0.05) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC4 > 0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 
 ChrIV_PC34_mixed_2<-pcs_geo_by_chrom[[4]]%>% 
-  filter(PC4 > -0.05 & PC4 < 0.05) %>% 
-  filter(PC3 < -0.05) %>% 
-  left_join(lineage, by = c("isotype"))
-
-
-
-
-
-
-
-
-
-
-ggplot(pcs_geo_by_chrom[[5]] %>% filter(PC4 > -0.05 & PC4 < 0.05), aes(x = PC3)) +
-  geom_histogram(bins = 100)
-
-
-View(pcs_geo_by_chrom[[5]])
+  dplyr::filter(PC4 > -0.05 & PC4 < 0.05) %>% 
+  dplyr::filter(PC3 < -0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrV_PC34_Taiwan<-pcs_geo_by_chrom[[5]]%>% 
-  filter(PC4 < -0.1) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC4 < -0.1) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrV_PC34_global<-pcs_geo_by_chrom[[5]]%>% 
-  filter(PC3 > -0.05) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 > -0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrV_PC34_global<-pcs_geo_by_chrom[[5]]%>% 
-  filter(PC4 < 0.12 & PC4 > 0.01) %>% 
-  left_join(lineage, by = c("isotype"))
-
-
-
-
-
-
-
-
-
-
-ggplot(pcs_geo_by_chrom[[6]] %>% filter(PC1 < 0.05), aes(x = PC2)) +
-  geom_histogram(bins = 100)
-
-
-View(pcs_geo_by_chrom[[6]])
+  dplyr::filter(PC4 < 0.12 & PC4 > 0.01) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrX_PC12_global<-pcs_geo_by_chrom[[6]]%>% 
-  filter(PC1 < 0.05) %>% 
-  filter(PC2 > -0.025) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC1 < 0.05) %>% 
+  dplyr::filter(PC2 > -0.025) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrX_PC12_mixed<-pcs_geo_by_chrom[[6]]%>% 
-  filter(PC1 < 0.05) %>% 
-  filter(PC2 < -0.025) %>% 
-  left_join(lineage, by = c("isotype"))
-
-
+  dplyr::filter(PC1 < 0.05) %>% 
+  dplyr::filter(PC2 < -0.025) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrX_PC34_India<-pcs_geo_by_chrom[[6]]%>% 
-  filter(PC3 > 0.2) %>% 
-  left_join(lineage, by = c("isotype"))
-
-
+  dplyr::filter(PC3 > 0.2) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrX_PC34_Indo_and_CosmopilitanNairobi<-pcs_geo_by_chrom[[6]]%>% 
-  filter(PC3 < 0.2 & PC4 > 0.27) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 < 0.2 & PC4 > 0.27) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrX_PC34_middle<-pcs_geo_by_chrom[[6]]%>% 
-  filter(PC3 < 0.2 & PC4 > 0.15 & PC4 < 0.27) %>% 
-  left_join(lineage, by = c("isotype"))
-
+  dplyr::filter(PC3 < 0.2 & PC4 > 0.15 & PC4 < 0.27) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 ChrX_PC34_Taiwan<-pcs_geo_by_chrom[[6]]%>% 
-  filter(PC3 < 0.2 & PC4 < -0.05) %>% 
-  left_join(lineage, by = c("isotype"))
+  dplyr::filter(PC3 < 0.2 & PC4 < -0.05) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
+ChrX_PC34_Australia<-pcs_geo_by_chrom[[6]]%>% 
+  dplyr::filter(PC3 < 0.2 & PC4 > -0.05 & PC4 < 0.15 & PC3 < -0.01) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))
 
 
 ChrX_PC34_Australia<-pcs_geo_by_chrom[[6]]%>% 
-  filter(PC3 < 0.2 & PC4 > -0.05 & PC4 < 0.15 & PC3 < -0.01) %>% 
-  left_join(lineage, by = c("isotype"))
-
-
-ChrX_PC34_Australia<-pcs_geo_by_chrom[[6]]%>% 
-  filter(PC3 < 0.2 & PC4 > -0.05 & PC4 < 0.15 & PC3 > -0.01) %>% 
-  left_join(lineage, by = c("isotype"))
-
+  dplyr::filter(PC3 < 0.2 & PC4 > -0.05 & PC4 < 0.15 & PC3 > -0.01) %>% 
+  dplyr::left_join(lineage, by = c("isotype"))

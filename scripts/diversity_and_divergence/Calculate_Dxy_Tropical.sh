@@ -9,24 +9,14 @@
 #SBATCH --array=0-4 
 
 
-
-
-
-
 source activate pixy
 
-
-
-cd /home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p Dxy_Tropical
 cd Dxy_Tropical
 
-
-
-
-
-VCF_DIR=/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Dxy_Tropical/vcf
-POP_DIR=/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Dxy_Tropical
+VCF_DIR=../../processed_data/Dxy_Tropical/vcf
+POP_DIR=../../processed_data/Dxy_Tropical
 OUT_DIR=$POP_DIR/results
 mkdir -p $OUT_DIR
 
@@ -57,12 +47,4 @@ pixy --stats dxy \
   --bypass_invariant_check yes \
   --output_prefix $(basename ${POP_FILE%.txt})_ \
   --n_cores 15 
-
-
-
-
-
-
-
-
 

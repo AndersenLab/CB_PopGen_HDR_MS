@@ -8,36 +8,28 @@
 #SBATCH --job-name="CbDxyVcf"
 
 
-
 source activate CT_PopGen
 
-cd /home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data
+cd ../../processed_data
 mkdir -p Dxy_Tropical
 cd Dxy_Tropical
 
 mkdir -p vcf
 
 
+Tropical_AD_list="../../processed_data/Dxy_Tropical/Tropical_AD.txt"
+Tropical_KD_list="../../processed_data/Dxy_Tropical/Tropical_KD.txt"
+Tropical_TD1_list="../../processed_data/Dxy_Tropical/Tropical_TD1.txt"
+Tropical_Temperate_list="../../processed_data/Dxy_Tropical/Tropical_Temperate.txt"
+Tropical_TH_list="../../processed_data/Dxy_Tropical/Tropical_TH.txt"
 
-Tropical_AD_list="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Dxy_Tropical/Tropical_AD.txt"
-Tropical_KD_list="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Dxy_Tropical/Tropical_KD.txt"
-Tropical_TD1_list="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Dxy_Tropical/Tropical_TD1.txt"
-Tropical_Temperate_list="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Dxy_Tropical/Tropical_Temperate.txt"
-Tropical_TH_list="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/Dxy_Tropical/Tropical_TH.txt"
-
-
-
-vcf_raw="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
-
-
-vcf_raw="/home/bwang97/vast-eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
+vcf_raw="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
 
 vcf_Tro_AD="./vcf/WI.20250626.hard_filter.715_isotype_Tro_AD.vcf.gz"
 vcf_Tro_KD="./vcf/WI.20250626.hard_filter.715_isotype_Tro_KD.vcf.gz"
 vcf_Tro_TD1="./vcf/WI.20250626.hard_filter.715_isotype_Tro_TD1.vcf.gz"
 vcf_Tro_Temperate="./vcf/WI.20250626.hard_filter.715_isotype_Tro_Temperate.vcf.gz"
 vcf_Tro_TH="./vcf/WI.20250626.hard_filter.715_isotype_Tro_TH.vcf.gz"
-
 
 
 bcftools view -S <(tail -n +1 "${Tropical_AD_list}" | cut -f1) ${vcf_raw} \
@@ -55,13 +47,9 @@ bcftools view -S <(tail -n +1 "${Tropical_TD1_list}" | cut -f1) ${vcf_raw} \
 bcftools index -t ${vcf_Tro_TD1}
 
 
-
 bcftools view -S <(tail -n +1 "${Tropical_Temperate_list}" | cut -f1) ${vcf_raw} \
   | bcftools view -i 'COUNT(GT="0/0") > 0 && COUNT(GT="1/1") > 0' -Oz -o ${vcf_Tro_Temperate}
 bcftools index -t ${vcf_Tro_Temperate}
-
-
-
 
 
 bcftools view -S <(tail -n +1 "${Tropical_TH_list}" | cut -f1) ${vcf_raw} \

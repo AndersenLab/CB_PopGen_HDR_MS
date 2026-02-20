@@ -1,0 +1,14 @@
+genotypename: ../../processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.ped
+snpname: ../../processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.pedsnp
+indivname: ../../processed_data/Cb_pruned_VCF_and_PCA/EIGESTRAT/LD_0.9/INPUTFILES/eigenstrat_input.pedind
+evecoutname: eigenstrat_outliers_removed.evac
+evaloutname: eigenstrat_outliers_removed.eval
+altnormstyle: NO
+numoutevec: 50
+familynames: NO
+numoutlieriter: 25
+grmoutname: eigenstrat_outliers_removed_relatedness
+## smartpca version: 16000
+noxdata: NO
+
+

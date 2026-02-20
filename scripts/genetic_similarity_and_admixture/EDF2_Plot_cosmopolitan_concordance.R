@@ -1,6 +1,5 @@
 rm(list = ls())
 
-
 library(dplyr)
 library(ggplot2)
 library(ComplexHeatmap)
@@ -9,51 +8,27 @@ library(tibble)
 library(dplyr)
 source("../utilities.R")
 
-
-
-
 gtcheck_strain_raw<-read.table("../../processed_data/genetic_similarity_and_admixutre/strain_gtcheck.txt",
                             header = TRUE)
 gtcheck_strain<-gtcheck_strain_raw %>%
   dplyr::mutate(concordance = 1-(discordance/sites)) %>%
-  select(i,j,concordance)
-
-
-# gtcheck_isotype_raw<-read.table("../../processed_data/heatmap_hard_filtered/gtcheck.tsv",
-#                                header = TRUE)
-# gtcheck_isotype<-gtcheck_isotype_raw %>%
-#   dplyr::mutate(concordance = 1-(discordance/sites)) %>%
-#   select(i,j,concordance)
-
-
+  dplyr::select(i,j,concordance)
 
 isotype_groups_raw<-read.table("../../data/isotype_groups.tsv",
                                sep = '\t',header = TRUE)
 
-
-
 ################### NIC174 ###############
-
 target_isotype<-"NIC174"
 
 strains_target_isotype<-isotype_groups_raw %>% 
-  filter(isotype %in% target_isotype) %>% 
-  select(strain) %>% 
-  pull()
-
+  dplyr::filter(isotype %in% target_isotype) %>% 
+  dplyr::select(strain) %>% 
+  dplyr::pull()
 
 NIC174_strains_output<-c(strains_target_isotype,"SOW22") %>%
   as.data.frame()
 
-# write.table(NIC174_strains_output,
-#             "../../processed_data/cosmopolitan_relatedness_network/NIC174_and_SOW22_strains.txt",
-#             quote = FALSE,row.names = FALSE,col.names = FALSE)
-
-
-
-gt_matrix <- gtcheck_strain %>%
-# gt_matrix <- gtcheck_isotype %>%
-  
+gt_matrix <- gtcheck_strain %>%  
   tidyr::pivot_wider(names_from = j, values_from = concordance) %>%
   tibble::column_to_rownames("i") %>%
   as.matrix()
@@ -78,10 +53,6 @@ sorted_cols <- sort(colnames(gt_matrix))
 gt_matrix_plot_tmp <- gt_matrix[sorted_rows, sorted_cols]
 diag(gt_matrix_plot_tmp ) <- 1
 
-# View(gt_matrix_plot_tmp)
-
-
-
 gt_matrix_plot<-gt_matrix_plot_tmp %>% 
   as.data.frame() %>% 
   mutate(strain= rownames(gt_matrix_plot_tmp)) %>% 
@@ -94,30 +65,18 @@ gt_matrix_plot<-gt_matrix_plot_tmp %>%
 sorted_rows <- sort(rownames(gt_matrix_plot))
 sorted_cols <- sort(colnames(gt_matrix_plot))
 
-
-# View(gt_matrix_plot)
-
-
-########### with Annotations #######
-
-
 ########### Annotations #######
 ### Geo
 geo_info_raw<-read.csv("../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv")
 geo_info<-geo_info_raw %>%
-  filter(strain %in% rownames(gt_matrix_plot)) %>% 
+  dplyr::filter(strain %in% rownames(gt_matrix_plot)) %>% 
   tibble::column_to_rownames(var = "strain") %>% 
   dplyr::select(geo) %>% 
   dplyr::rename(Geo=geo)
 geo_info$Geo<-as.factor(geo_info$Geo)
 
-
 filter_geo.colours <- geo.colours[names(geo.colours) %in% unique(geo_info$Geo)]
 col_ordered_geo <- geo_info[sorted_cols, "Geo", drop = FALSE]
-
-
-
-
 
 
 #######################################################
@@ -185,47 +144,13 @@ p_heatmap <- Heatmap(
 )
 
 
-p_heatmap
-
-# dev.off()
-# pdf(paste0("Cb_isotype_", target_isotype, "_and_all_other_isotypes_concordance_heatmap.pdf"), width = 7, height = 6)
-# 
-# draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right", 
-#      annotation_legend_side = "right")
-# dev.off()
-# 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### only target isotype
-
 gt_matrix_plot_target<-gt_matrix_plot_tmp %>% 
   as.data.frame() %>% 
-  mutate(strain= rownames(gt_matrix_plot_tmp)) %>% 
-  filter(strain %in% strains_target_isotype) %>% 
-  select(all_of(strains_target_isotype))%>%
-  select(sort(names(.))) %>% 
+  dplyr::mutate(strain= rownames(gt_matrix_plot_tmp)) %>% 
+  dplyr::filter(strain %in% strains_target_isotype) %>% 
+  dplyr::select(all_of(strains_target_isotype))%>%
+  dplyr::select(sort(names(.))) %>% 
   as.matrix()
 
 # sort
@@ -234,7 +159,6 @@ sorted_cols_target <- sort(colnames(gt_matrix_plot_target))
 
 min_concordance_target  <- min(gt_matrix_plot_target [gt_matrix_plot_target  != 0], na.rm = TRUE)
 max_concordance_target  <- max(gt_matrix_plot_target [gt_matrix_plot_target  != 0], na.rm = TRUE)
-
 
 
 #### tmp ### 
@@ -246,36 +170,26 @@ tmp_gt_matrix_long <- gt_matrix_plot_target %>%
     names_to = "SNP", 
     values_to = "Value"
   ) %>% 
-  filter(Value != 1)
-
-#min concordance is between NIC2096 and JU2584, 0.9997254
-#max concordance is between MY771 and MY765, 0.9999865
-
-
-
+  dplyr::filter(Value != 1)
 
 ############ geo annotation #########
 strain_anno_raw<-read.csv("../../processed_data/Geo_info/indep_info_geo_for_each_strain.csv")
 
 ## region annotaion
 strain_anno<-strain_anno_raw %>% 
-  filter(strain %in% strains_target_isotype) %>% 
+  dplyr::filter(strain %in% strains_target_isotype) %>% 
   tibble::column_to_rownames(var = "strain") %>% 
   dplyr::select(strain_geo) 
 
 strain_anno$strain_geo<-as.factor(strain_anno$strain_geo)
 
-
 # keep colours as ordered geo object
 filter_geo.colours_target <- geo.colours[names(geo.colours) %in% unique(strain_anno$strain_geo)]
 col_ordered_geo_target <- strain_anno[sorted_cols_target, "strain_geo", drop = FALSE]
 
-
-
-
 ## lat, long, geo annotaion
 strain_anno <- strain_anno_raw %>%
-  filter(strain %in% strains_target_isotype) %>%
+  dplyr::filter(strain %in% strains_target_isotype) %>%
   tibble::column_to_rownames(var = "strain") %>%
   dplyr::select(strain_geo, lat, long)
 
@@ -289,7 +203,6 @@ col_ordered_long_target <- as.numeric(strain_anno[sorted_cols_target, "long"])
 # colours 
 filter_geo.colours_target <- geo.colours[names(geo.colours) %in% unique(col_ordered_geo_target$strain_geo)]
 
-
 lat_col_fun <- colorRamp2(
   c(38, mean(c(38, 52),na.rm = TRUE), 52),
   c("whitesmoke", "#6baed6", "#08306b")
@@ -299,9 +212,6 @@ long_col_fun <- colorRamp2(
   c(-2, mean(c(-2,25), na.rm = TRUE), 25),
   c("whitesmoke", "#fa9752", "#67000d")
 )
-
-
-
 
 
 # define column annotation: Geo + Lat + Long
@@ -341,14 +251,6 @@ col_ha_target <- HeatmapAnnotation(
 )
 
 
-table(col_ordered_geo_target$strain_geo)
-# Africa     Australia        Europe North America South America 
-# 1             1           262            16             1 
-# unknown 
-# 1 
-
-
-
 #### threshold
 cc_iso <- gtcheck_strain %>% 
   dplyr::filter((i %in% strains_target_isotype) & (j %in% strains_target_isotype))
@@ -356,15 +258,7 @@ cc_iso <- gtcheck_strain %>%
 ggplot()+ geom_histogram(data=cc_iso,aes(x=concordance))
 
 
-
-
-
-
-
-
-
 library(grid)
-
 p_heatmap <- Heatmap(
   matrix               = gt_matrix_plot_target,
   name                 = "Concordance",
@@ -398,18 +292,6 @@ p_heatmap <- Heatmap(
   column_title_rot     = 0
 
 )
-p_heatmap
-
-# dev.off()
-# pdf(paste0("Cb_",target_isotype,"_concordance_heatmap.pdf"), width = 7, height = 6)
-# 
-# 
-# draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right",
-#      annotation_legend_side = "right")
-# dev.off()
-
-
-
 
 
 ##### only target isotype ##
@@ -433,26 +315,20 @@ min_concordance_target  <- min(gt_matrix_plot_target [gt_matrix_plot_target  != 
 max_concordance_target  <- max(gt_matrix_plot_target [gt_matrix_plot_target  != 0], na.rm = TRUE)
 
 
-
-
 ############ geo annotation #########
 strain_anno_raw<-read.csv("../../processed_data/Geo_info/indep_info_geo_for_each_strain.csv")
 
 ## region annotaion
 strain_anno<-strain_anno_raw %>% 
-  filter(strain %in% strains_target_isotype) %>% 
+  dplyr::filter(strain %in% strains_target_isotype) %>% 
   tibble::column_to_rownames(var = "strain") %>% 
   dplyr::select(strain_geo) 
 
 strain_anno$strain_geo<-as.factor(strain_anno$strain_geo)
 
-
 # keep colours as ordered geo object
 filter_geo.colours_target <- geo.colours[names(geo.colours) %in% unique(strain_anno$strain_geo)]
 col_ordered_geo_target <- strain_anno[sorted_cols_target, "strain_geo", drop = FALSE]
-
-
-
 
 ## lat, long, geo annotaion
 strain_anno <- strain_anno_raw %>%
@@ -462,14 +338,12 @@ strain_anno <- strain_anno_raw %>%
 
 # factor region
 strain_anno$strain_geo <- as.factor(strain_anno$strain_geo)
-
 col_ordered_geo_target  <- strain_anno[sorted_cols_target, "strain_geo", drop = FALSE]
 col_ordered_lat_target  <- as.numeric(strain_anno[sorted_cols_target, "lat"])
 col_ordered_long_target <- as.numeric(strain_anno[sorted_cols_target, "long"])
 
 # colours 
 filter_geo.colours_target <- geo.colours[names(geo.colours) %in% unique(col_ordered_geo_target$strain_geo)]
-
 
 lat_col_fun <- colorRamp2(
   c(38, mean(c(38, 52),na.rm = TRUE), 52),
@@ -480,10 +354,6 @@ long_col_fun <- colorRamp2(
   c(-2, mean(c(-2,25), na.rm = TRUE), 25),
   c("whitesmoke", "#fa9752", "#67000d")
 )
-
-
-
-
 
 # define column annotation: Geo + Lat + Long
 col_ha_target <- HeatmapAnnotation(
@@ -515,33 +385,15 @@ col_ha_target <- HeatmapAnnotation(
       title = "Longitude",
       title_gp  = gpar(fontsize = 9, fontface = "bold"),
       labels_gp = gpar(fontsize = 7)
-      # ,
-      # at = pretty(long_rng, n = 3)
     )
   )
 )
-
-
-
-
-
-
 
 #### threshold
 cc_iso <- gtcheck_strain %>% 
   dplyr::filter((i %in% strains_target_isotype) & (j %in% strains_target_isotype))
 
-ggplot()+ geom_histogram(data=cc_iso,aes(x=concordance))
-
-
-
-
-
-
-
-
-
-library(grid)
+# ggplot()+ geom_histogram(data=cc_iso,aes(x=concordance))
 
 p_heatmap <- Heatmap(
   matrix               = gt_matrix_plot_target,
