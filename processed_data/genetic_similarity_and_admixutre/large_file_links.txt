@@ -1,0 +1,1 @@
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/genetic_similarity_and_admixture/strain_gtcheck.txt
