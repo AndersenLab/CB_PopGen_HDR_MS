@@ -152,7 +152,7 @@ final_admixture_plots <- cowplot::plot_grid(
 if (which_replicate == 5) {
   ggsave(
     plot = final_admixture_plots,
-    filename = paste0("../../figures/Cb_5_admixture_replicate_", which_replicate, ".pdf"),
+    filename = paste0("../../figures/SF5_admixture_replicate_", which_replicate, ".pdf"),
     height = 7,
     width = 7,
     useDingbats = FALSE
