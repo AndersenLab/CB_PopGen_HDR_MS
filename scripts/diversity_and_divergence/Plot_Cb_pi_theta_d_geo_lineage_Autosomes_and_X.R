@@ -5,7 +5,7 @@ library(readr)
 library(tidyr)
 library(purrr)
 
-sub_region_raw <- read.table("../../data/05.07.21_cb_subregion.bed")
+sub_region_raw <- read.table("../../data/briggsae_genome_files/05.07.21_cb_subregion.bed")
 sub_region_df <- sub_region_raw %>%
   dplyr::filter(V1 != "CHROM") %>%
   dplyr::mutate(
@@ -37,11 +37,6 @@ region_paths <- list(
   `Taiwan TH` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/TH",
   `Taiwan Tropical` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/Tropical"
 )
-
-
-
-
-
 
 ######## pi #########
 

@@ -14,7 +14,7 @@ cd pi_theta_d
 
 
 out_dir="../../processed_data/pi_theta_d"
-chrom_length="../../data/05.07.22_cb_chrom_dict"
+chrom_length="../../data/briggsae_genome_files/05.07.22_cb_chrom_dict"
 rep_bool="../../data/Cb_repeat_region.pkl"
 zarr="../../processed_data/pi_theta_d/zarr/WI.20250626.hard_filter.715_isotype.vcf.gz.zarr"
 script_path="../../scripts/diversity_and_divergence/pi_theta_d_python"

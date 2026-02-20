@@ -34,7 +34,7 @@ lineage_display_names[lineage_display_names == "Tropical"] <- "Tropical (502)"
 names(lineage_display_names) <- names(lineage_info)
 
 ##### read genome domain
-genome_domain_raw<-read.table("../../data/05.07.21_cb_subregion.bed",
+genome_domain_raw<-read.table("../../data/briggsae_genome_files/05.07.21_cb_subregion.bed",
                             header = TRUE,sep = '\t')
 
 genome_domain <- genome_domain_raw %>%

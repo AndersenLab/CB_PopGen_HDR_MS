@@ -84,7 +84,7 @@ plot_isotype_dist <- function(meta_sheet, condordance_groups, title_text,
 
 
 # add latest isotyoe info 
-Cb_condordance_groups_raw<-read.table("../../data/isotype_groups.tsv",
+Cb_condordance_groups_raw<-read.table("../../data/briggsae_isotypes/isotype_groups.tsv",
                                       header = TRUE) %>% 
   dplyr::filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
 
@@ -259,7 +259,7 @@ plot_fs1 <- function(meta_sheet, condordance_groups, title_text,
 
 
 # add latest isotyoe info 
-Cb_condordance_groups_raw<-read.table("../../data/isotype_groups.tsv",
+Cb_condordance_groups_raw<-read.table("../../data/briggsae_isotypes/isotype_groups.tsv",
                                       header = TRUE) %>% 
   filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
 
@@ -365,7 +365,7 @@ plot_max_fs1 <- function(meta_sheet, condordance_groups, title_text, bins = 22) 
 
 
 # add latest isotyoe info 
-Cb_condordance_groups_raw<-read.table("../../data/isotype_groups.tsv",
+Cb_condordance_groups_raw<-read.table("../../data/briggsae_isotypes/isotype_groups.tsv",
                                       header = TRUE) %>% 
   filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
 
@@ -491,7 +491,7 @@ plot_max_fs1_annot <- function(meta_sheet, condordance_groups, title_text) {
 
 
 # add latest isotyoe info 
-Cb_condordance_groups_raw<-read.table("../../data/isotype_groups.tsv",
+Cb_condordance_groups_raw<-read.table("../../data/briggsae_isotypes/isotype_groups.tsv",
                                       header = TRUE) %>% 
   dplyr::filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
 
@@ -603,7 +603,7 @@ plot_strain_counts_per_bin <- function(meta_sheet, concordance_groups, title_tex
 }
 
 
-Cb_condordance_groups_raw<-read.table("../../data/isotype_groups.tsv",
+Cb_condordance_groups_raw<-read.table("../../data/briggsae_isotypes/isotype_groups.tsv",
                                       header = TRUE) %>% 
   dplyr::filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
 

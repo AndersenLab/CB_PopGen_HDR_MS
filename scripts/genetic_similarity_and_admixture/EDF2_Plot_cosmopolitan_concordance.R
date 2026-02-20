@@ -14,7 +14,7 @@ gtcheck_strain<-gtcheck_strain_raw %>%
   dplyr::mutate(concordance = 1-(discordance/sites)) %>%
   dplyr::select(i,j,concordance)
 
-isotype_groups_raw<-read.table("../../data/isotype_groups.tsv",
+isotype_groups_raw<-read.table("../../data/briggsae_isotypes/isotype_groups.tsv",
                                sep = '\t',header = TRUE)
 
 ################### NIC174 ###############

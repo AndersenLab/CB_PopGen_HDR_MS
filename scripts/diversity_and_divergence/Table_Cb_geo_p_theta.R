@@ -170,7 +170,7 @@ geo_freq_col_tmp1<-geo_freq_col %>%
 
 
 
-Ce_isotype_groups_raw<-readr::read_tsv("../../data/Ce/isotype_groups.tsv")
+Ce_isotype_groups_raw<-readr::read_tsv("../../data/elegans_isotypes/isotype_groups.tsv")
 Ce_isotypes_all<-Ce_isotype_groups_raw %>% 
   dplyr::select(strain,isotype) %>% 
   dplyr::filter(strain == isotype)
