@@ -4,7 +4,7 @@ rm(list=ls())
 library(readr)
 library(dplyr)
 
-lineage<- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% 
+lineage<- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>% 
   dplyr::select(isotype,Lineage)
 
 Tropical_AD<-lineage %>% 
@@ -40,7 +40,6 @@ write.table(Tropical_TD1,"../../processed_data/diversity_and_divergence/Dxy_Trop
             col.names = FALSE,
             sep = '\t')
 
-
 write.table(Tropical_Temperate,"../../processed_data/diversity_and_divergence/Dxy_Tropical/Tropical_Temperate.txt",
             quote = FALSE,
             row.names = FALSE,
@@ -52,6 +51,4 @@ write.table(Tropical_TH,"../../processed_data/diversity_and_divergence/Dxy_Tropi
             row.names = FALSE,
             col.names = FALSE,
             sep = '\t')
-
-
 

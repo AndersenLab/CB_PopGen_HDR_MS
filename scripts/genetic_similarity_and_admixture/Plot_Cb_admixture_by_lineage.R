@@ -37,7 +37,7 @@ isotype_geo_info_ordered <- isotype_geo_info %>%
 # get list of isotype names 
 sample_names <- isotype_geo_info_ordered$isotype
 
-isotype_by_lineage_from_Nic_raw<-read.table("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv",
+isotype_by_lineage_from_Nic_raw<-read.table("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv",
                                             header = TRUE,
                                             sep = '\t',
                                             comment.char  = "")

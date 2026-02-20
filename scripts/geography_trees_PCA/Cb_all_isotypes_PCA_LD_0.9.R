@@ -135,7 +135,7 @@ PC34mix<-pca_TAC_ld0.9_no_rm %>%
 nrow(PC34mix)
 
 ### add previous lineage 
-lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
 lineage<-lineage_raw %>% select(isotype,Lineage)
 PC34mix<-PC34mix %>% 
   dplyr::left_join(lineage)

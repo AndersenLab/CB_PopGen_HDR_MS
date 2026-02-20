@@ -62,55 +62,6 @@ script description
 
 Generates PCA eigenvalues and PC scores after iterative outlier removal
 
-- `Cb_par_5_iterations.par`
-
-script description
-
-Parameter file for running PCA with 5 iterations of outlier removal
-
-- `Cb_par_10_iterations.par`  
-
-script description
-
-Parameter file for running PCA with 10 iterations of outlier removal
-
-- `Cb_par_15_iterations.par`
-
-script description
-
-Parameter file for running PCA with 15 iterations of outlier removal
-
-- `Cb_par_20_iterations.par`  
-
-script description
-
-Parameter file for running PCA with 20 iterations of outlier removal
-
-- `Cb_par_25_iterations.par`
-
-script description
-
-Parameter file for running PCA with 25 iterations of outlier removal
-
-- `Cb_par_30_iterations.par`
-
-script description
-
-Parameter file for running PCA with 30 iterations of outlier removal
-
-- `Cb_par_35_iterations.par`
-
-script description
-
-Parameter file for running PCA with 35 iterations of outlier removal
-
-- `Cb_par_40_iterations.par`
-
-script description
-
-Parameter file for running PCA with 40 iterations of outlier removal
-
-
 - `SF3_Cb_all_isotypes_PCA_LD_0.9_5_10_15_iterations.R`
 
 script description

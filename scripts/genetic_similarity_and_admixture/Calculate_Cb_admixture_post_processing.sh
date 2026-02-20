@@ -9,16 +9,13 @@
 
 
 cd ../../processed_data
-mkdir -p Cb_admixture
-cd Cb_admixture
+mkdir -p genetic_similarity_and_admixutre
+cd genetic_similarity_and_admixutre
 
-out_folder="../../processed_data/Cb_admixture/"
-
-cp -n ../../processed_data/Cb_admixture/K*/*.out \
-../../processed_data/Cb_admixture/
+out_folder="../../processed_data/genetic_similarity_and_admixutre/"
 
 echo "Starting post-processing..."
-grep -h CV log_*.out | \
+grep -h CV ../../processed_data/genetic_similarity_and_admixutre/K*/log_*.out | \
 cut -f3- -d" " | \
 sed 's/[(|):]//g' | \
 sort -k1n | \

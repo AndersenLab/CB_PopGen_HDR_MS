@@ -128,7 +128,7 @@ annotation_maps<-annotation_maps_raw %>%
   dplyr::left_join(gene_segments_trees_annotation, by = "isotype")
 
 ### color of Relatedness groups
-lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
 lineage_df<-lineage_raw %>% 
   dplyr::select(isotype,Lineage,lineage_color) %>% 
   dplyr::filter(!(isotype %in% c("MY681", "ECA1146", "JU356", "ECA1503")))

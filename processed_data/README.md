@@ -11,6 +11,7 @@ processed_data/
 - genetic_similarity_and_admixutre/
 - HDRs/
 - gene_enrichment/
+- PCA_more_iterations/
 
 ## Geo_info/
 
@@ -176,3 +177,12 @@ Data used for functional gene enrichment analysis to create Figure 4.
 
 - `QX_IPR_allApps_20251006.tsv`
   Raw output from InterProScan.
+
+## PCA_more_iterations
+
+Data used for perform PCA after iterations of outlier removal
+
+### Contains
+
+- `PCA_x_iterations/Cb_par_x_iterations.par`
+  The parameter files for x iterations of outlier removal

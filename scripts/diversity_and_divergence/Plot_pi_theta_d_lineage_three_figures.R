@@ -8,7 +8,7 @@ library(cowplot)
 
 source("../utilities.R")
 
-lineage<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineage<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
 
 # Define all lineages and corresponding base directories
 lineage_info <- list(

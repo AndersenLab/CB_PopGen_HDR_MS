@@ -8,7 +8,7 @@ cd ${chr}
 
 nextflow run -latest andersenlab/post-gatk-nf/main.nf \
 -r delly --pca true \
---pca_vcf ../../processed_data/PCA_by_chrom/by_chrom_vcfs/X.vcf.gz \
+--pca_vcf ../../processed_data/PCA_by_chrom/by_chrom_vcfs/${chr}.vcf.gz \
 --pops ../../processed_data/Cb_pruned_VCF_and_PCA/sample_list.txt \
 --species c_briggsae \
 --vcf_folder ../../processed_data/PCA_by_chrom/by_chrom_vcfs \

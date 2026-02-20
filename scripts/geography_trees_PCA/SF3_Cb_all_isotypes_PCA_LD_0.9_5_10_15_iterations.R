@@ -15,7 +15,7 @@ source("../utilities.R")
 geo_info_raw<-read.csv("../../processed_data/geo_info/Cb_indep_isotype_info_geo.csv")
 geo_info<-geo_info_raw 
 
-lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv") %>% 
+lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>% 
   dplyr::filter(!(isotype %in% c("MY681", "ECA1146", "JU356", "ECA1503")))
 
 plot_PCA<-function(PCA_input, tracy_for_plot_input, x_axis, y_axis){

@@ -108,7 +108,7 @@ final_plot <- patchwork::wrap_plots(plotlist = combined_panels, ncol = 2)
 ggsave("../../figures/SF2_raw_PCA_by_chrom_raw.pdf", final_plot, width = 7, height = 4, units = "in", device = "pdf")
 
 library(readr)
-lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
 
 lineage<-lineage_raw %>% 
   dplyr::select(isotype,Lineage)

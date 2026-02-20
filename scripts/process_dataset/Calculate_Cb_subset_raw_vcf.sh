@@ -7,12 +7,12 @@
 #SBATCH --output=Calculate_Cb_subset_raw_vcf.oe
 #SBATCH --job-name="CbSbVCF"
 
-
 source activate CT_PopGen
-
 cd ../../data/VCF/
 
-VCF_IN="../../data/VCF/Archive/Archive_20250829/WI.20250626.hard-filter.isotype.vcf.gz"
+### WI.20250626.hard-filter.isotype.vcf.gz is publicly available in CaeNDR
+### https://caendr.org/data/data-release/c-briggsae/latest
+VCF_IN="../../data/VCF/WI.20250626.hard-filter.isotype.vcf.gz"
 VCF_OUT="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
 
 ### remove 4 isotypes and monoallelic variants
@@ -20,6 +20,4 @@ bcftools view -s "^MY681,ECA1146,JU356,ECA1503" ${VCF_IN} \
   | bcftools view -i 'COUNT(GT="0/0") > 0 && COUNT(GT="1/1") > 0' -Oz -o ${VCF_OUT}
 
 bcftools index -t ${VCF_OUT}
-
-
 

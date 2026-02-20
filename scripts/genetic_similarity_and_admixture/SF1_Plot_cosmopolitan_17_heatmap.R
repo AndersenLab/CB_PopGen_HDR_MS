@@ -107,7 +107,7 @@ lin_colors <- c(TI="#ff77ab", TC="#ff0000", Tropical="#ff0000",TT="#ff0000",NWD=
                 TD3="#00f4c2", KD = "#8b3700", Temperate="#0000ff", TA="#9fc5e8", AD="#ff8200", TH="#aeb400",FM="#000000",
                 Quebec="#ff037e")
 
-lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byLineage_GeoLocAdmCol_20250909.tsv")
+lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
 
 lineage_18<-lineage_raw %>% 
   dplyr::filter(isotype %in% target_18_isotype) %>% 
