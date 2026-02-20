@@ -1,0 +1,5 @@
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/CB_all_strain_vc.tsv
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/Other_RG.thresh_cov.tsv
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/Other_RG.variant_counts.tsv
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/Tropical.thresh_cov.tsv
+https://caendr-open-access-data-bucket.s3.us-east-2.amazonaws.com/CB_PopGen_HDR/HDRs/Tropical.variant_counts.tsv
