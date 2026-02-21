@@ -104,10 +104,6 @@ Cb_all_isotypes_PCA_plot_PC1_4 <- (
 saveRDS(Cb_all_isotypes_PCA_plot_PC1_4, 
         file = "../../processed_data/Geo_info/Cb_all_isotypes_PCA_plot_PC1_4.rds")
 
-saveRDS(p_PC1_PC2$legend, 
-        file = "../../processed_data/Geo_info/Cb_PCA_legend.rds")
-
-
 PC12KD<-pca_TAC_ld0.9_no_rm %>%
   filter(PC1 > 0.1 & PC2 < -0.2)
 nrow(PC12KD)
