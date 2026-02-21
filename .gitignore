@@ -16,4 +16,11 @@ processed_data/gene_diversity/CBCN_orthogroups.tsv
 .rds
 .RData
 .Rhistory
+# allow specific figure-assembly files
+!processed_data/Geo_info/strain_map.rds
+!processed_data/Geo_info/Cb_all_isotypes_PCA_plot_PC1_4.rds
+!processed_data/Geo_info/Cb_plot_0.9_tree_equal_angle_rotated_not_rooted.rds
+!processed_data/Geo_info/isotype_map.rds
+!processed_data/genetic_similarity_and_admixutre/geo_distance_plots.RData
+!processed_data/genetic_similarity_and_admixutre/Cosmo_18_maps.RData
 # ---- System files ----

@@ -246,3 +246,4 @@ p <- ggpubr::ggarrange(ggpubr::ggarrange(plot_freq2,
                                          widths = c(0.25, 0.75)))
 
 saveRDS(p, file = "../../processed_data/Geo_info/isotype_map.rds")
+

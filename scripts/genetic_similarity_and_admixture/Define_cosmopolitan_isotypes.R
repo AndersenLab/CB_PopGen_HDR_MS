@@ -712,3 +712,4 @@ combined_plot <- ggdraw() +
   draw_plot(Cb_Cosmopolitan_strain_frequency_plot, 0.25, 0, 0.75, 0.2) 
 
 save(combined_plot, file = "../../processed_data/genetic_similarity_and_admixutre/Cosmo_18_maps.RData")
+
