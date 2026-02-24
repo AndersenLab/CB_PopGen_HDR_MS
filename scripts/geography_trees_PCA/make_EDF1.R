@@ -4,7 +4,7 @@ library(dplyr)
 library(ggpubr)
 
 isotype_map<-readRDS("../../processed_data/Geo_info/isotype_map.rds")
-geo_dis_plot<-readRDS("../../processed_data/Geo_info/geo_distance_plots.RData")
+geo_dis_plot<-readRDS("../../processed_data/genetic_similarity_and_admixutre/geo_distance_plots.RData")
 
 combined <- ggpubr::ggarrange(ggpubr::ggarrange(isotype_map,
                                                 geo_dis_plot,

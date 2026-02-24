@@ -222,8 +222,6 @@ plot_freq<- plot_freq +
                        #angle = 45,
                        hjust = 0.5, vjust = 0.5,
                       size = 3)
-                     
-plot_freq
 
 ####ALT plot freq ###### 
 tmp_vec <- seq(1,nrow(geo_freq),1)
