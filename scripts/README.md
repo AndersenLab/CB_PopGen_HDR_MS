@@ -16,7 +16,9 @@ scripts/
 
 ## Abreviations
 EDF = Extended Data Figure
+
 SF = Supplementary Figure
+
 SD = Supplementary Data
 
 ## process_dataset
@@ -169,7 +171,7 @@ Generates S.F. 5
 
 - `genetic_similarity_admixture.R`
 
-script description
+Using cross-validation ADMIXTURE results, select the optimal K parameter that minimizes shared subpopulation assignemnts between relatedness groups. Using pairwise genetic similarity estimates, visualize genetic similarity heatmap with strains ordered by hierarchical clustering with average linkage. Also generates heatmap of mean pairwise genetic similarity between relatedness groups.
 
 Generates Figure 2
 
@@ -199,7 +201,7 @@ Core scripts for calculating pi theta d
 
 - `nucleotide_diversity_and_divergence.R`
 
-script description
+Visualizes bin-wise, genome-wide nucleotide diversity estimates (pi, thetaW) and physical position of hyper-divergent regions across all isotype reference strains. Classifies bin-wise Tajima's D and Dxy (for every pairwise relatedness group comparison) estimates based on overlaps with hyper-divergent regions. Visualizes bin-wise and mean Tajima's D and Dxy between hyper-divergent and non-hyper-divergent bins.
 
 Generates Figures 3 and 5
 
@@ -237,13 +239,13 @@ Generates Supplementary Data 12
 
 - `InterProScan.sh`  
 
-script description
+Script to annotate QX1410 protein sequences using InterProScan.
 
-Generates ? 
+Generates InterProScan annotaitons table for `IPR_GO_briggsae.R`
 
 - `IPR_GO_briggsae.R`
 
-script description
+Given the QX1410 reference genome and InterProsScan annotations of the QX1410 proteome, this script classifies genes that are found in the chromosomal arm domains, genes found in hyper-divergent regions in chromosomal arm domains, and performs a one-sided hyper-geometric test to identify statistically-enriched InterProScan functional protein domains in genes found in hyper-divergent regions in chromosomal arm domains in relation to genes found outside of hyper-divergent regions in chromosomal arm domains.
 
 Generates Figure 4
 
@@ -286,7 +288,7 @@ Generates Extended Data Figure 6
 
 - `classify_tree_topology.R`
 
-Given concatenated tree files of orthologous genes, identify single-copy ortholog trees with at least 1 branch lenth >1e6 where a reference gene is present and it is located within an HDR.
+Given concatenated tree files of orthologous genes, identify single-copy ortholog trees with at least 1 branch lenth >1e6 where a reference gene is present and it is located within an HDR. Visualize examples of concordant and discordant tree topologies relative to a consensus tree. Visualizes tree topologies that serve as examples of potential introgression, accompanied by amino-acid identity matrices.
 
 Generates Extended Data Figure 7
 
