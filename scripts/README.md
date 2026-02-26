@@ -4,8 +4,8 @@ This directory contains the scripts used to carry out analysis and generate figu
 ## Directory Structure
 
 scripts/
-- process_dataset
-- geography_trees_PCA
+- process_dataset/
+- geography_trees_PCA/
 - genetic_similarity_and_admixture/
 - diversity_and_divergence/
 - gene_enrichment/
