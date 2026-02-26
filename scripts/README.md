@@ -1,5 +1,3 @@
-# this readme is currently under development
-
 # Scripts
 This directory contains the scripts used to carry out analysis and generate figures and tables for the manuscript.
 
@@ -31,19 +29,13 @@ These scripts generate intermediate datasets reused across analyses and should b
 
 Creates the isotype sample list used for downstream analyses.
 
-Generates isotype list
-
 - `Calculate_Cb_pyh_to_tree.sh` 
 
 Generates maximum likelihood trees from PHYLIP-formatted alignments.
 
-Generates ML tree
-
 - `Calculate_Cb_vcf_to_pyh.sh` 
 
 Generates PHYLIP format file for generating trees from VCF file
-
-Generates PHYLIP format file for generating trees
 
 - `Calculate_Cb_pca_by_chrom.sh` 
 
@@ -89,9 +81,7 @@ Generates Figure 1
 
 `Cb_Geo_locations_strains.R` 
 
-Plots geographic locations of strains for Figure 1.
-
-Generates panel a of Figure 1
+Plots geographic locations of strains for Figure 1
 
 `nf_Cb_pruned_VCF_and_PCA.sh`  
 
@@ -108,8 +98,6 @@ Generates Extended Data Figure 3
 - `Cb_Geo_locations_isotype.R`  
 
 Plots geographic locations of isotype reference strains for Extended Data Figure 1.
-
-Generates panel a of Extended Data Figure 1
 
 - `make_EDF1.R`  
 
@@ -153,19 +141,17 @@ Generates summary table of ADMIXTURE CV errors
 
 Runs ADMIXTURE across K values and generates Q and P matrices with cross-validation results.
 
-Generates Q and P matrices with CV results
-
 - `Plot_Cb_admixture_by_lineage.R`  
 
 Plots ADMIXTURE results by relatedness groups.
 
-Generates S.F. 6 and S.F. 7
+Generates Supplementary Figures 6 and 7
 
 - `Plot_Cb_admixture_CV.R`
 
 Plots ADMIXTURE cross-validation errors across K values.
 
-Generates S.F. 5
+Generates Supplementary Figure 5
 
 - `genetic_similarity_admixture.R`
 
@@ -189,7 +175,7 @@ Generate Zarr files for calculating pi theta d.
 
 Calculates pi, theta, and D in 10 kb windows from Zarr files.
 
-Generate pi theta d summary table
+Generate pi, theta, D summary table
 
 - `pi_theta_d_python`
 
