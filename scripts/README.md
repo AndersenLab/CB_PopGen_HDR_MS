@@ -23,99 +23,97 @@ SD = Supplementary Data
 
 ## process_dataset
 
-script description
-
 These scripts generate intermediate datasets reused across analyses and should be run before downstream scripts.
 
 ## geography_trees_PCA
 
 - `Calculate_Cb_generate_link_and_sample_list.sh`
 
-script description
+Creates the isotype sample list used for downstream analyses.
 
 Generates isotype list
 
 - `Calculate_Cb_pyh_to_tree.sh` 
 
-script description
+Generates maximum likelihood trees from PHYLIP-formatted alignments.
 
 Generates ML tree
 
 - `Calculate_Cb_vcf_to_pyh.sh` 
 
-script description
+Generates PHYLIP format file for generating trees from VCF file
 
 Generates PHYLIP format file for generating trees
 
 - `Calculate_Cb_pca_by_chrom.sh` 
 
-script description
+Generates per-chromosome VCF files for plotting chromosome-specific PCA results.
 
 Generates vcf files for each chromosome
 
 - `Cb_PCA_by_chrom_LD_0.9.R`  
 
-script description
+Plots chromosome-specific PCA results using LD-pruned variants.
 
 Generates Supplementary Figure 2
 
 - `nf_Cb_pca_by_chrom.sh`
 
-script description
+Runs PCA on LD-pruned, per-chromosome VCF files and generates eigenvalues and PC scores.
 
 Generates PCA eigenvalues and PC scores for each chromosome
 
 - `Cb_iterations_5_10_15_20_25_30_35_40.sh`  
 
-script description
+Performs iterative PCA analyses after sequential outlier removal and outputs eigenvalues and PC scores for each iteration.
 
 Generates PCA eigenvalues and PC scores after iterative outlier removal
 
 - `SF3_Cb_all_isotypes_PCA_LD_0.9_5_10_15_iterations.R`
 
-script description
+Plots iterative PCA results across successive outlier-removal thresholds.
 
 Generates Supplementary Figure 3
 
 - `Cb_all_isotypes_PCA_LD_0.9.R`
 
-script description
+Plots PCA results for all isotypes using LD-pruned variants.
 
 Generates Supplementary Data 2
 
 - `Cb_assemble_figure_1.R` 
 
-script description
+Assembles panels and generates Figure 1.
 
 Generates Figure 1 
 
 `Cb_Geo_locations_strains.R` 
 
-script description
+Plots geographic locations of strains for Figure 1.
 
 Generates panel a of Figure 1
 
 `nf_Cb_pruned_VCF_and_PCA.sh`  
 
-script description
+Generates LD-pruned VCF files and performs PCA to obtain eigenvalues and PC scores.
 
 Generates LD-pruned vcf file, PCA eigenvalues, and PC scores
 
 `Plot_tree_with_previous_lineages.R`
 
-script description
+Plots maximum likelihood tree annotated with previously defined lineages.
 
 Generates Extended Data Figure 3 
 
 - `Cb_Geo_locations_isotype.R`  
 
-script description
+Plots geographic locations of isotype reference strains for Extended Data Figure 1.
 
 Generates panel a of Extended Data Figure 1
 
 - `make_EDF1.R`  
 
-script description
+Assembles panels and generates Extended Data Figure 1.
 
 Generates Extended Data Figure 1
 
@@ -123,49 +121,49 @@ Generates Extended Data Figure 1
 
 - `Define_cosmopolitan_isotypes.R`  
 
-script description
+Defines cosmopolitan isotypes based on geographic distribution and generates summary classifications.
 
 Generates panel a of Supplementary Figure 1
 
 - `SF1_Plot_cosmopolitan_17_heatmap.R`
 
-script description
+Plots genetic similarity heatmap of the 17 cosmopolitan isotypes.
 
 Generates Supplementary Figure 1
 
 - `Cb_concordance_histogram_hard_filtered.R`
 
-script description
+Plots histogram of genetic similarity across hard-filtered variants.
 
 Generates Supplementary Figure 14
 
 - `EDF2_Plot_cosmopolitan_concordance.R`
 
-script description
+Plots genetic similarity among cosmopolitan isotypes.
 
 Generates Extended Data Figure 2
 
 - `Calculate_Cb_admixture_post_processing.sh`  
 
-script description
+Summarizes ADMIXTURE cross-validation errors across K values.
 
 Generates summary table of ADMIXTURE CV errors
 
 - `Calculate_Cb_run_admixture_arrays.sh`  
 
-script description
+Runs ADMIXTURE across K values and generates Q and P matrices with cross-validation results.
 
-Runs ADMIXTURE and generates Q and P matrices with CV results
+Generates Q and P matrices with CV results
 
 - `Plot_Cb_admixture_by_lineage.R`  
 
-script description
+Plots ADMIXTURE results by relatedness groups.
 
 Generates S.F. 6 and S.F. 7
 
 - `Plot_Cb_admixture_CV.R`
 
-script description
+Plots ADMIXTURE cross-validation errors across K values.
 
 Generates S.F. 5
 
@@ -183,19 +181,17 @@ Generates Supplementary Figure 4
 
 - `Cb_vcf_to_zarr.sh`
 
-script description
-
 Converts the VCF files to Zarr files for downstream pi theta d analyses
+
+Generate Zarr files for calculating pi theta d.
 
 - `Cb_zarr_to_pi_theta_d_10kb.sh`
 
-script description
+Calculates pi, theta, and D in 10 kb windows from Zarr files.
 
-Calculates pi theta d from the Zarr files
+Generate pi theta d summary table
 
 - `pi_theta_d_python`
-
-script description
 
 Core scripts for calculating pi theta d
 
@@ -211,7 +207,7 @@ Generates Extended Data Figures 8 and 9
 
 - `Plot_pi_theta_d_lineage_three_figures.R`
 
-script description
+Plots windowed pi and theta across chromosomes for all relatedness groups (facet: lineage and chromosome), with genome-domain backgrounds.
 
 Generates Supplementary Figure 12
 
@@ -219,19 +215,19 @@ Generates Supplementary Figure 13
 
 - `Table_Cb_geo_p_theta.R`
 
-script description
+Summarizes relatedness group-specific pi and theta.
 
 Generates Supplementary Data 4
 
 - `Plot_Cb_pi_theta_d_geo_lineage_Autosomes_and_X.R`
 
-script description
+Summarizes mean windowed pi and theta for autosomes vs ChrX, split by chromosomal arms vs centers, across geographic/relatedness groups subsets.
 
 Generates Supplementary Data 5
 
 - `SD12_Plot_Cb_pi_theta_d_lineage_Autosomes_and_X.R`
 
-script description
+Summarizes mean windowed pi and theta for autosomes and ChrX, split by chromosomal arms and centers, across relatedness groups.
 
 Generates Supplementary Data 12
 
