@@ -9,10 +9,10 @@ library(ggpubr)
 library(RColorBrewer)
 
 source("../utilities.R")
-raw_data<-read.csv("../../supplementary_data/SD1_Cb_2018_strains_data.csv")
+raw_data<-readr::read_tsv("../../data/master_sheet_cb/Cb_1976_strains_data.tsv")
 indep_strain_info<- raw_data
-indep_strain_info$lat<-as.numeric(indep_strain_info$lat)
-indep_strain_info$long<-as.numeric(indep_strain_info$long)
+indep_strain_info$lat<-as.numeric(indep_strain_info$latitude)
+indep_strain_info$long<-as.numeric(indep_strain_info$longitude)
 
 #1. Hawaii
 df_hw_strain <- indep_strain_info %>%
@@ -52,7 +52,7 @@ au_strain <- as.character(df_au_strain$strain)
 #8. Taiwan
 df_tw_strain <- indep_strain_info %>%
  dplyr::filter(long > 120  & long < 122 & lat > 21.7 & lat < 25.5)
- tw_strain <- as.character(df_tw_strain$strain)
+tw_strain <- as.character(df_tw_strain$strain)
 
 #9. Caribbean
 df_car_strain <- indep_strain_info %>%
@@ -60,16 +60,16 @@ df_car_strain <- indep_strain_info %>%
 car_strain <- as.character(df_car_strain$strain)
  
 #10 Asia
- df_as_strain_tmp_1 <- indep_strain_info %>%
+df_as_strain_tmp_1 <- indep_strain_info %>%
    dplyr::filter((long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331)|
                    (long > 41.836264  & long < 49.263022 & lat > 38.266706 & lat < 41.634384) # Armenia
                  
    ) %>%
    dplyr::filter(!(long > 120  & long < 122 & lat > 21.7 & lat < 25.5))
- df_as_strain_tmp_2<-indep_strain_info %>%
+df_as_strain_tmp_2<-indep_strain_info %>%
    filter(strain %in% c("VSL2216", "VSL2217", "VSL2219"))
- df_as_strain <- rbind( df_as_strain_tmp_1,  df_as_strain_tmp_2)
- as_strain <- as.character(df_as_strain$strain)
+df_as_strain <- rbind( df_as_strain_tmp_1,  df_as_strain_tmp_2)
+as_strain <- as.character(df_as_strain$strain)
  
 # test - Malay archipelago
 df_ma_strain <- indep_strain_info %>%
@@ -158,14 +158,14 @@ indep_strain_info_geo_output_tmp<-indep_strain_info_geo %>%
 ### export strains geo info for each strain ##
 indep_info_geo_for_each_strain<-indep_strain_info_geo_output_tmp %>% 
   dplyr::rename(strain_geo=geo)
-write.csv(indep_info_geo_for_each_strain,file="../../processed_data/Geo_info/indep_info_geo_for_each_strain.csv", row.names = FALSE, quote = FALSE)
+#write.csv(indep_info_geo_for_each_strain,file="../../processed_data/Geo_info/indep_info_geo_for_each_strain.csv", row.names = FALSE, quote = FALSE)
 
 ### add Cosmopolitan group
-Cosmopolitan_isotypes<-read.table("../../processed_data/Geo_info/Cb_Cosmopolitan_isotype.txt")
-indep_strain_info_geo_output<-indep_strain_info_geo_output_tmp %>% 
-  mutate(geo = ifelse(isotype %in% Cosmopolitan_isotypes$V1,"Cosmopolitan", geo))
+# Cosmopolitan_isotypes<-read.table("../../processed_data/Geo_info/Cb_Cosmopolitan_isotype.txt")
+# indep_strain_info_geo_output<-indep_strain_info_geo_output_tmp %>% 
+#   mutate(geo = ifelse(isotype %in% Cosmopolitan_isotypes$V1,"Cosmopolitan", geo))
 
-write.csv(indep_strain_info_geo_output,file="../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv", row.names = FALSE, quote = FALSE)
+write.csv(indep_info_geo_for_each_strain,file="../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv", row.names = FALSE, quote = FALSE) #@Bowen, modified up to here.
 unique(indep_strain_info_geo_output$geo)
 
 ## Geographic distribution of all strains 

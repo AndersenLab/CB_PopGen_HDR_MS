@@ -46,17 +46,20 @@ geo_colors <- c("Hawaii"="#66C2A5",
 #make geo colors data frame
 df_colors <- data.frame(unname(geo_colors),names(geo_colors)) %>% dplyr::rename(color=`unname.geo_colors.`, geo=`names.geo_colors.`)
 
-lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>%
   dplyr::filter(Lineage!="FM")
 
 #read isotype assignments
-isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") %>%
+isos <- readr::read_tsv(file="/vast/eande106/projects/Mike/WI/cb_reanalysis_20260408/concordance/isotype_groups.tsv") %>%
   dplyr::group_by(isotype) %>%
-  dplyr::summarise(count=n())
+  dplyr::summarise(count=n()) %>%
+  dplyr::filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
 
-geo_info <- readr::read_csv(file="../../processed_data/genetic_similarity_and_admixutre/Cb_indep_isotype_info_geo.csv") %>%
+geo_info <- readr::read_csv(file="../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv") %>%
+  dplyr::filter(strain %in% isos$isotype) %>%
+  dplyr::rename(geo=strain_geo) %>%
   dplyr::left_join(df_colors,by=c("geo")) %>%
   dplyr::left_join(lineages %>% dplyr::select(isotype, Lineage, Sublineage,lineage_color,sublineage_color), by="isotype") %>%
   dplyr::filter(!is.na(Lineage)) %>%
@@ -236,7 +239,9 @@ admix_color <- data.frame(
 )
 
 #read pairwise similarity estimates
-conc <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/gtcheck.tsv")
+conc <- readr::read_tsv("/vast/eande106/projects/Mike/WI/cb_reanalysis_20260408/concordance/gtcheck.txt") %>%
+  dplyr::filter(!(i %in% c("MY681","ECA1146","JU356","ECA1503")) | !(j %in% c("MY681","ECA1146","JU356","ECA1503")))
+  #dplyr::filter(i %in% isos$isotype_ref_strain & j %in% isos$isotype_ref_strain)
 
 #construct symmetric pairwise similarity matrix
 concordance_matrix <- conc %>%
@@ -252,7 +257,7 @@ concordance_matrix <- conc %>%
   tidyr::pivot_wider(names_from = i, values_from = concordance) %>%
   tibble::column_to_rownames("j") %>%
   as.matrix()
-all_iso <- sort(unique(lineages$isotype))
+all_iso <- sort(unique(isos$isotype))
 concordance_matrix <- concordance_matrix[all_iso, all_iso]
 diag(concordance_matrix) <- 1 #pairwise comparisons to self are ommitted in gtcheck, we set to 1
 
@@ -621,6 +626,8 @@ heatmap_grob <- grid::grid.grabExpr({
       clustering_method_columns = "average",
       show_row_names = F,
       show_column_names = F,
+      #row_names_gp = grid::gpar(fontsize = 1),
+      #column_names_gp = grid::gpar(fontsize = 1),
       right_annotation = bottom_annot,
       bottom_annotation = row_annot,
       heatmap_legend_param = list(ncol = 2,
@@ -635,4 +642,5 @@ heatmap_grob <- grid::grid.grabExpr({
 
 ggmap <- ggplotify::as.ggplot(heatmap_grob)
 
-ggsave(plot = ggmap, filename = "../../figures/Figure2_heatmap_cc_byGeoLat_20251014.png", width = 7, height = 7,bg = "white",device = "png",units = "in",dpi = 600)
+#ggsave(plot = ggmap, filename = "../../figures/Figure2_heatmap_cc_byGeoLat_20260327_test.png", width = 7, height = 7,bg = "white",device = "png",units = "in",dpi = 600)
+ggsave(plot = ggmap, filename = "../../figures/Figure2_heatmap_cc_byGeoLat_20260327.png", width = 7, height = 7,bg = "white",device = "png",units = "in",dpi = 600)

@@ -28,11 +28,11 @@ geo_colors <- c("Hawaii"="#66C2A5",
 
 df_colors <- data.frame(unname(geo_colors),names(geo_colors)) %>% dplyr::rename(color=`unname.geo_colors.`, geo=`names.geo_colors.`)
 #tree <- ape::read.tree(file="eigenstrat_LD0.7_input.min4.phy.treefile")
-
+groups_raw <- readr::read_tsv(file="/vast/eande106/projects/Mike/WI/cb_reanalysis_20260408/concordance/isotype_groups.tsv") 
 #tree <- root(tree, outgroup = "ECA2666", resolve.root = TRUE)
-isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") %>%
+isos <- groups_raw %>%
   dplyr::group_by(isotype) %>%
-  dplyr::summarise(count=n())
+  dplyr::summarise(count=n()) 
 
 admix <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/non_admixed_isotypes.txt") %>%
   dplyr::select(samples,cluster)
@@ -55,20 +55,21 @@ admix_color <- data.frame(
 # tree_dend <- ReadDendrogram(file="/vast/eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/test_GTR_LD09/phy_file_LD_0.9.phy.contree.rooted")
 # tree_nwk <- ape::read.tree(file="/vast/eande106/projects/Bowen/Nikita_PopGen_Brig_Project/2025_PopGen_Bri/processed_data/test_GTR_LD09/phy_file_LD_0.9.phy.contree.rooted")
 
-geo <- readr::read_csv(file="../../processed_data/Geo_info/Cb_indep_isotype_info_geo.csv") %>%
+geo <- readr::read_csv(file="../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv") %>%
+  dplyr::filter(strain %in% isos$isotype) %>%
+  dplyr::rename(geo=strain_geo) %>%
   dplyr::left_join(df_colors,by=c("geo")) %>%
   dplyr::mutate(abslat=abs(lat)) %>%
   dplyr::left_join(admix,by=c("isotype"="samples")) %>%
   dplyr::mutate(cluster=ifelse(is.na(cluster),"Admixed",cluster)) %>%
   dplyr::left_join(admix_color,by=c("cluster"="letter")) %>%
-  dplyr::rename(subpop=cluster)  %>% 
-  dplyr::mutate(subpop=ifelse(geo=="Cosmopolitan","Cosmopolitan",subpop))
+  dplyr::rename(subpop=cluster)  
 
 #a genetic similarity dendrogram was uploaded to itol.embl.de
 #we collapsed 12 major "clades" that define the relatedness groups and extracted leaf ID (isotype strain name) lists using iToL built-in options
 #we used chatGPT to convert the leaf ID lists into R vectors
 #the R vectors were pasted below
-NWD <- c("JU2767","ED3102","ECA276","ECA163")
+NWD <- c("JU3168","ED3102","ECA276","ECA163")
 
 indonesia <- c("HPT18", "HPT24", "HPT11")
 
@@ -77,7 +78,7 @@ hubei <- c("VX34", "JU3326")
 quebec <- c("QR25")
 
 kerala <- c("JU1341", "JU1348", "VSL2207", "VSL2209",
-            "JU3206", "JU3201", "JU3200", "JU2801",
+            "JU3206", "JU3201", "JU3200", "JU3199",
             "JU3203", "JU3202")
 
 twd3 <- c("NIC893", "BRC20503", "BRC20502")
@@ -99,7 +100,7 @@ australia <- c("QG2908", "QG2893", "QG4232", "QG4208", "QG4093", "QG2919",
 central_sub  <- c("NIC96", "NIC1491", "NIC1442", "NIC1135", "NIC1190", "NIC1138", "NIC1124", "NIC1141", "NIC1183", "JU2518",
                   "NIC60", "NIC331", "NIC1421", "NIC330", "NIC333", "NIC400", "NIC332", "NIC327", "NIC402", "NIC329",
                   "NIC325", "NIC309", "NIC1304", "NIC1292", "NIC1302", "NIC1267", "NIC1283", "NIC1407", "NIC1423", "NIC1288",
-                  "QG3931", "QG3924", "NIC392", "JU1399", "NIC1103", "NIC1050", "NIC1052", "JU2597", "NIC1054", "NIC1059",
+                  "QG3931", "QG3924", "NIC392", "JU1399", "NIC1103", "NIC1050", "NIC1052", "JU2618", "NIC1054", "NIC1059",
                   "NIC1055", "NIC1057", "NIC1060", "NIC1058", "QG761", "QG860", "QG881", "QG700", "QG795", "QG3056",
                   "QG2966", "QG3004", "QG3032", "QG1155", "QG887", "QG997", "QG865", "QG926", "QG856", "QG2663",
                   "QG866", "QG808", "QG855", "QG791", "QG991", "QG874", "QG825", "QG952", "QG986", "QG948",
@@ -111,15 +112,15 @@ central_sub  <- c("NIC96", "NIC1491", "NIC1442", "NIC1135", "NIC1190", "NIC1138"
                   "QG946", "QG945", "QG797", "QG933", "QG3025", "QG3034", "QG3030", "QG2996", "QG2648", "QG998",
                   "QG1007", "QG3041", "QG1126", "QG937", "QG2969")
 
-temperate <- c("PB800","QG3661", "GUN124", "NIC174", "SOW22", "JU3272", "JU2536", "NIC1632", "SOW18", "NIC899",
-               "JU2872", "JU3416", "JU1257", "HK104", "BW287", "SOW21", "JU1564", "QG588", "BRC20388",
+temperate <- c("PB800","QG3661", "GUN124", "NIC174", "SOW22", "JU2536", "NIC1632", "SOW18", "NIC899",
+               "JU1085", "JU2872", "JU3416", "HK104", "BW287", "SOW21", "JU1564", "QG588", "BRC20388",
                "NIC1635", "NIC1633", "PB857", "ECA569", "QX1547", "ECA278", "QG581", "QG547", "EG4360","JU2457")
 
 trop_islandic_sub <- c("JU2162", "JU2160", "JU3237", "JU2470", "JU2057", "VSL2217", "JU2507", "BRC20257", "QG5589",
                        "QG4647", "NIC791", "BRC20119", "QG4805", "QG4701", "QG5603", "QG5474", "ZZY1123", "ZZY0992",
                        "HPT62", "QG2884", "QG2906", "QG2895", "QG2902", "QG2903", "QG2892", "QG2925", "QG2923", "QG2880")
 
-ht_lineage <- c("QG133", "EG6268", "EG6265", "UH1", "ECA1383", "QX1798", "ECA3502", "ECA1170","ECA1443",
+ht_lineage <- c("QG133","ECA2936","EG6265", "UH1", "ECA1383", "QX1798", "ECA3502", "ECA1170","ECA1443",
                 "BRC20333", "NIC1590", "NIC779", "NIC863", "NIC865", "BRC20557", "BRC20244", "JU2216", "BRC20367",
                 "BRC20341", "NIC505", "BRC20529", "NIC1666", "NIC1663", "NIC1661", "BRC20230", "NIC814", "BRC20088",
                 "NIC1681", "TWN3077", "BRC20081", "BRC20532", "NIC1205", "BRC20463", "BRC20537", "NIC815", "NIC1220",
@@ -219,4 +220,4 @@ legend_df <- dplyr::bind_rows(lineage_legend_df, sublineage_legend_df)
 #   labs(title = "Test Legend for Lineage and Sublineage Colors") +
 #   theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))
 
-write.table(all_iso_byLineage_wCol, file="../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv",quote = F,sep = "\t",row.names = F)
+write.table(all_iso_byLineage_wCol%>% dplyr::filter(Lineage!="FM"), file="../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv",quote = F,sep = "\t",row.names = F)
