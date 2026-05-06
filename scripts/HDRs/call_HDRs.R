@@ -293,7 +293,7 @@ pc2<- cowplot::plot_grid(s3,s2,ncol=1, rel_heights = c(1.1,1),align = "v",axis =
 
 comp_reg<-cowplot::plot_grid(pc2,pc1,ncol=1,nrow=2,rel_heights = c(2,1),align = "hv",axis = "rlbt")
 
-ggsave(plot = comp_reg, filename = "../../figures/SF15_LR_STATS_95idy_20251023.png",width = 7.5,height = 9,dpi = 600,device = 'png')
+ggsave(plot = comp_reg, filename = "../../figures/SF25_LR_STATS_95idy_20260506.png",width = 7.5,height = 9,dpi = 600,device = 'png')
 
 
 ####### CALL SR-BASED HDRS (FOR LR STRAINS) ##########
@@ -326,7 +326,7 @@ SR_list <- list()
 ct=1
 for (i in 1:length(covfrac)) {
   for (k in 1:length(varct)){
-    #print(paste0("cf:",covfrac[i]," / vc:",varct[k]))
+    print(paste0("cf:",covfrac[i]," / vc:",varct[k]))
     #classify
     all_stats <- SR_stats_all %>%
       dplyr::mutate(div_class=ifelse(COUNT >= varct[k],"I", 
@@ -359,8 +359,8 @@ for (i in 1:length(covfrac)) {
 }
 all_SR_meta_calls <- ldply(SR_list,data.frame)
 
-#based on Daehan's paper and results from "pcomp" plot above we use 95% IDY LR calls as the truth set
-t95_LR_calls <- all_calls_LR %>%
+#based on Daehan's paper and results from "pcomp" plot above we use 96% IDY LR calls as the truth set
+t96_LR_calls <- all_calls_LR %>%
   dplyr::filter(threshIDY==96) %>%
   dplyr::select(CHROM,minStart,maxEnd,STRAIN,regionClass) %>%
   dplyr::rename(chrom=CHROM,start=minStart,end=maxEnd)
@@ -387,7 +387,7 @@ for (i in 1:length(covfrac)) {
         dplyr::filter(end-start >= 5e3)
       
       #get LR calls
-      temp_LR <- t95_LR_calls  %>% 
+      temp_LR <- t96_LR_calls  %>% 
         dplyr::filter(STRAIN==div_str[j]) %>%
         dplyr::filter(end-start >= 5e3)
       
@@ -662,14 +662,14 @@ all_calls_SR_clustered <- rbind(joinClust,nojoin) %>%
 all_calls_SR_clustered_sfilt <- all_calls_SR_clustered %>%
   dplyr::filter(divSize >= 5e3)
 
-ggsave(plot = MOF, filename = "../../figures/SF16_MOF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = MEF, filename = "../../figures/SF17_MEF_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = REC, filename = "../../figures/SF18_REC_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = PRE, filename = "../../figures/SF19_PRE_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = F1, filename = "../../figures/SF20_F1_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = BEST, filename = "../../figures/SF21_BEST_HDR_CB_20250730.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = MOF, filename = "../../figures/SF26_MOF_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = MEF, filename = "../../figures/SF27_MEF_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = REC, filename = "../../figures/SF28_REC_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = PRE, filename = "../../figures/SF29_PRE_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = F1, filename = "../../figures/SF30_F1_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = BEST, filename = "../../figures/SF31_BEST_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
 
-lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>% 
   dplyr::mutate(REF=ifelse(Lineage=="Tropical","QX1410",
@@ -756,7 +756,7 @@ all_percentiles <- rbind(plot_dist,plot_dist_trop %>% dplyr::select(-Sublineage)
 
 #strains excluded because they belong to RG with <3 strains or RG without a reference genome.
 excluded <- c("HPT18", "HPT24", "HPT11", "VX34", "JU3326", "NIC893",
-              "BRC20503", "BRC20502", "ECA276", "ECA163", "JU2767", "ED3102","QR25")
+              "BRC20503", "BRC20502", "ECA276", "ECA163", "JU2767", "ED3102","QR25", "JU3168")
  
 tree_nwk <- ape::read.tree(file="../../processed_data/HDRs/phy_file_LD_0.9.phy.contree")
 
@@ -796,7 +796,7 @@ annotree <- tree +
     values = stats::setNames(tree$data$lineage_color, tree$data$Lineage)
   ) 
 
-ggsave(annotree,filename = "../../figures/SF9_phylo_annotree_20250930.png", width = 7.5, height = 7.5, device = 'png', dpi = 600, bg = "white")
+ggsave(annotree,filename = "../../figures/SF13_phylo_annotree_20260506.png", width = 7.5, height = 7.5, device = 'png', dpi = 600, bg = "white")
   
 strainL_NR <- unique(SR_stats_WI_NR$STRAIN)
 
@@ -1225,9 +1225,9 @@ hdr_rest_comp <- rbind(hdr_rest_unt,hdr_rest) %>%
   dplyr::mutate(ystrain=cur_group_id()) %>%
   dplyr::ungroup()
 
-# restcomp <- ggplot(hdr_rest_comp %>% dplyr::filter(divSize >= 5e3)) + 
-#   geom_rect(aes(xmin=minStart/1e6,xmax=maxEnd/1e6,ymin=rleID-0.45,ymax=rleID+0.45,fill=source)) + 
-#   facet_grid(mode~CHROM, scales = 'free_x') + 
+# restcomp <- ggplot(hdr_rest_comp %>% dplyr::filter(divSize >= 5e3)) +
+#   geom_rect(aes(xmin=minStart/1e6,xmax=maxEnd/1e6,ymin=rleID-0.45,ymax=rleID+0.45,fill=source)) +
+#   facet_grid(mode~CHROM, scales = 'free_x') +
 #   theme(panel.background = element_blank(),
 #         panel.grid = element_blank(),
 #         axis.line.x = element_line(),
@@ -1238,7 +1238,7 @@ hdr_rest_comp <- rbind(hdr_rest_unt,hdr_rest) %>%
 #   scale_x_continuous(expand = c(0,0)) +
 #   scale_y_continuous(expand = c(0,0)) +
 #   xlab("Physical position (Mb)") +
-#   ylab("280 Isotype strains")
+#   ylab("Isotype strains")
 
 hdr_qx <- all_calls_SR_clustered %>%
   dplyr::select(CHROM,minStart,maxEnd,STRAIN) %>%
@@ -1263,18 +1263,18 @@ write.table(hdr_tot %>%
               dplyr::select(CHROM,minStart,maxEnd,STRAIN,divSize) %>%
               dplyr::rename(start=minStart,end=maxEnd,strain=STRAIN,chromosome=CHROM,size=divSize) %>%
               dplyr::arrange(strain,chromosome,start,end),
-            file="../../supplementary_data/SD6_HDR_allStrain_5kbclust_20250930.tsv",row.names = F,quote = F,sep = '\t')
+            file="../../supplementary_data/ST6_HDR_allStrain_5kbclust_20260506.tsv",row.names = F,quote = F,sep = '\t')
 
 write.table(hdr_tot %>%
               dplyr::select(CHROM,minStart,maxEnd,STRAIN,source,divSize) %>%
               dplyr::arrange(STRAIN,CHROM,minStart,maxEnd),
-            file="../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv",row.names = F,quote = F,sep = '\t')
+            file="../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20260506.tsv",row.names = F,quote = F,sep = '\t')
 
 write.table(hdr_rest_unt %>%
               dplyr::mutate(divSize=maxEnd-minStart) %>%
               dplyr::select(CHROM,minStart,maxEnd,STRAIN,source,divSize) %>%
               dplyr::arrange(STRAIN,CHROM,minStart,maxEnd),
-            file="../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv",row.names = F,quote = F,sep = '\t')
+            file="../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20260506.tsv",row.names = F,quote = F,sep = '\t')
 
 options(scipen=0)
 

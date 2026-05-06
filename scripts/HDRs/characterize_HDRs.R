@@ -9,13 +9,13 @@ library(ape)
 library(circlize)
 
 
-hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") 
-hdrs_unt_rg <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20250930.tsv") 
+hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20260506.tsv") 
+hdrs_unt_rg <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_otherRG_UNT_5kbclust_20260506.tsv") 
 bins <- readr::read_tsv("../../processed_data/HDRs/QX1410_genomic_windows.1kb.bed",col_names = c("CHROM","binStart","binEnd")) 
 variants_QX <- readr::read_tsv("../../processed_data/HDRs/Tropical.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN")) %>% dplyr::mutate(source="QX1410") %>% dplyr::filter(!STRAIN=="QX1410")
 variants_rest <- readr::read_tsv("../../processed_data/HDRs/Other_RG.variant_counts.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))#%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
 variants_nrg <- readr::read_tsv("../../processed_data/HDRs/CB_all_strain_vc.tsv", col_names = c("CHROM","START_BIN","END_BIN","COUNT","STRAIN"))%>% dplyr::filter(STRAIN!="QX1410" & STRAIN!="JU2536")
-lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRGeage_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage))  %>% 
   dplyr::mutate(REF=ifelse(Lineage=="Tropical","QX1410",
@@ -254,11 +254,11 @@ full_plot <- ggdraw(padded_plot2) +
 
 full_plot_wleg <- plot_grid(full_plot, legend, nrow = 1, rel_widths = c(1, 0.18))
 
-ggsave(plot = full_plot_wleg, filename = "../../figures/EDF5_propVC_byIsotype_20250930.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
+ggsave(plot = full_plot_wleg, filename = "../../figures/SF15_propVC_byIsotype_20260506.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
 
 summary_stats_perGroup <- rbind(meanRGSummary %>% dplyr::mutate(relative_to="QX1410"),meanRGSummary_nr %>% dplyr::mutate(relative_to="Relatedness Group"))
 
-write.table(summary_stats_perGroup,file = "../../supplementary_data/SD7_summaryStats_20250930.tsv",sep = "\t",quote = F,row.names = F)
+write.table(summary_stats_perGroup,file = "../../supplementary_data/ST7_summaryStats_20260506.tsv",sep = "\t",quote = F,row.names = F)
 
 admix_color <- data.frame(
   letter = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
@@ -298,7 +298,14 @@ df_colors <- data.frame(unname(geo_colors),names(geo_colors)) %>% dplyr::rename(
 admix <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/non_admixed_isotypes.txt") %>%
   dplyr::select(samples,cluster)
 
-geo <- readr::read_csv(file="../../processed_data/genetic_similarity_and_admixutre/Cb_indep_isotype_info_geo.csv") %>%
+isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") %>%
+  dplyr::group_by(isotype) %>%
+  dplyr::summarise(count=n()) %>% 
+  dplyr::filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
+
+geo <- readr::read_csv(file="../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv") %>%
+  dplyr::filter(strain %in% isos$isotype) %>%
+  dplyr::rename(geo=strain_geo) %>%
   dplyr::left_join(df_colors,by=c("geo")) %>%
   dplyr::mutate(abslat=abs(lat)) %>%
   dplyr::left_join(admix,by=c("isotype"="samples")) %>%
@@ -307,13 +314,10 @@ geo <- readr::read_csv(file="../../processed_data/genetic_similarity_and_admixut
   dplyr::rename(subpop=cluster)
 
 
-conc <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/gtcheck.tsv")
+conc <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/gtcheck.tsv") %>%
+  dplyr::filter(!(i %in% c("MY681","ECA1146","JU356","ECA1503")) | !(j %in% c("MY681","ECA1146","JU356","ECA1503")))
 
-isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") %>%
-  dplyr::group_by(isotype) %>%
-  dplyr::summarise(count=n())
-
-lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>%
+lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
   dplyr::mutate(Sublineage=ifelse(Sublineage=="TC","TT",Sublineage)) 
 
@@ -608,78 +612,4 @@ p_cov_nreg <- cowplot::plot_grid(p_nreg,p_cov,nrow=2,ncol=1, align = "v",labels 
 propQX_nreg <- nrow(strain_counts %>% dplyr::filter(n_regions>=300 & source=="QX1410")) / nrow(strain_counts %>% dplyr::filter(n_regions>=300))
 propQX_pcov <- nrow(strain_counts %>% dplyr::filter(perc_cov>=0.05 & source=="QX1410")) / nrow(strain_counts %>% dplyr::filter(perc_cov>=0.05))
 
-ggsave(plot = p_cov_nreg, filename = "../../figures/SF10_nreg_byIsotype_20250930.png",width = 7.5,height = 5.5,dpi = 600,device = 'png')
-
-bins_dt <- as.data.table(bins)
-setnames(bins_dt, c("binStart", "binEnd"), c("start", "end"))
-bins_dt[, id := .I]  # optional: keep track of bins
-
-hdrs_dt <- as.data.table(hdrs)
-setnames(hdrs_dt, c("minStart", "maxEnd"), c("start", "end"))
-
-setkey(bins_dt, CHROM, start, end)
-setkey(hdrs_dt, CHROM, start, end)
-
-
-overlaps <- foverlaps(hdrs_dt, bins_dt, nomatch = 0)
-
-# Count unique strains per bin
-counts_PB <- overlaps[, .(n_strains = uniqueN(STRAIN)), by = .(CHROM, start, end)]
-
-# If you want to merge with the full bin list (including 0s):
-bins_wCounts <- merge(bins_dt, counts_PB, by = c("CHROM", "start", "end"), all.x = TRUE)
-bins_wCounts[is.na(n_strains), n_strains := 0]
-
-bins_wFreq <- as.data.frame(bins_wCounts) %>%
-  dplyr::mutate(freq=n_strains/695)
-
-hdrs_ordered <- hdrs %>% 
-  dplyr::ungroup() %>%
-  dplyr::group_by(STRAIN) %>%
-  dplyr::mutate(ncalls=n()) %>%
-  dplyr::ungroup() %>%
-  dplyr::arrange(desc(ncalls),STRAIN,CHROM,minStart) %>%
-  dplyr::mutate(sorter=paste0(ncalls,STRAIN)) %>%
-  dplyr::mutate(rleID=data.table::rleid(sorter)) %>%
-  dplyr::group_by(STRAIN) %>%
-  dplyr::mutate(ystrain=cur_group_id()) %>%
-  dplyr::ungroup() 
-
-x_breaks_by_chrom <- bins_wFreq %>%
-  group_by(CHROM) %>%
-  summarise(x_breaks = list(seq(
-    floor(min((start) / 1e6)),
-    ceiling(max((end) / 1e6)),
-    by = 5
-  )))
-
-p1 <- ggplot(hdrs_ordered) + 
-  geom_rect(aes(xmin=minStart/1e6,xmax=maxEnd/1e6,ymin=rleID-0.45,ymax=rleID+0.45)) + 
-  facet_wrap(~CHROM,scales = 'free_x',nrow=1) + 
-  theme(panel.background = element_blank(),
-        panel.grid = element_blank(),
-        axis.line.x = element_line(),
-        panel.border = element_rect(fill = NA),
-        axis.ticks.y = element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks.x=element_blank(),
-        axis.text.x=element_blank())  +
-  ylab("695 Isotype strains") +
-  scale_y_continuous(expand = c(0, 0)) +
-  scale_x_continuous(breaks = function(x) seq(0, ceiling(max(x)), by = 5),expand = c(0, 0))
-
-p2 <- ggplot(bins_wFreq) +
-  geom_point(aes(x=(start+500)/1e6,y=freq),size=0.2,stroke = 0) +
-  facet_wrap(~CHROM,scales = 'free_x',nrow=1) + 
-  theme(panel.background = element_blank(),
-        panel.grid = element_blank(),
-        axis.line.x = element_line(),
-        panel.border = element_rect(fill = NA),
-        strip.text = element_blank())  +
-  ylab("Frequency")+
-  xlab("Physical position (Mb)") +
-  scale_y_continuous(expand = c(0, 0), limits = c(0,1)) +
-  scale_x_continuous(breaks = function(x) seq(0, ceiling(max(x+(500/1e6))), by = 5),expand = c(0, 0))
-
-p21 <- cowplot::plot_grid(p1,p2,nrow=2,ncol=1,rel_heights = c(1,0.3),align = "v", axis = "l", labels = c("a","b"))
-
+ggsave(plot = p_cov_nreg, filename = "../../figures/SF14_nreg_byIsotype_20260506.png",width = 7.5,height = 5.5,dpi = 600,device = 'png')

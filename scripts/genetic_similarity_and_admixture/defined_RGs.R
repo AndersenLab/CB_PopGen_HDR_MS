@@ -28,7 +28,7 @@ geo_colors <- c("Hawaii"="#66C2A5",
 
 df_colors <- data.frame(unname(geo_colors),names(geo_colors)) %>% dplyr::rename(color=`unname.geo_colors.`, geo=`names.geo_colors.`)
 #tree <- ape::read.tree(file="eigenstrat_LD0.7_input.min4.phy.treefile")
-groups_raw <- readr::read_tsv(file="/vast/eande106/projects/Mike/WI/cb_reanalysis_20260408/concordance/isotype_groups.tsv") 
+groups_raw <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") 
 #tree <- root(tree, outgroup = "ECA2666", resolve.root = TRUE)
 isos <- groups_raw %>%
   dplyr::group_by(isotype) %>%

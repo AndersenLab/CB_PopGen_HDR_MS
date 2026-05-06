@@ -39,8 +39,7 @@ geo_colors <- c("Hawaii"="#66C2A5",
                 "Malay Archipelago" = "#4110B3", 
                 "C. America"="#8DA0CB",
                 "S. America"="#E78AC3", 
-                "N. America" = "#A65628", 
-                "Cosmopolitan" = "gray30",
+                "N. America" = "#A65628",
                 "unknown" = 'grey')
 
 #make geo colors data frame
@@ -52,7 +51,7 @@ lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixut
   dplyr::filter(Lineage!="FM")
 
 #read isotype assignments
-isos <- readr::read_tsv(file="/vast/eande106/projects/Mike/WI/cb_reanalysis_20260408/concordance/isotype_groups.tsv") %>%
+isos <- readr::read_tsv(file="../../processed_data/genetic_similarity_and_admixutre/isotype_groups.tsv") %>%
   dplyr::group_by(isotype) %>%
   dplyr::summarise(count=n()) %>%
   dplyr::filter(!(isotype %in% c("MY681","ECA1146","JU356","ECA1503")))
@@ -199,7 +198,7 @@ rg3<-ggplot(df_counts, aes(x = K, y = num, fill = n)) +
   
 comprg <- cowplot::plot_grid(rg2,rg1,rg3,nrow=1,ncol=3,rel_widths = c(0.9,0.9,1.2), align="h",axis = "tb", labels=c("b","c","d"))
 rg_cv <- cowplot::plot_grid(cv + theme(panel.grid.major = element_line(color="grey80"),panel.grid.minor = element_blank()),comprg,nrow=2,rel_heights = c(1.2,1), align = "v",axis="r",labels=c("a",NA))
-ggsave(rg_cv,file="../../figures/SF4_ADX_rg_cv.png",width = 7,height = 6,units = "in",device = 'png',bg="white",dpi=600)
+ggsave(rg_cv,file="../../figures/SF8_ADX_rg_cv.png",width = 7,height = 6,units = "in",device = 'png',bg="white",dpi=600)
 
 best_kval = 22 #  K=22 selected from plot above (highest assignment stability)
 best_k <- cvmat_long %>% dplyr::filter(K==best_kval) %>% dplyr::filter(cv_error==min(cv_error)) #seed 1553 has min cv_error,
@@ -239,7 +238,7 @@ admix_color <- data.frame(
 )
 
 #read pairwise similarity estimates
-conc <- readr::read_tsv("/vast/eande106/projects/Mike/WI/cb_reanalysis_20260408/concordance/gtcheck.txt") %>%
+conc <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/gtcheck.tsv") %>%
   dplyr::filter(!(i %in% c("MY681","ECA1146","JU356","ECA1503")) | !(j %in% c("MY681","ECA1146","JU356","ECA1503")))
   #dplyr::filter(i %in% isos$isotype_ref_strain & j %in% isos$isotype_ref_strain)
 
@@ -516,7 +515,7 @@ cc_sum_heatmap <-
         panel.grid = element_blank()) +
   labs(fill = "Genetic\nsimilarity")
  
-ggsave(cc_sum_heatmap,filename = "../../figures/EDF4_concordance_heatmap.png",width = 7,height = 7,units = "in",device = "png",dpi = 600,bg = "white")
+ggsave(cc_sum_heatmap,filename = "../../figures/SF6_concordance_heatmap.png",width = 7,height = 7,units = "in",device = "png",dpi = 600,bg = "white")
 
 
 annotation_df <-as.data.frame(geo %>% dplyr::select(geo,abslat,subpop,Lineage, Sublineage,lineage_color,sublineage_color))
