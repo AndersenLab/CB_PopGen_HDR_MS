@@ -38,12 +38,12 @@ TD1 <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d
 AD <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/AD/chromosome_windows_diversity.csv",col_select = -1)
 KD <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/KD/chromosome_windows_diversity.csv",col_select = -1)
 
-Taiwan_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Taiwan_Tropical/chromosome_windows_diversity.csv",col_select = -1)
-Taiwan_TH <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Taiwan_TH/chromosome_windows_diversity.csv",col_select = -1)
-Australia_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Australia_Tropical/chromosome_windows_diversity.csv",col_select = -1)
-Asia_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Asia_Tropical/chromosome_windows_diversity.csv",col_select = -1)
-Pacific_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Pacific_Tropical/chromosome_windows_diversity.csv",col_select = -1)
-Hawaii_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Hawaii_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+# Taiwan_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Taiwan_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+# Taiwan_TH <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Taiwan_TH/chromosome_windows_diversity.csv",col_select = -1)
+# Australia_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Australia_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+# Asia_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Asia_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+# Pacific_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Pacific_Tropical/chromosome_windows_diversity.csv",col_select = -1)
+# Hawaii_Trop <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_rg/Hawaii_Tropical/chromosome_windows_diversity.csv",col_select = -1)
 
 Australia_all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Australia/chromosome_windows_diversity.csv",col_select = -1)
 Caribbean_all <- readr::read_csv("../../processed_data/diversity_and_divergence/pi_theta_d_geo/Caribbean/chromosome_windows_diversity.csv",col_select = -1)
@@ -75,12 +75,12 @@ Pacific_all$ID <- "Pacific"
 SouthA_all$ID <- "South America"
 
 
-Taiwan_TH$ID <- "Taiwan (TH)"
-Taiwan_Trop$ID <- "Taiwan (Tropical)"
-Australia_Trop$ID <- "Australia (Tropical)"
-Asia_Trop$ID <- "Asia (Tropical)"
-Pacific_Trop$ID <- "Pacific (Tropical)"
-Hawaii_Trop$ID <- "Hawaii (Tropical)"
+# Taiwan_TH$ID <- "Taiwan (TH)"
+# Taiwan_Trop$ID <- "Taiwan (Tropical)"
+# Australia_Trop$ID <- "Australia (Tropical)"
+# Asia_Trop$ID <- "Asia (Tropical)"
+# Pacific_Trop$ID <- "Pacific (Tropical)"
+# Hawaii_Trop$ID <- "Hawaii (Tropical)"
 all$ID <- "All isotypes"
 
 # Combine all into one dataframe
@@ -93,53 +93,53 @@ combined_df_lin <- dplyr::bind_rows(
   TD1,
   TH
 )
+# 
+# AD$ID <- "Australia (AD)"
+# KD$ID <- "Asia (KD)"
+# TD1$ID <- "Taiwan (TD1)"
+# 
+# combined_df_geo <- dplyr::bind_rows(
+#   Australia_all,
+#   Taiwan_all,
+#   Caribbean_all,
+#   Central_all,
+#   Asia_all,
+#   Hawaii_all,
+#   Pacific_all,
+#   SouthA_all)
 
-AD$ID <- "Australia (AD)"
-KD$ID <- "Asia (KD)"
-TD1$ID <- "Taiwan (TD1)"
 
-combined_df_geo <- dplyr::bind_rows(
-  Australia_all,
-  Taiwan_all,
-  Caribbean_all,
-  Central_all,
-  Asia_all,
-  Hawaii_all,
-  Pacific_all,
-  SouthA_all)
+# Taiwan_all$ID <- "Taiwan (All)"
+# Australia_all$ID <- "Australia (All)"
+# Pacific_all$ID <- "Pacific (All)"
+# Asia_all$ID <- "Asia (All)"
+# Hawaii_all$ID <- "Hawaii (All)"
 
-
-Taiwan_all$ID <- "Taiwan (All)"
-Australia_all$ID <- "Australia (All)"
-Pacific_all$ID <- "Pacific (All)"
-Asia_all$ID <- "Asia (All)"
-Hawaii_all$ID <- "Hawaii (All)"
-
-combined_df_geo2 <- dplyr::bind_rows(
-  all,
-  Australia_all,
-  AD,
-  Australia_Trop,
-  Taiwan_all,
-  TD1,
-  Taiwan_TH,
-  Taiwan_Trop,
-  Caribbean_all,
-  Central_all,
-  Asia_all,
-  Asia_Trop,
-  KD,
-  Hawaii_all,
-  Hawaii_Trop,
-  Pacific_all,
-  Pacific_Trop,
-  SouthA_all) %>%
-  dplyr::mutate(group=ifelse(grepl("Hawaii",ID),2,
-                             ifelse(grepl("Pacific",ID),3,
-                                    ifelse(grepl("Taiwan",ID),4,
-                                           ifelse(grepl("Asia",ID),5,
-                                                  ifelse(grepl("Australia",ID),6,
-                                                         ifelse(grepl("All",ID),0,1)))))))
+# combined_df_geo2 <- dplyr::bind_rows(
+#   all,
+#   Australia_all,
+#   AD,
+#   Australia_Trop,
+#   Taiwan_all,
+#   TD1,
+#   Taiwan_TH,
+#   Taiwan_Trop,
+#   Caribbean_all,
+#   Central_all,
+#   Asia_all,
+#   Asia_Trop,
+#   KD,
+#   Hawaii_all,
+#   Hawaii_Trop,
+#   Pacific_all,
+#   Pacific_Trop,
+#   SouthA_all) %>%
+#   dplyr::mutate(group=ifelse(grepl("Hawaii",ID),2,
+#                              ifelse(grepl("Pacific",ID),3,
+#                                     ifelse(grepl("Taiwan",ID),4,
+#                                            ifelse(grepl("Asia",ID),5,
+#                                                   ifelse(grepl("Australia",ID),6,
+#                                                          ifelse(grepl("All",ID),0,1)))))))
 
 
 #Read CSV and standardize column names/units
@@ -211,84 +211,84 @@ custom_order <- c("All isotypes",
                   "Australia (AD)",
                   "Australia (Tropical)")  # whatever order you want
 
-df_plot <- combined_df_geo2 %>%
-  dplyr::filter(stat_type == "d") %>%
-  dplyr::group_by(group) %>%
-  dplyr::mutate(ID = factor(ID, levels = custom_order)) %>%
-  dplyr::mutate(gid = as.integer(ID) * -1) %>%
-  dplyr::ungroup()
-
-df_plot_lin <- combined_df_lin %>%
-  dplyr::filter(stat_type == "d") %>%
-  dplyr::group_by(ID) %>%
-  #mutate(ID = factor(ID, levels = custom_order)) %>%
-  dplyr::mutate(gid = cur_group_id()) %>%
-  dplyr::ungroup()
-
-lut <- df_plot %>%
-  dplyr::distinct(gid, ID) %>%
-  dplyr::arrange(gid)
-
-TDplot <- ggplot() +
-  geom_rect(
-    data = df_plot,
-    aes(
-      xmin = window_start/1e6,
-      xmax = window_stop/1e6,
-      ymin = gid - 0.49,
-      ymax = gid + 0.49,
-      fill = stat
-    )
-  ) +
-  scale_fill_gradientn(
-    colours = c("blue","lightblue", "white","pink", "red", "darkred"),  # blue → white → red → bright red
-    values = scales::rescale(c(min(df_plot_lin$stat, na.rm = TRUE),
-                               min(df_plot_lin$stat, na.rm = TRUE)/2,
-                               0,
-                               (min(df_plot_lin$stat, na.rm = TRUE)/2)*-1,
-                               min(df_plot_lin$stat, na.rm = TRUE)*-1,
-                               max(df_plot_lin$stat, na.rm = TRUE))),
-    limits = c(min(df_plot_lin$stat, na.rm = TRUE), max(df_plot_lin$stat, na.rm = TRUE)),
-    oob = scales::squish,  # keeps extreme values at ends
-    name = ""
-  ) +
-  ggh4x::facet_grid2(
-    rows = vars(group),
-    cols = vars(chrom),
-    scales = "free",
-    space = "free_y" 
-  ) +
-
-  scale_y_continuous(
-    breaks = lut$gid,
-    labels = lut$ID,
-    expand = c(0,0),
-    sec.axis = dup_axis(name = "Tajima's D")
-  ) +
-  labs(y = "Tajima's D", x = "Physical position (Mb)", fill = "Tajima's D") +
-  scale_x_continuous(expand = c(0,0)) +
-  theme_classic(base_family = "CyrHelvetica") +
-  theme(axis.ticks.y = element_blank(),
-        strip.text.y = element_blank(),
-        panel.border = element_rect(fill=NA),
-        strip.text = element_blank(),    
-        legend.key.size = unit(0.3, "cm"),
-        legend.text = element_text(size = 6),
-        legend.position = "bottom",        
-        legend.direction = "horizontal",
-        legend.box = "horizontal",
-        legend.justification.bottom = "right",
-        legend.title.position = "top",
-        legend.title = element_blank(),
-        plot.margin = margin(0, 0, 0, 10),
-        legend.margin = margin(0, 1, 0, 0),
-        axis.title.x=element_blank(),
-        axis.text.y.right = element_blank(),
-        axis.title.y.left = element_blank(),
-        axis.text.y=element_text(size=9),
-        axis.text.x=element_text(size=9),
-        axis.title.y.right = element_text(size=10),
-        text=element_text(family="CyrHelvetica")) 
+# df_plot <- combined_df_geo2 %>%
+#   dplyr::filter(stat_type == "d") %>%
+#   dplyr::group_by(group) %>%
+#   dplyr::mutate(ID = factor(ID, levels = custom_order)) %>%
+#   dplyr::mutate(gid = as.integer(ID) * -1) %>%
+#   dplyr::ungroup()
+# 
+# df_plot_lin <- combined_df_lin %>%
+#   dplyr::filter(stat_type == "d") %>%
+#   dplyr::group_by(ID) %>%
+#   #mutate(ID = factor(ID, levels = custom_order)) %>%
+#   dplyr::mutate(gid = cur_group_id()) %>%
+#   dplyr::ungroup()
+# 
+# lut <- df_plot %>%
+#   dplyr::distinct(gid, ID) %>%
+#   dplyr::arrange(gid)
+# 
+# TDplot <- ggplot() +
+#   geom_rect(
+#     data = df_plot,
+#     aes(
+#       xmin = window_start/1e6,
+#       xmax = window_stop/1e6,
+#       ymin = gid - 0.49,
+#       ymax = gid + 0.49,
+#       fill = stat
+#     )
+#   ) +
+#   scale_fill_gradientn(
+#     colours = c("blue","lightblue", "white","pink", "red", "darkred"),  # blue → white → red → bright red
+#     values = scales::rescale(c(min(df_plot_lin$stat, na.rm = TRUE),
+#                                min(df_plot_lin$stat, na.rm = TRUE)/2,
+#                                0,
+#                                (min(df_plot_lin$stat, na.rm = TRUE)/2)*-1,
+#                                min(df_plot_lin$stat, na.rm = TRUE)*-1,
+#                                max(df_plot_lin$stat, na.rm = TRUE))),
+#     limits = c(min(df_plot_lin$stat, na.rm = TRUE), max(df_plot_lin$stat, na.rm = TRUE)),
+#     oob = scales::squish,  # keeps extreme values at ends
+#     name = ""
+#   ) +
+#   ggh4x::facet_grid2(
+#     rows = vars(group),
+#     cols = vars(chrom),
+#     scales = "free",
+#     space = "free_y" 
+#   ) +
+# 
+#   scale_y_continuous(
+#     breaks = lut$gid,
+#     labels = lut$ID,
+#     expand = c(0,0),
+#     sec.axis = dup_axis(name = "Tajima's D")
+#   ) +
+#   labs(y = "Tajima's D", x = "Physical position (Mb)", fill = "Tajima's D") +
+#   scale_x_continuous(expand = c(0,0)) +
+#   theme_classic(base_family = "CyrHelvetica") +
+#   theme(axis.ticks.y = element_blank(),
+#         strip.text.y = element_blank(),
+#         panel.border = element_rect(fill=NA),
+#         strip.text = element_blank(),    
+#         legend.key.size = unit(0.3, "cm"),
+#         legend.text = element_text(size = 6),
+#         legend.position = "bottom",        
+#         legend.direction = "horizontal",
+#         legend.box = "horizontal",
+#         legend.justification.bottom = "right",
+#         legend.title.position = "top",
+#         legend.title = element_blank(),
+#         plot.margin = margin(0, 0, 0, 10),
+#         legend.margin = margin(0, 1, 0, 0),
+#         axis.title.x=element_blank(),
+#         axis.text.y.right = element_blank(),
+#         axis.title.y.left = element_blank(),
+#         axis.text.y=element_text(size=9),
+#         axis.text.x=element_text(size=9),
+#         axis.title.y.right = element_text(size=10),
+#         text=element_text(family="CyrHelvetica")) 
 
 custom_order_lin <- c("All isotypes",
                   "Tropical",
@@ -816,7 +816,7 @@ XL <- plot_lin_pi_region(
   region_colors = region_colors
 )
 ylim_max = 0.013
-SF8 <- cowplot::plot_grid(IL + theme(axis.title.x = element_blank()) + ylim(0,ylim_max),
+SF12 <- cowplot::plot_grid(IL + theme(axis.title.x = element_blank()) + ylim(0,ylim_max),
                    IR + theme(axis.title = element_blank()) + ylim(0,ylim_max),
                    IIL + theme(axis.title.x = element_blank()) + ylim(0,ylim_max),
                    IIR + theme(axis.title = element_blank()) + ylim(0,ylim_max),
@@ -830,7 +830,7 @@ SF8 <- cowplot::plot_grid(IL + theme(axis.title.x = element_blank()) + ylim(0,yl
                    XR + theme(axis.title.y = element_blank()) + ylim(0,ylim_max),
                    align = "v",axis="lr",ncol=2,rel_heights = c(1,1,1,1,1,1.2))
 
-ggsave(SF8,filename = "../../figures/SF12_localpi_tropical.png",width = 7,height = 6.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(SF12,filename = "../../figures/SF12_localpi_tropical.png",width = 7,height = 6.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 pitheta_plot <- ggplot() + 
@@ -872,12 +872,6 @@ pitheta_plot <- ggplot() +
   labs(fill="Domain")
 
 
-
-F3_legacy <- cowplot::plot_grid(pitheta_plot,TDplot,nrow=2,ncol=1,rel_heights = c(1,1.3),align = "v",axis = "lr")
-F3_legacy <- cowplot::ggdraw(F3_legacy) +
-  cowplot::draw_label("Physical position (Mb)",
-                      x = 0.54, y = 0, vjust = -1, size = 10)
-
 hdrs <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20260506.tsv") 
 
 hdrs_ordered <- hdrs %>% 
@@ -903,7 +897,7 @@ p1 <- ggplot(hdrs_ordered) +
         axis.text.y=element_blank()) +
         #axis.ticks.x=element_blank(),
         #axis.text.x=element_blank())  +
-  ylab("695 Isotype strains") +
+  ylab(paste0(length(unique(hdrs$STRAIN))," Isotype strains")) +
   xlab("Physical position (Mb)") +
   #scale_x_continuous(expand = c(0, 0)) +
   scale_y_continuous(expand = c(0, 0)) +
@@ -912,7 +906,7 @@ p1 <- ggplot(hdrs_ordered) +
 
 F3_alt <- cowplot::plot_grid(pitheta_plot,p1,ncol=1,align="v",axis="lr",rel_heights = c(1,1.5), labels=c("a","b"))
 
-ggsave(F3_alt,filename = "../../figures/Figure3_ALT_nucdiversity_20260506.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(F3_alt,filename = "../../figures/Figure3_nucdiversity_20260506.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 getRegFreq <- function(all_regions) {
@@ -1022,7 +1016,6 @@ freq_plot <- ggplot(bins_wFreq) +
   xlab("Physical position (Mb)") +
   scale_y_continuous(expand = c(0, 0), limits = c(0,1)) +
   scale_x_continuous(breaks = function(x) seq(0, ceiling(max(x+(500/1e6))), by = 5),expand = c(0, 0))
-freq_plot
 
 
 hdrs_panel <- ggplot(hdrs_ordered) + 
@@ -1360,7 +1353,7 @@ dxysumm <- cowplot::plot_grid(tajdplot,
 
 
 
-ggsave(dxysumm,filename = "../../figures/Figure5_TajD_Dxy_20251007.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(dxysumm,filename = "../../figures/Figure5_TajD_Dxy_20260506.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
 
 
 anno_dxy_ad <- process_dxy_annotation(dxy_tro_ad, region_rects2)
@@ -1490,4 +1483,4 @@ dxybox_tmp <- ggplot(anno_dxy_tmp) +
 
 dxy_boxes <- cowplot::plot_grid(dxybox_ad,dxybox_kd,dxybox_td,dxybox_th,dxybox_tmp,nrow=5,rel_heights = c(1,0.85,0.85,0.85,0.85))
 
-ggsave(dxy_boxes,filename = "../../figures/SF22_Dxy_allcomp_20251007.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
+ggsave(dxy_boxes,filename = "../../figures/SF22_Dxy_allcomp_20260506.png",width = 7,height = 7.5,device = "png",units = "in",bg ="white",dpi = 900)
