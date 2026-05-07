@@ -11,6 +11,12 @@ processed_data/genetic_similarity_and_admixutre/strain_gtcheck.txt
 processed_data/gene_diversity/CBCN_L1L2_master.tsv
 processed_data/gene_diversity/CBCN_nucmer_db_20250603.tsv
 processed_data/gene_diversity/CBCN_orthogroups.tsv
+processed_data/HDRs/CB_all_strain_cov.tsvp
+processed_data/HDRs/Other_RG/
+processed_data/HDRs/Tropical/
+processed_data/HDRs/alignments
+processed_data/HDRs/all_strain/
+processed_data/demography_simulations/
 data/VCF/
 data/master_sheet_cb/
 >>>>>>> Stashed changes
