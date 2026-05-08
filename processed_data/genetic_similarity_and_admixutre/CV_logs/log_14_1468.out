@@ -1,0 +1,68 @@
+****                   ADMIXTURE Version 1.3.0                  ****
+****                    Copyright 2008-2015                     ****
+****           David Alexander, Suyash Shringarpure,            ****
+****                John  Novembre, Ken Lange                   ****
+****                                                            ****
+****                 Please cite our paper!                     ****
+****   Information at www.genetics.ucla.edu/software/admixture  ****
+
+Cross-validation will be performed.  Folds=10.
+Parallel execution requested.  Will use 24 threads.
+Random seed: 1468
+Point estimation method: Block relaxation algorithm
+Convergence acceleration algorithm: QuasiNewton, 3 secant conditions
+Point estimation will terminate when objective function delta < 0.0001
+Estimation of standard errors disabled; will compute point estimates only.
+Size of G: 713x578311
+Performing five EM steps to prime main algorithm
+1 (EM) 	Elapsed: 127.537	Loglikelihood: -5.28496e+07	(delta): 5.38382e+08
+2 (EM) 	Elapsed: 127.856	Loglikelihood: -4.59691e+07	(delta): 6.8805e+06
+3 (EM) 	Elapsed: 127.519	Loglikelihood: -4.52894e+07	(delta): 679693
+4 (EM) 	Elapsed: 122.483	Loglikelihood: -4.49184e+07	(delta): 370986
+5 (EM) 	Elapsed: 125.339	Loglikelihood: -4.46056e+07	(delta): 312781
+Initial loglikelihood: -4.46056e+07
+Starting main algorithm
+1 (QN/Block) 	Elapsed: 266.717	Loglikelihood: -2.6239e+07	(delta): 1.83666e+07
+2 (QN/Block) 	Elapsed: 260.208	Loglikelihood: -1.83874e+07	(delta): 7.85156e+06
+3 (QN/Block) 	Elapsed: 277.582	Loglikelihood: -1.65649e+07	(delta): 1.82255e+06
+4 (QN/Block) 	Elapsed: 275.574	Loglikelihood: -1.55073e+07	(delta): 1.05752e+06
+5 (QN/Block) 	Elapsed: 274.667	Loglikelihood: -1.49344e+07	(delta): 572962
+6 (QN/Block) 	Elapsed: 277.46	Loglikelihood: -1.47214e+07	(delta): 212993
+7 (QN/Block) 	Elapsed: 273.797	Loglikelihood: -1.46703e+07	(delta): 51084.4
+8 (QN/Block) 	Elapsed: 276.072	Loglikelihood: -1.46497e+07	(delta): 20584.9
+9 (QN/Block) 	Elapsed: 275.807	Loglikelihood: -1.46425e+07	(delta): 7170.57
+10 (QN/Block) 	Elapsed: 275.557	Loglikelihood: -1.46407e+07	(delta): 1845.24
+11 (QN/Block) 	Elapsed: 274.566	Loglikelihood: -1.46404e+07	(delta): 306.406
+12 (QN/Block) 	Elapsed: 275.353	Loglikelihood: -1.46402e+07	(delta): 182.105
+13 (QN/Block) 	Elapsed: 274.6	Loglikelihood: -1.46402e+07	(delta): 31.2532
+14 (QN/Block) 	Elapsed: 276.432	Loglikelihood: -1.46402e+07	(delta): 9.25984
+15 (QN/Block) 	Elapsed: 275.03	Loglikelihood: -1.46402e+07	(delta): 0.951854
+16 (QN/Block) 	Elapsed: 273.624	Loglikelihood: -1.46402e+07	(delta): 0.1315
+17 (QN/Block) 	Elapsed: 269.996	Loglikelihood: -1.46402e+07	(delta): 0.161498
+18 (QN/Block) 	Elapsed: 273.65	Loglikelihood: -1.46402e+07	(delta): 0.0910444
+19 (QN/Block) 	Elapsed: 276.199	Loglikelihood: -1.46402e+07	(delta): 0.0852261
+20 (QN/Block) 	Elapsed: 275.113	Loglikelihood: -1.46402e+07	(delta): 0.0795925
+21 (QN/Block) 	Elapsed: 273.677	Loglikelihood: -1.46402e+07	(delta): 0.074275
+22 (QN/Block) 	Elapsed: 274.207	Loglikelihood: -1.46402e+07	(delta): 0.0219251
+23 (QN/Block) 	Elapsed: 285.799	Loglikelihood: -1.46402e+07	(delta): 7.58115e-05
+Summary: 
+Converged in 23 iterations (6955.83 sec)
+Loglikelihood: -14640169.757051
+Fst divergences between estimated populations: 
+	Pop0	Pop1	Pop2	Pop3	Pop4	Pop5	Pop6	Pop7	Pop8	Pop9	Pop10	Pop11	Pop12	
+Pop0	
+Pop1	0.538	
+Pop2	0.585	0.282	
+Pop3	0.583	0.246	0.218	
+Pop4	0.576	0.456	0.525	0.512	
+Pop5	0.574	0.453	0.521	0.507	0.161	
+Pop6	0.510	0.479	0.514	0.510	0.499	0.496	
+Pop7	0.374	0.326	0.347	0.339	0.341	0.338	0.344	
+Pop8	0.674	0.661	0.720	0.725	0.721	0.720	0.601	0.420	
+Pop9	0.550	0.344	0.357	0.364	0.493	0.490	0.491	0.343	0.665	
+Pop10	0.742	0.746	0.782	0.785	0.781	0.781	0.684	0.547	0.814	0.742	
+Pop11	0.749	0.753	0.789	0.793	0.789	0.789	0.690	0.553	0.821	0.749	0.688	
+Pop12	0.610	0.376	0.314	0.381	0.574	0.571	0.537	0.369	0.748	0.339	0.796	0.804	
+Pop13	0.601	0.250	0.273	0.129	0.533	0.528	0.521	0.344	0.753	0.380	0.803	0.811	0.415	
+CV error (K=14): 0.05089
+Writing output files.

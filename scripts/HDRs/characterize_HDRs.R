@@ -582,7 +582,7 @@ strain_counts <- hdrs %>%
 p_nreg <- ggplot(strain_counts,  aes(x = forcats::fct_reorder(STRAIN, n_regions), y = n_regions, fill = `Relatedness\ngroup`)) +
   geom_col() +
   theme_bw() +
-  labs(x = "695 isotype reference strains",y = "Number of HDRs",  ) +
+  labs(x = "693 isotype reference strains",y = "Number of HDRs",  ) +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
         panel.background = element_blank(),
@@ -596,7 +596,7 @@ p_nreg <- ggplot(strain_counts,  aes(x = forcats::fct_reorder(STRAIN, n_regions)
 p_cov <- ggplot(strain_counts,  aes(x = forcats::fct_reorder(STRAIN, perc_cov*100), y = perc_cov*100, fill = `Relatedness\ngroup`)) +
   geom_col() +
   theme_bw() +
-  labs(x = "695 isotype reference strains",y = "Percent genome covered",  ) +
+  labs(x = "693 isotype reference strains",y = "Percent genome covered",  ) +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
         panel.background = element_blank(),

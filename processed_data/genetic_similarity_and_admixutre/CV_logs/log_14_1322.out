@@ -1,0 +1,68 @@
+****                   ADMIXTURE Version 1.3.0                  ****
+****                    Copyright 2008-2015                     ****
+****           David Alexander, Suyash Shringarpure,            ****
+****                John  Novembre, Ken Lange                   ****
+****                                                            ****
+****                 Please cite our paper!                     ****
+****   Information at www.genetics.ucla.edu/software/admixture  ****
+
+Cross-validation will be performed.  Folds=10.
+Parallel execution requested.  Will use 24 threads.
+Random seed: 1322
+Point estimation method: Block relaxation algorithm
+Convergence acceleration algorithm: QuasiNewton, 3 secant conditions
+Point estimation will terminate when objective function delta < 0.0001
+Estimation of standard errors disabled; will compute point estimates only.
+Size of G: 713x578311
+Performing five EM steps to prime main algorithm
+1 (EM) 	Elapsed: 147.053	Loglikelihood: -5.2792e+07	(delta): 5.38286e+08
+2 (EM) 	Elapsed: 143.868	Loglikelihood: -4.58809e+07	(delta): 6.9111e+06
+3 (EM) 	Elapsed: 139.752	Loglikelihood: -4.51502e+07	(delta): 730683
+4 (EM) 	Elapsed: 139.371	Loglikelihood: -4.47441e+07	(delta): 406130
+5 (EM) 	Elapsed: 143.372	Loglikelihood: -4.44098e+07	(delta): 334286
+Initial loglikelihood: -4.44098e+07
+Starting main algorithm
+1 (QN/Block) 	Elapsed: 290.679	Loglikelihood: -2.70613e+07	(delta): 1.73485e+07
+2 (QN/Block) 	Elapsed: 289.224	Loglikelihood: -2.03605e+07	(delta): 6.70078e+06
+3 (QN/Block) 	Elapsed: 293.958	Loglikelihood: -1.8236e+07	(delta): 2.1245e+06
+4 (QN/Block) 	Elapsed: 294.047	Loglikelihood: -1.67233e+07	(delta): 1.51268e+06
+5 (QN/Block) 	Elapsed: 295.221	Loglikelihood: -1.56718e+07	(delta): 1.05155e+06
+6 (QN/Block) 	Elapsed: 301.169	Loglikelihood: -1.4899e+07	(delta): 772768
+7 (QN/Block) 	Elapsed: 306.597	Loglikelihood: -1.47104e+07	(delta): 188545
+8 (QN/Block) 	Elapsed: 297.268	Loglikelihood: -1.46035e+07	(delta): 106985
+9 (QN/Block) 	Elapsed: 307.1	Loglikelihood: -1.45608e+07	(delta): 42685.5
+10 (QN/Block) 	Elapsed: 293.526	Loglikelihood: -1.45426e+07	(delta): 18181.8
+11 (QN/Block) 	Elapsed: 304.075	Loglikelihood: -1.45404e+07	(delta): 2212.94
+12 (QN/Block) 	Elapsed: 296.084	Loglikelihood: -1.454e+07	(delta): 397.639
+13 (QN/Block) 	Elapsed: 304.753	Loglikelihood: -1.45398e+07	(delta): 150.484
+14 (QN/Block) 	Elapsed: 299.421	Loglikelihood: -1.45398e+07	(delta): 22.6564
+15 (QN/Block) 	Elapsed: 299.237	Loglikelihood: -1.45398e+07	(delta): 2.2832
+16 (QN/Block) 	Elapsed: 297.246	Loglikelihood: -1.45398e+07	(delta): 0.446384
+17 (QN/Block) 	Elapsed: 295.162	Loglikelihood: -1.45398e+07	(delta): 0.140502
+18 (QN/Block) 	Elapsed: 298.499	Loglikelihood: -1.45398e+07	(delta): 0.102568
+19 (QN/Block) 	Elapsed: 293.375	Loglikelihood: -1.45398e+07	(delta): 0.020998
+20 (QN/Block) 	Elapsed: 303.251	Loglikelihood: -1.45398e+07	(delta): 0.00414519
+21 (QN/Block) 	Elapsed: 290.159	Loglikelihood: -1.45398e+07	(delta): 0.000737948
+22 (QN/Block) 	Elapsed: 304.948	Loglikelihood: -1.45398e+07	(delta): 0.000290824
+23 (QN/Block) 	Elapsed: 293.07	Loglikelihood: -1.45398e+07	(delta): 1.85985e-05
+Summary: 
+Converged in 23 iterations (7572.51 sec)
+Loglikelihood: -14539807.399746
+Fst divergences between estimated populations: 
+	Pop0	Pop1	Pop2	Pop3	Pop4	Pop5	Pop6	Pop7	Pop8	Pop9	Pop10	Pop11	Pop12	
+Pop0	
+Pop1	0.577	
+Pop2	0.775	0.703	
+Pop3	0.359	0.311	0.402	
+Pop4	0.400	0.435	0.662	0.306	
+Pop5	0.444	0.502	0.753	0.323	0.251	
+Pop6	0.629	0.561	0.674	0.357	0.539	0.601	
+Pop7	0.413	0.626	0.802	0.383	0.468	0.554	0.657	
+Pop8	0.771	0.732	0.774	0.521	0.709	0.760	0.710	0.785	
+Pop9	0.821	0.780	0.822	0.548	0.754	0.811	0.750	0.835	0.646	
+Pop10	0.407	0.482	0.724	0.318	0.240	0.120	0.583	0.511	0.744	0.794	
+Pop11	0.350	0.506	0.726	0.329	0.293	0.281	0.589	0.461	0.745	0.794	0.227	
+Pop12	0.385	0.474	0.665	0.326	0.345	0.381	0.550	0.408	0.708	0.750	0.364	0.363	
+Pop13	0.642	0.567	0.685	0.371	0.553	0.612	0.579	0.668	0.714	0.753	0.595	0.602	0.562	
+CV error (K=14): 0.05056
+Writing output files.

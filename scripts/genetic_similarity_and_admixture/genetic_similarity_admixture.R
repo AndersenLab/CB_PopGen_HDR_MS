@@ -83,6 +83,7 @@ cv <- ggplot() +
   scale_x_continuous(breaks = seq(min(cvmat_long$K), max(cvmat_long$K), by = 1), expand = c(0,0)) +
   ylim(0,NA)+
   theme_bw() +
+  theme(panel.grid = element_blank())+
   ylab("CV")
   
 #lets compare K2-30 to our relatedness groups
@@ -104,7 +105,7 @@ for (i in kmin:kmax) {
       symbol=LETTERS[i]
     }
     
-    tmpQ <- readr::read_tsv(paste0("../../processed_data/genetic_similarity_and_admixutre/concat_Qfiles_K",i,".tsv"),col_names=c("isotype",colnames,"run_ID"))
+    tmpQ <- readr::read_tsv(paste0("../../processed_data/genetic_similarity_and_admixutre/Q_files/concat_Qfiles_K",i,".tsv"),col_names=c("isotype",colnames,"run_ID"))
   
     qlist[[i-(kmin-1)]] <- tmpQ %>%
       tidyr::pivot_longer(

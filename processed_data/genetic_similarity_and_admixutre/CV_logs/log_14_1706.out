@@ -1,0 +1,68 @@
+****                   ADMIXTURE Version 1.3.0                  ****
+****                    Copyright 2008-2015                     ****
+****           David Alexander, Suyash Shringarpure,            ****
+****                John  Novembre, Ken Lange                   ****
+****                                                            ****
+****                 Please cite our paper!                     ****
+****   Information at www.genetics.ucla.edu/software/admixture  ****
+
+Cross-validation will be performed.  Folds=10.
+Parallel execution requested.  Will use 24 threads.
+Random seed: 1706
+Point estimation method: Block relaxation algorithm
+Convergence acceleration algorithm: QuasiNewton, 3 secant conditions
+Point estimation will terminate when objective function delta < 0.0001
+Estimation of standard errors disabled; will compute point estimates only.
+Size of G: 713x578311
+Performing five EM steps to prime main algorithm
+1 (EM) 	Elapsed: 150.586	Loglikelihood: -5.2761e+07	(delta): 5.38965e+08
+2 (EM) 	Elapsed: 146.182	Loglikelihood: -4.58204e+07	(delta): 6.94059e+06
+3 (EM) 	Elapsed: 147.864	Loglikelihood: -4.50563e+07	(delta): 764118
+4 (EM) 	Elapsed: 142.555	Loglikelihood: -4.46134e+07	(delta): 442849
+5 (EM) 	Elapsed: 145.197	Loglikelihood: -4.42425e+07	(delta): 370892
+Initial loglikelihood: -4.42425e+07
+Starting main algorithm
+1 (QN/Block) 	Elapsed: 277.337	Loglikelihood: -2.65257e+07	(delta): 1.77168e+07
+2 (QN/Block) 	Elapsed: 277.432	Loglikelihood: -1.92998e+07	(delta): 7.2259e+06
+3 (QN/Block) 	Elapsed: 285.411	Loglikelihood: -1.72514e+07	(delta): 2.04838e+06
+4 (QN/Block) 	Elapsed: 279.635	Loglikelihood: -1.59571e+07	(delta): 1.29428e+06
+5 (QN/Block) 	Elapsed: 279.338	Loglikelihood: -1.5183e+07	(delta): 774092
+6 (QN/Block) 	Elapsed: 277.007	Loglikelihood: -1.48292e+07	(delta): 353892
+7 (QN/Block) 	Elapsed: 279.922	Loglikelihood: -1.47471e+07	(delta): 82041.3
+8 (QN/Block) 	Elapsed: 285.135	Loglikelihood: -1.4731e+07	(delta): 16084.2
+9 (QN/Block) 	Elapsed: 287.133	Loglikelihood: -1.47271e+07	(delta): 3885.1
+10 (QN/Block) 	Elapsed: 282.921	Loglikelihood: -1.47266e+07	(delta): 533.682
+11 (QN/Block) 	Elapsed: 279.074	Loglikelihood: -1.4724e+07	(delta): 2595.88
+12 (QN/Block) 	Elapsed: 279.034	Loglikelihood: -1.47229e+07	(delta): 1135.19
+13 (QN/Block) 	Elapsed: 283.849	Loglikelihood: -1.47213e+07	(delta): 1618.02
+14 (QN/Block) 	Elapsed: 275.591	Loglikelihood: -1.47211e+07	(delta): 213.585
+15 (QN/Block) 	Elapsed: 280.513	Loglikelihood: -1.4721e+07	(delta): 17.1471
+16 (QN/Block) 	Elapsed: 278.413	Loglikelihood: -1.4721e+07	(delta): 5.37413
+17 (QN/Block) 	Elapsed: 273.099	Loglikelihood: -1.4721e+07	(delta): 1.45005
+18 (QN/Block) 	Elapsed: 273.555	Loglikelihood: -1.4721e+07	(delta): 0.146651
+19 (QN/Block) 	Elapsed: 281.841	Loglikelihood: -1.4721e+07	(delta): 0.0317996
+20 (QN/Block) 	Elapsed: 280.707	Loglikelihood: -1.4721e+07	(delta): 0.0149187
+21 (QN/Block) 	Elapsed: 268.555	Loglikelihood: -1.4721e+07	(delta): 0.00279819
+22 (QN/Block) 	Elapsed: 281.631	Loglikelihood: -1.4721e+07	(delta): 0.000144085
+23 (QN/Block) 	Elapsed: 280.846	Loglikelihood: -1.4721e+07	(delta): 1.89729e-05
+Summary: 
+Converged in 23 iterations (7171.51 sec)
+Loglikelihood: -14721026.296419
+Fst divergences between estimated populations: 
+	Pop0	Pop1	Pop2	Pop3	Pop4	Pop5	Pop6	Pop7	Pop8	Pop9	Pop10	Pop11	Pop12	
+Pop0	
+Pop1	0.419	
+Pop2	0.743	0.574	
+Pop3	0.459	0.393	0.708	
+Pop4	0.733	0.490	0.779	0.668	
+Pop5	0.500	0.407	0.733	0.236	0.712	
+Pop6	0.532	0.379	0.657	0.494	0.571	0.518	
+Pop7	0.511	0.398	0.659	0.488	0.609	0.511	0.480	
+Pop8	0.579	0.433	0.710	0.537	0.681	0.569	0.520	0.516	
+Pop9	0.497	0.410	0.707	0.342	0.672	0.340	0.508	0.500	0.550	
+Pop10	0.539	0.422	0.760	0.245	0.764	0.169	0.542	0.533	0.601	0.380	
+Pop11	0.168	0.413	0.741	0.449	0.729	0.488	0.527	0.506	0.573	0.488	0.526	
+Pop12	0.791	0.604	0.646	0.753	0.827	0.781	0.693	0.693	0.750	0.750	0.812	0.789	
+Pop13	0.577	0.441	0.755	0.371	0.756	0.325	0.554	0.546	0.609	0.337	0.412	0.567	0.804	
+CV error (K=14): 0.05193
+Writing output files.
