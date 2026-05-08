@@ -171,7 +171,7 @@ ggplot(data = nHDR_armDomain) +
   theme(
     legend.position = 'none')
 
-hdr_regions <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20250930.tsv") %>%
+hdr_regions <- readr::read_tsv("../../processed_data/HDRs/HDR_CB_allStrain_5kbclust_20260506.tsv") %>%
   dplyr::filter(STRAIN != "ECA1605" & STRAIN != "ECA1559")
 
 hdr_regions <- hdr_regions %>%
@@ -359,7 +359,7 @@ N2_orthos <- orthos %>%
 ipr_table_final <- ipr_table %>% 
   dplyr::left_join(N2_orthos, by = "QX1410")
 
-# write.table(ipr_table_final, "../../supplementary_data/SD8_IPR_cleaned_updated_20251007.tsv", sep = '\t', quote = F, col.names = T, row.names = F)
+write.table(ipr_table_final, "../../supplementary_data/SD8_IPR_cleaned_updated_20251007.tsv", sep = '\t', quote = F, col.names = T, row.names = F)
 
 
 #==============================================================================================================================================================================================================================#
@@ -375,7 +375,7 @@ ipr_gene <- ipr %>%
 
 # Define universe & HDR membership (annotated-only universe) 
 univ_genes <- unique(ipr_gene$QX1410)
-hdr_genes  <- intersect(HD_gene_vector, univ_genes) # 3,087 genes 
+hdr_genes  <- intersect(HD_gene_vector, univ_genes) # 3,096 genes 
 
 N <- length(univ_genes)
 n <- length(hdr_genes)
@@ -495,7 +495,8 @@ ipr_sig_gene_collapsed2 <- ipr_gene %>%
 
 binded <- ipr_sig_gene_collapsed %>% dplyr::bind_rows(ipr_sig_gene_collapsed2) %>% dplyr::arrange(FDR_p.adjust) 
 
-data_plt <- binded %>% dplyr::slice_head(n = 20) %>% dplyr::arrange(desc(FDR_p.adjust)) %>% dplyr::mutate(plotpoint = dplyr::row_number())
+data_plt <- binded %>% dplyr::slice_head(n = 20) %>% dplyr::arrange(desc(FDR_p.adjust)) %>% dplyr::mutate(plotpoint = dplyr::row_number()) %>%
+  dplyr::mutate(IPR_description = ifelse(IPR_description == "Domain of unknown function DUF38/FTH, Caenorhabditis species", "DUF38/FTH, Caenorhabditis species (1)", IPR_description))
 
 plot_ipr <- ggplot(data_plt) +
   geom_vline(xintercept = -log10(0.05), color='blue', linewidth=0.4) +
@@ -543,13 +544,12 @@ go_ipr <- ipr %>%
   dplyr::distinct(QX1410, GO) %>% # 11,756 genes
   dplyr::mutate(GO = str_remove_all(GO, "\\s*\\([^)]*\\)") |> str_squish())
 
-
 ### Now with only arms as the background, not the entire genome
 go_ipr_arms <- go_ipr %>% dplyr::filter(QX1410 %in% arm_genes)
 IPR_GO_bckgrd_arms <- unique(go_ipr_arms$QX1410) # 3,905 genes
 
 
-how_many_HDR_GO_arm_genes <- go_ipr_arms %>% dplyr::filter(QX1410 %in% HD_gene_vector) # 2,105
+how_many_HDR_GO_arm_genes <- go_ipr_arms %>% dplyr::filter(QX1410 %in% HD_gene_vector) # 2,113
 
 GO_annotations <- AnnotationDbi::select(GO.db,
                                         keys=unique(go_ipr$GO),
@@ -689,7 +689,7 @@ final_plot <- cowplot::plot_grid(
   label_fontface = "bold")
 final_plot
 
-# ggsave("../../figures/Figure4_IPR_GO_functional_enrichment_20251210.png", final_plot,  width = 7.5, height = 7, dpi = 600)
+ggsave("../../figures/Figure4_IPR_GO_functional_enrichment_20260508.png", final_plot,  width = 7.5, height = 7, dpi = 600)
 
 
 
