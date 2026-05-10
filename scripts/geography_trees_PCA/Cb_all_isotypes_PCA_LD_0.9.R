@@ -114,59 +114,24 @@ PC12AD<-pca_TAC_ld0.9_no_rm %>%
 nrow(PC12AD)
 #32 AD
 
-PC34KD<-pca_TAC_ld0.9_no_rm %>%
-  filter(PC3 > 0.07)
-nrow(PC34KD)
-#10
+PC34global<-pca_TAC_ld0.9_no_rm %>%
+  filter(PC3 > -0.05 & PC3 < 0.05) %>% 
+  filter(PC4 <0.02 & PC4 > -0.02)
+nrow(PC34global)
+# 628
 
-PC34TW<-pca_TAC_ld0.9_no_rm %>%
-  filter(PC3 < -0.05 & PC3 > -0.15) %>% 
-  filter(PC4 >0.06)
-nrow(PC34TW)
-#27
-
-PC34mix<-pca_TAC_ld0.9_no_rm %>%
-  filter(PC3 < -0.05) %>% 
-  filter(PC4 <0.06 & PC4 > -0.2)
-nrow(PC34mix)
-
-### add previous lineage 
-lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
-lineage<-lineage_raw %>% select(isotype,Lineage)
-PC34mix<-PC34mix %>% 
-  dplyr::left_join(lineage)
-
-PC34Indo<-pca_TAC_ld0.9_no_rm %>%
-  dplyr::filter(PC4 < -0.4)
-nrow(PC34Indo)
-
-
-########### info #######
-tracy_for_plot2 <- tracy_for_plot %>%
-  dplyr::arrange(N) %>% 
-  dplyr::mutate(cumVarExp = cumsum(VarExp)) 
-
+PC34non_global<-pca_TAC_ld0.9_no_rm %>% 
+  filter(!(isotype %in% PC34global$isotype))
 
 ####### Table S3 ####
 ### PCA differentiated isotype clusters. 
-PCA_differentiated<-rbind((PC12AD %>% mutate(Cluster = c("Australia")) ),
-                          (PC12KD%>% mutate(Cluster = c("India")) ),
-                          (PC34mix %>% select(-Lineage) %>% mutate(Cluster = c("Mixed")) ),
-                          (PC34TW %>% mutate(Cluster = c("Taiwan")) ),
-                          (PC34Indo %>% mutate(Cluster = c("Indonesia")) )
-) 
+PCA_differentiated<-rbind(PC12AD,PC12KD,PC34non_global) %>% 
+  unique() %>% 
+  dplyr::select(-PC5,-PC6,-lat,-long)
 
-#### output PCA table S3 table
-SD2<-pca_TAC_ld0.9_no_rm %>% 
-  dplyr::select(-PC5,-PC6,-lat,-long) %>% 
-  dplyr::left_join(PCA_differentiated %>% select(isotype,Cluster)) %>% 
-  dplyr::mutate(Cluster = ifelse(is.na(Cluster),"Global",Cluster))
-
-write.table(SD2,
+write.table(PCA_differentiated,
             "../../supplementary_data/SD2_PCA_data.tsv",
             sep = '\t',
             col.names = TRUE,
             row.names = FALSE,
             quote = FALSE)
-
-    

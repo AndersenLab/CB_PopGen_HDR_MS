@@ -55,5 +55,5 @@ final <- plot_grid(p_full, p_zoom, ncol = 2,
                    rel_widths = c(1, 1),
                    labels = c("a", "b"))
 
-ggsave("../../figures/SF14_concordance_histogram.pdf",final, width = 7, height = 3, units = "in")
+ggsave("../../figures/SF23_concordance_histogram.pdf",final, width = 7, height = 3, units = "in")
 

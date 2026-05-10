@@ -15,7 +15,7 @@ cd ../../processed_data/
 mkdir -p PCA_by_chrom
 cd PCA_by_chrom
 
-input_vcf="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
+input_vcf="../../data/VCF/WI.20260324.hard-filter.713_isotype.vcf.gz"
 
 CHROMS=(I II III IV V X)
 

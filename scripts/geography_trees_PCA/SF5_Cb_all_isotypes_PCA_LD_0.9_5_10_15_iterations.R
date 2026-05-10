@@ -15,7 +15,7 @@ source("../utilities.R")
 geo_info_raw<-read.csv("../../processed_data/geo_info/Cb_indep_isotype_info_geo.csv")
 geo_info<-geo_info_raw 
 
-lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>% 
+lineage_raw<-read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv") %>% 
   dplyr::filter(!(isotype %in% c("MY681", "ECA1146", "JU356", "ECA1503")))
 
 plot_PCA<-function(PCA_input, tracy_for_plot_input, x_axis, y_axis){
@@ -284,7 +284,7 @@ PC12_down_left<-iter_25_df %>%
   dplyr::summarise(n=n())
 
 PC12_down_right<-iter_25_df %>% 
-  dplyr::ilter(PC1>0.2) %>%
+  dplyr::filter(PC1>0.2) %>%
   dplyr::group_by(Lineage) %>% 
   dplyr::summarise(n=n())
 
@@ -311,7 +311,7 @@ PC12_down_left<-iter_30_df %>%
   dplyr::summarise(n=n())
 
 PC12_down_right<-iter_30_df %>% 
-  dplyr::ilter(PC1>0.2) %>%
+  dplyr::filter(PC1>0.2) %>%
   dplyr::group_by(Lineage) %>% 
   dplyr::summarise(n=n())
 
@@ -356,21 +356,30 @@ row3 <- cowplot::plot_grid(
   axis = "tb"
 )
 
+row4 <- cowplot::plot_grid(
+  iteration_35_results$p_iteration, 
+  iteration_40_results$p_iteration,
+  ncol = 2,
+  align = "h",
+  axis = "tb"
+)
+
 final_plot <- cowplot::plot_grid(
   row1,
   row2,
   row3,
+  row4,
   iteration_5_results$common_legend,
   ncol = 1,
   rel_heights = c(1, 1, 1, 
-                  # 1,
+                  1,
                   0.2),  
   align = "v",
   axis = "lr"
 )
 
 ggsave(
-  "../../figures/SF3_Cb_iteration_5_30_PCA.pdf",
+  "../../figures/SF5_Cb_iteration_5_30_PCA.pdf",
   plot = final_plot,
   width = 7,
   height = 7,
@@ -382,10 +391,11 @@ ggsave(
 ####################################
 
 iteration_25_results$n_of_isotype
-# 487
+# 460
 iteration_30_results$n_of_isotype
-# 484
+# 424
 iteration_35_results$n_of_isotype
-# 484
+# 411
 iteration_40_results$n_of_isotype
-# 484
+# 411
+

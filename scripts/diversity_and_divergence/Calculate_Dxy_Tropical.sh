@@ -19,11 +19,11 @@ VCF_DIR=../../processed_data/diversity_and_divergence/Dxy_Tropical/vcf
 POP_DIR=../../processed_data/diversity_and_divergence/Dxy_Tropical
 
 VCF_FILES=(
-    "WI.20250626.hard_filter.715_isotype_Tro_AD.vcf.gz"
-    "WI.20250626.hard_filter.715_isotype_Tro_KD.vcf.gz"
-    "WI.20250626.hard_filter.715_isotype_Tro_TD1.vcf.gz"
-    "WI.20250626.hard_filter.715_isotype_Tro_Temperate.vcf.gz"
-    "WI.20250626.hard_filter.715_isotype_Tro_TH.vcf.gz"
+    "WI.20260324.hard-filter.713_isotype_Tro_AD.vcf.gz"
+    "WI.20260324.hard-filter.713_isotype_Tro_KD.vcf.gz"
+    "WI.20260324.hard-filter.713_isotype_Tro_TD1.vcf.gz"
+    "WI.20260324.hard-filter.713_isotype_Tro_Temperate.vcf.gz"
+    "WI.20260324.hard-filter.713_isotype_Tro_TH.vcf.gz"
 )
 
 POP_FILES=(

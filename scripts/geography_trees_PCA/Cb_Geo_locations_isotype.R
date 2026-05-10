@@ -6,12 +6,12 @@ library(ggthemes)
 library(maps)
 library(ggpubr)
 library(RColorBrewer)
+library(readr)
 
 source("../utilities.R")
 
-raw_data<-read.csv("../../supplementary_data/SD1_Cb_2018_strains_data.csv")
+raw_data<-readr::read_tsv("../../data/master_sheet_cb/Cb_1972_strains_data.tsv")
 indep_isotype_info<- raw_data
-
 sample_list<- read.table("../../processed_data/Cb_pruned_VCF_and_PCA/sample_list.txt")
 nrow(sample_list)
 
@@ -46,7 +46,7 @@ sa_isotype <- as.character(df_sa_isotype$isotype)
 
 #5. Europe
 df_eu_isotype  <- indep_isotype_info %>%
-  dplyr::filter(long > -25  & long < 40 & lat > 37 & lat < 65) 
+  dplyr::filter(long > -25  & long < 60 & lat > 37 & lat < 65) 
 eu_isotype <- as.character(df_eu_isotype$isotype)
 
 #6. Africa
@@ -71,9 +71,7 @@ car_isotype <- as.character(df_car_isotype$isotype)
 
 #10 Asia
  df_as_isotype_tmp_1 <- indep_isotype_info %>%
-   dplyr::filter((long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331)|
-                   (long > 41.836264  & long < 49.263022 & lat > 38.266706 & lat < 41.634384) # Armenia
-   ) %>%
+   dplyr::filter(long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331) %>%
    dplyr::filter(!(long > 120  & long < 122 & lat > 21.7 & lat < 25.5))
  df_as_isotype_tmp_2<-indep_isotype_info %>%
    filter(isotype %in% c("VSL2216", "VSL2217", "VSL2219"))
@@ -154,14 +152,8 @@ indep_isotype_info_geo <- indep_isotype_info %>%
 indep_isotype_info_geo$lat<-as.numeric(indep_isotype_info_geo$lat)
 indep_isotype_info_geo$long<-as.numeric(indep_isotype_info_geo$long)
 
-indep_isotype_info_geo_output_tmp<-indep_isotype_info_geo %>% 
+indep_isotype_info_geo_output<-indep_isotype_info_geo %>% 
   dplyr::select(isotype,lat,long,geo)
-
-### add Cosmopolitan group
-Cosmopolitan_isotypes<-read.table("../../processed_data/Geo_info/Cb_Cosmopolitan_isotype.txt")
-
-indep_isotype_info_geo_output<-indep_isotype_info_geo_output_tmp %>% 
-  dplyr::mutate(geo = ifelse(isotype %in% Cosmopolitan_isotypes$V1,"Cosmopolitan", geo))
 
 write.csv(indep_isotype_info_geo_output,file="../../processed_data/Geo_info/Cb_indep_isotype_info_geo.csv", row.names = FALSE, quote = FALSE)
 unique(indep_isotype_info_geo_output$geo)

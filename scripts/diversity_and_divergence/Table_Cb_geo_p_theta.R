@@ -30,7 +30,6 @@ return(output)
 
 }
 
-Cb_cosmopolitan_isotype_removed_theta<-calculate_diversity("Cb_non_cosmopolitan","theta")
 Africa_theta<-calculate_diversity("Africa","theta")
 Asia_theta<-calculate_diversity("Asia","theta")
 Australia_theta<-calculate_diversity("Australia","theta")
@@ -47,7 +46,6 @@ Ce_Hawaii_theta<-calculate_diversity(diversity_type="theta",custom_path = "../..
 Cb_Thomas_theta<-calculate_diversity(diversity_type="theta",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Thomas_pi_theta_d/chromosome_windows_diversity.csv")
 
 
-Cb_cosmopolitan_isotype_removed_pi<-calculate_diversity("Cb_non_cosmopolitan","pi")
 Africa_pi<-calculate_diversity("Africa","pi")
 Asia_pi<-calculate_diversity("Asia","pi")
 Australia_pi<-calculate_diversity("Australia","pi")
@@ -64,7 +62,6 @@ Ce_Hawaii_pi<-calculate_diversity(diversity_type="pi",custom_path = "../../proce
 Cb_Thomas_pi<-calculate_diversity(diversity_type="pi",custom_path = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Thomas_pi_theta_d/chromosome_windows_diversity.csv")
 
 
-Cb_cosmopolitan_isotype_removed_d<-calculate_diversity("Cb_non_cosmopolitan","d")
 Africa_d<-calculate_diversity("Africa","d")
 Asia_d<-calculate_diversity("Asia","d")
 Australia_d<-calculate_diversity("Australia","d")
@@ -105,15 +102,13 @@ species_d<-mean(species_d$stat)
 
 table_geo_p_theta_d <- data.frame(
   region = rep(c("All",
-                 "Non-cosmopolitan",
                  "Asia", "Australia", "Caribbean", "Central_America", 
                  "Hawaii", 
                  "Pacific","South_America", "Taiwan",
                  "C. elegans - All", "C. elegans - Hawaii",
                  "C. briggsae - Thomas"), each = 3),
-  stat = rep(c("theta", "pi","d"), times = 13),
+  stat = rep(c("theta", "pi","d"), times = 12),
   values = c(species_theta, species_pi, species_d, 
-             Cb_cosmopolitan_isotype_removed_theta,Cb_cosmopolitan_isotype_removed_pi, Cb_cosmopolitan_isotype_removed_d,
              Asia_theta, Asia_pi, Asia_d,
              Australia_theta, Australia_pi, Australia_d, 
              Caribbean_theta, Caribbean_pi, Caribbean_d,
@@ -150,15 +145,13 @@ geo_freq_col<-geo_freq %>%
 
 geo_freq_col<-geo_freq_col %>% 
   dplyr::filter(!(geo %in% "unknown"))
-geo_freq_col<-rbind(geo_freq_col, c("Non-cosmopolitan", 715-(geo_freq_col %>%
-                                      dplyr::filter(geo == "Cosmopolitan") %>% 
-                                      dplyr::pull(frequency)))) 
-geo_freq_col<-rbind(geo_freq_col, c("All", 715)) 
+
+geo_freq_col<-rbind(geo_freq_col, c("All", 713)) 
 
 
 geo_freq_col$geo <- factor(geo_freq_col$geo, 
                            levels = c("All",
-                                      "Non-cosmopolitan","Africa", 
+                                      "Africa", 
                                       "Asia", "Australia", "Caribbean", "Central_America", 
                                       "Europe", "Hawaii", "North_America",
                                       "Pacific","South_America", "Taiwan"))

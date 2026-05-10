@@ -11,7 +11,7 @@ combined <- ggpubr::ggarrange(ggpubr::ggarrange(isotype_map,
                                                 ncol = 1, 
                                                 heights = c(0.5, 0.5)))
 
-ggsave("../../figures/EDF1_isotype_map_geo_distance.pdf",
+ggsave("../../figures/SF1_isotype_map_geo_distance.pdf",
        plot = combined, 
        width = 7, height = 2.00995387*2, 
        units = "in", device = 'pdf')

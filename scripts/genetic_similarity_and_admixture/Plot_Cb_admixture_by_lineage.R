@@ -37,7 +37,8 @@ isotype_geo_info_ordered <- isotype_geo_info %>%
 # get list of isotype names 
 sample_names <- isotype_geo_info_ordered$isotype
 
-isotype_by_lineage_from_Nic_raw<-read.table("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv",
+# isotype_by_lineage_from_Nic_raw<-read.table("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv",
+isotype_by_lineage_from_Nic_raw<-read.table("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv",
                                             header = TRUE,
                                             sep = '\t',
                                             comment.char  = "")
@@ -285,7 +286,6 @@ second_row <- plot_grid(
   stacked_bar_rep_strains, 
   p_heatmap_rep_strains,
   ncol         = 3,
-  # align        = "v",
   rel_widths   = c(1, 1, 2),  
   labels      = c("b","c","d")
 )
@@ -298,8 +298,8 @@ final_plot <- plot_grid(
   labels      = c("a","")
 )
 
-if (which_replicate == 5) {
-ggsave(paste0("../../figures/raw_SF6_all_715_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
+if (which_replicate == 4) {
+ggsave(paste0("../../figures/raw_SF10_all_713_isotypes_by_lineage_replicate",which_replicate,".pdf"), 
        final_plot, 
        width = 10, 
        height = 8, 
@@ -437,6 +437,7 @@ final_plots[[ paste0("replicate_", which_replicate) ]] <- final_plot
 
 combined_only_5_lineage <- plot_grid(plotlist = final_plots, ncol = 2, align = "v")
 
-ggsave("../../figures/SF7_admixture_only_5_lineage.pdf", 
+ggsave("../../figures/SF11_admixture_only_5_lineage.pdf", 
        combined_only_5_lineage, 
        width = 10, height = 7)
+

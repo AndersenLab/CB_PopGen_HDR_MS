@@ -9,7 +9,7 @@
 
 
 source activate CT_PopGen
-raw_VCF="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
+raw_VCF="../../data/VCF/WI.20260324.hard-filter.713_isotype.vcf.gz"
 
 cd ../../processed_data/
 mkdir -p Cb_pruned_VCF_and_PCA

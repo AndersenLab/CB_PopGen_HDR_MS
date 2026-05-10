@@ -21,8 +21,6 @@ sub_region_df <- sub_region_raw %>%
 
 region_paths <- list(
   All = "../../processed_data/diversity_and_divergence/pi_theta_d",
-  cosmopolitan = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Cosmopolitan/",
-  `Non-cosmopolitan` = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Cb_non_cosmopolitan",
   Asia = "../../processed_datadiversity_and_divergence//pi_theta_d_geo/Asia",
   Australia = "../../processed_data/diversity_and_divergence/pi_theta_d_geo/Australia",
   `Australia AD` = "../../processed_data/diversity_and_divergence/pi_theta_d_rg/Australia_lineage/AD",
@@ -220,7 +218,7 @@ merged_wide_table<-rbind(wide_pi_results,
 
 
 geo_merged_wide_table<-merged_wide_table %>% 
-  dplyr::filter(Region %in% c("All","cosmopolitan","Non-cosmopolitan",
+  dplyr::filter(Region %in% c("All",
                        "Asia","Australia","Caribbean",
                        "Central America","Hawaii","Pacific",
                        "South America","Taiwan")) %>% 

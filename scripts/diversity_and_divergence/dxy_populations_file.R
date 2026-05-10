@@ -4,7 +4,7 @@ rm(list=ls())
 library(readr)
 library(dplyr)
 
-lineage<- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv") %>% 
+lineage<- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv") %>% 
   dplyr::select(isotype,Lineage)
 
 Tropical_AD<-lineage %>% 
