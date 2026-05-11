@@ -15,7 +15,7 @@ mkdir -p pi_theta_d
 cd pi_theta_d
 
 out_dir="../../processed_data/pi_theta_d"
-raw_VCF="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
+raw_VCF="../../data/VCF/WI.20260324.hard-filter.713_isotype.vcf.gz"
 
 mkdir -p $out_dir/vcf
 mkdir -p $out_dir/zarr
@@ -24,7 +24,7 @@ vcf_name=$(basename $raw_VCF)
 ln -s $raw_VCF $out_dir/vcf/$vcf_name
 
 bcftools index $out_dir/vcf/$vcf_name
-vcf_input="../../processed_data/pi_theta_d/vcf/WI.20250626.hard_filter.715_isotype.vcf.gz"
+vcf_input="../../processed_data/pi_theta_d/vcf/WI.20260324.hard-filter.713_isotype.vcf.gz"
 
 source activate vcf_zarr
 

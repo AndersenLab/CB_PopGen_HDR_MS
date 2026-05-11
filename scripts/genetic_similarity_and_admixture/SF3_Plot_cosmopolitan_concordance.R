@@ -71,8 +71,8 @@ geo_info_raw<-read.csv("../../processed_data/Geo_info/Cb_indep_strain_info_geo.c
 geo_info<-geo_info_raw %>%
   dplyr::filter(strain %in% rownames(gt_matrix_plot)) %>% 
   tibble::column_to_rownames(var = "strain") %>% 
-  dplyr::select(geo) %>% 
-  dplyr::rename(Geo=geo)
+  dplyr::select(strain_geo) %>% 
+  dplyr::rename(Geo=strain_geo)
 geo_info$Geo<-as.factor(geo_info$Geo)
 
 filter_geo.colours <- geo.colours[names(geo.colours) %in% unique(geo_info$Geo)]
@@ -173,7 +173,7 @@ tmp_gt_matrix_long <- gt_matrix_plot_target %>%
   dplyr::filter(Value != 1)
 
 ############ geo annotation #########
-strain_anno_raw<-read.csv("../../processed_data/Geo_info/indep_info_geo_for_each_strain.csv")
+strain_anno_raw<-read.csv("../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv")
 
 ## region annotaion
 strain_anno<-strain_anno_raw %>% 
@@ -316,7 +316,7 @@ max_concordance_target  <- max(gt_matrix_plot_target [gt_matrix_plot_target  != 
 
 
 ############ geo annotation #########
-strain_anno_raw<-read.csv("../../processed_data/Geo_info/indep_info_geo_for_each_strain.csv")
+strain_anno_raw<-read.csv("../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv")
 
 ## region annotaion
 strain_anno<-strain_anno_raw %>% 
@@ -397,7 +397,7 @@ cc_iso <- gtcheck_strain %>%
 
 p_heatmap <- Heatmap(
   matrix               = gt_matrix_plot_target,
-  name                 = "Concordance",
+  name                 = "Genetic similarity",
   col                  = colorRamp2(
     c(min_concordance_target,
       0.9999,
@@ -419,16 +419,14 @@ p_heatmap <- Heatmap(
   column_names_gp      = gpar(fontsize = 1.5),
   column_names_side    = "top",
   column_names_max_height = unit(0.15, "cm"),
-  
-  
-  column_title         = paste0(target_isotype," strains with the closet"),
+  column_title         = paste0(" "),
   column_title_gp      = gpar(fontsize = 8, fontface = "bold"),
   column_title_rot     = 0
   
 )
 
 dev.off()
-pdf(paste0("../../figures/raw_EDF2_Cb_",target_isotype,"_concordance_heatmap_with_the_closest.pdf"), width = 7, height = 6)
+pdf(paste0("../../figures/raw_SF3_Cb_",target_isotype,"_heatmap_with_the_closest.pdf"), width = 7, height = 6)
 
 
 draw(p_heatmap, merge_legend = TRUE, heatmap_legend_side = "right",

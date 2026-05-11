@@ -7,6 +7,28 @@ library(dplyr)
 
 source("../utilities.R")
 
+
+q_dir <- "../../processed_data/genetic_similarity_and_admixutre/Q_files"
+
+q_files <- list.files(q_dir, pattern = "\\.Q$")
+
+q_file_table <- tibble(file = q_files) %>%
+  tidyr::extract(
+    col = file,
+    into = c("prefix", "K", "seed"),
+    regex = "^(.*)_([0-9]+)_([0-9]+)\\.Q$",
+    remove = FALSE
+  ) %>%
+  dplyr::mutate(
+    K = as.numeric(K),
+    seed = as.numeric(seed)
+  ) %>%
+  dplyr::group_by(K) %>%
+  dplyr::arrange(file, .by_group = TRUE) %>%
+  dplyr::mutate(replicate = dplyr::row_number()) %>%
+  dplyr::ungroup()
+
+
 ancestry.colours <- setNames(
   c("#4b0200","#da000f", "#ff6d93", "#d45700",
     "#563900", "#ffe5ca", "#ffb914", "#ffda90", "#77c000",
@@ -149,14 +171,18 @@ final_admixture_plots <- cowplot::plot_grid(
   rel_heights = c(4, 0.3)
 )
 
-if (which_replicate == 5) {
+if (which_replicate == 4) {
   ggsave(
     plot = final_admixture_plots,
-    filename = paste0("../../figures/SF5_admixture_replicate_", which_replicate, ".pdf"),
+    filename = paste0("../../figures/SF9_admixture_replicate_", which_replicate, ".pdf"),
     height = 7,
     width = 7,
     useDingbats = FALSE
   )
   }
 }
+
+
+
+
 

@@ -23,13 +23,13 @@ Tropical_TD1_list="../../processed_data/Dxy_Tropical/Tropical_TD1.txt"
 Tropical_Temperate_list="../../processed_data/Dxy_Tropical/Tropical_Temperate.txt"
 Tropical_TH_list="../../processed_data/Dxy_Tropical/Tropical_TH.txt"
 
-vcf_raw="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
+vcf_raw="../../data/VCF/WI.20260324.hard-filter.713_isotype.vcf.gz"
 
-vcf_Tro_AD="./vcf/WI.20250626.hard_filter.715_isotype_Tro_AD.vcf.gz"
-vcf_Tro_KD="./vcf/WI.20250626.hard_filter.715_isotype_Tro_KD.vcf.gz"
-vcf_Tro_TD1="./vcf/WI.20250626.hard_filter.715_isotype_Tro_TD1.vcf.gz"
-vcf_Tro_Temperate="./vcf/WI.20250626.hard_filter.715_isotype_Tro_Temperate.vcf.gz"
-vcf_Tro_TH="./vcf/WI.20250626.hard_filter.715_isotype_Tro_TH.vcf.gz"
+vcf_Tro_AD="./vcf/WI.20260324.hard-filter.713_isotype_Tro_AD.vcf.gz"
+vcf_Tro_KD="./vcf/WI.20260324.hard-filter.713_isotype_Tro_KD.vcf.gz"
+vcf_Tro_TD1="./vcf/WI.20260324.hard-filter.713_isotype_Tro_TD1.vcf.gz"
+vcf_Tro_Temperate="./vcf/WI.20260324.hard-filter.713_isotype_Tro_Temperate.vcf.gz"
+vcf_Tro_TH="./vcf/WI.20260324.hard-filter.713_isotype_Tro_TH.vcf.gz"
 
 
 bcftools view -S <(tail -n +1 "${Tropical_AD_list}" | cut -f1) ${vcf_raw} \

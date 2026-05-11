@@ -10,7 +10,12 @@ library(RColorBrewer)
 
 source("../utilities.R")
 raw_data<-readr::read_tsv("../../data/master_sheet_cb/Cb_1976_strains_data.tsv")
-indep_strain_info<- raw_data
+mixed_strains<-c("MY681","ECA1146","JU356","ECA1503")
+raw_data_1972<-raw_data %>% 
+  filter(!(strain %in% mixed_strains))
+readr::write_tsv(raw_data_1972,
+                 "../../data/master_sheet_cb/Cb_1972_strains_data.tsv")
+indep_strain_info<- raw_data_1972
 indep_strain_info$lat<-as.numeric(indep_strain_info$latitude)
 indep_strain_info$long<-as.numeric(indep_strain_info$longitude)
 
@@ -36,7 +41,7 @@ sa_strain <- as.character(df_sa_strain$strain)
 
 #5. Europe
 df_eu_strain  <- indep_strain_info %>%
-  dplyr::filter(long > -25  & long < 40 & lat > 37 & lat < 65) 
+  dplyr::filter(long > -25  & long < 60 & lat > 37 & lat < 65) 
 eu_strain <- as.character(df_eu_strain$strain)
 
 #6. Africa
@@ -61,10 +66,7 @@ car_strain <- as.character(df_car_strain$strain)
  
 #10 Asia
 df_as_strain_tmp_1 <- indep_strain_info %>%
-   dplyr::filter((long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331)|
-                   (long > 41.836264  & long < 49.263022 & lat > 38.266706 & lat < 41.634384) # Armenia
-                 
-   ) %>%
+   dplyr::filter(long > 61.925175  & long < 155.089237 & lat > 2.977990 & lat < 53.639331) %>%
    dplyr::filter(!(long > 120  & long < 122 & lat > 21.7 & lat < 25.5))
 df_as_strain_tmp_2<-indep_strain_info %>%
    filter(strain %in% c("VSL2216", "VSL2217", "VSL2219"))
@@ -158,15 +160,8 @@ indep_strain_info_geo_output_tmp<-indep_strain_info_geo %>%
 ### export strains geo info for each strain ##
 indep_info_geo_for_each_strain<-indep_strain_info_geo_output_tmp %>% 
   dplyr::rename(strain_geo=geo)
-#write.csv(indep_info_geo_for_each_strain,file="../../processed_data/Geo_info/indep_info_geo_for_each_strain.csv", row.names = FALSE, quote = FALSE)
-
-### add Cosmopolitan group
-# Cosmopolitan_isotypes<-read.table("../../processed_data/Geo_info/Cb_Cosmopolitan_isotype.txt")
-# indep_strain_info_geo_output<-indep_strain_info_geo_output_tmp %>% 
-#   mutate(geo = ifelse(isotype %in% Cosmopolitan_isotypes$V1,"Cosmopolitan", geo))
 
 write.csv(indep_info_geo_for_each_strain,file="../../processed_data/Geo_info/Cb_indep_strain_info_geo.csv", row.names = FALSE, quote = FALSE) #@Bowen, modified up to here.
-unique(indep_strain_info_geo_output$geo)
 
 ## Geographic distribution of all strains 
 world <- map_data('world')
@@ -182,8 +177,8 @@ plot_world <-ggplot2::ggplot()+ geom_map(data=world, map=world,
   theme_void()+
   labs(color = NULL)+
   theme(legend.position = "none")+
-  theme(axis.text = element_blank(),    # Conceal Tick Marks
-        axis.title = element_blank(),   # Conceal Tick Marks
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
         legend.text = element_text(size = 5))+
   theme(legend.key.size = unit(0.4, "cm"))
 
@@ -219,7 +214,6 @@ plot_freq<- plot_freq +
  geom_text(aes(x = 1.65, label = strain_geo),
            color = "black",
                       position = position_stack(vjust = 0.5),
-                       #angle = 45,
                        hjust = 0.5, vjust = 0.5,
                       size = 3)
 

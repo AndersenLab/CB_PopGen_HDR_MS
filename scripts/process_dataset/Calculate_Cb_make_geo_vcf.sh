@@ -6,19 +6,19 @@
 #SBATCH -n 1
 #SBATCH --output=Calculate_Cb_make_geo_vcf.%A_%a.oe
 #SBATCH --job-name="CbGeoVCF"
-#SBATCH --array=0-11
+#SBATCH --array=0-10
 
 
 source activate CT_PopGen
 
-Cb_VCF_raw="../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz"
+Cb_VCF_raw="../../data/VCF/WI.20260324.hard-filter.713_isotype.vcf.gz"
 geo_info="../../processed_data/Geo_info/Cb_indep_isotype_info_geo.csv"
 
 output_dir="../../processed_data/geo_vcf"
 mkdir -p "$output_dir"
 cd "$output_dir"
 
-categories=("Africa" "Asia" "Taiwan" "Hawaii" "Pacific" "Caribbean" "Cosmopolitan" "North America" "South America" "Central America" "Australia" "Europe")
+categories=("Africa" "Asia" "Taiwan" "Hawaii" "Pacific" "Caribbean" "North America" "South America" "Central America" "Australia" "Europe")
 category="${categories[$SLURM_ARRAY_TASK_ID]}"
 
 echo "[$(date +"%F %T")] Processing category: $category"

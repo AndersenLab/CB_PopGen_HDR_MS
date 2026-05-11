@@ -8,7 +8,7 @@ library(cowplot)
 
 source("../utilities.R")
 
-lineage<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
+lineage<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv")
 
 # Define all lineages and corresponding base directories
 lineage_info <- list(
@@ -23,13 +23,13 @@ lineage_info <- list(
 
 # Display name mapping
 lineage_display_names <- names(lineage_info)
-lineage_display_names[lineage_display_names == "./"] <- "All (715)"
+lineage_display_names[lineage_display_names == "./"] <- "All (713)"
 lineage_display_names[lineage_display_names == "AD"] <- "AD (32)"
 lineage_display_names[lineage_display_names == "KD"] <- "KD (10)"
 lineage_display_names[lineage_display_names == "TD1"] <- "TD1 (27)"
-lineage_display_names[lineage_display_names == "Temperate"] <- "Temperate (29)"
+lineage_display_names[lineage_display_names == "Temperate"] <- "Temperate (28)"
 lineage_display_names[lineage_display_names == "TH"] <- "TH (95)"
-lineage_display_names[lineage_display_names == "Tropical"] <- "Tropical (502)"
+lineage_display_names[lineage_display_names == "Tropical"] <- "Tropical (501)"
 
 names(lineage_display_names) <- names(lineage_info)
 
@@ -105,7 +105,7 @@ pi_plot <- ggplot(
   )
 
 # Save
-ggsave("../../figures/SF12_all_lineage_pi_same_scale.pdf", pi_plot, width = 7, height = 7)
+ggsave("../../figures/SF19_all_lineage_pi_same_scale.pdf", pi_plot, width = 7, height = 7)
 
 
 ###### theta ##########
@@ -159,5 +159,5 @@ theta_plot <- ggplot(
   )
 
 # Save
-ggsave("../../figures/SF13_all_lineage_theta_same_scale.pdf", theta_plot, width = 7, height = 7)
+ggsave("../../figures/SF20_all_lineage_theta_same_scale.pdf", theta_plot, width = 7, height = 7)
 

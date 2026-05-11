@@ -21,7 +21,8 @@ source("../utilities.R")
 isotype_map_0.9_raw<-treeio::read.tree("../../processed_data/LD_pruned_trees/LD_0.9/phy_file_LD_0.9.phy.contree")
 isotype_map_0.9<-phytools::midpoint_root(isotype_map_0.9_raw)
 annotation_maps_raw<- read.csv("../../processed_data/geo_info/Cb_indep_isotype_info_geo.csv", header = TRUE)
-raw_data<-read.csv("../../supplementary_data/SD1_Cb_2018_strains_data.csv")
+raw_data<-readr::read_tsv("../../data/master_sheet_cb/Cb_1972_strains_data.tsv")
+# raw_data<-read.csv("../../supplementary_data/SD1_Cb_2018_strains_data.csv")
 
 indep_isotype_info<- raw_data
 sample_list<- read.table("../../processed_data/Cb_pruned_VCF_and_PCA/sample_list.txt")
@@ -128,7 +129,7 @@ annotation_maps<-annotation_maps_raw %>%
   dplyr::left_join(gene_segments_trees_annotation, by = "isotype")
 
 ### color of Relatedness groups
-lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20250909.tsv")
+lineage_raw<-readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv")
 lineage_df<-lineage_raw %>% 
   dplyr::select(isotype,Lineage,lineage_color) %>% 
   dplyr::filter(!(isotype %in% c("MY681", "ECA1146", "JU356", "ECA1503")))
@@ -317,7 +318,7 @@ plot_0.9_tree_2heatmap_supp<-plot_tree_three_heatmap(isotype_map_0.9,
                                                annotation_Thomas_file = thomas_paper_tree_annotation,
                                                annotation_MAF_file = gene_segments_trees_annotation,
 )
-ggsave("../../figures/raw_EDF3_Cb_tree.pdf",
+ggsave("../../figures/raw_FigureS7_Cb_tree.pdf",
        plot = plot_0.9_tree_2heatmap_supp,
        width = 7, height = 7, units = "in")
 

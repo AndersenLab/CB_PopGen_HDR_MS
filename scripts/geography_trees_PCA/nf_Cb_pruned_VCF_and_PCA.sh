@@ -14,11 +14,11 @@ cd Cb_pruned_VCF_and_PCA
 
 nextflow run -latest andersenlab/post-gatk-nf/main.nf \
 -r delly --pca true \
---pca_vcf ../../data/VCF/WI.20250626.hard_filter.715_isotype.vcf.gz \
+--pca_vcf ../../data/VCF/WI.20260324.hard-filter.713_isotype.vcf.gz \
 --pops ../../processed_data/Cb_pruned_VCF_and_PCA/sample_list.txt \
 --species c_briggsae \
 --vcf_folder ../../data/VCF \
---eigen_ld 0.9,0.8,0.7,0.6 \
+--eigen_ld 0.9 \
 --postgatk false \
 --singletons false \
 --delly false \
