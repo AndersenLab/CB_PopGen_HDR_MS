@@ -1,0 +1,168 @@
+IQ-TREE 3.0.1 built Jul  9 2025
+
+Input file name: /vast/eande106/projects/Nicolas/github/CB_PopGen_HDR_MS/processed_data/tree_topology/mast/mast_all/occ80_JU3237_quartet_04_supermatrix.clean.fas
+User tree file name: /vast/eande106/projects/Nicolas/github/CB_PopGen_HDR_MS/processed_data/tree_topology/mast/quartet_topologies/quartet_04_JU1418_JU3237_topologies.tre
+Type of analysis: tree reconstruction
+Random seed number: 204614
+
+REFERENCES
+----------
+
+To cite IQ-TREE 3 please use:
+
+Thomas K.F. Wong, Nhan Ly-Trong, Huaiyan Ren, Hector Banos, Andrew J. Roger,
+Edward Susko, Chris Bielow, Nicola De Maio, Nick Goldman, Matthew W. Hahn,
+Gavin Huttley, Robert Lanfear, Bui Quang Minh (2025)
+IQ-TREE 3: Phylogenomic Inference Software using Complex Evolutionary Models.
+Submitted.
+
+Please also cite the following paper(s) for the feature(s) that you used:
+
+To cite the MAST model "+T" please use: 
+
+Thomas KF Wong, Caitlin Cherryh, Allen G Rodrigo, Matthew W Hahn, Bui Quang Minh, Robert Lanfear (2024)
+MAST: Phylogenetic Inference with Mixtures Across Sites and Trees.
+Systematic Biology, 73:375–391.
+https://doi.org/10.1093/sysbio/syae008
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 4 sequences with 2771852 amino-acid sites
+Number of constant sites: 2.3213e+06 (= 83.7453% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 2.3213e+06 (= 83.7453% of all sites)
+Number of parsimony informative sites: 21527
+Number of distinct site patterns: 12472
+
+SUBSTITUTION PROCESS
+--------------------
+
+Tree 1's Model of substitution: LG+FO+G4
+
+State frequencies: (estimated with maximum likelihood)
+
+  pi(A) = 0.0692
+  pi(R) = 0.0464
+  pi(N) = 0.0483
+  pi(D) = 0.0567
+  pi(C) = 0.0082
+  pi(Q) = 0.0410
+  pi(E) = 0.0708
+  pi(G) = 0.0578
+  pi(H) = 0.0236
+  pi(I) = 0.0608
+  pi(L) = 0.0861
+  pi(K) = 0.0629
+  pi(M) = 0.0236
+  pi(F) = 0.0454
+  pi(P) = 0.0541
+  pi(S) = 0.0820
+  pi(T) = 0.0617
+  pi(W) = 0.0059
+  pi(Y) = 0.0292
+  pi(V) = 0.0665
+
+Tree 2's Model of substitution: LG+FO+G4
+
+State frequencies: (estimated with maximum likelihood)
+
+  pi(A) = 0.0025
+  pi(R) = 0.1364
+  pi(N) = 0.0082
+  pi(D) = 0.0017
+  pi(C) = 0.3116
+  pi(Q) = 0.0221
+  pi(E) = 0.0007
+  pi(G) = 0.0080
+  pi(H) = 0.0131
+  pi(I) = 0.0090
+  pi(L) = 0.0647
+  pi(K) = 0.0287
+  pi(M) = 0.1580
+  pi(F) = 0.0441
+  pi(P) = 0.0001
+  pi(S) = 0.0129
+  pi(T) = 0.0007
+  pi(W) = 0.1086
+  pi(Y) = 0.0613
+  pi(V) = 0.0076
+
+Tree 3's Model of substitution: LG+FO+G4
+
+State frequencies: (estimated with maximum likelihood)
+
+  pi(A) = 0.0008
+  pi(R) = 0.2000
+  pi(N) = 0.0065
+  pi(D) = 0.0024
+  pi(C) = 0.2853
+  pi(Q) = 0.0283
+  pi(E) = 0.0009
+  pi(G) = 0.0121
+  pi(H) = 0.0171
+  pi(I) = 0.0086
+  pi(L) = 0.0658
+  pi(K) = 0.0230
+  pi(M) = 0.0931
+  pi(F) = 0.0364
+  pi(P) = 0.0001
+  pi(S) = 0.0154
+  pi(T) = 0.0006
+  pi(W) = 0.1309
+  pi(Y) = 0.0662
+  pi(V) = 0.0063
+
+Tree weights: 0.9556, 0.0003, 0.0442
+
+Tree 1's Model of rate heterogeneity: Gamma with 4 categories
+Gamma shape alpha: 0.2874
+
+ Category  Relative_rate  Proportion
+  1         0.0043         0.2500
+  2         0.0947         0.2500
+  3         0.5740         0.2500
+  4         3.3269         0.2500
+Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
+
+Tree 2's Model of rate heterogeneity: Gamma with 4 categories
+Gamma shape alpha: 0.0400
+
+ Category  Relative_rate  Proportion
+  1         0.0000         0.2500
+  2         0.0000         0.2500
+  3         0.0013         0.2500
+  4         3.9987         0.2500
+Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
+
+Tree 3's Model of rate heterogeneity: Gamma with 4 categories
+Gamma shape alpha: 0.0400
+
+ Category  Relative_rate  Proportion
+  1         0.0000         0.2500
+  2         0.0000         0.2500
+  3         0.0013         0.2500
+  4         3.9987         0.2500
+Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
+
+USER TREE
+---------
+
+Log-likelihood of the tree: -10708303.1103 (s.e. 3256.4831)
+Unconstrained log-likelihood (without tree): -11852442.8528
+Number of free parameters (#branches + #model parameters): 77
+Akaike information criterion (AIC) score: 21416760.2206
+Corrected Akaike information criterion (AICc) score: 21416760.2250
+Bayesian information criterion (BIC) score: 21417748.5176
+
+Total tree lengths (sum of branch lengths): 0.2684 0.0043 0.0133
+Sum of internal branch lengths: 0.0170 (6.3303% of tree length) 0.0042 (99.0850% of tree length) 0.0005 (3.7210% of tree length)
+
+Trees with branch lengths are provided in the file: mast_all_occ80_JU3237_quartet_04.submodel1.treefile
+
+TIME STAMP
+----------
+
+Date and time: Wed Jul  8 23:37:57 2026
+Total CPU time used: 2.773e+04 seconds (7h:42m:5s)
+Total wall-clock time used: 1020 seconds (0h:17m:0s)
+

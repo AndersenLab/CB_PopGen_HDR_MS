@@ -1,0 +1,233 @@
+IQ-TREE version 3.0.1 for Linux x86 64-bit built Jul  9 2025
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
+
+Host:    c570 (AVX512, FMA3, 188 GB RAM)
+Command: iqtree3 -s /vast/eande106/projects/Nicolas/github/CB_PopGen_HDR_MS/processed_data/tree_topology/mast/mast_all/occ80_JU3237_quartet_13_supermatrix.clean.fas -m LG+FO+G+T -te /vast/eande106/projects/Nicolas/github/CB_PopGen_HDR_MS/processed_data/tree_topology/mast/quartet_topologies/quartet_13_VX151_JU3237_topologies.tre --prefix mast_all_occ80_JU3237_quartet_13.submodel6 -T 48
+Seed:    358030 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Jul  8 23:37:32 2026
+Kernel:  AVX+FMA - 48 threads (48 CPU cores detected)
+
+Reading alignment file /vast/eande106/projects/Nicolas/github/CB_PopGen_HDR_MS/processed_data/tree_topology/mast/mast_all/occ80_JU3237_quartet_13_supermatrix.clean.fas ... Fasta format detected
+Reading fasta file: done in 0.221748 secs using 48.75% CPU
+Alignment most likely contains protein sequences
+Constructing alignment: done in 3.04405 secs using 12.46% CPU
+WARNING: 1 sites contain only gaps or ambiguous characters.
+Alignment has 4 sequences with 2768953 columns, 12654 distinct patterns
+21390 parsimony-informative, 429398 singleton sites, 2318165 constant sites
+        Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 0.000215621 secs using 2.165e+04% CPU
+   1  PX506     4.85%    failed      0.00%
+   2  JU3237    2.11%    passed     79.77%
+   3  VX151     2.86%    passed      6.11%
+   4  QX1410    2.06%    passed     96.57%
+****  TOTAL     2.97%  1 sequences failed composition chi2 test (p-value<5%; df=19)
+Number of input trees: 3
+Minimum branch length is set to 0.0000010
+Checking for duplicate sequences: done in 0.000323548 secs using 31.53% CPU
+
+NOTE: 94 MB RAM (0 GB) is required!
+According to the parsimony scores along the sites, the tree weights are initialized to:
+0.9676952,0.0131837,0.0191211
+Estimate model parameters (epsilon = 0.00100)
+1. Initial log-likelihood: -10717128.36287
+2. Current log-likelihood: -10707833.38454
+3. Current log-likelihood: -10705970.55042
+4. Current log-likelihood: -10705823.43634
+5. Current log-likelihood: -10705796.04909
+6. Current log-likelihood: -10705774.29975
+7. Current log-likelihood: -10705752.92006
+8. Current log-likelihood: -10705732.03055
+9. Current log-likelihood: -10705711.74236
+10. Current log-likelihood: -10705692.16119
+11. Current log-likelihood: -10705673.35802
+12. Current log-likelihood: -10705655.44847
+13. Current log-likelihood: -10705638.47799
+14. Current log-likelihood: -10705622.47081
+15. Current log-likelihood: -10705607.49765
+16. Current log-likelihood: -10705593.52041
+17. Current log-likelihood: -10705580.57878
+18. Current log-likelihood: -10705568.60120
+19. Current log-likelihood: -10705557.60524
+20. Current log-likelihood: -10705547.52353
+21. Current log-likelihood: -10705538.42295
+22. Current log-likelihood: -10705530.16614
+23. Current log-likelihood: -10705522.71574
+24. Current log-likelihood: -10705515.95946
+25. Current log-likelihood: -10705509.85921
+26. Current log-likelihood: -10705504.31563
+27. Current log-likelihood: -10705499.29295
+28. Current log-likelihood: -10705494.70769
+29. Current log-likelihood: -10705490.53085
+30. Current log-likelihood: -10705486.70352
+31. Current log-likelihood: -10705483.14988
+32. Current log-likelihood: -10705479.54573
+33. Current log-likelihood: -10705475.98203
+34. Current log-likelihood: -10705472.48552
+35. Current log-likelihood: -10705469.05309
+36. Current log-likelihood: -10705465.48810
+37. Current log-likelihood: -10705462.18810
+38. Current log-likelihood: -10705458.95274
+39. Current log-likelihood: -10705455.77970
+40. Current log-likelihood: -10705452.67415
+41. Current log-likelihood: -10705449.63051
+42. Current log-likelihood: -10705446.64516
+43. Current log-likelihood: -10705443.72518
+44. Current log-likelihood: -10705440.86116
+45. Current log-likelihood: -10705438.05593
+46. Current log-likelihood: -10705435.30751
+47. Current log-likelihood: -10705432.60623
+48. Current log-likelihood: -10705429.96110
+49. Current log-likelihood: -10705427.36438
+50. Current log-likelihood: -10705424.81845
+51. Current log-likelihood: -10705422.31758
+52. Current log-likelihood: -10705419.86377
+53. Current log-likelihood: -10705417.45123
+54. Current log-likelihood: -10705415.07948
+55. Current log-likelihood: -10705412.74670
+56. Current log-likelihood: -10705410.45682
+57. Current log-likelihood: -10705408.18766
+58. Current log-likelihood: -10705405.96411
+59. Current log-likelihood: -10705403.77159
+60. Current log-likelihood: -10705401.60994
+61. Current log-likelihood: -10705399.47761
+62. Current log-likelihood: -10705397.37563
+63. Current log-likelihood: -10705395.30035
+64. Current log-likelihood: -10705393.25054
+65. Current log-likelihood: -10705391.22724
+66. Current log-likelihood: -10705389.22729
+67. Current log-likelihood: -10705387.23710
+68. Current log-likelihood: -10705385.28288
+69. Current log-likelihood: -10705383.34382
+70. Current log-likelihood: -10705381.42704
+71. Current log-likelihood: -10705379.52971
+72. Current log-likelihood: -10705377.65120
+73. Current log-likelihood: -10705375.79314
+74. Current log-likelihood: -10705373.94975
+75. Current log-likelihood: -10705372.12667
+76. Current log-likelihood: -10705370.32037
+77. Current log-likelihood: -10705368.51951
+78. Current log-likelihood: -10705366.74652
+79. Current log-likelihood: -10705364.98903
+80. Current log-likelihood: -10705363.24790
+81. Current log-likelihood: -10705361.52318
+82. Current log-likelihood: -10705359.81461
+83. Current log-likelihood: -10705358.12301
+84. Current log-likelihood: -10705356.44826
+85. Current log-likelihood: -10705354.79070
+86. Current log-likelihood: -10705353.15046
+87. Current log-likelihood: -10705351.52747
+88. Current log-likelihood: -10705349.91228
+89. Current log-likelihood: -10705348.32635
+90. Current log-likelihood: -10705346.75466
+91. Current log-likelihood: -10705345.20297
+92. Current log-likelihood: -10705343.67312
+93. Current log-likelihood: -10705342.15993
+94. Current log-likelihood: -10705340.66808
+95. Current log-likelihood: -10705339.19967
+96. Current log-likelihood: -10705337.75174
+97. Current log-likelihood: -10705336.32558
+98. Current log-likelihood: -10705334.92158
+99. Current log-likelihood: -10705333.53068
+100. Current log-likelihood: -10705332.17116
+101. Current log-likelihood: -10705330.83413
+102. Current log-likelihood: -10705328.66911
+103. Current log-likelihood: -10705326.34360
+104. Current log-likelihood: -10705324.10641
+105. Current log-likelihood: -10705321.95918
+106. Current log-likelihood: -10705319.90333
+107. Current log-likelihood: -10705317.92747
+108. Current log-likelihood: -10705316.05441
+109. Current log-likelihood: -10705314.27392
+110. Current log-likelihood: -10705312.58704
+111. Current log-likelihood: -10705310.99311
+112. Current log-likelihood: -10705309.49097
+113. Current log-likelihood: -10705308.07878
+114. Current log-likelihood: -10705306.74495
+115. Current log-likelihood: -10705305.50697
+116. Current log-likelihood: -10705304.34747
+117. Current log-likelihood: -10705303.27230
+118. Current log-likelihood: -10705302.27317
+119. Current log-likelihood: -10705301.34781
+120. Current log-likelihood: -10705300.49299
+121. Current log-likelihood: -10705299.70475
+122. Current log-likelihood: -10705298.97977
+123. Current log-likelihood: -10705298.30428
+124. Current log-likelihood: -10705297.69200
+125. Current log-likelihood: -10705297.13162
+126. Current log-likelihood: -10705296.61992
+127. Current log-likelihood: -10705296.15379
+128. Current log-likelihood: -10705295.72994
+129. Current log-likelihood: -10705295.34514
+130. Current log-likelihood: -10705294.99613
+131. Current log-likelihood: -10705294.68029
+132. Current log-likelihood: -10705294.39479
+133. Current log-likelihood: -10705294.13842
+134. Current log-likelihood: -10705293.90675
+135. Current log-likelihood: -10705293.69783
+136. Current log-likelihood: -10705293.50990
+137. Current log-likelihood: -10705293.33450
+138. Current log-likelihood: -10705293.18187
+139. Current log-likelihood: -10705293.04430
+140. Current log-likelihood: -10705292.92115
+141. Current log-likelihood: -10705292.81086
+142. Current log-likelihood: -10705292.71207
+143. Current log-likelihood: -10705292.62381
+144. Current log-likelihood: -10705292.54495
+145. Current log-likelihood: -10705292.47453
+146. Current log-likelihood: -10705292.41171
+147. Current log-likelihood: -10705292.35567
+148. Current log-likelihood: -10705292.30574
+149. Current log-likelihood: -10705292.26193
+150. Current log-likelihood: -10705292.22266
+151. Current log-likelihood: -10705292.18764
+152. Current log-likelihood: -10705292.15645
+153. Current log-likelihood: -10705292.12868
+154. Current log-likelihood: -10705292.10396
+155. Current log-likelihood: -10705292.08196
+156. Current log-likelihood: -10705292.06239
+157. Current log-likelihood: -10705292.04499
+158. Current log-likelihood: -10705292.02945
+159. Current log-likelihood: -10705292.01560
+160. Current log-likelihood: -10705292.00337
+161. Current log-likelihood: -10705291.99251
+162. Current log-likelihood: -10705291.98287
+163. Current log-likelihood: -10705291.97430
+164. Current log-likelihood: -10705291.96670
+165. Current log-likelihood: -10705291.95996
+166. Current log-likelihood: -10705291.95397
+167. Current log-likelihood: -10705291.94971
+168. Current log-likelihood: -10705291.94451
+169. Current log-likelihood: -10705291.94110
+170. Current log-likelihood: -10705291.93788
+171. Current log-likelihood: -10705291.93493
+172. Current log-likelihood: -10705291.93225
+173. Current log-likelihood: -10705291.92982
+174. Current log-likelihood: -10705291.92764
+175. Current log-likelihood: -10705291.92566
+176. Current log-likelihood: -10705291.92387
+177. Current log-likelihood: -10705291.92226
+178. Current log-likelihood: -10705291.92080
+179. Current log-likelihood: -10705291.91949
+180. Current log-likelihood: -10705291.91830
+181. Current log-likelihood: -10705291.91723
+182. Current log-likelihood: -10705291.91626
+Final estimation on weights:
+0.98587,0.00661,0.00751
+Wrote distance file to... 
+BEST SCORE FOUND : -10705291.91626
+Total tree lengths: 0.25088 1.48987 0.76248
+
+Total number of iterations: 180
+CPU time used for tree search: 0.00001 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.00001 sec (0h:0m:0s)
+Total CPU time used: 55049.32422 sec (15h:17m:29s)
+Total wall-clock time used: 1788.75250 sec (0h:29m:48s)
+
+Analysis results written to: 
+  IQ-TREE report:                mast_all_occ80_JU3237_quartet_13.submodel6.iqtree
+  Maximum-likelihood tree:       mast_all_occ80_JU3237_quartet_13.submodel6.treefile
+  Screen log file:               mast_all_occ80_JU3237_quartet_13.submodel6.log
+
+Date and Time: Thu Jul  9 00:07:24 2026
