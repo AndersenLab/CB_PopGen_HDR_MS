@@ -1,0 +1,2086 @@
+Sample A	Sample B	Comparison	Comparison_within	Haplotypes	Mean Ks
+ECA1174	ECA1657	within_species	Tropical_x_Tropical	Among HDRs	0.00355452845594622
+ECA1174	ECA176	within_species	Tropical_x_Tropical	Among HDRs	0.00601336362954761
+ECA1174	EG6271	within_species	Tropical_x_Tropical	Among HDRs	0.00753616214987352
+ECA1174	JU3207	within_species	Tropical_x_Tropical	Among HDRs	0.00514775795401734
+ECA1174	JU3237	within_species	Tropical_x_Tropical	Among HDRs	0.0118126651865791
+ECA1174	JU4058	within_species	Tropical_x_Tropical	Among HDRs	0.00418466025583509
+ECA1174	NIC1052	within_species	Tropical_x_Tropical	Among HDRs	0.00955196740144139
+ECA1174	NIC1529	within_species	Tropical_x_Tropical	Among HDRs	0.00642994033440586
+ECA1174	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.00224896181482413
+ECA1174	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.00327354158052743
+ECA1174	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.0100234810841078
+ECA1174	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00750400449726172
+ECA1174	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00836827891772488
+ECA1174	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.00944317085116143
+ECA1174	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00829587423794564
+ECA1174	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00792325231684768
+ECA1174	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00665047392902675
+ECA1174	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00141723009535959
+ECA1657	ECA176	within_species	Tropical_x_Tropical	Among HDRs	0.00424260507472475
+ECA1657	EG6271	within_species	Tropical_x_Tropical	Among HDRs	0.00776274212323124
+ECA1657	JU3207	within_species	Tropical_x_Tropical	Among HDRs	0.00559471206775269
+ECA1657	JU3237	within_species	Tropical_x_Tropical	Among HDRs	0.00911313320216161
+ECA1657	JU4058	within_species	Tropical_x_Tropical	Among HDRs	0.00505713437001259
+ECA1657	NIC1052	within_species	Tropical_x_Tropical	Among HDRs	0.00959130719548277
+ECA1657	NIC1529	within_species	Tropical_x_Tropical	Among HDRs	0.00495578408770226
+ECA1657	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.00197426459733165
+ECA1657	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.00300481951959458
+ECA1657	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.00875491846766832
+ECA1657	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00832872637355805
+ECA1657	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00948080125425032
+ECA1657	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.00871274903834276
+ECA1657	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00786018549256533
+ECA1657	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00820195658169347
+ECA1657	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00668898202014349
+ECA1657	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00354929050834412
+ECA176	EG6271	within_species	Tropical_x_Tropical	Among HDRs	0.00873867846232394
+ECA176	JU3207	within_species	Tropical_x_Tropical	Among HDRs	0.00815000705685838
+ECA176	JU3237	within_species	Tropical_x_Tropical	Among HDRs	0.00762475977100608
+ECA176	JU4058	within_species	Tropical_x_Tropical	Among HDRs	0.00855803097849525
+ECA176	NIC1052	within_species	Tropical_x_Tropical	Among HDRs	0.00612610947176016
+ECA176	NIC1529	within_species	Tropical_x_Tropical	Among HDRs	0.0072171184605316
+ECA176	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.00678746895476019
+ECA176	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.00598446371540353
+ECA176	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.00638182307338707
+ECA176	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00524042928218952
+ECA176	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00549258389160366
+ECA176	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.00561030610477471
+ECA176	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00449828303687936
+ECA176	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00603609401257478
+ECA176	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00363473557626881
+ECA176	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00481189940517371
+EG6271	JU3207	within_species	Tropical_x_Tropical	Among HDRs	0.00963033040408994
+EG6271	JU3237	within_species	Tropical_x_Tropical	Among HDRs	0.0120957012557413
+EG6271	JU4058	within_species	Tropical_x_Tropical	Among HDRs	0.00952701705696774
+EG6271	NIC1052	within_species	Tropical_x_Tropical	Among HDRs	0.00526596180131292
+EG6271	NIC1529	within_species	Tropical_x_Tropical	Among HDRs	0.00529071820141372
+EG6271	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.00221068691286795
+EG6271	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.00662523026647118
+EG6271	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.00528052412429225
+EG6271	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00644227422760606
+EG6271	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00847834246557001
+EG6271	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.00957864442576005
+EG6271	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00882624169554171
+EG6271	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00738902523142071
+EG6271	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00743557207813562
+EG6271	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00751064132409781
+JU3207	JU3237	within_species	Tropical_x_Tropical	Among HDRs	0.00973355051668179
+JU3207	JU4058	within_species	Tropical_x_Tropical	Among HDRs	0.00650200455307792
+JU3207	NIC1052	within_species	Tropical_x_Tropical	Among HDRs	0.0127632290258389
+JU3207	NIC1529	within_species	Tropical_x_Tropical	Among HDRs	0.0066478684047969
+JU3207	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.00313828601648865
+JU3207	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.00437814582637179
+JU3207	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.0110825203596083
+JU3207	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.0103213237073864
+JU3207	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00948441621057894
+JU3207	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.0111937699689346
+JU3207	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00929890692501786
+JU3207	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00836122522390817
+JU3207	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00980277414383078
+JU3207	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00457165175125223
+JU3237	JU4058	within_species	Tropical_x_Tropical	Among HDRs	0.010254799167217
+JU3237	NIC1052	within_species	Tropical_x_Tropical	Among HDRs	0.00759274146183522
+JU3237	NIC1529	within_species	Tropical_x_Tropical	Among HDRs	0.00831706711292412
+JU3237	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.00842278725520078
+JU3237	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.0108849870257844
+JU3237	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.00809475916524297
+JU3237	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00879794000549761
+JU3237	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00950118698688004
+JU3237	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.010636368722145
+JU3237	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.0094166323902329
+JU3237	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00756028783821621
+JU3237	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00816627103964996
+JU3237	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.0107631475515529
+JU4058	NIC1052	within_species	Tropical_x_Tropical	Among HDRs	0.0106488531916951
+JU4058	NIC1529	within_species	Tropical_x_Tropical	Among HDRs	0.00688479438956876
+JU4058	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.0029030890210737
+JU4058	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.00382579813290186
+JU4058	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.0111143759627436
+JU4058	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00850215900347953
+JU4058	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00905741918172722
+JU4058	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.0096687638877219
+JU4058	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00863492264824032
+JU4058	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00903975661566298
+JU4058	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00841747199297432
+JU4058	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00435702643471426
+NIC1052	NIC1529	within_species	Tropical_x_Tropical	Among HDRs	0.0102985474998886
+NIC1052	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.00699831211872312
+NIC1052	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.0111958478535921
+NIC1052	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.00267149333746968
+NIC1052	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00401403016417058
+NIC1052	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00452073378786472
+NIC1052	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.00559440611963729
+NIC1052	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00367357208944946
+NIC1052	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00401937894707357
+NIC1052	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00435767007377044
+NIC1052	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00920124404792793
+NIC1529	NIC248	within_species	Tropical_x_Tropical	Among HDRs	0.00286321368089072
+NIC1529	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.001970363915258
+NIC1529	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.00878676494464446
+NIC1529	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.0115979542109168
+NIC1529	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.0121459379077392
+NIC1529	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.00948163283359903
+NIC1529	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00837621552000964
+NIC1529	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00875509116732541
+NIC1529	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00776322971717492
+NIC1529	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.0058448592320142
+NIC248	PE887	within_species	Tropical_x_Tropical	Among HDRs	0.0022306023980493
+NIC248	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.00824197084383478
+NIC248	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00695645102672368
+NIC248	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00902127815613589
+NIC248	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.0104074894093041
+NIC248	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.0107852006215534
+NIC248	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00844411866463594
+NIC248	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00903352888475942
+NIC248	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00213163399368149
+PE887	QG1005	within_species	Tropical_x_Tropical	Among HDRs	0.00976492612038458
+PE887	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00910772973597019
+PE887	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00945825861456346
+PE887	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.0109628690896516
+PE887	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00894490114733973
+PE887	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.0077784261488271
+PE887	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00657351448682109
+PE887	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00288175421991761
+QG1005	QG2641	within_species	Tropical_x_Tropical	Among HDRs	0.00285528234492905
+QG1005	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00274191303867502
+QG1005	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.0053343330170213
+QG1005	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00295871464027609
+QG1005	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00177761871164485
+QG1005	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00256226211924672
+QG1005	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00786007954688533
+QG2641	QG2665	within_species	Tropical_x_Tropical	Among HDRs	0.00185200511772931
+QG2641	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.0054658861210001
+QG2641	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.0029083081023284
+QG2641	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00187914648287167
+QG2641	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00294070279156549
+QG2641	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00803199360744435
+QG2665	QG2902	within_species	Tropical_x_Tropical	Among HDRs	0.00631137153350371
+QG2665	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00292428746688152
+QG2665	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00177030987123269
+QG2665	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00336158825946759
+QG2665	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00809830779250164
+QG2902	QG2964	within_species	Tropical_x_Tropical	Among HDRs	0.00578812536704198
+QG2902	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00558106063382633
+QG2902	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00545185518943862
+QG2902	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00852528854247976
+QG2964	QG786	within_species	Tropical_x_Tropical	Among HDRs	0.00287587543095641
+QG2964	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00115270121429256
+QG2964	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00862310885625437
+QG786	QG791	within_species	Tropical_x_Tropical	Among HDRs	0.00356362740829882
+QG786	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00782279013103661
+QG791	QX1796	within_species	Tropical_x_Tropical	Among HDRs	0.00698140082340739
+ECA1174	ECA1657	within_species	Tropical_x_Tropical	Among non-HDRs	0.00130494662410345
+ECA1174	ECA176	within_species	Tropical_x_Tropical	Among non-HDRs	0.00132947728101527
+ECA1174	EG6271	within_species	Tropical_x_Tropical	Among non-HDRs	0.0018464502288104
+ECA1174	JU3207	within_species	Tropical_x_Tropical	Among non-HDRs	0.00173900211113427
+ECA1174	JU3237	within_species	Tropical_x_Tropical	Among non-HDRs	0.00341404782888474
+ECA1174	JU4058	within_species	Tropical_x_Tropical	Among non-HDRs	0.00234096428905275
+ECA1174	NIC1052	within_species	Tropical_x_Tropical	Among non-HDRs	0.00232581141302748
+ECA1174	NIC1529	within_species	Tropical_x_Tropical	Among non-HDRs	0.00163632080982018
+ECA1174	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.00167860018231794
+ECA1174	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.00170804293499428
+ECA1174	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00232361541257258
+ECA1174	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00247748345680313
+ECA1174	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00254789992442042
+ECA1174	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00331083485315891
+ECA1174	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00223983622120899
+ECA1174	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00254910022453584
+ECA1174	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00228633458217323
+ECA1174	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00388305916258685
+ECA1174	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00077709205406151
+ECA1657	ECA176	within_species	Tropical_x_Tropical	Among non-HDRs	0.00117701089651362
+ECA1657	EG6271	within_species	Tropical_x_Tropical	Among non-HDRs	0.00157860161254485
+ECA1657	JU3207	within_species	Tropical_x_Tropical	Among non-HDRs	0.00169896978587148
+ECA1657	JU3237	within_species	Tropical_x_Tropical	Among non-HDRs	0.00340613755270904
+ECA1657	JU4058	within_species	Tropical_x_Tropical	Among non-HDRs	0.00246596539031399
+ECA1657	NIC1052	within_species	Tropical_x_Tropical	Among non-HDRs	0.00211235087105941
+ECA1657	NIC1529	within_species	Tropical_x_Tropical	Among non-HDRs	0.00131724994476553
+ECA1657	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.00167163122929592
+ECA1657	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.00143661727417754
+ECA1657	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00216762648616882
+ECA1657	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.0024243948574871
+ECA1657	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00249464742382408
+ECA1657	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00320193123439981
+ECA1657	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00215649622202215
+ECA1657	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00249247261533449
+ECA1657	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00224994788941032
+ECA1657	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00359866102019251
+ECA1657	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.000991884782642471
+ECA176	EG6271	within_species	Tropical_x_Tropical	Among non-HDRs	0.00165590023898813
+ECA176	JU3207	within_species	Tropical_x_Tropical	Among non-HDRs	0.00163089558763885
+ECA176	JU3237	within_species	Tropical_x_Tropical	Among non-HDRs	0.00334906578198739
+ECA176	JU4058	within_species	Tropical_x_Tropical	Among non-HDRs	0.0024426932859014
+ECA176	NIC1052	within_species	Tropical_x_Tropical	Among non-HDRs	0.00199440052471473
+ECA176	NIC1529	within_species	Tropical_x_Tropical	Among non-HDRs	0.00155081363396896
+ECA176	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.00169815528252894
+ECA176	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.00169170669212497
+ECA176	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.0021061004897437
+ECA176	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00239680886535408
+ECA176	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00238600305297788
+ECA176	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00324442440397092
+ECA176	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00199001377692996
+ECA176	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00235573598584405
+ECA176	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.0021779251445671
+ECA176	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00362119263452527
+ECA176	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00116259402174427
+EG6271	JU3207	within_species	Tropical_x_Tropical	Among non-HDRs	0.00183548364276846
+EG6271	JU3237	within_species	Tropical_x_Tropical	Among non-HDRs	0.00342285757755555
+EG6271	JU4058	within_species	Tropical_x_Tropical	Among non-HDRs	0.00249893573632247
+EG6271	NIC1052	within_species	Tropical_x_Tropical	Among non-HDRs	0.00212296484321047
+EG6271	NIC1529	within_species	Tropical_x_Tropical	Among non-HDRs	0.00167642455765936
+EG6271	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.00143509662665999
+EG6271	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.0019984279946213
+EG6271	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00208934951696987
+EG6271	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00251670357801926
+EG6271	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00235220459058558
+EG6271	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00327825375756328
+EG6271	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00210850673087633
+EG6271	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00230701813413941
+EG6271	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00221197284120078
+EG6271	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.0037702037230654
+EG6271	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00163094911480768
+JU3207	JU3237	within_species	Tropical_x_Tropical	Among non-HDRs	0.00332765442060332
+JU3207	JU4058	within_species	Tropical_x_Tropical	Among non-HDRs	0.00243646188791266
+JU3207	NIC1052	within_species	Tropical_x_Tropical	Among non-HDRs	0.00231526638505799
+JU3207	NIC1529	within_species	Tropical_x_Tropical	Among non-HDRs	0.00150275897716679
+JU3207	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.00172435704083478
+JU3207	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.00180715399112601
+JU3207	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00225533436502205
+JU3207	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00249021806424038
+JU3207	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00242037664140233
+JU3207	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00311016598199294
+JU3207	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00199838493728713
+JU3207	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00241234549526617
+JU3207	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00226122504302981
+JU3207	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00387715674350668
+JU3207	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.0016784540286255
+JU3237	JU4058	within_species	Tropical_x_Tropical	Among non-HDRs	0.00385368396833084
+JU3237	NIC1052	within_species	Tropical_x_Tropical	Among non-HDRs	0.00297033272395515
+JU3237	NIC1529	within_species	Tropical_x_Tropical	Among non-HDRs	0.00341881560168484
+JU3237	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.00353653671433975
+JU3237	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.0037326063781479
+JU3237	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00313997883933763
+JU3237	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00306777086713449
+JU3237	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00306425200127414
+JU3237	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00285881809062617
+JU3237	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00312597822162166
+JU3237	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00303624183713155
+JU3237	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00331672624067223
+JU3237	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00558775727495249
+JU3237	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.0032979353947903
+JU4058	NIC1052	within_species	Tropical_x_Tropical	Among non-HDRs	0.00291500450696515
+JU4058	NIC1529	within_species	Tropical_x_Tropical	Among non-HDRs	0.00249997811450431
+JU4058	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.00237762329817897
+JU4058	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.00242723078404617
+JU4058	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00289417629722765
+JU4058	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00299757732182213
+JU4058	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00292327535590895
+JU4058	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00360678287228413
+JU4058	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00272111447024845
+JU4058	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00300966268731467
+JU4058	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00279765826061334
+JU4058	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00465902977728094
+JU4058	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00248401440506457
+NIC1052	NIC1529	within_species	Tropical_x_Tropical	Among non-HDRs	0.00213092166908118
+NIC1052	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.0022994974005393
+NIC1052	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.00254137017562535
+NIC1052	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00176795860126217
+NIC1052	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00206794802994831
+NIC1052	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00187458359505884
+NIC1052	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00279379874612497
+NIC1052	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00184681129661949
+NIC1052	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00174931235327675
+NIC1052	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00188154549110172
+NIC1052	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.0043362193885499
+NIC1052	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00210768287860499
+NIC1529	NIC248	within_species	Tropical_x_Tropical	Among non-HDRs	0.00165969284706447
+NIC1529	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.00152277408715408
+NIC1529	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00225426116445054
+NIC1529	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00252822343792074
+NIC1529	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00263627560785721
+NIC1529	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00331963483426592
+NIC1529	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00214591729236154
+NIC1529	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00251326437522374
+NIC1529	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00228312991964927
+NIC1529	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00366924755991453
+NIC1529	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00152410014420239
+NIC248	PE887	within_species	Tropical_x_Tropical	Among non-HDRs	0.00158282404243735
+NIC248	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00251191209072498
+NIC248	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00250063885215774
+NIC248	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00255263457280886
+NIC248	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00314485290285294
+NIC248	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00213548671076201
+NIC248	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00252286449056097
+NIC248	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00221069138236394
+NIC248	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00369833705337286
+NIC248	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00181023153617745
+PE887	QG1005	within_species	Tropical_x_Tropical	Among non-HDRs	0.00256043576122059
+PE887	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00264372218709091
+PE887	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00282744597768133
+PE887	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00338398393287015
+PE887	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00230741299981825
+PE887	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00271683813481961
+PE887	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.0024545735075885
+PE887	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00374338421237698
+PE887	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.0017521138231482
+QG1005	QG2641	within_species	Tropical_x_Tropical	Among non-HDRs	0.00185834720759021
+QG1005	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.00165973147257806
+QG1005	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.002981020194238
+QG1005	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00161945453928694
+QG1005	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00164125343601232
+QG1005	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00168274627559126
+QG1005	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00446942831648799
+QG1005	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00211969975177485
+QG2641	QG2665	within_species	Tropical_x_Tropical	Among non-HDRs	0.0013894333355068
+QG2641	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00283336687524357
+QG2641	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00180964207153617
+QG2641	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00164611325295903
+QG2641	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00166691488457741
+QG2641	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00469614080452035
+QG2641	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00237173903501919
+QG2665	QG2902	within_species	Tropical_x_Tropical	Among non-HDRs	0.00280826483298357
+QG2665	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00161064082700838
+QG2665	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00129627709360261
+QG2665	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00163986388985286
+QG2665	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00472241654637126
+QG2665	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00235583670818276
+QG2902	QG2964	within_species	Tropical_x_Tropical	Among non-HDRs	0.00299834872838593
+QG2902	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00301842561535701
+QG2902	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.003000678866619
+QG2902	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00533839679420831
+QG2902	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00320480492241381
+QG2964	QG786	within_species	Tropical_x_Tropical	Among non-HDRs	0.00167458182543958
+QG2964	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.00133054592370256
+QG2964	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00435552579222569
+QG2964	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00210269055210764
+QG786	QG791	within_species	Tropical_x_Tropical	Among non-HDRs	0.0017697804723365
+QG786	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.00459285070996397
+QG786	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.0023524340345583
+QG791	QX1410	within_species	Tropical_x_Tropical	Among non-HDRs	0.0043896380617466
+QG791	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00215249760739915
+QX1410	QX1796	within_species	Tropical_x_Tropical	Among non-HDRs	0.00376016878022243
+ECA1174	ECA1657	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0193770277750603
+ECA1174	ECA176	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0200302375172881
+ECA1174	EG6271	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0187146743328807
+ECA1174	JU3207	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0181053457888759
+ECA1174	JU3237	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0214817083833681
+ECA1174	JU4058	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0179457880935888
+ECA1174	NIC1052	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0193696814978865
+ECA1174	NIC1529	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0204266504466561
+ECA1174	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0226775910334532
+ECA1174	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0241794801694571
+ECA1174	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0171536927970753
+ECA1174	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0184549273816337
+ECA1174	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0176522603312153
+ECA1174	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0190436859527388
+ECA1174	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0180122784290213
+ECA1174	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0186192967444493
+ECA1174	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0186345545418882
+ECA1174	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0259733663226278
+ECA1174	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0182877036245412
+ECA1657	ECA176	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0155399112698355
+ECA1657	EG6271	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0167605661500164
+ECA1657	JU3207	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.015951574957183
+ECA1657	JU3237	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0210671147479475
+ECA1657	JU4058	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0168041797951856
+ECA1657	NIC1052	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0180310755813366
+ECA1657	NIC1529	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0178061519978226
+ECA1657	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0189926381747933
+ECA1657	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0143569242477061
+ECA1657	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0167756820896564
+ECA1657	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0165348045649481
+ECA1657	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0171287761758425
+ECA1657	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0181100045963739
+ECA1657	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0170794752045693
+ECA1657	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0185346141629333
+ECA1657	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0171746690177972
+ECA1657	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.021215049832628
+ECA1657	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0150957059159631
+ECA176	EG6271	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0182998451960959
+ECA176	JU3207	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0156426274747494
+ECA176	JU3237	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0209801718725395
+ECA176	JU4058	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0161918590933993
+ECA176	NIC1052	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0170763204338387
+ECA176	NIC1529	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0177847254037013
+ECA176	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0179055222406509
+ECA176	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0166371644209132
+ECA176	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0168254625106433
+ECA176	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0175200480981905
+ECA176	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0173539585068466
+ECA176	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.017498254541399
+ECA176	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0161002422403482
+ECA176	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0181583938632462
+ECA176	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0170819316931912
+ECA176	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0206492224855458
+ECA176	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0165825102516354
+EG6271	JU3207	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0178118732939772
+EG6271	JU3237	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0212195563567313
+EG6271	JU4058	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0183835892126121
+EG6271	NIC1052	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.018157774340147
+EG6271	NIC1529	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0191437816275515
+EG6271	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0181231771603059
+EG6271	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0167829539776022
+EG6271	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0165756866300749
+EG6271	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0182964220691926
+EG6271	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0172577716298695
+EG6271	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0191029673889412
+EG6271	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0197169013882121
+EG6271	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0179185428540149
+EG6271	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0178276369037989
+EG6271	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0217436466409024
+EG6271	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0153418867237689
+JU3207	JU3237	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.021398974759799
+JU3207	JU4058	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0174701016312927
+JU3207	NIC1052	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0166040334456135
+JU3207	NIC1529	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0175169059694236
+JU3207	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.01959488889453
+JU3207	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0180204842657127
+JU3207	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0170291772551822
+JU3207	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0159758033346269
+JU3207	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0168859371310978
+JU3207	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0176970610423116
+JU3207	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0169852467960798
+JU3207	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0174818371224987
+JU3207	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0179070296211194
+JU3207	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0236446082834605
+JU3207	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0160861512342627
+JU3237	JU4058	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.020095903386799
+JU3237	NIC1052	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0182620817078541
+JU3237	NIC1529	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0214774599030986
+JU3237	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0240018233204919
+JU3237	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0216988028583009
+JU3237	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0206185815521701
+JU3237	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0183334315408119
+JU3237	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0186797332097564
+JU3237	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.016479579464099
+JU3237	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0215639582657847
+JU3237	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0201768277834543
+JU3237	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.022560322323863
+JU3237	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0272264323478859
+JU3237	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0203786561961242
+JU4058	NIC1052	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.018540811182578
+JU4058	NIC1529	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0190230239749508
+JU4058	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0204295118948842
+JU4058	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0205069404521739
+JU4058	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0168139641366432
+JU4058	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0174433608528418
+JU4058	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0182603106756999
+JU4058	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0178463405565762
+JU4058	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0174708223853936
+JU4058	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0181713730350916
+JU4058	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0177028558957196
+JU4058	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0234579449135886
+JU4058	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0170301479963214
+NIC1052	NIC1529	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0170844937942464
+NIC1052	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0163765985913666
+NIC1052	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0165784926468163
+NIC1052	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0153945930567803
+NIC1052	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0144079424753458
+NIC1052	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0147718249402403
+NIC1052	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0165152498853072
+NIC1052	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0153786291955321
+NIC1052	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0176156002725929
+NIC1052	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0158348010337751
+NIC1052	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0228422880736385
+NIC1052	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0175931888005595
+NIC1529	NIC248	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0203714016765092
+NIC1529	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0182369804322613
+NIC1529	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0171017109680437
+NIC1529	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0172222179512729
+NIC1529	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0161791206277805
+NIC1529	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0188856024231194
+NIC1529	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0185010518950606
+NIC1529	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0187637517402254
+NIC1529	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0187411337620479
+NIC1529	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0232098142762457
+NIC1529	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0181624976717066
+NIC248	PE887	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0174834606156965
+NIC248	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0158877064485537
+NIC248	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0183165927140343
+NIC248	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0163517779739414
+NIC248	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0190657711935193
+NIC248	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0172272027461562
+NIC248	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0170272989717117
+NIC248	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0173407906702887
+NIC248	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0220070017212281
+NIC248	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0175273753046345
+PE887	QG1005	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0161271670058399
+PE887	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.017207455284241
+PE887	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0180768846984267
+PE887	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0191991320423258
+PE887	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0169171972474842
+PE887	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0195885153992955
+PE887	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0178312010651147
+PE887	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0192084251979436
+PE887	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0149147496385675
+QG1005	QG2641	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0151656927448591
+QG1005	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.013304116064862
+QG1005	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.016496007683076
+QG1005	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0150686302835105
+QG1005	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0167041670411601
+QG1005	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.014841926904052
+QG1005	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0225667294419593
+QG1005	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.015629067468778
+QG2641	QG2665	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0141802705714468
+QG2641	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0156209916961804
+QG2641	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0149332595744261
+QG2641	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0146015457056616
+QG2641	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0168463566099155
+QG2641	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0223582414414855
+QG2641	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0164846114949814
+QG2665	QG2902	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.016760997568091
+QG2665	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0155300278649783
+QG2665	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0159634542791346
+QG2665	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.016109501185838
+QG2665	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.02160641527647
+QG2665	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0159207152228021
+QG2902	QG2964	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0156939132137297
+QG2902	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0171897078896268
+QG2902	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0169539260688897
+QG2902	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.026285718381281
+QG2902	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0185723319047069
+QG2964	QG786	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0171452815264056
+QG2964	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0150117701159444
+QG2964	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0214348361868793
+QG2964	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.016848634735393
+QG786	QG791	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0182289299224204
+QG786	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0211405219576679
+QG786	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0168385205218167
+QG791	QX1410	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0198044456050097
+QG791	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0171032898708886
+QX1410	QX1796	within_species	Tropical_x_Tropical	Between HDRs and non-HDRs	0.0206553048573649
+ECA1174	JU3200	within_species	Tropical_x_KD	Among HDRs	0.0310478079971906
+ECA1657	JU3200	within_species	Tropical_x_KD	Among HDRs	0.0234098661460409
+ECA176	JU3200	within_species	Tropical_x_KD	Among HDRs	0.0243800064390459
+EG6271	JU3200	within_species	Tropical_x_KD	Among HDRs	0.0212407104363531
+JU3200	JU3207	within_species	Tropical_x_KD	Among HDRs	0.0194904771897126
+JU3200	JU3237	within_species	Tropical_x_KD	Among HDRs	0.0178474506291457
+JU3200	JU4058	within_species	Tropical_x_KD	Among HDRs	0.0217732959929595
+JU3200	NIC1052	within_species	Tropical_x_KD	Among HDRs	0.0215216693131421
+JU3200	NIC1529	within_species	Tropical_x_KD	Among HDRs	0.0222743677885101
+JU3200	NIC248	within_species	Tropical_x_KD	Among HDRs	0.0268417018167728
+JU3200	PE887	within_species	Tropical_x_KD	Among HDRs	0.0228948136289809
+JU3200	QG1005	within_species	Tropical_x_KD	Among HDRs	0.0239027244733663
+JU3200	QG2641	within_species	Tropical_x_KD	Among HDRs	0.0221658283803083
+JU3200	QG2665	within_species	Tropical_x_KD	Among HDRs	0.0203395493616347
+JU3200	QG2902	within_species	Tropical_x_KD	Among HDRs	0.0220769478406861
+JU3200	QG2964	within_species	Tropical_x_KD	Among HDRs	0.0195305145770967
+JU3200	QG786	within_species	Tropical_x_KD	Among HDRs	0.0209881994491397
+JU3200	QG791	within_species	Tropical_x_KD	Among HDRs	0.0157173192984647
+JU3200	QX1796	within_species	Tropical_x_KD	Among HDRs	0.0288685183242296
+ECA1174	JU3200	within_species	Tropical_x_KD	Among non-HDRs	0.0163134662208857
+ECA1657	JU3200	within_species	Tropical_x_KD	Among non-HDRs	0.0162865322065775
+ECA176	JU3200	within_species	Tropical_x_KD	Among non-HDRs	0.0162966709412449
+EG6271	JU3200	within_species	Tropical_x_KD	Among non-HDRs	0.0163856503049586
+JU3200	JU3207	within_species	Tropical_x_KD	Among non-HDRs	0.0163307104620148
+JU3200	JU3237	within_species	Tropical_x_KD	Among non-HDRs	0.0164865753871391
+JU3200	JU4058	within_species	Tropical_x_KD	Among non-HDRs	0.0164131700802629
+JU3200	NIC1052	within_species	Tropical_x_KD	Among non-HDRs	0.0163119204154096
+JU3200	NIC1529	within_species	Tropical_x_KD	Among non-HDRs	0.0162932287168579
+JU3200	NIC248	within_species	Tropical_x_KD	Among non-HDRs	0.0165043316803638
+JU3200	PE887	within_species	Tropical_x_KD	Among non-HDRs	0.0163852766274961
+JU3200	QG1005	within_species	Tropical_x_KD	Among non-HDRs	0.0165449516076162
+JU3200	QG2641	within_species	Tropical_x_KD	Among non-HDRs	0.0163732325707854
+JU3200	QG2665	within_species	Tropical_x_KD	Among non-HDRs	0.0163903232446276
+JU3200	QG2902	within_species	Tropical_x_KD	Among non-HDRs	0.016551575660742
+JU3200	QG2964	within_species	Tropical_x_KD	Among non-HDRs	0.0163387909626986
+JU3200	QG786	within_species	Tropical_x_KD	Among non-HDRs	0.0164744443560596
+JU3200	QG791	within_species	Tropical_x_KD	Among non-HDRs	0.0162690956339333
+JU3200	QX1410	within_species	Tropical_x_KD	Among non-HDRs	0.0180604746889865
+JU3200	QX1796	within_species	Tropical_x_KD	Among non-HDRs	0.0162749144748542
+ECA1174	JU3200	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0177944962029378
+ECA1657	JU3200	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0176400773371425
+ECA176	JU3200	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0169514980046489
+EG6271	JU3200	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0178495892979617
+JU3200	JU3207	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0179682824373349
+JU3200	JU3237	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0177429991658311
+JU3200	JU4058	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0178553640181493
+JU3200	NIC1052	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0175127390774166
+JU3200	NIC1529	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0172307824333638
+JU3200	NIC248	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.017996991754027
+JU3200	PE887	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0174965868288312
+JU3200	QG1005	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0182678714731578
+JU3200	QG2641	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0185116088327163
+JU3200	QG2665	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0182458578239692
+JU3200	QG2902	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0178715580385552
+JU3200	QG2964	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.018731503663768
+JU3200	QG786	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0181362727868673
+JU3200	QG791	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0196934057485389
+JU3200	QX1410	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0206723166363039
+JU3200	QX1796	within_species	Tropical_x_KD	Between HDRs and non-HDRs	0.0165399043776686
+ECA1174	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0317548575703362
+ECA1657	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0257798046137487
+ECA176	QG4232	within_species	Tropical_x_AD	Among HDRs	0.02953962682014
+EG6271	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0200650729461413
+JU3207	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0235551619816471
+JU3237	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0270001127020171
+JU4058	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0206556573808383
+NIC1052	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0225925677961298
+NIC1529	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0225062828577956
+NIC248	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0279733210822441
+PE887	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0246297157721008
+QG1005	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0206766138496846
+QG2641	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0277703563055594
+QG2665	QG4232	within_species	Tropical_x_AD	Among HDRs	0.023356800397478
+QG2902	QG4232	within_species	Tropical_x_AD	Among HDRs	0.021233906470642
+QG2964	QG4232	within_species	Tropical_x_AD	Among HDRs	0.0266312323275091
+QG4232	QG786	within_species	Tropical_x_AD	Among HDRs	0.0188287066145623
+QG4232	QG791	within_species	Tropical_x_AD	Among HDRs	0.0217527533914761
+QG4232	QX1796	within_species	Tropical_x_AD	Among HDRs	0.029140456242358
+ECA1174	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0166873605580402
+ECA1657	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0166884587375311
+ECA176	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0168004677841147
+EG6271	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0168924302174762
+JU3207	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0166433341845081
+JU3237	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0166863508344824
+JU4058	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0167990769089113
+NIC1052	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0167380118427272
+NIC1529	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0166926964071265
+NIC248	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0168533025185047
+PE887	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0167563987470685
+QG1005	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0167283899877307
+QG2641	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0167633934741658
+QG2665	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.016670992829959
+QG2902	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0168271300894242
+QG2964	QG4232	within_species	Tropical_x_AD	Among non-HDRs	0.0166208220135274
+QG4232	QG786	within_species	Tropical_x_AD	Among non-HDRs	0.0167808856549308
+QG4232	QG791	within_species	Tropical_x_AD	Among non-HDRs	0.016636645168094
+QG4232	QX1410	within_species	Tropical_x_AD	Among non-HDRs	0.0186166416637942
+QG4232	QX1796	within_species	Tropical_x_AD	Among non-HDRs	0.0165999442189737
+ECA1174	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0197308972049711
+ECA1657	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0201131315937993
+ECA176	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.020252278481464
+EG6271	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0197416760452911
+JU3207	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0202875284697814
+JU3237	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0203460295271437
+JU4058	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0204983537056682
+NIC1052	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0207412551093959
+NIC1529	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0199725808606419
+NIC248	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0200579124940802
+PE887	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0196749139930478
+QG1005	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0209854349908808
+QG2641	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0199330225288994
+QG2665	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0204600444669944
+QG2902	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0205322637271734
+QG2964	QG4232	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0202451758880731
+QG4232	QG786	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0213604390918978
+QG4232	QG791	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0205200797878498
+QG4232	QX1410	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0215873113184979
+QG4232	QX1796	within_species	Tropical_x_AD	Between HDRs and non-HDRs	0.0189730450502278
+ECA2852	ECA2857	within_nigoni	nHDR	NA	0.0720423693247481
+ECA2852	EG5268	within_nigoni	nHDR	NA	0.0881582732730794
+ECA2852	JU1418	within_nigoni	nHDR	NA	0.0857364738909228
+ECA2852	JU1419	within_nigoni	nHDR	NA	0.0834031484742503
+ECA2852	JU1420	within_nigoni	nHDR	NA	0.0829852025081964
+ECA2852	JU1422	within_nigoni	nHDR	NA	0.0856102187387547
+ECA2852	JU2484	within_nigoni	nHDR	NA	0.077357580696086
+ECA2852	JU2617	within_nigoni	nHDR	NA	0.0880779424896197
+ECA2852	NIC2143	within_nigoni	nHDR	NA	0.0913563514656093
+ECA2852	NIC2150	within_nigoni	nHDR	NA	0.0929551535451061
+ECA2852	NIC2152	within_nigoni	nHDR	NA	0.090462939015993
+ECA2852	VX151	within_nigoni	nHDR	NA	0.0883249626077784
+ECA2852	VX153	within_nigoni	nHDR	NA	0.0886200815826164
+ECA2852	YR106	within_nigoni	nHDR	NA	0.073098450937276
+ECA2852	ZF1220	within_nigoni	nHDR	NA	0.092864200737239
+ECA2857	EG5268	within_nigoni	nHDR	NA	0.0871157692424478
+ECA2857	JU1418	within_nigoni	nHDR	NA	0.0824884839627468
+ECA2857	JU1419	within_nigoni	nHDR	NA	0.0806557723705402
+ECA2857	JU1420	within_nigoni	nHDR	NA	0.0814620167316396
+ECA2857	JU1422	within_nigoni	nHDR	NA	0.0805086556469185
+ECA2857	JU2484	within_nigoni	nHDR	NA	0.0773658851766863
+ECA2857	JU2617	within_nigoni	nHDR	NA	0.0903250748965634
+ECA2857	NIC2143	within_nigoni	nHDR	NA	0.0919202595456325
+ECA2857	NIC2150	within_nigoni	nHDR	NA	0.0926842873738662
+ECA2857	NIC2152	within_nigoni	nHDR	NA	0.0918103547058355
+ECA2857	VX151	within_nigoni	nHDR	NA	0.0876919704004744
+ECA2857	VX153	within_nigoni	nHDR	NA	0.0872677834892031
+ECA2857	YR106	within_nigoni	nHDR	NA	0.060192630936083
+ECA2857	ZF1220	within_nigoni	nHDR	NA	0.0920928534792176
+EG5268	JU1418	within_nigoni	nHDR	NA	0.0850059001106587
+EG5268	JU1419	within_nigoni	nHDR	NA	0.0848393040197405
+EG5268	JU1420	within_nigoni	nHDR	NA	0.0843927742115907
+EG5268	JU1422	within_nigoni	nHDR	NA	0.0833492126609372
+EG5268	JU2484	within_nigoni	nHDR	NA	0.0913022707474131
+EG5268	JU2617	within_nigoni	nHDR	NA	0.0905574255994561
+EG5268	NIC2143	within_nigoni	nHDR	NA	0.0890979120178193
+EG5268	NIC2150	within_nigoni	nHDR	NA	0.0937460952548544
+EG5268	NIC2152	within_nigoni	nHDR	NA	0.0903187772136769
+EG5268	VX151	within_nigoni	nHDR	NA	0.0311886504609404
+EG5268	VX153	within_nigoni	nHDR	NA	0.0370852818498133
+EG5268	YR106	within_nigoni	nHDR	NA	0.0868169741342243
+EG5268	ZF1220	within_nigoni	nHDR	NA	0.0922512940367254
+JU1418	JU1419	within_nigoni	nHDR	NA	0.0474737333743892
+JU1418	JU1420	within_nigoni	nHDR	NA	0.0459324784030608
+JU1418	JU1422	within_nigoni	nHDR	NA	0.0513208273989048
+JU1418	JU2484	within_nigoni	nHDR	NA	0.0858384431943506
+JU1418	JU2617	within_nigoni	nHDR	NA	0.0849708815921794
+JU1418	NIC2143	within_nigoni	nHDR	NA	0.0859762995999606
+JU1418	NIC2150	within_nigoni	nHDR	NA	0.0923194026642014
+JU1418	NIC2152	within_nigoni	nHDR	NA	0.0874633262944208
+JU1418	VX151	within_nigoni	nHDR	NA	0.0860079726744178
+JU1418	VX153	within_nigoni	nHDR	NA	0.0842571637187338
+JU1418	YR106	within_nigoni	nHDR	NA	0.0816859264816046
+JU1418	ZF1220	within_nigoni	nHDR	NA	0.0895249563927848
+JU1419	JU1420	within_nigoni	nHDR	NA	0.038576640640203
+JU1419	JU1422	within_nigoni	nHDR	NA	0.0346192562063613
+JU1419	JU2484	within_nigoni	nHDR	NA	0.085221002129185
+JU1419	JU2617	within_nigoni	nHDR	NA	0.0874751723872091
+JU1419	NIC2143	within_nigoni	nHDR	NA	0.0887580433544471
+JU1419	NIC2150	within_nigoni	nHDR	NA	0.0923401273084104
+JU1419	NIC2152	within_nigoni	nHDR	NA	0.0897084112144402
+JU1419	VX151	within_nigoni	nHDR	NA	0.0863399426660274
+JU1419	VX153	within_nigoni	nHDR	NA	0.0854814888721026
+JU1419	YR106	within_nigoni	nHDR	NA	0.0839314809587225
+JU1419	ZF1220	within_nigoni	nHDR	NA	0.0910374708038743
+JU1420	JU1422	within_nigoni	nHDR	NA	0.0496591035357285
+JU1420	JU2484	within_nigoni	nHDR	NA	0.0843638659084845
+JU1420	JU2617	within_nigoni	nHDR	NA	0.0857165257649837
+JU1420	NIC2143	within_nigoni	nHDR	NA	0.088628269599708
+JU1420	NIC2150	within_nigoni	nHDR	NA	0.0924912573303766
+JU1420	NIC2152	within_nigoni	nHDR	NA	0.0885429420640413
+JU1420	VX151	within_nigoni	nHDR	NA	0.0852365935609733
+JU1420	VX153	within_nigoni	nHDR	NA	0.0838690437728813
+JU1420	YR106	within_nigoni	nHDR	NA	0.081385108432403
+JU1420	ZF1220	within_nigoni	nHDR	NA	0.0909862002944723
+JU1422	JU2484	within_nigoni	nHDR	NA	0.0855123353620585
+JU1422	JU2617	within_nigoni	nHDR	NA	0.0865137869152459
+JU1422	NIC2143	within_nigoni	nHDR	NA	0.0881453187592196
+JU1422	NIC2150	within_nigoni	nHDR	NA	0.0925945191874954
+JU1422	NIC2152	within_nigoni	nHDR	NA	0.0898025530819498
+JU1422	VX151	within_nigoni	nHDR	NA	0.0846065497113076
+JU1422	VX153	within_nigoni	nHDR	NA	0.0842628726807879
+JU1422	YR106	within_nigoni	nHDR	NA	0.0821540577969811
+JU1422	ZF1220	within_nigoni	nHDR	NA	0.0917047754360837
+JU2484	JU2617	within_nigoni	nHDR	NA	0.0915659078392158
+JU2484	NIC2143	within_nigoni	nHDR	NA	0.0948401534970006
+JU2484	NIC2150	within_nigoni	nHDR	NA	0.0935033253747631
+JU2484	NIC2152	within_nigoni	nHDR	NA	0.0930326643477852
+JU2484	VX151	within_nigoni	nHDR	NA	0.0901485846437733
+JU2484	VX153	within_nigoni	nHDR	NA	0.0928892556209789
+JU2484	YR106	within_nigoni	nHDR	NA	0.0780794153130647
+JU2484	ZF1220	within_nigoni	nHDR	NA	0.0925466160895732
+JU2617	NIC2143	within_nigoni	nHDR	NA	0.0845950320662768
+JU2617	NIC2150	within_nigoni	nHDR	NA	0.092947412679253
+JU2617	NIC2152	within_nigoni	nHDR	NA	0.0891894349785781
+JU2617	VX151	within_nigoni	nHDR	NA	0.0904869092922912
+JU2617	VX153	within_nigoni	nHDR	NA	0.0877185928343568
+JU2617	YR106	within_nigoni	nHDR	NA	0.0891619457385657
+JU2617	ZF1220	within_nigoni	nHDR	NA	0.0904497956521132
+NIC2143	NIC2150	within_nigoni	nHDR	NA	0.0837360245703155
+NIC2143	NIC2152	within_nigoni	nHDR	NA	0.0823692196124847
+NIC2143	VX151	within_nigoni	nHDR	NA	0.090545329001356
+NIC2143	VX153	within_nigoni	nHDR	NA	0.0874269200422186
+NIC2143	YR106	within_nigoni	nHDR	NA	0.0914823531406555
+NIC2143	ZF1220	within_nigoni	nHDR	NA	0.0877124353700072
+NIC2150	NIC2152	within_nigoni	nHDR	NA	0.0567796953274848
+NIC2150	VX151	within_nigoni	nHDR	NA	0.0931302827278499
+NIC2150	VX153	within_nigoni	nHDR	NA	0.0927057830904158
+NIC2150	YR106	within_nigoni	nHDR	NA	0.0925013834169109
+NIC2150	ZF1220	within_nigoni	nHDR	NA	0.086400325368634
+NIC2152	VX151	within_nigoni	nHDR	NA	0.0896826702939298
+NIC2152	VX153	within_nigoni	nHDR	NA	0.0891695244232498
+NIC2152	YR106	within_nigoni	nHDR	NA	0.0900144991595159
+NIC2152	ZF1220	within_nigoni	nHDR	NA	0.0874495700625754
+VX151	VX153	within_nigoni	nHDR	NA	0.0108786633659086
+VX151	YR106	within_nigoni	nHDR	NA	0.0864487163339906
+VX151	ZF1220	within_nigoni	nHDR	NA	0.0929374660953704
+VX153	YR106	within_nigoni	nHDR	NA	0.0853597730835825
+VX153	ZF1220	within_nigoni	nHDR	NA	0.0937698355319563
+YR106	ZF1220	within_nigoni	nHDR	NA	0.0915482724177861
+ECA2852	ECA2857	within_nigoni	HDR	NA	0.110783210274844
+ECA2852	EG5268	within_nigoni	HDR	NA	0.139637356660522
+ECA2852	JU1418	within_nigoni	HDR	NA	0.131545776024846
+ECA2852	JU1419	within_nigoni	HDR	NA	0.132394057886337
+ECA2852	JU1420	within_nigoni	HDR	NA	0.129882592253842
+ECA2852	JU1422	within_nigoni	HDR	NA	0.134261684940193
+ECA2852	JU2484	within_nigoni	HDR	NA	0.120705159061913
+ECA2852	JU2617	within_nigoni	HDR	NA	0.148128532545917
+ECA2852	NIC2143	within_nigoni	HDR	NA	0.14991273052591
+ECA2852	NIC2150	within_nigoni	HDR	NA	0.147791801489136
+ECA2852	NIC2152	within_nigoni	HDR	NA	0.15034241049227
+ECA2852	VX151	within_nigoni	HDR	NA	0.142519332446749
+ECA2852	VX153	within_nigoni	HDR	NA	0.142793884106257
+ECA2852	YR106	within_nigoni	HDR	NA	0.109848754204082
+ECA2852	ZF1220	within_nigoni	HDR	NA	0.152264407680681
+ECA2857	EG5268	within_nigoni	HDR	NA	0.138767728681866
+ECA2857	JU1418	within_nigoni	HDR	NA	0.131826154017597
+ECA2857	JU1419	within_nigoni	HDR	NA	0.130765114048689
+ECA2857	JU1420	within_nigoni	HDR	NA	0.128274125154591
+ECA2857	JU1422	within_nigoni	HDR	NA	0.131451533100108
+ECA2857	JU2484	within_nigoni	HDR	NA	0.122596205147031
+ECA2857	JU2617	within_nigoni	HDR	NA	0.146375352009602
+ECA2857	NIC2143	within_nigoni	HDR	NA	0.152960016352119
+ECA2857	NIC2150	within_nigoni	HDR	NA	0.146783566190898
+ECA2857	NIC2152	within_nigoni	HDR	NA	0.148877341578313
+ECA2857	VX151	within_nigoni	HDR	NA	0.139574784865136
+ECA2857	VX153	within_nigoni	HDR	NA	0.140721079367858
+ECA2857	YR106	within_nigoni	HDR	NA	0.0938678278272773
+ECA2857	ZF1220	within_nigoni	HDR	NA	0.151217417929413
+EG5268	JU1418	within_nigoni	HDR	NA	0.137974542870681
+EG5268	JU1419	within_nigoni	HDR	NA	0.13282735440378
+EG5268	JU1420	within_nigoni	HDR	NA	0.12733383138205
+EG5268	JU1422	within_nigoni	HDR	NA	0.135045067240955
+EG5268	JU2484	within_nigoni	HDR	NA	0.146362418957536
+EG5268	JU2617	within_nigoni	HDR	NA	0.146123575788384
+EG5268	NIC2143	within_nigoni	HDR	NA	0.146926209922931
+EG5268	NIC2150	within_nigoni	HDR	NA	0.150559978822472
+EG5268	NIC2152	within_nigoni	HDR	NA	0.150711424462439
+EG5268	VX151	within_nigoni	HDR	NA	0.0624117421462121
+EG5268	VX153	within_nigoni	HDR	NA	0.0584902097776991
+EG5268	YR106	within_nigoni	HDR	NA	0.137377062212488
+EG5268	ZF1220	within_nigoni	HDR	NA	0.14863895934422
+JU1418	JU1419	within_nigoni	HDR	NA	0.0700707964190386
+JU1418	JU1420	within_nigoni	HDR	NA	0.0642831836158274
+JU1418	JU1422	within_nigoni	HDR	NA	0.0836191306953428
+JU1418	JU2484	within_nigoni	HDR	NA	0.14146272758158
+JU1418	JU2617	within_nigoni	HDR	NA	0.149844753039093
+JU1418	NIC2143	within_nigoni	HDR	NA	0.150141323523481
+JU1418	NIC2150	within_nigoni	HDR	NA	0.148659159016351
+JU1418	NIC2152	within_nigoni	HDR	NA	0.148593847108734
+JU1418	VX151	within_nigoni	HDR	NA	0.136730864630745
+JU1418	VX153	within_nigoni	HDR	NA	0.138417426299568
+JU1418	YR106	within_nigoni	HDR	NA	0.129780505442444
+JU1418	ZF1220	within_nigoni	HDR	NA	0.148726807741445
+JU1419	JU1420	within_nigoni	HDR	NA	0.0640214954736065
+JU1419	JU1422	within_nigoni	HDR	NA	0.0719687195531434
+JU1419	JU2484	within_nigoni	HDR	NA	0.140103239116138
+JU1419	JU2617	within_nigoni	HDR	NA	0.144970482600382
+JU1419	NIC2143	within_nigoni	HDR	NA	0.148534018826473
+JU1419	NIC2150	within_nigoni	HDR	NA	0.151636376942556
+JU1419	NIC2152	within_nigoni	HDR	NA	0.146963779367334
+JU1419	VX151	within_nigoni	HDR	NA	0.135360809256737
+JU1419	VX153	within_nigoni	HDR	NA	0.135025181645939
+JU1419	YR106	within_nigoni	HDR	NA	0.131310648833949
+JU1419	ZF1220	within_nigoni	HDR	NA	0.150911015869621
+JU1420	JU1422	within_nigoni	HDR	NA	0.0562575460190132
+JU1420	JU2484	within_nigoni	HDR	NA	0.137257904309057
+JU1420	JU2617	within_nigoni	HDR	NA	0.147228759325195
+JU1420	NIC2143	within_nigoni	HDR	NA	0.147432189941789
+JU1420	NIC2150	within_nigoni	HDR	NA	0.147016698145288
+JU1420	NIC2152	within_nigoni	HDR	NA	0.150746164250033
+JU1420	VX151	within_nigoni	HDR	NA	0.133634758387504
+JU1420	VX153	within_nigoni	HDR	NA	0.133392230459859
+JU1420	YR106	within_nigoni	HDR	NA	0.127236589409321
+JU1420	ZF1220	within_nigoni	HDR	NA	0.146801413846863
+JU1422	JU2484	within_nigoni	HDR	NA	0.138516099393306
+JU1422	JU2617	within_nigoni	HDR	NA	0.150644379507582
+JU1422	NIC2143	within_nigoni	HDR	NA	0.146967238121106
+JU1422	NIC2150	within_nigoni	HDR	NA	0.147500407809218
+JU1422	NIC2152	within_nigoni	HDR	NA	0.146392327872232
+JU1422	VX151	within_nigoni	HDR	NA	0.134509030343124
+JU1422	VX153	within_nigoni	HDR	NA	0.138082122906367
+JU1422	YR106	within_nigoni	HDR	NA	0.128462225864459
+JU1422	ZF1220	within_nigoni	HDR	NA	0.147722835326365
+JU2484	JU2617	within_nigoni	HDR	NA	0.150926549977186
+JU2484	NIC2143	within_nigoni	HDR	NA	0.150258665169871
+JU2484	NIC2150	within_nigoni	HDR	NA	0.152827818762137
+JU2484	NIC2152	within_nigoni	HDR	NA	0.15172240479487
+JU2484	VX151	within_nigoni	HDR	NA	0.146916265233868
+JU2484	VX153	within_nigoni	HDR	NA	0.14458467539452
+JU2484	YR106	within_nigoni	HDR	NA	0.123759262466288
+JU2484	ZF1220	within_nigoni	HDR	NA	0.153002314829055
+JU2617	NIC2143	within_nigoni	HDR	NA	0.145221862424507
+JU2617	NIC2150	within_nigoni	HDR	NA	0.150890797228108
+JU2617	NIC2152	within_nigoni	HDR	NA	0.148337643080671
+JU2617	VX151	within_nigoni	HDR	NA	0.143169138599025
+JU2617	VX153	within_nigoni	HDR	NA	0.140731373545452
+JU2617	YR106	within_nigoni	HDR	NA	0.148227524450116
+JU2617	ZF1220	within_nigoni	HDR	NA	0.146241114154831
+NIC2143	NIC2150	within_nigoni	HDR	NA	0.132614855831472
+NIC2143	NIC2152	within_nigoni	HDR	NA	0.128105985887368
+NIC2143	VX151	within_nigoni	HDR	NA	0.147405944194052
+NIC2143	VX153	within_nigoni	HDR	NA	0.145182087131086
+NIC2143	YR106	within_nigoni	HDR	NA	0.149092292499969
+NIC2143	ZF1220	within_nigoni	HDR	NA	0.139774040748009
+NIC2150	NIC2152	within_nigoni	HDR	NA	0.0901438751696423
+NIC2150	VX151	within_nigoni	HDR	NA	0.150739669645429
+NIC2150	VX153	within_nigoni	HDR	NA	0.150550262580305
+NIC2150	YR106	within_nigoni	HDR	NA	0.147577758571384
+NIC2150	ZF1220	within_nigoni	HDR	NA	0.144118831645831
+NIC2152	VX151	within_nigoni	HDR	NA	0.148919989886692
+NIC2152	VX153	within_nigoni	HDR	NA	0.147661265677829
+NIC2152	YR106	within_nigoni	HDR	NA	0.146593437015577
+NIC2152	ZF1220	within_nigoni	HDR	NA	0.140930241530561
+VX151	VX153	within_nigoni	HDR	NA	0.0170546550156526
+VX151	YR106	within_nigoni	HDR	NA	0.140704670516113
+VX151	ZF1220	within_nigoni	HDR	NA	0.145559693984533
+VX153	YR106	within_nigoni	HDR	NA	0.141542009256542
+VX153	ZF1220	within_nigoni	HDR	NA	0.147953668359128
+YR106	ZF1220	within_nigoni	HDR	NA	0.148987123825015
+ECA2852	ECA2857	within_nigoni	All	NA	0.0786985138101337
+ECA2852	EG5268	within_nigoni	All	NA	0.0969928528107804
+ECA2852	JU1418	within_nigoni	All	NA	0.0934845431871592
+ECA2852	JU1419	within_nigoni	All	NA	0.0917588691100641
+ECA2852	JU1420	within_nigoni	All	NA	0.0909107767228824
+ECA2852	JU1422	within_nigoni	All	NA	0.0939211008050827
+ECA2852	JU2484	within_nigoni	All	NA	0.0847640913880888
+ECA2852	JU2617	within_nigoni	All	NA	0.0983099884143556
+ECA2852	NIC2143	within_nigoni	All	NA	0.10136273830167
+ECA2852	NIC2150	within_nigoni	All	NA	0.102319301741181
+ECA2852	NIC2152	within_nigoni	All	NA	0.100710768027034
+ECA2852	VX151	within_nigoni	All	NA	0.0976004906892352
+ECA2852	VX153	within_nigoni	All	NA	0.0978577055265174
+ECA2852	YR106	within_nigoni	All	NA	0.0794358512754961
+ECA2852	ZF1220	within_nigoni	All	NA	0.103056265067548
+ECA2857	EG5268	within_nigoni	All	NA	0.0959856494428784
+ECA2857	JU1418	within_nigoni	All	NA	0.0908795457986312
+ECA2857	JU1419	within_nigoni	All	NA	0.089200331418194
+ECA2857	JU1420	within_nigoni	All	NA	0.0893889374589533
+ECA2857	JU1422	within_nigoni	All	NA	0.0892260310386388
+ECA2857	JU2484	within_nigoni	All	NA	0.0851315769267703
+ECA2857	JU2617	within_nigoni	All	NA	0.0999300829249534
+ECA2857	NIC2143	within_nigoni	All	NA	0.10237797677081
+ECA2857	NIC2150	within_nigoni	All	NA	0.101965018049926
+ECA2857	NIC2152	within_nigoni	All	NA	0.101615547118736
+ECA2857	VX151	within_nigoni	All	NA	0.096597142728378
+ECA2857	VX153	within_nigoni	All	NA	0.0964366918976657
+ECA2857	YR106	within_nigoni	All	NA	0.0660044401973048
+ECA2857	ZF1220	within_nigoni	All	NA	0.102248648768614
+EG5268	JU1418	within_nigoni	All	NA	0.094014984427806
+EG5268	JU1419	within_nigoni	All	NA	0.093063976622673
+EG5268	JU1420	within_nigoni	All	NA	0.0916775045617025
+EG5268	JU1422	within_nigoni	All	NA	0.0922133533427495
+EG5268	JU2484	within_nigoni	All	NA	0.100724526827445
+EG5268	JU2617	within_nigoni	All	NA	0.100010952732819
+EG5268	NIC2143	within_nigoni	All	NA	0.0990235678171037
+EG5268	NIC2150	within_nigoni	All	NA	0.103484889745691
+EG5268	NIC2152	within_nigoni	All	NA	0.100705119331448
+EG5268	VX151	within_nigoni	All	NA	0.0365473685908583
+EG5268	VX153	within_nigoni	All	NA	0.0407494908878829
+EG5268	YR106	within_nigoni	All	NA	0.095473664152587
+EG5268	ZF1220	within_nigoni	All	NA	0.101931197781143
+JU1418	JU1419	within_nigoni	All	NA	0.0513200419777338
+JU1418	JU1420	within_nigoni	All	NA	0.0490362701876999
+JU1418	JU1422	within_nigoni	All	NA	0.056819798283157
+JU1418	JU2484	within_nigoni	All	NA	0.0952512051535235
+JU1418	JU2617	within_nigoni	All	NA	0.0958882148264126
+JU1418	NIC2143	within_nigoni	All	NA	0.0968361038734364
+JU1418	NIC2150	within_nigoni	All	NA	0.10187985896516
+JU1418	NIC2152	within_nigoni	All	NA	0.0978209437124654
+JU1418	VX151	within_nigoni	All	NA	0.0946309783679153
+JU1418	VX153	within_nigoni	All	NA	0.0934624601465914
+JU1418	YR106	within_nigoni	All	NA	0.0898574410271427
+JU1418	ZF1220	within_nigoni	All	NA	0.0995478431899621
+JU1419	JU1420	within_nigoni	All	NA	0.0428841891315593
+JU1419	JU1422	within_nigoni	All	NA	0.0410167716186231
+JU1419	JU2484	within_nigoni	All	NA	0.0946025811013137
+JU1419	JU2617	within_nigoni	All	NA	0.0972331335103939
+JU1419	NIC2143	within_nigoni	All	NA	0.0989643519329106
+JU1419	NIC2150	within_nigoni	All	NA	0.102466143080759
+JU1419	NIC2152	within_nigoni	All	NA	0.0994712019749942
+JU1419	VX151	within_nigoni	All	NA	0.0947190140752066
+JU1419	VX153	within_nigoni	All	NA	0.0939168256022391
+JU1419	YR106	within_nigoni	All	NA	0.0920401757542568
+JU1419	ZF1220	within_nigoni	All	NA	0.101261428262724
+JU1420	JU1422	within_nigoni	All	NA	0.0507781637136369
+JU1420	JU2484	within_nigoni	All	NA	0.0933090932934332
+JU1420	JU2617	within_nigoni	All	NA	0.0960616381272436
+JU1420	NIC2143	within_nigoni	All	NA	0.0985790907301503
+JU1420	NIC2150	within_nigoni	All	NA	0.101748443706643
+JU1420	NIC2152	within_nigoni	All	NA	0.099080405799936
+JU1420	VX151	within_nigoni	All	NA	0.0934193310767303
+JU1420	VX153	within_nigoni	All	NA	0.092240103050599
+JU1420	YR106	within_nigoni	All	NA	0.0891380256652228
+JU1420	ZF1220	within_nigoni	All	NA	0.10045090370193
+JU1422	JU2484	within_nigoni	All	NA	0.0945434026615002
+JU1422	JU2617	within_nigoni	All	NA	0.0973956747985608
+JU1422	NIC2143	within_nigoni	All	NA	0.0981581224592668
+JU1422	NIC2150	within_nigoni	All	NA	0.101965091342941
+JU1422	NIC2152	within_nigoni	All	NA	0.0994775381369632
+JU1422	VX151	within_nigoni	All	NA	0.0931273057841408
+JU1422	VX153	within_nigoni	All	NA	0.0934344085780427
+JU1422	YR106	within_nigoni	All	NA	0.0900952913178162
+JU1422	ZF1220	within_nigoni	All	NA	0.101277161742391
+JU2484	JU2617	within_nigoni	All	NA	0.101624536504743
+JU2484	NIC2143	within_nigoni	All	NA	0.104319144719162
+JU2484	NIC2150	within_nigoni	All	NA	0.103703255082926
+JU2484	NIC2152	within_nigoni	All	NA	0.103112963279536
+JU2484	VX151	within_nigoni	All	NA	0.0998882001773086
+JU2484	VX153	within_nigoni	All	NA	0.101731740324882
+JU2484	YR106	within_nigoni	All	NA	0.0859005305824752
+JU2484	ZF1220	within_nigoni	All	NA	0.102954041469691
+JU2617	NIC2143	within_nigoni	All	NA	0.0949499526186739
+JU2617	NIC2150	within_nigoni	All	NA	0.102806786687566
+JU2617	NIC2152	within_nigoni	All	NA	0.0992960288438389
+JU2617	VX151	within_nigoni	All	NA	0.0994378890570141
+JU2617	VX153	within_nigoni	All	NA	0.0967157901934602
+JU2617	YR106	within_nigoni	All	NA	0.0992244753244928
+JU2617	ZF1220	within_nigoni	All	NA	0.0999816005759673
+NIC2143	NIC2150	within_nigoni	All	NA	0.0921133828404713
+NIC2143	NIC2152	within_nigoni	All	NA	0.0902474695673407
+NIC2143	VX151	within_nigoni	All	NA	0.10028958765333
+NIC2143	VX153	within_nigoni	All	NA	0.0972878739570106
+NIC2143	YR106	within_nigoni	All	NA	0.101343513931889
+NIC2143	ZF1220	within_nigoni	All	NA	0.0966643634693938
+NIC2150	NIC2152	within_nigoni	All	NA	0.0625185718334901
+NIC2150	VX151	within_nigoni	All	NA	0.103032298494416
+NIC2150	VX153	within_nigoni	All	NA	0.102628624334158
+NIC2150	YR106	within_nigoni	All	NA	0.101949424359664
+NIC2150	ZF1220	within_nigoni	All	NA	0.0963482187305926
+NIC2152	VX151	within_nigoni	All	NA	0.0998671926685082
+NIC2152	VX153	within_nigoni	All	NA	0.0991974281387841
+NIC2152	YR106	within_nigoni	All	NA	0.0996970014721947
+NIC2152	ZF1220	within_nigoni	All	NA	0.0966852844930449
+VX151	VX153	within_nigoni	All	NA	0.0119409779064632
+VX151	YR106	within_nigoni	All	NA	0.0957567355616233
+VX151	ZF1220	within_nigoni	All	NA	0.101980798899056
+VX153	YR106	within_nigoni	All	NA	0.0949728961127256
+VX153	ZF1220	within_nigoni	All	NA	0.10306128700954
+YR106	ZF1220	within_nigoni	All	NA	0.101393820795854
+ECA1174	ECA2852	between_species	nHDR	NA	0.191008742224546
+ECA1174	ECA2857	between_species	nHDR	NA	0.190765139204626
+ECA1174	EG5268	between_species	nHDR	NA	0.19092817882959
+ECA1174	JU1418	between_species	nHDR	NA	0.190140364161671
+ECA1174	JU1419	between_species	nHDR	NA	0.190784773933361
+ECA1174	JU1420	between_species	nHDR	NA	0.19038165070684
+ECA1174	JU1422	between_species	nHDR	NA	0.190544927358667
+ECA1174	JU2484	between_species	nHDR	NA	0.191020184882852
+ECA1174	JU2617	between_species	nHDR	NA	0.19072938728306
+ECA1174	NIC2143	between_species	nHDR	NA	0.190643570761073
+ECA1174	NIC2150	between_species	nHDR	NA	0.190846045089355
+ECA1174	NIC2152	between_species	nHDR	NA	0.190347504466382
+ECA1174	VX151	between_species	nHDR	NA	0.19043356148193
+ECA1174	VX153	between_species	nHDR	NA	0.190424738804564
+ECA1174	YR106	between_species	nHDR	NA	0.190881250027417
+ECA1174	ZF1220	between_species	nHDR	NA	0.190142055482989
+ECA1657	ECA2852	between_species	nHDR	NA	0.191132036417797
+ECA1657	ECA2857	between_species	nHDR	NA	0.190946311929437
+ECA1657	EG5268	between_species	nHDR	NA	0.190999487381077
+ECA1657	JU1418	between_species	nHDR	NA	0.19032375552418
+ECA1657	JU1419	between_species	nHDR	NA	0.190968400919734
+ECA1657	JU1420	between_species	nHDR	NA	0.190568373801387
+ECA1657	JU1422	between_species	nHDR	NA	0.190605663051136
+ECA1657	JU2484	between_species	nHDR	NA	0.191170774137317
+ECA1657	JU2617	between_species	nHDR	NA	0.190931271242609
+ECA1657	NIC2143	between_species	nHDR	NA	0.190768060614449
+ECA1657	NIC2150	between_species	nHDR	NA	0.191040948016033
+ECA1657	NIC2152	between_species	nHDR	NA	0.190454011914466
+ECA1657	VX151	between_species	nHDR	NA	0.190474711135032
+ECA1657	VX153	between_species	nHDR	NA	0.190527317524149
+ECA1657	YR106	between_species	nHDR	NA	0.190968196059683
+ECA1657	ZF1220	between_species	nHDR	NA	0.190215266106054
+ECA176	ECA2852	between_species	nHDR	NA	0.191243865522232
+ECA176	ECA2857	between_species	nHDR	NA	0.190960407132412
+ECA176	EG5268	between_species	nHDR	NA	0.191205523965793
+ECA176	JU1418	between_species	nHDR	NA	0.190344821334897
+ECA176	JU1419	between_species	nHDR	NA	0.191061502610047
+ECA176	JU1420	between_species	nHDR	NA	0.190619858409885
+ECA176	JU1422	between_species	nHDR	NA	0.190715639024915
+ECA176	JU2484	between_species	nHDR	NA	0.19119844303518
+ECA176	JU2617	between_species	nHDR	NA	0.190990084312714
+ECA176	NIC2143	between_species	nHDR	NA	0.190820237942696
+ECA176	NIC2150	between_species	nHDR	NA	0.191111454228465
+ECA176	NIC2152	between_species	nHDR	NA	0.190614905042248
+ECA176	VX151	between_species	nHDR	NA	0.190670829763496
+ECA176	VX153	between_species	nHDR	NA	0.190633139108314
+ECA176	YR106	between_species	nHDR	NA	0.191002919059454
+ECA176	ZF1220	between_species	nHDR	NA	0.190336139917685
+ECA2852	EG6271	between_species	nHDR	NA	0.19126598353447
+ECA2852	JU3200	between_species	nHDR	NA	0.190640574735184
+ECA2852	JU3207	between_species	nHDR	NA	0.191042136330674
+ECA2852	JU3237	between_species	nHDR	NA	0.191518542211465
+ECA2852	JU4058	between_species	nHDR	NA	0.191350859808754
+ECA2852	NIC1052	between_species	nHDR	NA	0.191155197691832
+ECA2852	NIC1529	between_species	nHDR	NA	0.190977765123181
+ECA2852	NIC248	between_species	nHDR	NA	0.19142613357534
+ECA2852	PE887	between_species	nHDR	NA	0.191334216957758
+ECA2852	QG1005	between_species	nHDR	NA	0.19118042167606
+ECA2852	QG2641	between_species	nHDR	NA	0.190995233551203
+ECA2852	QG2665	between_species	nHDR	NA	0.19106592921985
+ECA2852	QG2902	between_species	nHDR	NA	0.191454264846675
+ECA2852	QG2964	between_species	nHDR	NA	0.191064936283688
+ECA2852	QG4232	between_species	nHDR	NA	0.190538863910056
+ECA2852	QG786	between_species	nHDR	NA	0.19108963546453
+ECA2852	QG791	between_species	nHDR	NA	0.19112202981404
+ECA2852	QX1410	between_species	nHDR	NA	0.192232067462632
+ECA2852	QX1796	between_species	nHDR	NA	0.19114153751301
+ECA2857	EG6271	between_species	nHDR	NA	0.191173252034822
+ECA2857	JU3200	between_species	nHDR	NA	0.190411365351437
+ECA2857	JU3207	between_species	nHDR	NA	0.190870478915099
+ECA2857	JU3237	between_species	nHDR	NA	0.191249313411864
+ECA2857	JU4058	between_species	nHDR	NA	0.191106867518059
+ECA2857	NIC1052	between_species	nHDR	NA	0.190952529428372
+ECA2857	NIC1529	between_species	nHDR	NA	0.19072220823646
+ECA2857	NIC248	between_species	nHDR	NA	0.19127448303073
+ECA2857	PE887	between_species	nHDR	NA	0.1910962587788
+ECA2857	QG1005	between_species	nHDR	NA	0.19097014428816
+ECA2857	QG2641	between_species	nHDR	NA	0.19092021348212
+ECA2857	QG2665	between_species	nHDR	NA	0.190892540565263
+ECA2857	QG2902	between_species	nHDR	NA	0.191254306849003
+ECA2857	QG2964	between_species	nHDR	NA	0.190859651305781
+ECA2857	QG4232	between_species	nHDR	NA	0.190183397342875
+ECA2857	QG786	between_species	nHDR	NA	0.190891968359914
+ECA2857	QG791	between_species	nHDR	NA	0.190883442277825
+ECA2857	QX1410	between_species	nHDR	NA	0.192166057587747
+ECA2857	QX1796	between_species	nHDR	NA	0.190945701011691
+EG5268	EG6271	between_species	nHDR	NA	0.191229688164492
+EG5268	JU3200	between_species	nHDR	NA	0.190438253927794
+EG5268	JU3207	between_species	nHDR	NA	0.190905061174528
+EG5268	JU3237	between_species	nHDR	NA	0.191394371572634
+EG5268	JU4058	between_species	nHDR	NA	0.191202286588011
+EG5268	NIC1052	between_species	nHDR	NA	0.191035756506368
+EG5268	NIC1529	between_species	nHDR	NA	0.190818733876727
+EG5268	NIC248	between_species	nHDR	NA	0.19140009852484
+EG5268	PE887	between_species	nHDR	NA	0.191167603089684
+EG5268	QG1005	between_species	nHDR	NA	0.190886305942341
+EG5268	QG2641	between_species	nHDR	NA	0.190901712271391
+EG5268	QG2665	between_species	nHDR	NA	0.190852055060752
+EG5268	QG2902	between_species	nHDR	NA	0.191377227319856
+EG5268	QG2964	between_species	nHDR	NA	0.190823026284655
+EG5268	QG4232	between_species	nHDR	NA	0.190249975135382
+EG5268	QG786	between_species	nHDR	NA	0.190974741443298
+EG5268	QG791	between_species	nHDR	NA	0.191001525104794
+EG5268	QX1410	between_species	nHDR	NA	0.192127005127842
+EG5268	QX1796	between_species	nHDR	NA	0.191060089024535
+EG6271	JU1418	between_species	nHDR	NA	0.190539925754454
+EG6271	JU1419	between_species	nHDR	NA	0.191199905687567
+EG6271	JU1420	between_species	nHDR	NA	0.190776361435633
+EG6271	JU1422	between_species	nHDR	NA	0.190969985702528
+EG6271	JU2484	between_species	nHDR	NA	0.191236355750562
+EG6271	JU2617	between_species	nHDR	NA	0.191207906984307
+EG6271	NIC2143	between_species	nHDR	NA	0.191025161994345
+EG6271	NIC2150	between_species	nHDR	NA	0.191271764662135
+EG6271	NIC2152	between_species	nHDR	NA	0.190778306060771
+EG6271	VX151	between_species	nHDR	NA	0.190676737644643
+EG6271	VX153	between_species	nHDR	NA	0.190805551932785
+EG6271	YR106	between_species	nHDR	NA	0.191232793151137
+EG6271	ZF1220	between_species	nHDR	NA	0.190560043264518
+JU1418	JU3200	between_species	nHDR	NA	0.189868494478938
+JU1418	JU3207	between_species	nHDR	NA	0.190194499511088
+JU1418	JU3237	between_species	nHDR	NA	0.190653456709783
+JU1418	JU4058	between_species	nHDR	NA	0.190380803365704
+JU1418	NIC1052	between_species	nHDR	NA	0.190373667582657
+JU1418	NIC1529	between_species	nHDR	NA	0.190118476515667
+JU1418	NIC248	between_species	nHDR	NA	0.190630452916611
+JU1418	PE887	between_species	nHDR	NA	0.190407261796326
+JU1418	QG1005	between_species	nHDR	NA	0.190359699482016
+JU1418	QG2641	between_species	nHDR	NA	0.190284932463415
+JU1418	QG2665	between_species	nHDR	NA	0.190298431691252
+JU1418	QG2902	between_species	nHDR	NA	0.190726225496462
+JU1418	QG2964	between_species	nHDR	NA	0.190228217649092
+JU1418	QG4232	between_species	nHDR	NA	0.189675587418755
+JU1418	QG786	between_species	nHDR	NA	0.190315674872428
+JU1418	QG791	between_species	nHDR	NA	0.190311154732386
+JU1418	QX1410	between_species	nHDR	NA	0.191701978301995
+JU1418	QX1796	between_species	nHDR	NA	0.190303828179335
+JU1419	JU3200	between_species	nHDR	NA	0.190305674334252
+JU1419	JU3207	between_species	nHDR	NA	0.19078476232562
+JU1419	JU3237	between_species	nHDR	NA	0.19137811526973
+JU1419	JU4058	between_species	nHDR	NA	0.191094015088664
+JU1419	NIC1052	between_species	nHDR	NA	0.191003834766081
+JU1419	NIC1529	between_species	nHDR	NA	0.190766805631305
+JU1419	NIC248	between_species	nHDR	NA	0.191261525155139
+JU1419	PE887	between_species	nHDR	NA	0.191100017310138
+JU1419	QG1005	between_species	nHDR	NA	0.190987539057866
+JU1419	QG2641	between_species	nHDR	NA	0.190942865511098
+JU1419	QG2665	between_species	nHDR	NA	0.19093096903085
+JU1419	QG2902	between_species	nHDR	NA	0.191346859249187
+JU1419	QG2964	between_species	nHDR	NA	0.190953548583021
+JU1419	QG4232	between_species	nHDR	NA	0.190292441563464
+JU1419	QG786	between_species	nHDR	NA	0.190979253963724
+JU1419	QG791	between_species	nHDR	NA	0.19089632899758
+JU1419	QX1410	between_species	nHDR	NA	0.192259436881862
+JU1419	QX1796	between_species	nHDR	NA	0.190905232567079
+JU1420	JU3200	between_species	nHDR	NA	0.189970261084173
+JU1420	JU3207	between_species	nHDR	NA	0.19043438307112
+JU1420	JU3237	between_species	nHDR	NA	0.190921345907827
+JU1420	JU4058	between_species	nHDR	NA	0.190664541021918
+JU1420	NIC1052	between_species	nHDR	NA	0.190593471372696
+JU1420	NIC1529	between_species	nHDR	NA	0.190424148780165
+JU1420	NIC248	between_species	nHDR	NA	0.190896630593107
+JU1420	PE887	between_species	nHDR	NA	0.19071040933091
+JU1420	QG1005	between_species	nHDR	NA	0.19059667292792
+JU1420	QG2641	between_species	nHDR	NA	0.190584322416131
+JU1420	QG2665	between_species	nHDR	NA	0.190493890375128
+JU1420	QG2902	between_species	nHDR	NA	0.191004546699707
+JU1420	QG2964	between_species	nHDR	NA	0.190528951141482
+JU1420	QG4232	between_species	nHDR	NA	0.189962527935439
+JU1420	QG786	between_species	nHDR	NA	0.190546749851325
+JU1420	QG791	between_species	nHDR	NA	0.190527460905175
+JU1420	QX1410	between_species	nHDR	NA	0.191844720738656
+JU1420	QX1796	between_species	nHDR	NA	0.1905483707741
+JU1422	JU3200	between_species	nHDR	NA	0.189932082713016
+JU1422	JU3207	between_species	nHDR	NA	0.190544330034618
+JU1422	JU3237	between_species	nHDR	NA	0.190974300651525
+JU1422	JU4058	between_species	nHDR	NA	0.190853322904611
+JU1422	NIC1052	between_species	nHDR	NA	0.190529238952754
+JU1422	NIC1529	between_species	nHDR	NA	0.190515344094241
+JU1422	NIC248	between_species	nHDR	NA	0.191001325368718
+JU1422	PE887	between_species	nHDR	NA	0.190764576747935
+JU1422	QG1005	between_species	nHDR	NA	0.190653387499497
+JU1422	QG2641	between_species	nHDR	NA	0.190601866410183
+JU1422	QG2665	between_species	nHDR	NA	0.190609162994443
+JU1422	QG2902	between_species	nHDR	NA	0.190996994642474
+JU1422	QG2964	between_species	nHDR	NA	0.190600951454175
+JU1422	QG4232	between_species	nHDR	NA	0.189703412428247
+JU1422	QG786	between_species	nHDR	NA	0.190658810105224
+JU1422	QG791	between_species	nHDR	NA	0.190589666491164
+JU1422	QX1410	between_species	nHDR	NA	0.191994454357338
+JU1422	QX1796	between_species	nHDR	NA	0.190673325181556
+JU2484	JU3200	between_species	nHDR	NA	0.190488756958128
+JU2484	JU3207	between_species	nHDR	NA	0.191056719133981
+JU2484	JU3237	between_species	nHDR	NA	0.19140917182311
+JU2484	JU4058	between_species	nHDR	NA	0.191371023389618
+JU2484	NIC1052	between_species	nHDR	NA	0.191042263751042
+JU2484	NIC1529	between_species	nHDR	NA	0.190952657693656
+JU2484	NIC248	between_species	nHDR	NA	0.191503236372047
+JU2484	PE887	between_species	nHDR	NA	0.191285273629387
+JU2484	QG1005	between_species	nHDR	NA	0.191195495789159
+JU2484	QG2641	between_species	nHDR	NA	0.191061075819164
+JU2484	QG2665	between_species	nHDR	NA	0.191060019981181
+JU2484	QG2902	between_species	nHDR	NA	0.191392045551661
+JU2484	QG2964	between_species	nHDR	NA	0.191117506626741
+JU2484	QG4232	between_species	nHDR	NA	0.190195431611444
+JU2484	QG786	between_species	nHDR	NA	0.191080622715773
+JU2484	QG791	between_species	nHDR	NA	0.191212810740424
+JU2484	QX1410	between_species	nHDR	NA	0.192266047122244
+JU2484	QX1796	between_species	nHDR	NA	0.191154522928116
+JU2617	JU3200	between_species	nHDR	NA	0.190333384370669
+JU2617	JU3207	between_species	nHDR	NA	0.190793828431318
+JU2617	JU3237	between_species	nHDR	NA	0.191213523229307
+JU2617	JU4058	between_species	nHDR	NA	0.19105757795947
+JU2617	NIC1052	between_species	nHDR	NA	0.190872668065527
+JU2617	NIC1529	between_species	nHDR	NA	0.190743951058505
+JU2617	NIC248	between_species	nHDR	NA	0.191276796776414
+JU2617	PE887	between_species	nHDR	NA	0.191035950763697
+JU2617	QG1005	between_species	nHDR	NA	0.190896395544861
+JU2617	QG2641	between_species	nHDR	NA	0.190930048134269
+JU2617	QG2665	between_species	nHDR	NA	0.190827313235116
+JU2617	QG2902	between_species	nHDR	NA	0.191256028115206
+JU2617	QG2964	between_species	nHDR	NA	0.190898652270278
+JU2617	QG4232	between_species	nHDR	NA	0.190374276073642
+JU2617	QG786	between_species	nHDR	NA	0.190896008071847
+JU2617	QG791	between_species	nHDR	NA	0.190957314591756
+JU2617	QX1410	between_species	nHDR	NA	0.192385802505742
+JU2617	QX1796	between_species	nHDR	NA	0.190899278497022
+JU3200	NIC2143	between_species	nHDR	NA	0.190454488607467
+JU3200	NIC2150	between_species	nHDR	NA	0.190712965178513
+JU3200	NIC2152	between_species	nHDR	NA	0.190164419616315
+JU3200	VX151	between_species	nHDR	NA	0.19001578565505
+JU3200	VX153	between_species	nHDR	NA	0.190042046568526
+JU3200	YR106	between_species	nHDR	NA	0.190286434562431
+JU3200	ZF1220	between_species	nHDR	NA	0.189824542940766
+JU3207	NIC2143	between_species	nHDR	NA	0.190681065209866
+JU3207	NIC2150	between_species	nHDR	NA	0.19093083659403
+JU3207	NIC2152	between_species	nHDR	NA	0.190328354268071
+JU3207	VX151	between_species	nHDR	NA	0.190366323971861
+JU3207	VX153	between_species	nHDR	NA	0.190434652135734
+JU3207	YR106	between_species	nHDR	NA	0.190810844157836
+JU3207	ZF1220	between_species	nHDR	NA	0.190116645023421
+JU3237	NIC2143	between_species	nHDR	NA	0.191154966409539
+JU3237	NIC2150	between_species	nHDR	NA	0.191345590877673
+JU3237	NIC2152	between_species	nHDR	NA	0.190790908233479
+JU3237	VX151	between_species	nHDR	NA	0.19084907319449
+JU3237	VX153	between_species	nHDR	NA	0.190864950429736
+JU3237	YR106	between_species	nHDR	NA	0.19127545403284
+JU3237	ZF1220	between_species	nHDR	NA	0.190662102296421
+JU4058	NIC2143	between_species	nHDR	NA	0.190856065338828
+JU4058	NIC2150	between_species	nHDR	NA	0.19113944729667
+JU4058	NIC2152	between_species	nHDR	NA	0.190621192687543
+JU4058	VX151	between_species	nHDR	NA	0.190722335551453
+JU4058	VX153	between_species	nHDR	NA	0.190710805074858
+JU4058	YR106	between_species	nHDR	NA	0.19110963415061
+JU4058	ZF1220	between_species	nHDR	NA	0.190426310877154
+NIC1052	NIC2143	between_species	nHDR	NA	0.190706114675239
+NIC1052	NIC2150	between_species	nHDR	NA	0.191130438187701
+NIC1052	NIC2152	between_species	nHDR	NA	0.190524828200274
+NIC1052	VX151	between_species	nHDR	NA	0.190463580132185
+NIC1052	VX153	between_species	nHDR	NA	0.190438152902886
+NIC1052	YR106	between_species	nHDR	NA	0.19101222172789
+NIC1052	ZF1220	between_species	nHDR	NA	0.190347734072991
+NIC1529	NIC2143	between_species	nHDR	NA	0.19056837791004
+NIC1529	NIC2150	between_species	nHDR	NA	0.19085094888765
+NIC1529	NIC2152	between_species	nHDR	NA	0.190275554154108
+NIC1529	VX151	between_species	nHDR	NA	0.190297639140519
+NIC1529	VX153	between_species	nHDR	NA	0.190351487998398
+NIC1529	YR106	between_species	nHDR	NA	0.190757740337657
+NIC1529	ZF1220	between_species	nHDR	NA	0.190003964288282
+NIC2143	NIC248	between_species	nHDR	NA	0.191106061305798
+NIC2143	PE887	between_species	nHDR	NA	0.190907558114185
+NIC2143	QG1005	between_species	nHDR	NA	0.190870866674706
+NIC2143	QG2641	between_species	nHDR	NA	0.190746847609425
+NIC2143	QG2665	between_species	nHDR	NA	0.190759272134018
+NIC2143	QG2902	between_species	nHDR	NA	0.191103955395479
+NIC2143	QG2964	between_species	nHDR	NA	0.190704645901778
+NIC2143	QG4232	between_species	nHDR	NA	0.190297395318063
+NIC2143	QG786	between_species	nHDR	NA	0.190753632941576
+NIC2143	QG791	between_species	nHDR	NA	0.190757165833563
+NIC2143	QX1410	between_species	nHDR	NA	0.192087556643975
+NIC2143	QX1796	between_species	nHDR	NA	0.190772301240787
+NIC2150	NIC248	between_species	nHDR	NA	0.191323833955289
+NIC2150	PE887	between_species	nHDR	NA	0.191332955057028
+NIC2150	QG1005	between_species	nHDR	NA	0.191026796645342
+NIC2150	QG2641	between_species	nHDR	NA	0.191051964247904
+NIC2150	QG2665	between_species	nHDR	NA	0.190942785315251
+NIC2150	QG2902	between_species	nHDR	NA	0.191479198616748
+NIC2150	QG2964	between_species	nHDR	NA	0.190976822711901
+NIC2150	QG4232	between_species	nHDR	NA	0.190442820127604
+NIC2150	QG786	between_species	nHDR	NA	0.191103702274602
+NIC2150	QG791	between_species	nHDR	NA	0.191042499169451
+NIC2150	QX1410	between_species	nHDR	NA	0.192327483205588
+NIC2150	QX1796	between_species	nHDR	NA	0.19105340608465
+NIC2152	NIC248	between_species	nHDR	NA	0.190718033950471
+NIC2152	PE887	between_species	nHDR	NA	0.190632837877661
+NIC2152	QG1005	between_species	nHDR	NA	0.190510064237606
+NIC2152	QG2641	between_species	nHDR	NA	0.19037869420683
+NIC2152	QG2665	between_species	nHDR	NA	0.190400073526926
+NIC2152	QG2902	between_species	nHDR	NA	0.190727578271566
+NIC2152	QG2964	between_species	nHDR	NA	0.190396783235874
+NIC2152	QG4232	between_species	nHDR	NA	0.19012669026028
+NIC2152	QG786	between_species	nHDR	NA	0.190490514997447
+NIC2152	QG791	between_species	nHDR	NA	0.190442276351112
+NIC2152	QX1410	between_species	nHDR	NA	0.191766729707138
+NIC2152	QX1796	between_species	nHDR	NA	0.190488451447258
+NIC248	VX151	between_species	nHDR	NA	0.190852426998858
+NIC248	VX153	between_species	nHDR	NA	0.190924712310698
+NIC248	YR106	between_species	nHDR	NA	0.191298228726794
+NIC248	ZF1220	between_species	nHDR	NA	0.190545302223139
+PE887	VX151	between_species	nHDR	NA	0.190691839048972
+PE887	VX153	between_species	nHDR	NA	0.19068086533701
+PE887	YR106	between_species	nHDR	NA	0.191116773789626
+PE887	ZF1220	between_species	nHDR	NA	0.190397976170779
+QG1005	VX151	between_species	nHDR	NA	0.190390506427364
+QG1005	VX153	between_species	nHDR	NA	0.190583072218906
+QG1005	YR106	between_species	nHDR	NA	0.191055178842915
+QG1005	ZF1220	between_species	nHDR	NA	0.190348845256371
+QG2641	VX151	between_species	nHDR	NA	0.190502243775079
+QG2641	VX153	between_species	nHDR	NA	0.190659918831654
+QG2641	YR106	between_species	nHDR	NA	0.19084276373349
+QG2641	ZF1220	between_species	nHDR	NA	0.190224458560729
+QG2665	VX151	between_species	nHDR	NA	0.190386800091534
+QG2665	VX153	between_species	nHDR	NA	0.190599958650104
+QG2665	YR106	between_species	nHDR	NA	0.191036064847121
+QG2665	ZF1220	between_species	nHDR	NA	0.19027339337137
+QG2902	VX151	between_species	nHDR	NA	0.190846975392146
+QG2902	VX153	between_species	nHDR	NA	0.190908787080092
+QG2902	YR106	between_species	nHDR	NA	0.191285872598804
+QG2902	ZF1220	between_species	nHDR	NA	0.190675168841816
+QG2964	VX151	between_species	nHDR	NA	0.190410570121795
+QG2964	VX153	between_species	nHDR	NA	0.190577868196083
+QG2964	YR106	between_species	nHDR	NA	0.190948877225268
+QG2964	ZF1220	between_species	nHDR	NA	0.190203754726594
+QG4232	VX151	between_species	nHDR	NA	0.189592220798108
+QG4232	VX153	between_species	nHDR	NA	0.189809957826993
+QG4232	YR106	between_species	nHDR	NA	0.19010412234061
+QG4232	ZF1220	between_species	nHDR	NA	0.189512403110995
+QG786	VX151	between_species	nHDR	NA	0.190498063027628
+QG786	VX153	between_species	nHDR	NA	0.190650327141282
+QG786	YR106	between_species	nHDR	NA	0.190935113918875
+QG786	ZF1220	between_species	nHDR	NA	0.190306167386001
+QG791	VX151	between_species	nHDR	NA	0.190540270937806
+QG791	VX153	between_species	nHDR	NA	0.190589003096296
+QG791	YR106	between_species	nHDR	NA	0.190962289960804
+QG791	ZF1220	between_species	nHDR	NA	0.190222997783277
+QX1410	VX151	between_species	nHDR	NA	0.191606730167042
+QX1410	VX153	between_species	nHDR	NA	0.191821877928666
+QX1410	YR106	between_species	nHDR	NA	0.192250228941747
+QX1410	ZF1220	between_species	nHDR	NA	0.191492078805784
+QX1796	VX151	between_species	nHDR	NA	0.190532531201272
+QX1796	VX153	between_species	nHDR	NA	0.190552918528204
+QX1796	YR106	between_species	nHDR	NA	0.191024225479945
+QX1796	ZF1220	between_species	nHDR	NA	0.190276304663514
+ECA1174	ECA2852	between_species	HDR	NA	0.241653530276426
+ECA1174	ECA2857	between_species	HDR	NA	0.244152869897926
+ECA1174	EG5268	between_species	HDR	NA	0.243278063173254
+ECA1174	JU1418	between_species	HDR	NA	0.244170237365664
+ECA1174	JU1419	between_species	HDR	NA	0.242674475350119
+ECA1174	JU1420	between_species	HDR	NA	0.243125219162046
+ECA1174	JU1422	between_species	HDR	NA	0.243902105587654
+ECA1174	JU2484	between_species	HDR	NA	0.243769444255076
+ECA1174	JU2617	between_species	HDR	NA	0.24525982246716
+ECA1174	NIC2143	between_species	HDR	NA	0.243902637375974
+ECA1174	NIC2150	between_species	HDR	NA	0.244387122213956
+ECA1174	NIC2152	between_species	HDR	NA	0.242489442000165
+ECA1174	VX151	between_species	HDR	NA	0.24424414040137
+ECA1174	VX153	between_species	HDR	NA	0.243817356709942
+ECA1174	YR106	between_species	HDR	NA	0.242288810562148
+ECA1174	ZF1220	between_species	HDR	NA	0.243880158414345
+ECA1657	ECA2852	between_species	HDR	NA	0.241482615772341
+ECA1657	ECA2857	between_species	HDR	NA	0.243873748251406
+ECA1657	EG5268	between_species	HDR	NA	0.24307743534593
+ECA1657	JU1418	between_species	HDR	NA	0.243793137018847
+ECA1657	JU1419	between_species	HDR	NA	0.242311549239585
+ECA1657	JU1420	between_species	HDR	NA	0.242824371145218
+ECA1657	JU1422	between_species	HDR	NA	0.243625788291883
+ECA1657	JU2484	between_species	HDR	NA	0.243769967460555
+ECA1657	JU2617	between_species	HDR	NA	0.245233953937961
+ECA1657	NIC2143	between_species	HDR	NA	0.243562496569123
+ECA1657	NIC2150	between_species	HDR	NA	0.243826275598084
+ECA1657	NIC2152	between_species	HDR	NA	0.241687764745462
+ECA1657	VX151	between_species	HDR	NA	0.243975353457488
+ECA1657	VX153	between_species	HDR	NA	0.243634846448192
+ECA1657	YR106	between_species	HDR	NA	0.242252767346808
+ECA1657	ZF1220	between_species	HDR	NA	0.242972540129364
+ECA176	ECA2852	between_species	HDR	NA	0.241462262124745
+ECA176	ECA2857	between_species	HDR	NA	0.243752047210986
+ECA176	EG5268	between_species	HDR	NA	0.24290769114204
+ECA176	JU1418	between_species	HDR	NA	0.243835622918307
+ECA176	JU1419	between_species	HDR	NA	0.242336209666685
+ECA176	JU1420	between_species	HDR	NA	0.242449035388337
+ECA176	JU1422	between_species	HDR	NA	0.243561230012627
+ECA176	JU2484	between_species	HDR	NA	0.243290852344503
+ECA176	JU2617	between_species	HDR	NA	0.245170013177135
+ECA176	NIC2143	between_species	HDR	NA	0.24366594851501
+ECA176	NIC2150	between_species	HDR	NA	0.243844177711064
+ECA176	NIC2152	between_species	HDR	NA	0.241772233205473
+ECA176	VX151	between_species	HDR	NA	0.243683056510271
+ECA176	VX153	between_species	HDR	NA	0.243325767377923
+ECA176	YR106	between_species	HDR	NA	0.242125831818917
+ECA176	ZF1220	between_species	HDR	NA	0.243403976148519
+ECA2852	EG6271	between_species	HDR	NA	0.242136788438023
+ECA2852	JU3200	between_species	HDR	NA	0.240047380874542
+ECA2852	JU3207	between_species	HDR	NA	0.241568467372793
+ECA2852	JU3237	between_species	HDR	NA	0.242141340360684
+ECA2852	JU4058	between_species	HDR	NA	0.241794268306318
+ECA2852	NIC1052	between_species	HDR	NA	0.241157425636751
+ECA2852	NIC1529	between_species	HDR	NA	0.241095367832381
+ECA2852	NIC248	between_species	HDR	NA	0.241526968320759
+ECA2852	PE887	between_species	HDR	NA	0.241420666104886
+ECA2852	QG1005	between_species	HDR	NA	0.240892791482939
+ECA2852	QG2641	between_species	HDR	NA	0.24194506356293
+ECA2852	QG2665	between_species	HDR	NA	0.241462636489723
+ECA2852	QG2902	between_species	HDR	NA	0.241200395448609
+ECA2852	QG2964	between_species	HDR	NA	0.24204251067404
+ECA2852	QG4232	between_species	HDR	NA	0.241459595171297
+ECA2852	QG786	between_species	HDR	NA	0.241934530675251
+ECA2852	QG791	between_species	HDR	NA	0.241428448852837
+ECA2852	QX1410	between_species	HDR	NA	0.243169537807885
+ECA2852	QX1796	between_species	HDR	NA	0.241269083047582
+ECA2857	EG6271	between_species	HDR	NA	0.244486818583493
+ECA2857	JU3200	between_species	HDR	NA	0.24272554014086
+ECA2857	JU3207	between_species	HDR	NA	0.24416312815794
+ECA2857	JU3237	between_species	HDR	NA	0.244334315141432
+ECA2857	JU4058	between_species	HDR	NA	0.244477421621521
+ECA2857	NIC1052	between_species	HDR	NA	0.243307942738788
+ECA2857	NIC1529	between_species	HDR	NA	0.243750239453666
+ECA2857	NIC248	between_species	HDR	NA	0.244035171306076
+ECA2857	PE887	between_species	HDR	NA	0.243957809445726
+ECA2857	QG1005	between_species	HDR	NA	0.243239288203379
+ECA2857	QG2641	between_species	HDR	NA	0.244368681432639
+ECA2857	QG2665	between_species	HDR	NA	0.243202259672298
+ECA2857	QG2902	between_species	HDR	NA	0.243612119510209
+ECA2857	QG2964	between_species	HDR	NA	0.24469403387474
+ECA2857	QG4232	between_species	HDR	NA	0.24331291580257
+ECA2857	QG786	between_species	HDR	NA	0.243768094825661
+ECA2857	QG791	between_species	HDR	NA	0.243816607518631
+ECA2857	QX1410	between_species	HDR	NA	0.245521080057391
+ECA2857	QX1796	between_species	HDR	NA	0.243853560856042
+EG5268	EG6271	between_species	HDR	NA	0.243717786322417
+EG5268	JU3200	between_species	HDR	NA	0.241669373442793
+EG5268	JU3207	between_species	HDR	NA	0.243740420110272
+EG5268	JU3237	between_species	HDR	NA	0.243958944653681
+EG5268	JU4058	between_species	HDR	NA	0.243283093938258
+EG5268	NIC1052	between_species	HDR	NA	0.242888346951235
+EG5268	NIC1529	between_species	HDR	NA	0.242867868256974
+EG5268	NIC248	between_species	HDR	NA	0.242830100781052
+EG5268	PE887	between_species	HDR	NA	0.243043884440966
+EG5268	QG1005	between_species	HDR	NA	0.242328020140006
+EG5268	QG2641	between_species	HDR	NA	0.243771425771461
+EG5268	QG2665	between_species	HDR	NA	0.243135558389036
+EG5268	QG2902	between_species	HDR	NA	0.242672623353676
+EG5268	QG2964	between_species	HDR	NA	0.243823860023806
+EG5268	QG4232	between_species	HDR	NA	0.243728932170412
+EG5268	QG786	between_species	HDR	NA	0.243626402840627
+EG5268	QG791	between_species	HDR	NA	0.24280798661953
+EG5268	QX1410	between_species	HDR	NA	0.244599296497324
+EG5268	QX1796	between_species	HDR	NA	0.24280477266747
+EG6271	JU1418	between_species	HDR	NA	0.244216774824688
+EG6271	JU1419	between_species	HDR	NA	0.243091175407778
+EG6271	JU1420	between_species	HDR	NA	0.243249226060539
+EG6271	JU1422	between_species	HDR	NA	0.2442193796317
+EG6271	JU2484	between_species	HDR	NA	0.244554599305252
+EG6271	JU2617	between_species	HDR	NA	0.245938820953058
+EG6271	NIC2143	between_species	HDR	NA	0.244279133017471
+EG6271	NIC2150	between_species	HDR	NA	0.244754180806441
+EG6271	NIC2152	between_species	HDR	NA	0.242912621067118
+EG6271	VX151	between_species	HDR	NA	0.244832520315361
+EG6271	VX153	between_species	HDR	NA	0.244435780481825
+EG6271	YR106	between_species	HDR	NA	0.242833736224061
+EG6271	ZF1220	between_species	HDR	NA	0.244285649359103
+JU1418	JU3200	between_species	HDR	NA	0.242321559674351
+JU1418	JU3207	between_species	HDR	NA	0.243475162264343
+JU1418	JU3237	between_species	HDR	NA	0.243921038428627
+JU1418	JU4058	between_species	HDR	NA	0.243974175000254
+JU1418	NIC1052	between_species	HDR	NA	0.243503949687546
+JU1418	NIC1529	between_species	HDR	NA	0.243334580284379
+JU1418	NIC248	between_species	HDR	NA	0.243523831858831
+JU1418	PE887	between_species	HDR	NA	0.243439554866155
+JU1418	QG1005	between_species	HDR	NA	0.242806546902513
+JU1418	QG2641	between_species	HDR	NA	0.244397169285236
+JU1418	QG2665	between_species	HDR	NA	0.243308074662412
+JU1418	QG2902	between_species	HDR	NA	0.243376688634674
+JU1418	QG2964	between_species	HDR	NA	0.244161486093755
+JU1418	QG4232	between_species	HDR	NA	0.244208344081277
+JU1418	QG786	between_species	HDR	NA	0.243673608982267
+JU1418	QG791	between_species	HDR	NA	0.243318885541239
+JU1418	QX1410	between_species	HDR	NA	0.245330648794355
+JU1418	QX1796	between_species	HDR	NA	0.243543100060845
+JU1419	JU3200	between_species	HDR	NA	0.241623212667228
+JU1419	JU3207	between_species	HDR	NA	0.242718681831781
+JU1419	JU3237	between_species	HDR	NA	0.242838062397459
+JU1419	JU4058	between_species	HDR	NA	0.242431096025345
+JU1419	NIC1052	between_species	HDR	NA	0.241719995518174
+JU1419	NIC1529	between_species	HDR	NA	0.242039816287785
+JU1419	NIC248	between_species	HDR	NA	0.242339661129458
+JU1419	PE887	between_species	HDR	NA	0.242204890312911
+JU1419	QG1005	between_species	HDR	NA	0.241691570736428
+JU1419	QG2641	between_species	HDR	NA	0.243511044629678
+JU1419	QG2665	between_species	HDR	NA	0.242374267715732
+JU1419	QG2902	between_species	HDR	NA	0.242221327194129
+JU1419	QG2964	between_species	HDR	NA	0.243098848376316
+JU1419	QG4232	between_species	HDR	NA	0.24238571313865
+JU1419	QG786	between_species	HDR	NA	0.242743850013538
+JU1419	QG791	between_species	HDR	NA	0.242035247466612
+JU1419	QX1410	between_species	HDR	NA	0.243875801219001
+JU1419	QX1796	between_species	HDR	NA	0.242191534549725
+JU1420	JU3200	between_species	HDR	NA	0.242287942283516
+JU1420	JU3207	between_species	HDR	NA	0.242753104207449
+JU1420	JU3237	between_species	HDR	NA	0.242994264648964
+JU1420	JU4058	between_species	HDR	NA	0.242798564432724
+JU1420	NIC1052	between_species	HDR	NA	0.242269090819889
+JU1420	NIC1529	between_species	HDR	NA	0.242475540266799
+JU1420	NIC248	between_species	HDR	NA	0.242541086487483
+JU1420	PE887	between_species	HDR	NA	0.242712350674546
+JU1420	QG1005	between_species	HDR	NA	0.241949393773469
+JU1420	QG2641	between_species	HDR	NA	0.243589536045049
+JU1420	QG2665	between_species	HDR	NA	0.242437765297152
+JU1420	QG2902	between_species	HDR	NA	0.242329341519949
+JU1420	QG2964	between_species	HDR	NA	0.24341592509951
+JU1420	QG4232	between_species	HDR	NA	0.243749898062545
+JU1420	QG786	between_species	HDR	NA	0.24302218706425
+JU1420	QG791	between_species	HDR	NA	0.242536818830529
+JU1420	QX1410	between_species	HDR	NA	0.244634109715192
+JU1420	QX1796	between_species	HDR	NA	0.24277373329711
+JU1422	JU3200	between_species	HDR	NA	0.242595650045721
+JU1422	JU3207	between_species	HDR	NA	0.243688787255538
+JU1422	JU3237	between_species	HDR	NA	0.243964462960243
+JU1422	JU4058	between_species	HDR	NA	0.24382724062761
+JU1422	NIC1052	between_species	HDR	NA	0.243069077357149
+JU1422	NIC1529	between_species	HDR	NA	0.243321990747613
+JU1422	NIC248	between_species	HDR	NA	0.243301763915605
+JU1422	PE887	between_species	HDR	NA	0.243490228171786
+JU1422	QG1005	between_species	HDR	NA	0.242757500323573
+JU1422	QG2641	between_species	HDR	NA	0.244451866003378
+JU1422	QG2665	between_species	HDR	NA	0.243302384764995
+JU1422	QG2902	between_species	HDR	NA	0.243202671876088
+JU1422	QG2964	between_species	HDR	NA	0.244487075991329
+JU1422	QG4232	between_species	HDR	NA	0.244193338562397
+JU1422	QG786	between_species	HDR	NA	0.243966732086924
+JU1422	QG791	between_species	HDR	NA	0.2430459690423
+JU1422	QX1410	between_species	HDR	NA	0.245816748497542
+JU1422	QX1796	between_species	HDR	NA	0.243463175708826
+JU2484	JU3200	between_species	HDR	NA	0.243081798778935
+JU2484	JU3207	between_species	HDR	NA	0.244394061409273
+JU2484	JU3237	between_species	HDR	NA	0.244291156694197
+JU2484	JU4058	between_species	HDR	NA	0.244614164458226
+JU2484	NIC1052	between_species	HDR	NA	0.243287094048389
+JU2484	NIC1529	between_species	HDR	NA	0.243480396432394
+JU2484	NIC248	between_species	HDR	NA	0.24391950244959
+JU2484	PE887	between_species	HDR	NA	0.243431954298942
+JU2484	QG1005	between_species	HDR	NA	0.242962036063542
+JU2484	QG2641	between_species	HDR	NA	0.244799672545229
+JU2484	QG2665	between_species	HDR	NA	0.243434524514004
+JU2484	QG2902	between_species	HDR	NA	0.243635348550898
+JU2484	QG2964	between_species	HDR	NA	0.244861299400411
+JU2484	QG4232	between_species	HDR	NA	0.243549550450888
+JU2484	QG786	between_species	HDR	NA	0.24386895970207
+JU2484	QG791	between_species	HDR	NA	0.243911489334659
+JU2484	QX1410	between_species	HDR	NA	0.245408448914974
+JU2484	QX1796	between_species	HDR	NA	0.243367226634222
+JU2617	JU3200	between_species	HDR	NA	0.243768156431299
+JU2617	JU3207	between_species	HDR	NA	0.245452402191113
+JU2617	JU3237	between_species	HDR	NA	0.246039270882419
+JU2617	JU4058	between_species	HDR	NA	0.245970579052025
+JU2617	NIC1052	between_species	HDR	NA	0.244985843680587
+JU2617	NIC1529	between_species	HDR	NA	0.245639833910305
+JU2617	NIC248	between_species	HDR	NA	0.24501376565984
+JU2617	PE887	between_species	HDR	NA	0.245113525201029
+JU2617	QG1005	between_species	HDR	NA	0.24484774021172
+JU2617	QG2641	between_species	HDR	NA	0.245358848110379
+JU2617	QG2665	between_species	HDR	NA	0.245502334355544
+JU2617	QG2902	between_species	HDR	NA	0.244898434850411
+JU2617	QG2964	between_species	HDR	NA	0.245847173436865
+JU2617	QG4232	between_species	HDR	NA	0.245388093201556
+JU2617	QG786	between_species	HDR	NA	0.245392837166965
+JU2617	QG791	between_species	HDR	NA	0.245170747167035
+JU2617	QX1410	between_species	HDR	NA	0.246271406229165
+JU2617	QX1796	between_species	HDR	NA	0.244771167079176
+JU3200	NIC2143	between_species	HDR	NA	0.242544929106265
+JU3200	NIC2150	between_species	HDR	NA	0.242764938417216
+JU3200	NIC2152	between_species	HDR	NA	0.240930879381637
+JU3200	VX151	between_species	HDR	NA	0.242412012654859
+JU3200	VX153	between_species	HDR	NA	0.24211551144809
+JU3200	YR106	between_species	HDR	NA	0.241033733777695
+JU3200	ZF1220	between_species	HDR	NA	0.241765635884161
+JU3207	NIC2143	between_species	HDR	NA	0.244125361915149
+JU3207	NIC2150	between_species	HDR	NA	0.244632658366092
+JU3207	NIC2152	between_species	HDR	NA	0.242544258905189
+JU3207	VX151	between_species	HDR	NA	0.244596603757011
+JU3207	VX153	between_species	HDR	NA	0.244210131594295
+JU3207	YR106	between_species	HDR	NA	0.242396110635774
+JU3207	ZF1220	between_species	HDR	NA	0.243868341443217
+JU3237	NIC2143	between_species	HDR	NA	0.244357345293463
+JU3237	NIC2150	between_species	HDR	NA	0.244784940050968
+JU3237	NIC2152	between_species	HDR	NA	0.242902546401663
+JU3237	VX151	between_species	HDR	NA	0.244796986179254
+JU3237	VX153	between_species	HDR	NA	0.244496111055194
+JU3237	YR106	between_species	HDR	NA	0.242717798962742
+JU3237	ZF1220	between_species	HDR	NA	0.243792149353104
+JU4058	NIC2143	between_species	HDR	NA	0.244160348429729
+JU4058	NIC2150	between_species	HDR	NA	0.243536253224252
+JU4058	NIC2152	between_species	HDR	NA	0.242723846440984
+JU4058	VX151	between_species	HDR	NA	0.24438561247447
+JU4058	VX153	between_species	HDR	NA	0.243851967240477
+JU4058	YR106	between_species	HDR	NA	0.242647779896489
+JU4058	ZF1220	between_species	HDR	NA	0.243769284405469
+NIC1052	NIC2143	between_species	HDR	NA	0.243485775371265
+NIC1052	NIC2150	between_species	HDR	NA	0.243194455277781
+NIC1052	NIC2152	between_species	HDR	NA	0.241658267490849
+NIC1052	VX151	between_species	HDR	NA	0.243659434934059
+NIC1052	VX153	between_species	HDR	NA	0.243329291206015
+NIC1052	YR106	between_species	HDR	NA	0.241730047245015
+NIC1052	ZF1220	between_species	HDR	NA	0.242534717515526
+NIC1529	NIC2143	between_species	HDR	NA	0.243729690770393
+NIC1529	NIC2150	between_species	HDR	NA	0.243776831593027
+NIC1529	NIC2152	between_species	HDR	NA	0.242185370421394
+NIC1529	VX151	between_species	HDR	NA	0.243776198883563
+NIC1529	VX153	between_species	HDR	NA	0.243463768021749
+NIC1529	YR106	between_species	HDR	NA	0.241875068751626
+NIC1529	ZF1220	between_species	HDR	NA	0.242974407968687
+NIC2143	NIC248	between_species	HDR	NA	0.243809062030214
+NIC2143	PE887	between_species	HDR	NA	0.243612861256064
+NIC2143	QG1005	between_species	HDR	NA	0.243037800303317
+NIC2143	QG2641	between_species	HDR	NA	0.244329167658496
+NIC2143	QG2665	between_species	HDR	NA	0.243931745718786
+NIC2143	QG2902	between_species	HDR	NA	0.243867446474918
+NIC2143	QG2964	between_species	HDR	NA	0.24464855675885
+NIC2143	QG4232	between_species	HDR	NA	0.244905120348661
+NIC2143	QG786	between_species	HDR	NA	0.244324117019698
+NIC2143	QG791	between_species	HDR	NA	0.243141812181965
+NIC2143	QX1410	between_species	HDR	NA	0.244861093760428
+NIC2143	QX1796	between_species	HDR	NA	0.243271137012128
+NIC2150	NIC248	between_species	HDR	NA	0.243875879592328
+NIC2150	PE887	between_species	HDR	NA	0.243847933339754
+NIC2150	QG1005	between_species	HDR	NA	0.243451519154967
+NIC2150	QG2641	between_species	HDR	NA	0.244396935507075
+NIC2150	QG2665	between_species	HDR	NA	0.243674554440518
+NIC2150	QG2902	between_species	HDR	NA	0.243555476632554
+NIC2150	QG2964	between_species	HDR	NA	0.245130152579034
+NIC2150	QG4232	between_species	HDR	NA	0.244725943555914
+NIC2150	QG786	between_species	HDR	NA	0.244331501350144
+NIC2150	QG791	between_species	HDR	NA	0.243652491392696
+NIC2150	QX1410	between_species	HDR	NA	0.245437396088846
+NIC2150	QX1796	between_species	HDR	NA	0.243693513070841
+NIC2152	NIC248	between_species	HDR	NA	0.242066650312977
+NIC2152	PE887	between_species	HDR	NA	0.241992193582162
+NIC2152	QG1005	between_species	HDR	NA	0.242040119251984
+NIC2152	QG2641	between_species	HDR	NA	0.242725238806329
+NIC2152	QG2665	between_species	HDR	NA	0.242634682354573
+NIC2152	QG2902	between_species	HDR	NA	0.241883848713468
+NIC2152	QG2964	between_species	HDR	NA	0.243341735549063
+NIC2152	QG4232	between_species	HDR	NA	0.243648479172567
+NIC2152	QG786	between_species	HDR	NA	0.243127641760909
+NIC2152	QG791	between_species	HDR	NA	0.242200750125382
+NIC2152	QX1410	between_species	HDR	NA	0.243675227877581
+NIC2152	QX1796	between_species	HDR	NA	0.241768079314724
+NIC248	VX151	between_species	HDR	NA	0.243791402566538
+NIC248	VX153	between_species	HDR	NA	0.24344693960108
+NIC248	YR106	between_species	HDR	NA	0.242156618443927
+NIC248	ZF1220	between_species	HDR	NA	0.243107549597774
+PE887	VX151	between_species	HDR	NA	0.243989942447706
+PE887	VX153	between_species	HDR	NA	0.243675201713446
+PE887	YR106	between_species	HDR	NA	0.242312537860395
+PE887	ZF1220	between_species	HDR	NA	0.243146615292043
+QG1005	VX151	between_species	HDR	NA	0.243406914425296
+QG1005	VX153	between_species	HDR	NA	0.243088792471346
+QG1005	YR106	between_species	HDR	NA	0.241500867033678
+QG1005	ZF1220	between_species	HDR	NA	0.242779059703026
+QG2641	VX151	between_species	HDR	NA	0.244858706722431
+QG2641	VX153	between_species	HDR	NA	0.244519911554714
+QG2641	YR106	between_species	HDR	NA	0.242598137782035
+QG2641	ZF1220	between_species	HDR	NA	0.243659146129723
+QG2665	VX151	between_species	HDR	NA	0.244145670035007
+QG2665	VX153	between_species	HDR	NA	0.243765606421037
+QG2665	YR106	between_species	HDR	NA	0.241601069405525
+QG2665	ZF1220	between_species	HDR	NA	0.243391683777483
+QG2902	VX151	between_species	HDR	NA	0.24375772897378
+QG2902	VX153	between_species	HDR	NA	0.243457568573238
+QG2902	YR106	between_species	HDR	NA	0.241636854779174
+QG2902	ZF1220	between_species	HDR	NA	0.243033812089948
+QG2964	VX151	between_species	HDR	NA	0.244933170187265
+QG2964	VX153	between_species	HDR	NA	0.244549658727532
+QG2964	YR106	between_species	HDR	NA	0.242881141978355
+QG2964	ZF1220	between_species	HDR	NA	0.244231110286626
+QG4232	VX151	between_species	HDR	NA	0.243394938518807
+QG4232	VX153	between_species	HDR	NA	0.243181871562904
+QG4232	YR106	between_species	HDR	NA	0.242715320154362
+QG4232	ZF1220	between_species	HDR	NA	0.243799404414421
+QG786	VX151	between_species	HDR	NA	0.244349372344759
+QG786	VX153	between_species	HDR	NA	0.244054672759989
+QG786	YR106	between_species	HDR	NA	0.24228074999565
+QG786	ZF1220	between_species	HDR	NA	0.244152761347173
+QG791	VX151	between_species	HDR	NA	0.244000891552594
+QG791	VX153	between_species	HDR	NA	0.243651270278321
+QG791	YR106	between_species	HDR	NA	0.24178983485314
+QG791	ZF1220	between_species	HDR	NA	0.242922086299031
+QX1410	VX151	between_species	HDR	NA	0.245494519622262
+QX1410	VX153	between_species	HDR	NA	0.24518056297274
+QX1410	YR106	between_species	HDR	NA	0.244258892854865
+QX1410	ZF1220	between_species	HDR	NA	0.244882056356804
+QX1796	VX151	between_species	HDR	NA	0.243833985338542
+QX1796	VX153	between_species	HDR	NA	0.24352946030433
+QX1796	YR106	between_species	HDR	NA	0.242093797144069
+QX1796	ZF1220	between_species	HDR	NA	0.243179053043636
+ECA1174	ECA2852	between_species	All	NA	0.199710437626187
+ECA1174	ECA2857	between_species	All	NA	0.199942293457499
+ECA1174	EG5268	between_species	All	NA	0.199891873116432
+ECA1174	JU1418	between_species	All	NA	0.199340078515549
+ECA1174	JU1419	between_species	All	NA	0.199611797862762
+ECA1174	JU1420	between_species	All	NA	0.199314708865654
+ECA1174	JU1422	between_species	All	NA	0.199644318636789
+ECA1174	JU2484	between_species	All	NA	0.200068767292294
+ECA1174	JU2617	between_species	All	NA	0.200046772680984
+ECA1174	NIC2143	between_species	All	NA	0.199769897427948
+ECA1174	NIC2150	between_species	All	NA	0.200026597211423
+ECA1174	NIC2152	between_species	All	NA	0.199310139959814
+ECA1174	VX151	between_species	All	NA	0.199644601701602
+ECA1174	VX153	between_species	All	NA	0.199521618275039
+ECA1174	YR106	between_species	All	NA	0.199692294155681
+ECA1174	ZF1220	between_species	All	NA	0.199354301699793
+ECA1657	ECA2852	between_species	All	NA	0.199798564060223
+ECA1657	ECA2857	between_species	All	NA	0.200058449590508
+ECA1657	EG5268	between_species	All	NA	0.199938683197003
+ECA1657	JU1418	between_species	All	NA	0.199452377450199
+ECA1657	JU1419	between_species	All	NA	0.199722063397544
+ECA1657	JU1420	between_species	All	NA	0.199420873808036
+ECA1657	JU1422	between_species	All	NA	0.199665834828434
+ECA1657	JU2484	between_species	All	NA	0.200207692889676
+ECA1657	JU2617	between_species	All	NA	0.200211867185503
+ECA1657	NIC2143	between_species	All	NA	0.19981099671391
+ECA1657	NIC2150	between_species	All	NA	0.200088149451776
+ECA1657	NIC2152	between_species	All	NA	0.19925125626002
+ECA1657	VX151	between_species	All	NA	0.199643118888516
+ECA1657	VX153	between_species	All	NA	0.199583853834524
+ECA1657	YR106	between_species	All	NA	0.199783648803247
+ECA1657	ZF1220	between_species	All	NA	0.199261785850436
+ECA176	ECA2852	between_species	All	NA	0.199841656402862
+ECA176	ECA2857	between_species	All	NA	0.200004918975004
+ECA176	EG5268	between_species	All	NA	0.200032723239787
+ECA176	JU1418	between_species	All	NA	0.1994242611486
+ECA176	JU1419	between_species	All	NA	0.199758642975921
+ECA176	JU1420	between_species	All	NA	0.199368396494751
+ECA176	JU1422	between_species	All	NA	0.199697585889038
+ECA176	JU2484	between_species	All	NA	0.200102417150352
+ECA176	JU2617	between_species	All	NA	0.200212199864105
+ECA176	NIC2143	between_species	All	NA	0.199849695637489
+ECA176	NIC2150	between_species	All	NA	0.200125390638776
+ECA176	NIC2152	between_species	All	NA	0.199383073660463
+ECA176	VX151	between_species	All	NA	0.199716997063389
+ECA176	VX153	between_species	All	NA	0.199586816060988
+ECA176	YR106	between_species	All	NA	0.199737780868996
+ECA176	ZF1220	between_species	All	NA	0.199419277334708
+ECA2852	EG6271	between_species	All	NA	0.199989672009162
+ECA2852	JU3200	between_species	All	NA	0.199012127063928
+ECA2852	JU3207	between_species	All	NA	0.1997001889718
+ECA2852	JU3237	between_species	All	NA	0.200187222774554
+ECA2852	JU4058	between_species	All	NA	0.200002557540617
+ECA2852	NIC1052	between_species	All	NA	0.199742586225762
+ECA2852	NIC1529	between_species	All	NA	0.199590130313291
+ECA2852	NIC248	between_species	All	NA	0.20006616861199
+ECA2852	PE887	between_species	All	NA	0.199947086389138
+ECA2852	QG1005	between_species	All	NA	0.199639214354755
+ECA2852	QG2641	between_species	All	NA	0.199710640638625
+ECA2852	QG2665	between_species	All	NA	0.199688678725466
+ECA2852	QG2902	between_species	All	NA	0.199955257733019
+ECA2852	QG2964	between_species	All	NA	0.199808250382896
+ECA2852	QG4232	between_species	All	NA	0.199262150444074
+ECA2852	QG786	between_species	All	NA	0.199808212771842
+ECA2852	QG791	between_species	All	NA	0.199718189244788
+ECA2852	QX1410	between_species	All	NA	0.201070163360595
+ECA2852	QX1796	between_species	All	NA	0.199740680790554
+ECA2857	EG6271	between_species	All	NA	0.200340125809417
+ECA2857	JU3200	between_species	All	NA	0.199281614522715
+ECA2857	JU3207	between_species	All	NA	0.200006707384296
+ECA2857	JU3237	between_species	All	NA	0.200327897627709
+ECA2857	JU4058	between_species	All	NA	0.200276899086745
+ECA2857	NIC1052	between_species	All	NA	0.199950186273717
+ECA2857	NIC1529	between_species	All	NA	0.199858754082091
+ECA2857	NIC248	between_species	All	NA	0.200387257378787
+ECA2857	PE887	between_species	All	NA	0.200202458723466
+ECA2857	QG1005	between_species	All	NA	0.19988979342045
+ECA2857	QG2641	between_species	All	NA	0.20008141940044
+ECA2857	QG2665	between_species	All	NA	0.199836812681791
+ECA2857	QG2902	between_species	All	NA	0.200217639306411
+ECA2857	QG2964	between_species	All	NA	0.2001174040556
+ECA2857	QG4232	between_species	All	NA	0.199279501670605
+ECA2857	QG786	between_species	All	NA	0.199953013667908
+ECA2857	QG791	between_species	All	NA	0.199960450827192
+ECA2857	QX1410	between_species	All	NA	0.201442032896814
+ECA2857	QX1796	between_species	All	NA	0.200033799469184
+EG5268	EG6271	between_species	All	NA	0.200241343373341
+EG5268	JU3200	between_species	All	NA	0.199092080021195
+EG5268	JU3207	between_species	All	NA	0.199941580090662
+EG5268	JU3237	between_species	All	NA	0.200358594076665
+EG5268	JU4058	between_species	All	NA	0.200096159069847
+EG5268	NIC1052	between_species	All	NA	0.19992612313075
+EG5268	NIC1529	between_species	All	NA	0.199746178672611
+EG5268	NIC248	between_species	All	NA	0.200243107339106
+EG5268	PE887	between_species	All	NA	0.200051903608054
+EG5268	QG1005	between_species	All	NA	0.199634098016584
+EG5268	QG2641	between_species	All	NA	0.199940300173158
+EG5268	QG2665	between_species	All	NA	0.199788387671558
+EG5268	QG2902	between_species	All	NA	0.200129826917575
+EG5268	QG2964	between_species	All	NA	0.199908193134858
+EG5268	QG4232	between_species	All	NA	0.199392201613376
+EG5268	QG786	between_species	All	NA	0.199983945751658
+EG5268	QG791	between_species	All	NA	0.199856623159229
+EG5268	QX1410	between_species	All	NA	0.201189205368914
+EG5268	QX1796	between_species	All	NA	0.199910067939553
+EG6271	JU1418	between_species	All	NA	0.19967172265443
+EG6271	JU1419	between_species	All	NA	0.200045276880202
+EG6271	JU1420	between_species	All	NA	0.199657861852474
+EG6271	JU1422	between_species	All	NA	0.200061345641655
+EG6271	JU2484	between_species	All	NA	0.20037070259925
+EG6271	JU2617	between_species	All	NA	0.200526479302988
+EG6271	NIC2143	between_species	All	NA	0.200137104249041
+EG6271	NIC2150	between_species	All	NA	0.200456841128535
+EG6271	NIC2152	between_species	All	NA	0.199734257785411
+EG6271	VX151	between_species	All	NA	0.199959529438645
+EG6271	VX153	between_species	All	NA	0.199963719376269
+EG6271	YR106	between_species	All	NA	0.200077317765836
+EG6271	ZF1220	between_species	All	NA	0.199774716716509
+JU1418	JU3200	between_species	All	NA	0.198670632076888
+JU1418	JU3207	between_species	All	NA	0.199219986948827
+JU1418	JU3237	between_species	All	NA	0.199648414259125
+JU1418	JU4058	between_species	All	NA	0.199449324232129
+JU1418	NIC1052	between_species	All	NA	0.199416091021669
+JU1418	NIC1529	between_species	All	NA	0.199169080903216
+JU1418	NIC248	between_species	All	NA	0.199638443100268
+JU1418	PE887	between_species	All	NA	0.199444803219269
+JU1418	QG1005	between_species	All	NA	0.199202412421448
+JU1418	QG2641	between_species	All	NA	0.199459628965977
+JU1418	QG2665	between_species	All	NA	0.199264096323069
+JU1418	QG2902	between_species	All	NA	0.199637598997014
+JU1418	QG2964	between_species	All	NA	0.199407304064703
+JU1418	QG4232	between_species	All	NA	0.198933038206139
+JU1418	QG786	between_species	All	NA	0.199354450595952
+JU1418	QG791	between_species	All	NA	0.199276674736984
+JU1418	QX1410	between_species	All	NA	0.200891982290913
+JU1418	QX1796	between_species	All	NA	0.199364544979892
+JU1419	JU3200	between_species	All	NA	0.198954171672466
+JU1419	JU3207	between_species	All	NA	0.199611289602705
+JU1419	JU3237	between_species	All	NA	0.200094800191366
+JU1419	JU4058	between_species	All	NA	0.199805691476601
+JU1419	NIC1052	between_species	All	NA	0.199633186061701
+JU1419	NIC1529	between_species	All	NA	0.199504014789174
+JU1419	NIC248	between_species	All	NA	0.199967762131243
+JU1419	PE887	between_species	All	NA	0.199806859330347
+JU1419	QG1005	between_species	All	NA	0.199549606225405
+JU1419	QG2641	between_species	All	NA	0.199871339167024
+JU1419	QG2665	between_species	All	NA	0.199668386700308
+JU1419	QG2902	between_species	All	NA	0.199965128670777
+JU1419	QG2964	between_species	All	NA	0.199835635256817
+JU1419	QG4232	between_species	All	NA	0.199165209584386
+JU1419	QG786	between_species	All	NA	0.199782996570743
+JU1419	QG791	between_species	All	NA	0.199568671161231
+JU1419	QX1410	between_species	All	NA	0.201147100341909
+JU1419	QX1796	between_species	All	NA	0.199631350191168
+JU1420	JU3200	between_species	All	NA	0.198713862550088
+JU1420	JU3207	between_species	All	NA	0.199251608822487
+JU1420	JU3237	between_species	All	NA	0.199677284397451
+JU1420	JU4058	between_species	All	NA	0.199466543605536
+JU1420	NIC1052	between_species	All	NA	0.199320070731647
+JU1420	NIC1529	between_species	All	NA	0.199239590452383
+JU1420	NIC248	between_species	All	NA	0.199645338009779
+JU1420	PE887	between_species	All	NA	0.199507819380381
+JU1420	QG1005	between_species	All	NA	0.199216049457146
+JU1420	QG2641	between_species	All	NA	0.199541417809296
+JU1420	QG2665	between_species	All	NA	0.199255936384573
+JU1420	QG2902	between_species	All	NA	0.199654660962977
+JU1420	QG2964	between_species	All	NA	0.199466065782964
+JU1420	QG4232	between_species	All	NA	0.199054743005157
+JU1420	QG786	between_species	All	NA	0.199394422244743
+JU1420	QG791	between_species	All	NA	0.199276920889875
+JU1420	QX1410	between_species	All	NA	0.20086957638771
+JU1420	QX1796	between_species	All	NA	0.199379551036651
+JU1422	JU3200	between_species	All	NA	0.198811755356393
+JU1422	JU3207	between_species	All	NA	0.199577073958174
+JU1422	JU3237	between_species	All	NA	0.199960584143751
+JU1422	JU4058	between_species	All	NA	0.199851169585248
+JU1422	NIC1052	between_species	All	NA	0.199479318462316
+JU1422	NIC1529	between_species	All	NA	0.199534330758637
+JU1422	NIC248	between_species	All	NA	0.199944010631851
+JU1422	PE887	between_species	All	NA	0.199750131450202
+JU1422	QG1005	between_species	All	NA	0.199483788397245
+JU1422	QG2641	between_species	All	NA	0.199789195731133
+JU1422	QG2665	between_species	All	NA	0.199567250537139
+JU1422	QG2902	between_species	All	NA	0.199851077501295
+JU1422	QG2964	between_species	All	NA	0.199794444038994
+JU1422	QG4232	between_species	All	NA	0.198989195712117
+JU1422	QG786	between_species	All	NA	0.199721399481722
+JU1422	QG791	between_species	All	NA	0.199507716104461
+JU1422	QX1410	between_species	All	NA	0.2012526237248
+JU1422	QX1796	between_species	All	NA	0.199661640263376
+JU2484	JU3200	between_species	All	NA	0.199418968688013
+JU2484	JU3207	between_species	All	NA	0.200187410733877
+JU2484	JU3237	between_species	All	NA	0.200425749138718
+JU2484	JU4058	between_species	All	NA	0.200447664897201
+JU2484	NIC1052	between_species	All	NA	0.200000224379651
+JU2484	NIC1529	between_species	All	NA	0.199942705960017
+JU2484	NIC248	between_species	All	NA	0.200502198605606
+JU2484	PE887	between_species	All	NA	0.200228102332581
+JU2484	QG1005	between_species	All	NA	0.199986933371757
+JU2484	QG2641	between_species	All	NA	0.200229978727717
+JU2484	QG2665	between_species	All	NA	0.199994423928662
+JU2484	QG2902	between_species	All	NA	0.200294706438384
+JU2484	QG2964	between_species	All	NA	0.200326173834823
+JU2484	QG4232	between_species	All	NA	0.199324696318698
+JU2484	QG786	between_species	All	NA	0.200113534588856
+JU2484	QG791	between_species	All	NA	0.200210733691257
+JU2484	QX1410	between_species	All	NA	0.201440231422608
+JU2484	QX1796	between_species	All	NA	0.200094728236662
+JU2617	JU3200	between_species	All	NA	0.199349734414923
+JU2617	JU3207	between_species	All	NA	0.200103530637776
+JU2617	JU3237	between_species	All	NA	0.200511970031275
+JU2617	JU4058	between_species	All	NA	0.200400458612497
+JU2617	NIC1052	between_species	All	NA	0.200104249433335
+JU2617	NIC1529	between_species	All	NA	0.200102344250333
+JU2617	NIC248	between_species	All	NA	0.200456196674863
+JU2617	PE887	between_species	All	NA	0.200253016184839
+JU2617	QG1005	between_species	All	NA	0.200014061451643
+JU2617	QG2641	between_species	All	NA	0.200153155984583
+JU2617	QG2665	between_species	All	NA	0.200129704050888
+JU2617	QG2902	between_species	All	NA	0.200342319488188
+JU2617	QG2964	between_species	All	NA	0.200258015765686
+JU2617	QG4232	between_species	All	NA	0.199739678252294
+JU2617	QG786	between_species	All	NA	0.200178435005631
+JU2617	QG791	between_species	All	NA	0.200166886700486
+JU2617	QX1410	between_species	All	NA	0.201637766016554
+JU2617	QX1796	between_species	All	NA	0.200077087093799
+JU3200	NIC2143	between_species	All	NA	0.199245121667697
+JU3200	NIC2150	between_species	All	NA	0.199530512557747
+JU3200	NIC2152	between_species	All	NA	0.198768315511761
+JU3200	VX151	between_species	All	NA	0.198856153635154
+JU3200	VX153	between_species	All	NA	0.198802179783828
+JU3200	YR106	between_species	All	NA	0.198901700843175
+JU3200	ZF1220	between_species	All	NA	0.198626301180887
+JU3207	NIC2143	between_species	All	NA	0.199806587980632
+JU3207	NIC2150	between_species	All	NA	0.200134431586434
+JU3207	NIC2152	between_species	All	NA	0.199293525465689
+JU3207	VX151	between_species	All	NA	0.19963656249132
+JU3207	VX153	between_species	All	NA	0.199584291335807
+JU3207	YR106	between_species	All	NA	0.199630450860807
+JU3207	ZF1220	between_species	All	NA	0.199332974706359
+JU3237	NIC2143	between_species	All	NA	0.200208894925702
+JU3237	NIC2150	between_species	All	NA	0.20044576990356
+JU3237	NIC2152	between_species	All	NA	0.199696659633935
+JU3237	VX151	between_species	All	NA	0.200022055447745
+JU3237	VX153	between_species	All	NA	0.199943426905024
+JU3237	YR106	between_species	All	NA	0.200074338790204
+JU3237	ZF1220	between_species	All	NA	0.199713258977007
+JU4058	NIC2143	between_species	All	NA	0.199970081044425
+JU4058	NIC2150	between_species	All	NA	0.200100026037745
+JU4058	NIC2152	between_species	All	NA	0.199563214534899
+JU4058	VX151	between_species	All	NA	0.199861442967401
+JU4058	VX153	between_species	All	NA	0.199730675135689
+JU4058	YR106	between_species	All	NA	0.199929248201838
+JU4058	ZF1220	between_species	All	NA	0.19952829126419
+NIC1052	NIC2143	between_species	All	NA	0.199742414440181
+NIC1052	NIC2150	between_species	All	NA	0.200036125321531
+NIC1052	NIC2152	between_species	All	NA	0.199290892383831
+NIC1052	VX151	between_species	All	NA	0.199561438401689
+NIC1052	VX153	between_species	All	NA	0.19944576149521
+NIC1052	YR106	between_species	All	NA	0.199720289163501
+NIC1052	ZF1220	between_species	All	NA	0.199286231808747
+NIC1529	NIC2143	between_species	All	NA	0.199669363535589
+NIC1529	NIC2150	between_species	All	NA	0.199927378546174
+NIC1529	NIC2152	between_species	All	NA	0.199203619086551
+NIC1529	VX151	between_species	All	NA	0.19945741967727
+NIC1529	VX153	between_species	All	NA	0.199406222656652
+NIC1529	YR106	between_species	All	NA	0.199539704356757
+NIC1529	ZF1220	between_species	All	NA	0.199070105949693
+NIC2143	NIC248	between_species	All	NA	0.200142910602159
+NIC2143	PE887	between_species	All	NA	0.199928755999498
+NIC2143	QG1005	between_species	All	NA	0.199715533149011
+NIC2143	QG2641	between_species	All	NA	0.199863875714095
+NIC2143	QG2665	between_species	All	NA	0.199824545156075
+NIC2143	QG2902	between_species	All	NA	0.200086254355447
+NIC2143	QG2964	between_species	All	NA	0.199936082303555
+NIC2143	QG4232	between_species	All	NA	0.19963162253993
+NIC2143	QG786	between_species	All	NA	0.199909006185068
+NIC2143	QG791	between_species	All	NA	0.199684338012909
+NIC2143	QX1410	between_species	All	NA	0.201228110340862
+NIC2143	QX1796	between_species	All	NA	0.199746257752143
+NIC2150	NIC248	between_species	All	NA	0.200338540174921
+NIC2150	PE887	between_species	All	NA	0.20032736456807
+NIC2150	QG1005	between_species	All	NA	0.199960530842013
+NIC2150	QG2641	between_species	All	NA	0.200180580136543
+NIC2150	QG2665	between_species	All	NA	0.199956558591255
+NIC2150	QG2902	between_species	All	NA	0.200334418211059
+NIC2150	QG2964	between_species	All	NA	0.200268316526366
+NIC2150	QG4232	between_species	All	NA	0.199715205677816
+NIC2150	QG786	between_species	All	NA	0.200192258443283
+NIC2150	QG791	between_species	All	NA	0.200053511902788
+NIC2150	QX1410	between_species	All	NA	0.201505934741245
+NIC2150	QX1796	between_species	All	NA	0.20005528168478
+NIC2152	NIC248	between_species	All	NA	0.199551953878474
+NIC2152	PE887	between_species	All	NA	0.199443292362027
+NIC2152	QG1005	between_species	All	NA	0.199303309253693
+NIC2152	QG2641	between_species	All	NA	0.199340841034264
+NIC2152	QG2665	between_species	All	NA	0.199382340652914
+NIC2152	QG2902	between_species	All	NA	0.199461575664086
+NIC2152	QG2964	between_species	All	NA	0.199485426276013
+NIC2152	QG4232	between_species	All	NA	0.19932421888506
+NIC2152	QG786	between_species	All	NA	0.199539946180642
+NIC2152	QG791	between_species	All	NA	0.199313812888006
+NIC2152	QX1410	between_species	All	NA	0.200763574671344
+NIC2152	QX1796	between_species	All	NA	0.199271600049784
+NIC248	VX151	between_species	All	NA	0.19994004405816
+NIC248	VX153	between_species	All	NA	0.199898898185365
+NIC248	YR106	between_species	All	NA	0.200057302698178
+NIC248	ZF1220	between_species	All	NA	0.199575873396483
+PE887	VX151	between_species	All	NA	0.199816900348392
+PE887	VX153	between_species	All	NA	0.199715768088134
+PE887	YR106	between_species	All	NA	0.199908556064396
+PE887	ZF1220	between_species	All	NA	0.199436468138096
+QG1005	VX151	between_species	All	NA	0.199403537099748
+QG1005	VX153	between_species	All	NA	0.199465349587668
+QG1005	YR106	between_species	All	NA	0.199636027360712
+QG1005	ZF1220	between_species	All	NA	0.199275179249119
+QG2641	VX151	between_species	All	NA	0.199785927657979
+QG2641	VX153	between_species	All	NA	0.19981795164654
+QG2641	YR106	between_species	All	NA	0.199687710979947
+QG2641	ZF1220	between_species	All	NA	0.199384690715413
+QG2665	VX151	between_species	All	NA	0.199562461756886
+QG2665	VX153	between_species	All	NA	0.199631960588023
+QG2665	YR106	between_species	All	NA	0.199666010717762
+QG2665	ZF1220	between_species	All	NA	0.199363089399283
+QG2902	VX151	between_species	All	NA	0.199852547414026
+QG2902	VX153	between_species	All	NA	0.199822670671268
+QG2902	YR106	between_species	All	NA	0.199885764872036
+QG2902	ZF1220	between_species	All	NA	0.199583952916872
+QG2964	VX151	between_species	All	NA	0.199749516157543
+QG2964	VX153	between_species	All	NA	0.199781504592341
+QG2964	YR106	between_species	All	NA	0.19985155118294
+QG2964	ZF1220	between_species	All	NA	0.199475816889662
+QG4232	VX151	between_species	All	NA	0.198760617954361
+QG4232	VX153	between_species	All	NA	0.198866195078724
+QG4232	YR106	between_species	All	NA	0.199108987573418
+QG4232	ZF1220	between_species	All	NA	0.198838695480072
+QG786	VX151	between_species	All	NA	0.19969755975786
+QG786	VX153	between_species	All	NA	0.199732946321212
+QG786	YR106	between_species	All	NA	0.199708030238488
+QG786	ZF1220	between_species	All	NA	0.199553173245513
+QG791	VX151	between_species	All	NA	0.19967332964611
+QG791	VX153	between_species	All	NA	0.199607538850024
+QG791	YR106	between_species	All	NA	0.199637323396036
+QG791	ZF1220	between_species	All	NA	0.199241281519214
+QX1410	VX151	between_species	All	NA	0.2008981504752
+QX1410	VX153	between_species	All	NA	0.200981543208712
+QX1410	YR106	between_species	All	NA	0.201262689195185
+QX1410	ZF1220	between_species	All	NA	0.20071365135058
+QX1796	VX151	between_species	All	NA	0.199643994303511
+QX1796	VX153	between_species	All	NA	0.199566622324051
+QX1796	YR106	between_species	All	NA	0.199771012131713
+QX1796	ZF1220	between_species	All	NA	0.19934500222879
