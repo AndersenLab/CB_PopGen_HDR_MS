@@ -3,8 +3,6 @@ This directory contains all generated figures.
 
 Files with the `Figure#_` prefix represent Main Display Figures.
 
-Files with the `EDF#_` prefix represent Extended Data Figures.
-
 Files with the `SF#_` prefix represent Supplementary Figures.
 
 Files with the `raw_` prefix represent figures that were later annotated with Adobe Illustrator.
@@ -15,5 +13,3 @@ Files with the `raw_` prefix represent figures that were later annotated with Ad
 ## annotated_figures
 This sub-directory contains the final figures after annotations with Illustrator.
 
-## introgression_figures
-This sub-directory contains visualizations of gene trees and amino acid matrices of orthologs potentially associated with introgression events.
