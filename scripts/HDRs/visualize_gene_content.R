@@ -739,8 +739,8 @@ all_hap_bg <- ggplot() +
   guides(fill = guide_legend(nrow = 6, byrow = TRUE))
 
 #save png
-#used for Figure S.F. 16
-#outfile_png <- paste0("../../processed_data/gene_diversity/SF16_HDR_",hdr_chrom,"_",hdr_start_pos,"_",hdr_end_pos,"_",length(desired_strains),"rg",".png")
+#used for Figure S.F. 17
+#outfile_png <- paste0("../../processed_data/gene_diversity/SF17_HDR_",hdr_chrom,"_",hdr_start_pos,"_",hdr_end_pos,"_",length(desired_strains),"rg",".png")
 #ggsave(plot = all_hap_bg,filename = outfile_png,width = 7.5,height = 8.5,device = "png",units = "in",dpi = 600,bg = "white")
 
 #store ggplot in Rds for concatenating with other plots (used for E.D.F. 6)

@@ -254,11 +254,9 @@ full_plot <- ggdraw(padded_plot2) +
 
 full_plot_wleg <- plot_grid(full_plot, legend, nrow = 1, rel_widths = c(1, 0.18))
 
-ggsave(plot = full_plot_wleg, filename = "../../figures/SF15_propVC_byIsotype_20260506.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
+ggsave(plot = full_plot_wleg, filename = "../../figures/SF16_propVC_byIsotype_20260506.png",width = 7,height = 6,dpi = 600,device = 'png',bg = "white")
 
 summary_stats_perGroup <- rbind(meanRGSummary %>% dplyr::mutate(relative_to="QX1410"),meanRGSummary_nr %>% dplyr::mutate(relative_to="Relatedness Group"))
-
-write.table(summary_stats_perGroup,file = "../../supplementary_data/ST7_summaryStats_20260506.tsv",sep = "\t",quote = F,row.names = F)
 
 admix_color <- data.frame(
   letter = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
@@ -536,7 +534,7 @@ getRegFreq <- function(all_regions) {
           dplyr::select(-newEnd,-newStart)
         
         retain <- temp %>%
-          dplyr::filter(check==F & lag(check)==F)
+          dplyr::filter(check == FALSE & dplyr::coalesce(dplyr::lag(check), FALSE) == FALSE)
         
         temp <- rbind(collapse,retain) %>%
           dplyr::select(-gid,-check)
@@ -569,7 +567,13 @@ bySource_summary <- collapsed_bysource %>%
   min_divSize = min(divSize, na.rm = TRUE)/1e3,
   max_divSize = max(divSize, na.rm = TRUE)/1e3,
   percent_cov = sum(divSize, na.rm = TRUE) / 106184000
-)
+) %>% dplyr::mutate(relative_to="QX1410") 
+
+collect_table <- summary_stats_perGroup %>% dplyr::left_join(bySource_summary,by=c("source","relative_to")) %>%
+  dplyr::select(everything(),relative_to)
+
+write.table(collect_table,file = "../../supplementary_data/ST7_summaryStats_20260506.tsv",sep = "\t",quote = F,row.names = F)
+
 
 strain_counts <- hdrs %>%
   dplyr::group_by(STRAIN, source) %>%
@@ -612,4 +616,4 @@ p_cov_nreg <- cowplot::plot_grid(p_nreg,p_cov,nrow=2,ncol=1, align = "v",labels 
 propQX_nreg <- nrow(strain_counts %>% dplyr::filter(n_regions>=300 & source=="QX1410")) / nrow(strain_counts %>% dplyr::filter(n_regions>=300))
 propQX_pcov <- nrow(strain_counts %>% dplyr::filter(perc_cov>=0.05 & source=="QX1410")) / nrow(strain_counts %>% dplyr::filter(perc_cov>=0.05))
 
-ggsave(plot = p_cov_nreg, filename = "../../figures/SF14_nreg_byIsotype_20260506.png",width = 7.5,height = 5.5,dpi = 600,device = 'png')
+ggsave(plot = p_cov_nreg, filename = "../../figures/SF15_nreg_byIsotype_20260506.png",width = 7.5,height = 5.5,dpi = 600,device = 'png')

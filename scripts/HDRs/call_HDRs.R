@@ -293,7 +293,7 @@ pc2<- cowplot::plot_grid(s3,s2,ncol=1, rel_heights = c(1.1,1),align = "v",axis =
 
 comp_reg<-cowplot::plot_grid(pc2,pc1,ncol=1,nrow=2,rel_heights = c(2,1),align = "hv",axis = "rlbt")
 
-ggsave(plot = comp_reg, filename = "../../figures/SF25_LR_STATS_95idy_20260506.png",width = 7.5,height = 9,dpi = 600,device = 'png')
+ggsave(plot = comp_reg, filename = "../../figures/SF31_LR_STATS_95idy_20260506.png",width = 7.5,height = 9,dpi = 600,device = 'png')
 
 
 ####### CALL SR-BASED HDRS (FOR LR STRAINS) ##########
@@ -662,12 +662,12 @@ all_calls_SR_clustered <- rbind(joinClust,nojoin) %>%
 all_calls_SR_clustered_sfilt <- all_calls_SR_clustered %>%
   dplyr::filter(divSize >= 5e3)
 
-ggsave(plot = MOF, filename = "../../figures/SF26_MOF_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = MEF, filename = "../../figures/SF27_MEF_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = REC, filename = "../../figures/SF28_REC_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = PRE, filename = "../../figures/SF29_PRE_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = F1, filename = "../../figures/SF30_F1_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
-ggsave(plot = BEST, filename = "../../figures/SF31_BEST_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = MOF, filename = "../../figures/SF32_MOF_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = MEF, filename = "../../figures/SF33_MEF_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = REC, filename = "../../figures/SF34_REC_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = PRE, filename = "../../figures/SF35_PRE_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = F1, filename = "../../figures/SF36_F1_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
+ggsave(plot = BEST, filename = "../../figures/SF37_BEST_HDR_CB_20260506.png",width = 7.5,height = 6.5,dpi = 600,device = 'png')
 
 lineages <- readr::read_tsv("../../processed_data/genetic_similarity_and_admixutre/isotype_byRG_GeoLocAdmCol_20260324.tsv") %>%
   dplyr::mutate(sublineage_color=ifelse(Sublineage=="TC","#ff0000",sublineage_color)) %>%
@@ -796,7 +796,7 @@ annotree <- tree +
     values = stats::setNames(tree$data$lineage_color, tree$data$Lineage)
   ) 
 
-ggsave(annotree,filename = "../../figures/SF13_phylo_annotree_20260506.png", width = 7.5, height = 7.5, device = 'png', dpi = 600, bg = "white")
+ggsave(annotree,filename = "../../figures/SF14_phylo_annotree_20260506.png", width = 7.5, height = 7.5, device = 'png', dpi = 600, bg = "white")
   
 strainL_NR <- unique(SR_stats_WI_NR$STRAIN)
 

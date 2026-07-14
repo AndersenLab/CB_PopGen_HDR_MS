@@ -642,5 +642,4 @@ heatmap_grob <- grid::grid.grabExpr({
 
 ggmap <- ggplotify::as.ggplot(heatmap_grob)
 
-#ggsave(plot = ggmap, filename = "../../figures/Figure2_heatmap_cc_byGeoLat_20260327_test.png", width = 7, height = 7,bg = "white",device = "png",units = "in",dpi = 600)
 ggsave(plot = ggmap, filename = "../../figures/Figure2_heatmap_cc_byGeoLat_20260327.png", width = 7, height = 7,bg = "white",device = "png",units = "in",dpi = 600)
