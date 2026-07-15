@@ -16,9 +16,6 @@ processed_data/HDRs/Other_RG/
 processed_data/HDRs/Tropical/
 processed_data/HDRs/alignments
 processed_data/HDRs/all_strain/
-processed_data/demography_simulations/
-processed_data/tree_topology/prot_TropicalCB_CN_CR_37taxa/
-processed_data/tree_topology/gff_TropicalCB_CN_36taxa/
 processed_data/tree_topology/phylo_py_pruner/paired_files/
 processed_data/tree_topology/phylo_py_pruner/paired_files_hdrs_JU3200/
 processed_data/tree_topology/phylo_py_pruner/paired_files_hdrs_JU3237/
@@ -30,10 +27,7 @@ processed_data/tree_topology/aa_divergence/codon_aware_msa_wgaps/
 processed_data/tree_topology/aa_divergence/msa/  
 processed_data/tree_topology/aa_divergence/prot_fasta/
 processed_data/genetic_similarity_and_admixutre/Cosmo_18_maps.RData
-processed_data/NIC174_generation_time/fourfold_closed_intervals.3col
-processed_data/tree_topology/CRE_files/GCA_010183535.1_CRPX506_genomic.fna
-processed_data/pixy_diversity_and_divergence/fourfold_site_pos.tsv
-processed_data/tree_topology/gff_TropicalCB_CN_36taxa/QX1410.curated.longest.gff
+processed_data/tree_topology/prot_TropicalCB_CN_CR_wDRG_39taxa/OrthoFinder/Results_CBCNCR_39_famsa/
 data/gtcheck.txt
 data/VCF/
 data/master_sheet_cb/
