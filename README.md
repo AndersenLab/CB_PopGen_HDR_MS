@@ -1,3 +1,2 @@
 # CB_PopGen_HDR_MS
-Scripts, figures, processed data, and supplementary data for "_Caenorhabditis briggsae_ ancestral genomic hyper-diversity contrasts with globally distributed
-genome-wide haplotypes" manuscript.
+Scripts, figures, processed data, and supplementary data for "Population structure and punctuated hyper-diversity in _Caenorhabditis briggsae_" manuscript.
